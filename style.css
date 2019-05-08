@@ -118,6 +118,7 @@ padding:5% 0;
   background-color: #f4f5f8;
 }
 .halfImg{
+  width: 130%;
   overflow-x:hidden;
 }
 /* //reusable CSS ends */
@@ -234,6 +235,14 @@ header li {
   /* z-index: 20; */
   background-color: white;
   text-align: center;
+}
+.items > img{
+  width:30%;
+  margin:1em;
+}
+.items > h3{
+  font-size: 1em;
+  margin:0;
 }
 
 .ontop {
@@ -408,7 +417,11 @@ margin: -2em 0 0 -3em;
   margin:5em 2em;
 }
 #stop_firing img{
+  justify-self: center;
   border-radius:10px;
+}
+#stop_firing> .wrapper_2_columns >div{
+  margin:2em;
 }
 
 #arch_projects{
@@ -416,22 +429,43 @@ margin: -2em 0 0 -3em;
 }
 .box{
   background-color:#f4f5f8;
-  width:80%;
-  height:4em;
+  width:70%;
+  height:200px;
   margin:auto;
+  border-radius: 10px;
+  padding: 2% 0 0;
+}
+.bubbles{
+  width:70%;
+  text-align: center;
+  position: absolute;
+  padding-top: 1em;
 }
 
+.click_text{
+  margin-top:6em;
+}
+.click_text> .title{
+  margin:0;
+}
 #pros_icons{
-  margin:2% 10%;
+  margin:2% auto;
+  width:60%;
+  grid-gap:1em;
 }
  .icon_item{
    margin:auto;
  }
- .title-icon h3, .title-icon img{
+ .icon_item>div>img{
+   width: 3em;
+ }
+ .icon_item>div>h3{
    display: inline;
+   margin:0;
+   align-self: end;
  }
  .text_left{
-   margin: 2em 0 0 5em;
+   margin: 2em 2em 0 5em;
  }
  .text_left> button{
    margin:3em 0;

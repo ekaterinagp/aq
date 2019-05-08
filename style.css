@@ -1,0 +1,188 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  background-color: white;
+  color: black;
+  position: sticky;
+  height: 10%;
+  /* position: absolute; */
+}
+
+.header_wrapper {
+  display: grid;
+  grid-template-columns: 3fr 2fr 3fr;
+}
+
+.estimate {
+  background-color: #ef6461;
+  color: black;
+  margin: 1em;
+  padding: 1em;
+}
+
+ul {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+header li {
+  display: inline;
+
+  padding: 1em;
+}
+
+.logo {
+  width: 40%;
+  padding: 1em;
+}
+
+#hero {
+  height: 90%;
+  background-image: url("img/hero.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.part {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+}
+
+#cons,
+#platform {
+  height: 100%;
+  background-color: white;
+}
+
+#platform {
+  height: 100%;
+}
+
+.hero_text {
+  padding: 10em;
+}
+
+#hero img {
+  width: 90%;
+  padding: 5em;
+  overflow-x: hidden;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.text {
+  padding: 5em;
+}
+
+.wrapper_rows {
+  display: grid;
+  grid-template-rows: 2fr 4fr 2fr;
+  height: 75%;
+}
+
+.another_color {
+  background-color: #f4f5f8;
+  color: black;
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+}
+
+.icons {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+.wrapper_icons {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+}
+
+.wrapper_icons img {
+  width: 25%;
+}
+
+.icon {
+  padding: 2em;
+  text-align: center;
+}
+
+.description {
+  padding: 3em;
+}
+
+.absolute {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  padding-top: 5%;
+}
+
+.speech-bubble {
+  position: relative;
+  background: rgb(233, 218, 218);
+  border-radius: 0.4em;
+  border: 2px solid black;
+}
+
+.speech-bubble:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: rgb(233, 218, 218);
+  border-bottom: 0;
+  margin-left: -20px;
+  margin-bottom: -20px;
+}
+
+#why {
+  display: grid;
+  grid-template-rows: 2fr 5fr;
+  width: 100%;
+  height: 100%;
+}
+
+.column_grid {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+}
+
+.grey_color {
+  background-color: #f4f5f8;
+  text-align: center;
+}
+
+.items {
+  width: 150px;
+  height: 150px;
+  border: 1px black solid;
+  display: inline-block;
+  z-index: 20;
+  background-color: white;
+  text-align: center;
+}
+
+.ontop {
+  position: absolute;
+  padding: 6%;
+  padding: 6% 10% 5% 30%;
+}
+
+#title {
+  padding-top: 2em;
+}

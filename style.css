@@ -238,10 +238,9 @@ header li {
 
 .ontop {
   position: absolute;
-width: 100%;
+  width: 100%;
   text-align: center;
   padding: 6% 0 5% 0;
-  margin:auto;
 }
 
 footer {
@@ -415,3 +414,25 @@ margin: -2em 0 0 -3em;
 #arch_projects{
   position: relative;
 }
+.box{
+  background-color:#f4f5f8;
+  width:80%;
+  height:4em;
+  margin:auto;
+}
+
+#pros_icons{
+  margin:2% 10%;
+}
+ .icon_item{
+   margin:auto;
+ }
+ .title-icon h3, .title-icon img{
+   display: inline;
+ }
+ .text_left{
+   margin: 2em 0 0 5em;
+ }
+ .text_left> button{
+   margin:3em 0;
+ }

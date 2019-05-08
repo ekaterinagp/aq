@@ -244,3 +244,8 @@ li {
 #posts {
   text-align: center;
 }
+
+#cons p,
+#cons h3 {
+  color: grey;
+}

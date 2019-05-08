@@ -3,6 +3,93 @@ body {
   padding: 0;
 }
 
+ul {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+/* //reusable CSS */
+
+.wrapper_3_2_3 {
+  display: grid;
+  grid-template-columns: 3fr 2fr 3fr;
+}
+
+.orange_button {
+  background-color: #ef6461;
+  color: black;
+  margin: 1em;
+  padding: 1em;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.wrapper_2_columns {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+.wrapper_4_columns {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+}
+
+.wrapper_columns_2_4_2 {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+}
+
+.wrapper_rows_2_4_2 {
+  display: grid;
+  grid-template-rows: 2fr 4fr 2fr;
+}
+
+.backgroundWhite {
+  background-color: white;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+.textPadding {
+  padding: 5em;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.title {
+  padding-top: 2em;
+}
+
+.paddingTop3 {
+  padding-top: 3em;
+}
+
+.width30 {
+  width: 30%;
+}
+
+.padding3em {
+  padding: 3em;
+}
+
+.widthHeight100 {
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundColor {
+  background-color: #f4f5f8;
+}
+
+/* //reusable CSS ends */
+
 header {
   width: 100%;
   background-color: white;
@@ -10,29 +97,10 @@ header {
   position: fixed;
   height: 10%;
   z-index: 30;
-  /* position: absolute; */
-}
-
-.header_wrapper {
-  display: grid;
-  grid-template-columns: 3fr 2fr 3fr;
-}
-
-.estimate {
-  background-color: #ef6461;
-  color: black;
-  margin: 1em;
-  padding: 1em;
-}
-
-ul {
-  text-decoration: none;
-  list-style-type: none;
 }
 
 header li {
   display: inline;
-
   padding: 1em;
 }
 
@@ -48,18 +116,7 @@ header li {
   background-repeat: no-repeat;
 }
 
-.part {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 3fr 3fr;
-}
-
 #cons,
-#platform {
-  height: 100%;
-  background-color: white;
-}
-
 #platform {
   height: 100%;
 }
@@ -74,53 +131,22 @@ header li {
   overflow-x: hidden;
 }
 
-.overflow {
-  overflow: hidden;
-}
-
-h1,
-h2 {
-  text-align: center;
-}
-
-.text {
-  padding: 5em;
-}
-
-.wrapper_rows {
-  display: grid;
-  grid-template-rows: 2fr 4fr 2fr;
+.rowsHeight {
   height: 75%;
 }
 
 .another_color {
   background-color: #f4f5f8;
   color: black;
-  display: grid;
-  grid-template-columns: 3fr 3fr;
 }
 
-.icons {
-  display: grid;
-  grid-template-columns: 2fr 2fr;
-}
-
-.wrapper_icons {
-  display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr;
-}
-
-.wrapper_icons img {
+.wrapper_4_columns img {
   width: 25%;
 }
 
 .icon {
   padding: 2em;
   text-align: center;
-}
-
-.description {
-  padding: 3em;
 }
 
 .absolute {
@@ -154,13 +180,6 @@ h2 {
 #why {
   display: grid;
   grid-template-rows: 2fr 5fr;
-  width: 100%;
-  height: 100%;
-}
-
-.column_grid {
-  display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
 }
 
 .grey_color {
@@ -184,35 +203,11 @@ h2 {
   padding: 6% 10% 5% 30%;
 }
 
-#title {
-  padding-top: 2em;
-}
-
-.wrapper_2_columns {
-  display: grid;
-  grid-template-columns: 2fr 2fr;
-}
-
-#types,
-#sections,
-#happyClients {
-  width: 100%;
-  height: 100%;
-  background-color: #f4f5f8;
-}
-
 footer {
-  background-color: #f4f5f8;
   width: 100%;
   height: 20%;
   display: grid;
   grid-template-columns: 5fr 2fr 2fr 4fr;
-}
-
-#blogs {
-  background-color: white;
-  width: 100%;
-  height: 100%;
 }
 
 li {
@@ -238,25 +233,14 @@ li {
 }
 
 .clients {
-  width: 100%;
   height: 80%;
 }
 
-.paddingTop {
-  padding-top: 3em;
-}
-
 #blogPosts {
-  display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
   width: 100%;
   height: 70%;
 }
 
 #posts {
-  background-color: white;
   text-align: center;
-}
-.width30 {
-  width: 30%;
 }

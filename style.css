@@ -1,8 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Poppins:400,800');
+
+*{
+  box-sizing: border-box;
+}
+h1,h2,h3{
+  font-family: 'Poppins', sans-serif;
+}
+
+p, div, span, button, li{
+  font-family: 'Montserrat', sans-serif;
+}
 body {
   margin: 0;
   padding: 0;
 }
-
+a{
+  text-decoration: none;
+}
 ul {
   text-decoration: none;
   list-style-type: none;
@@ -10,18 +24,31 @@ ul {
 
 /* //reusable CSS */
 
+.hero{
+  height:90%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .wrapper_3_2_3 {
   display: grid;
   grid-template-columns: 3fr 2fr 3fr;
 }
 
 .orange_button {
+  border-radius: 5px;
   background-color: #ef6461;
-  color: black;
-  margin: 1em;
-  padding: 1em;
+  color: white;
+  margin: 1em 0;
+  padding: .7em 2em;
+  border:none;
+  font-weight: 700;
+  display: block;
 }
-
+.link{
+  color:#ef6461;
+  font-size:.8em;
+}
 .width100 {
   width: 100%;
 }
@@ -83,7 +110,10 @@ h2 {
   width: 100%;
   height: 100%;
 }
-
+.viewheight{
+height:100vh;
+padding:5% 0;
+}
 .backgroundColor {
   background-color: #f4f5f8;
 }
@@ -122,7 +152,14 @@ header li {
 }
 
 .hero_text {
-  padding: 10em;
+  padding: 5em;
+  align-self: center;
+}
+.hero_text h1, .hero_text p{
+  text-align: left;
+}
+.hero_text h1{
+  font-size: 3em;
 }
 
 #hero img {
@@ -243,4 +280,100 @@ li {
 
 #posts {
   text-align: center;
+}
+
+
+/* PLATFORM PAGE  */
+
+.hero_platform{
+  background-image:url(img/hero_platform.png);
+}
+.hero_platform img{
+width: 100%;
+align-self: center;
+}
+
+
+/*   platform timeline */
+.timeline{
+  position: relative;
+}
+.right h2{
+  text-align: left;
+}
+
+.left {
+  left: 0;
+}
+.right {
+  left: 50%;
+}
+.left h2, .left p{
+  text-align: right;
+}
+.container {
+  padding:0 40px;
+  position: relative;
+  width: 50%;
+}
+.timeline::after{
+  content: '';
+  position: absolute;
+  width: 3px;
+  background-color:#ef6461;
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  margin-left: -3px;
+}
+.container::after{
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -22.5px;
+  background-color: blue;
+  border:10px solid white;
+  top: 0;
+  border-radius: 50%;
+  z-index: 1;
+}
+.right::after {
+  left: -22.5px;
+}
+
+/*   Part two of Platform */
+
+.pros{
+position:relative;
+margin:2em 2em;
+padding: 5em 2em 0;
+border-radius:10px;
+background-color: gray;
+height: 50%;
+text-align: center;
+}
+.fill{
+  grid-column: 1/-1;
+}
+.pros> div button{
+  margin: 1em auto;
+}
+.pros>img{
+margin: -2em 0 0 -3em;
+}
+.wrapper_pro{
+  position: absolute;
+  bottom:-5em;
+  right:6em;
+}
+.pro{
+  display:inline;
+}
+.pro>h3{
+   margin:0;
+  display: inline-block;
+}
+.pro>a{
+  display: block;
 }

@@ -100,16 +100,19 @@ section_why_items.forEach(item => {
   item.addEventListener("click", () => {
     console.log({ item });
     changeText(item, section_why);
-  });
-});
-
-// let speechBubbles = document.querySelectorAll(".items");
-// speechBubbles.forEach(bubble =>{
-//   bubble.addEventListener("click", ()=>{
-//     console.log(bubble);
-
-//   })
-// })
+    shrinkRemoveArrow()
+    growAddArrow(item);
+ 
+  })
+})
 function growAddArrow(box){
-  
+  box.classList.add("arrow");
+  box.classList.add("grow");
 }
+function shrinkRemoveArrow(){
+  section_why_items.forEach(bubble =>{
+        bubble.classList.remove("arrow");
+        bubble.classList.remove("grow");
+    })
+}
+

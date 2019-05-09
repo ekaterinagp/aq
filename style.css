@@ -177,7 +177,7 @@ header li {
   margin-bottom: -20px;
 }
 
-#why {
+#section_why {
   display: grid;
   grid-template-rows: 2fr 5fr;
 }
@@ -248,4 +248,12 @@ li {
 #cons p,
 #cons h3 {
   color: grey;
+}
+
+.padding3em h3 {
+  color: #ef6461;
+}
+
+.ontop svg {
+  width: 35%;
 }

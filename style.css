@@ -216,6 +216,7 @@ header li {
   content: "";
   position: absolute;
   box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 2px;
+  transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   bottom: -9px;

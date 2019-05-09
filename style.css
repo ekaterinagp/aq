@@ -212,9 +212,11 @@ header li {
   height: 0;
   border: 20px solid transparent;
   border-top-color: rgb(233, 218, 218);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.5));
   border-bottom: 0;
   margin-left: -20px;
   margin-bottom: -20px;
+  z-index:1;
 }
 
 #why {

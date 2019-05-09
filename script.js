@@ -116,5 +116,19 @@ section_why_items.forEach(item => {
     clearAllItemsStyle(section_why_items, "section_why");
     applyFill(item, section_why);
     changeText(item, section_why);
-  });
-});
+    shrinkRemoveArrow()
+    growAddArrow(item);
+ 
+  })
+})
+function growAddArrow(box){
+  box.classList.add("arrow");
+  box.classList.add("grow");
+}
+function shrinkRemoveArrow(){
+  section_why_items.forEach(bubble =>{
+        bubble.classList.remove("arrow");
+        bubble.classList.remove("grow");
+    })
+}
+

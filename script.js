@@ -5,11 +5,14 @@ const clearAllItemsStyle = (items, sectionName) => {
       item.querySelector("p").style.color = "grey";
       item.querySelector("h3").style.fontSize = "1em";
     }
+    if (sectionName === "section_platform" || sectionName === "section_why") {
+      item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
+    }
   });
 };
 
 const applyStyle = item => {
-  item.querySelector("h3").style.color = "orange";
+  item.querySelector("h3").style.color = "#EF6461";
   item.querySelector("p").style.color = "black";
   resizeText(2, item.querySelector("h3"));
 };
@@ -85,11 +88,22 @@ const changeText = (item, section) => {
   }
 };
 
+const applyFill = (item, section) => {
+  if (section == section_platform) {
+    item.querySelector("svg").style.fill = "black";
+  }
+  if (section == section_why) {
+    item.querySelector("svg").style.fill = "#ef6461";
+  }
+};
+
 const section_platform = document.querySelector("#section_platform");
 let section_platform_items = section_platform.querySelectorAll(".icon");
 section_platform_items.forEach(item => {
   item.addEventListener("click", () => {
     console.log({ item });
+    clearAllItemsStyle(section_platform_items, "section_platform");
+    applyFill(item, section_platform);
     changeText(item, section_platform);
   });
 });
@@ -99,6 +113,8 @@ let section_why_items = section_why.querySelectorAll(".items");
 section_why_items.forEach(item => {
   item.addEventListener("click", () => {
     console.log({ item });
+    clearAllItemsStyle(section_why_items, "section_why");
+    applyFill(item, section_why);
     changeText(item, section_why);
   });
 });

@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
+li a {
+  text-decoration: none;
+}
+
 ul {
   text-decoration: none;
   list-style-type: none;
@@ -256,4 +260,29 @@ li {
 
 .ontop svg {
   width: 35%;
+}
+
+svg {
+  fill: rgb(207, 205, 205);
+}
+
+#section_whatyouget_item_1 h3 {
+  color: #ef6461;
+  font-size: 1.4em;
+}
+
+#section_whatyouget_item_1 p {
+  color: black;
+}
+
+#section_platform svg {
+  width: 40%;
+}
+
+#section_platform_item_1 svg {
+  fill: black;
+}
+
+#section_why_item_1 svg {
+  fill: #ef6461;
 }

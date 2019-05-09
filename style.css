@@ -7,14 +7,19 @@ h1,h2,h3{
   font-family: 'Poppins', sans-serif;
 }
 
-p, div, span, button, li{
+p, div, span, button, li, input{
   font-family: 'Montserrat', sans-serif;
+  
 }
 body {
   margin: 0;
   padding: 0;
+  max-width: 100vw;
+  overflow-x: hidden;
+  color:#2c2e3e;
 }
 a{
+  color:inherit;
   text-decoration: none;
 }
 ul {
@@ -29,10 +34,13 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-.wrapper_3_2_3 {
+.wrapper_3_columns{
   display: grid;
-  grid-template-columns: 3fr 2fr 3fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.wrapper_3_3_1{
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr;
 }
 
 .orange_button {
@@ -84,14 +92,28 @@ ul {
 .textPadding {
   padding: 5em;
 }
-
-h1,
-h2 {
+.section_title,.sub_title,.header{
   text-align: center;
+}
+.section_title{
+  padding: 2em 0 0;
+  grid-column: 1/-1;
+  margin:0;
+}
+.sub_title{
+  font-weight: 100;
+  margin:.2em auto;
+  width:50%;
+  font-size: 1.2em;
+}
+.header{
+  margin:2em 0;
+  grid-column:1/-1;
 }
 
 .title {
   padding-top: 2em;
+  text-align: center;
 }
 
 .paddingTop3 {
@@ -121,15 +143,24 @@ padding:5% 0;
   width: 130%;
   overflow-x:hidden;
 }
+.imgStyle{
+  width:100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.hero_laptop{
+  width: 100%;
+  align-self: center;
+  }
 /* //reusable CSS ends */
 
 header {
   width: 100%;
   background-color: white;
-  color: black;
+  color: #2c2e3e;
   position: fixed;
-  height: 10%;
   z-index: 30;
+  top:0;
 }
 
 header li {
@@ -165,19 +196,13 @@ header li {
   font-size: 3em;
 }
 
-#hero img {
-  width: 90%;
-  padding: 5em;
-  overflow-x: hidden;
-}
-
 .rowsHeight {
   height: 75%;
 }
 
 .another_color {
   background-color: #f4f5f8;
-  color: black;
+  color: #2c2e3e;
 }
 
 .wrapper_4_columns img {
@@ -227,28 +252,7 @@ header li {
     transform:scale(1.3);
   }
 }
-/*.speech-bubble {
-  position: relative;
-  background: rgb(233, 218, 218);
-  border-radius: 0.4em;
-  border: 2px solid black;
-}
 
-.speech-bubble:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border: 20px solid transparent;
-  border-top-color: rgb(233, 218, 218);
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,.5));
-  border-bottom: 0;
-  margin-left: -20px;
-  margin-bottom: -20px;
-  z-index:1;
-}*/
 
 #section_why {
   display: grid;
@@ -332,10 +336,7 @@ li {
 #hero_platform{
   background-image:url(img/hero_platform.png);
 }
-#hero_platform img{
-width: 100%;
-align-self: center;
-}
+
 
 
 /*   platform timeline */
@@ -408,11 +409,12 @@ margin: -2em 0 0 -3em;
 }
 .wrapper_pro{
   position: absolute;
-  bottom:-5em;
-  right:6em;
+  bottom:-4em;
+  right:0;
+  width: 50%;
 }
 .pro{
-  display:inline;
+  text-align:left;
 }
 .pro>h3{
    margin:0;
@@ -420,6 +422,13 @@ margin: -2em 0 0 -3em;
 }
 .pro>a{
   display: block;
+  margin-left:2em;
+}
+.pro>svg{
+  display: inline-block;
+  width:8%;
+  vertical-align: middle;
+  fill:#ef6461;
 }
 
 /*  Section three platform place */
@@ -435,10 +444,7 @@ margin: -2em 0 0 -3em;
 .text>button{
   margin:5em 0;
 }
-.section_title{
-  padding: 1em;
-  grid-column: 1/-1;
-}
+
 
 /* ARCHITECT PAGE */
 #hero_architects{
@@ -446,11 +452,11 @@ margin: -2em 0 0 -3em;
 }
 
 #stop_firing{
-  margin:5em 2em;
+  margin:0 2em;
 }
 #stop_firing img{
   justify-self: center;
-  border-radius:10px;
+  width:auto;
 }
 #stop_firing> .wrapper_2_columns >div{
   margin:2em;
@@ -513,4 +519,58 @@ margin: -2em 0 0 -3em;
 
 .ontop svg {
   width: 35%;
+}
+
+/*   ABOUT PAGE  */
+#about_us{
+  margin:5%;
+  position: relative;
+  top:70px;
+}
+#our_team img{
+width: 100%;
+border-radius: 10px;
+box-shadow: 0 4px 10px rgba(0,0,0,.3);
+}
+ #our_team .wrapper_3_columns{
+   margin: 5% 20% 0;
+   grid-gap:2%;
+ }
+
+ #mission{
+   height: 50vh;
+   margin:-5% 0 2%;
+   padding: 10% 5% 0;
+ }
+ #mission .long_text{
+  grid-column: 1/3;
+  margin-left: 35%;
+ }
+
+ #more_about, #last_about{
+   margin:2% 10% 5%;
+ }
+ .long_text{
+   text-align: left;
+   margin:2% 5%;
+ }
+ #contact{
+   margin:2% 10%;
+ }
+#contact_form{
+  grid-row-gap:10%;
+  grid-column-gap:2%;
+  margin:5%;
+}
+#contact_form input{
+  border-radius: 5px;
+    padding: 2%;
+    border: 1px solid rgba(0,0,0,.1);
+}
+#contact_email, #contact_form>.orange_button{
+ grid-column: 1/-1;
+}
+#contact_form>.orange_button{
+  width: 40%;
+  margin: 5% auto;
 }

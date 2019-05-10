@@ -104,7 +104,7 @@ ul {
   font-weight: 100;
   margin:.2em auto;
   width:50%;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .header{
   margin:2em 0;
@@ -528,12 +528,13 @@ margin: -2em 0 0 -3em;
   top:70px;
 }
 #our_team img{
+  display: block;
 width: 100%;
 border-radius: 10px;
 box-shadow: 0 4px 10px rgba(0,0,0,.3);
 }
  #our_team .wrapper_3_columns{
-   margin: 5% 20% 0;
+   margin: 2% 20% 0;
    grid-gap:2%;
  }
 
@@ -554,23 +555,68 @@ box-shadow: 0 4px 10px rgba(0,0,0,.3);
    text-align: left;
    margin:2% 5%;
  }
- #contact{
-   margin:2% 10%;
- }
-#contact_form{
-  grid-row-gap:10%;
-  grid-column-gap:2%;
-  margin:5%;
+ 
+.hover_wrapper{
+  position: relative;
+  transition:all 5s;
 }
-#contact_form input{
-  border-radius: 5px;
-    padding: 2%;
-    border: 1px solid rgba(0,0,0,.1);
+.hover_content{
+  border-radius: 10px;
+  opacity:0;
+  position:absolute;
+  top:0;
+  bottom:5px;
+  width:100%;
+  height:100%;
+  background-color: rgba(0, 0, 0, .5);
+  color:white;
+  padding:5%;
+  transition: opacity .5s ease;
+}
+ 
+
+.hover_wrapper:hover  .hover_content{
+  opacity: 1;
+}
+.hover_content>h3{
+  margin:70% 0 0;
+}
+.hover_content>p{
+  margin:1% 0;
+}
+
+#map{
+  height:50vh;
+  width:50vh;
+  background-color:red;
+  justify-self: center;
+}
+
+#contact{
+  margin:2% 10%;
+}
+#contact_form{
+  width:60%;
+  height:40%;
+ grid-gap:5%;
+ margin:5%;
+ margin:auto;
+ grid-template-rows: .5fr .5fr .5fr;
+}
+#contact_form input[type=text], #contact_form input[type=email]{
+ border-radius: 5px;
+   padding: 2%;
+   border: 1px solid rgba(0,0,0,.1);
+}
+#contact_form input[type=text]:hover, #contact_form input[type=email]:hover{
+  border:none;
+  box-shadow: 0 4px 10px rgba(0,0,0,.3);
+  transition: all .3s;
 }
 #contact_email, #contact_form>.orange_button{
- grid-column: 1/-1;
+grid-column: 1/-1;
 }
 #contact_form>.orange_button{
-  width: 40%;
-  margin: 5% auto;
+ width: 40%;
+ margin: 5% auto;
 }

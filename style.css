@@ -260,10 +260,31 @@ header li {
     transform:scale(1.3);
   }
 }
+#arch_projects, #section_why{
+  position: relative;
+  margin:2em 0;
+}
+.box{
+  background-color:#f4f5f8;
+  width:70%;
+  height:200px;
+  margin:auto;
+  border-radius: 10px;
+  padding: 2% 0 0;
+}
+.bubbles{
+  width:70%;
+  text-align: center;
+  position: absolute;
+}
 
-
-
-
+.click_text{
+  width:50%;
+  margin: 7em auto;
+}
+.click_text> .title{
+  margin:0;
+}
 .items {
   width: 150px;
   height: 150px;
@@ -462,31 +483,6 @@ margin: -2em 0 0 -3em;
   margin:2em;
 }
 
-#arch_projects, #section_why{
-  position: relative;
-  margin:2em 0;
-}
-.box{
-  background-color:#f4f5f8;
-  width:70%;
-  height:200px;
-  margin:auto;
-  border-radius: 10px;
-  padding: 2% 0 0;
-}
-.bubbles{
-  width:70%;
-  text-align: center;
-  position: absolute;
-}
-
-.click_text{
-  width:50%;
-  margin: 7em auto;
-}
-.click_text> .title{
-  margin:0;
-}
 #pros_icons{
   margin:2% auto;
   width:60%;

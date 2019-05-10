@@ -1,7 +1,7 @@
 let speechBubbles = document.querySelectorAll(".items");
 speechBubbles.forEach(bubble =>{
   bubble.addEventListener("click", ()=>{
-    console.log(bubble);
+    // console.log(bubble);
     shrinkRemoveArrow()
     growAddArrow(bubble);
  

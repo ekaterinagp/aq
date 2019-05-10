@@ -568,7 +568,7 @@ svg {
 
 #form {
   position: absolute;
-  width: 80%;
+  width: auto;
   height: 90%;
   background-color: aliceblue;
   top: 10%;
@@ -596,7 +596,17 @@ svg {
   /* background-color: #0c0522; */
   /* border: 1px solid #545454; */
 }
-input {
+#buildingType input[type="radio"],
+#projectType input[type="radio"] {
   display: none;
   -webkit-appearance: none;
+}
+
+#form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 3fr 1fr;
+}
+
+#next {
+  float: right;
 }

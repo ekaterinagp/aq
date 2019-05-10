@@ -180,6 +180,7 @@ function shrinkRemoveArrow() {
 const formDiv = document.querySelector("#form");
 let questionText = formDiv.querySelector("h3");
 let options = document.querySelector("#options");
+let currentFormItem = 0;
 
 let formItems = [
   {
@@ -223,6 +224,8 @@ let formItems = [
         theInput.setAttribute("type", "radio");
         theInput.setAttribute("name", "projectType");
         theInput.setAttribute("value", value.title);
+        let description = document.createElement("p");
+        description.textContent = value.textAbout;
         let divWrapper = document.createElement("div");
         divWrapper.setAttribute("class", "btnRadio");
         let nameInput = document.createElement("div");
@@ -233,6 +236,7 @@ let formItems = [
 
         divWrapper.appendChild(img);
         divWrapper.appendChild(nameInput);
+        divWrapper.appendChild(description);
         form.appendChild(divForValue);
         label.appendChild(theInput);
         label.appendChild(divWrapper);
@@ -313,5 +317,59 @@ let formItems = [
 ];
 
 function insertDOMforForm() {
-  options.appendChild(formItems[0].options());
+  options.appendChild(formItems[currentFormItem].options());
 }
+
+const prevButton = document.querySelector("#prev");
+const nextButton = document.querySelector("#next");
+
+nextButton.addEventListener("click", () => {
+  nextElement();
+});
+
+prevButton.addEventListener("click", () => {
+  prevElement();
+});
+
+function nextElement() {
+  let form = document.querySelector("#form");
+  form.querySelector("h3").textContent = "";
+  form.querySelector("#options").innerHTML = "";
+
+  let currentItem = nextItem();
+  form.querySelector("h3").textContent = currentItem.question;
+
+  options.appendChild(formItems[currentFormItem].options());
+}
+
+function prevElement() {
+  let form = document.querySelector("#form");
+  form.querySelector("h3").textContent = "";
+  form.querySelector("#options").innerHTML = "";
+  let currentItem = prevItem();
+  form.querySelector("h3").textContent = currentItem.question;
+
+  options.appendChild(formItems[currentFormItem].options());
+}
+
+function nextItem() {
+  if (currentFormItem + 1 < formItems.length) {
+    currentFormItem++;
+  }
+  return formItems[currentFormItem];
+}
+
+function prevItem() {
+  if (currentFormItem - 1 < 0) {
+    currentFormItem = 0;
+  } else {
+    currentFormItem--;
+  }
+  return formItems[currentFormItem];
+}
+
+let viewWidth = Math.max(
+  document.documentElement.clientWidth,
+  window.innerWidth || 0
+);
+console.log({ viewWidth });

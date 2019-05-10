@@ -23,6 +23,11 @@
         </ul>
       </div>
     </header>
+    <div id="form">
+      <h1>ArquitectureQuote</h1>
+      <h3>Select the type of project</h3>
+      <div id="options"></div>
+    </div>
     <div id="hero" class="hero width100 wrapper_2_columns">
       <div class="hero_text">
         <p>Here will be a beautiful text about wonderful product</p>
@@ -275,7 +280,6 @@
     <div id="section_why" class="widthHeight100">
       <div class="ontop">
         <div class="items speech-bubble" id="section_why_item_1">
-         
           <svg
             id="Layer_1"
             data-name="Layer 1"
@@ -295,7 +299,6 @@
           <h3>Save time</h3>
         </div>
         <div class="items speech-bubble" id="section_why_item_2">
-          
           <svg
             id="Layer_1"
             data-name="Layer 1"
@@ -481,7 +484,6 @@
           <h3>Hassle free</h3>
         </div>
         <div class="items speech-bubble" id="section_why_item_3">
-          
           <svg
             id="Layer_1"
             data-name="Layer 1"
@@ -496,7 +498,6 @@
           <h3>Better Process</h3>
         </div>
         <div class="items speech-bubble" id="section_why_item_4">
-          
           <svg
             id="Layer_1"
             data-name="Layer 1"
@@ -538,7 +539,7 @@
         </div>
       </div>
     </div>
-    <div id="types" class="widthHeight100 backgroundColor">
+    <div id="section_types" class="widthHeight100 backgroundColor">
       <div>
         <h1>We work with all types of projects</h1>
         <h2>Everything from small homes to large industrial projects</h2>
@@ -546,21 +547,27 @@
       <div class="wrapper_2_columns">
         <div class="textPadding">
           <ul>
-            <li id="resedential">item1</li>
-            <li id="business">item2</li>
-            <li id="education">item3</li>
-            <li id="aestetic">item4</li>
+            <li id="resedential" class="type">Residential</li>
+            <li id="business" class="type">Business</li>
+            <li id="education" class="type">Educational</li>
+            <li id="aestetic" class="type">Design</li>
           </ul>
-          <h4>text about firms here</h4>
+          <h4>
+            +
+            <span id="number_firms">300</span>
+            firms spesializing in
+            <span id="type_of_firms">resedential</span>
+            architecture
+          </h4>
           <p id="textForTypes">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
-            nihil quaerat! Repudiandae officiis explicabo iusto. Totam,
-            veritatis similique. Placeat at voluptas voluptate pariatur, enim
-            nisi dolor sunt magnam modi eos?
+            Resedential bla bla Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Atque, nihil quaerat! Repudiandae officiis
+            explicabo iusto. Totam, veritatis similique. Placeat at voluptas
+            voluptate pariatur, enim nisi dolor sunt magnam modi eos?
           </p>
           <a href=""><button class="orange_button">Read more</button></a>
         </div>
-        <img class="logo" src="img/building.png" alt="building" />
+        <img class="logo" src="img/house.png" alt="building" />
       </div>
     </div>
     <div id="sections" class="wrapper_2_columns widthHeight100 backgroundColor">
@@ -569,7 +576,7 @@
         <h3>Lets start making your dream home today!</h3>
         <a href=""><button class="orange_button">Start your project</button></a>
       </div>
-      <div class="sectionItem">
+      <div class="sectionItem architects">
         <h1>Are you an Architect?</h1>
         <h3>Explore what ArchitectureQuote can do for you</h3>
         <a href=""><button class="orange_button">Sign in</button></a>

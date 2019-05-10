@@ -8,6 +8,10 @@ const clearAllItemsStyle = (items, sectionName) => {
     if (sectionName === "section_platform" || sectionName === "section_why") {
       item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
     }
+    if (sectionName == "section_types") {
+      item.style.color = "black";
+      item.style.fontWeight = "normal";
+    }
   });
 };
 
@@ -27,6 +31,10 @@ const changeImage = (item, section) => {
     img.setAttribute("src", "img/platform.png");
   if (item.id === "section_whatyouget_item_3")
     img.setAttribute("src", "img/house.png");
+  if (item.id === "resedential") img.setAttribute("src", "img/house.png");
+  if (item.id === "business") img.setAttribute("src", "img/building.png");
+  if (item.id === "education") img.setAttribute("src", "img/office.png");
+  if (item.id === "aestetic") img.setAttribute("src", "img/design.png");
 };
 
 const section_whatyouget = document.querySelector("#section_whatyouget");
@@ -86,6 +94,26 @@ const changeText = (item, section) => {
     textDiv.textContent =
       "Absolutely ni obligation!! magni numquam, quisquam non soluta enim.Lorem ipsum dolor sit amet consectetur adipisicing elit.Facere sunt laborum magnam quia! Vel ipsum, nobis eveniet quod animi eum nostrum repellat harum iste magni numquam, quisquam non soluta enim";
   }
+  if (item.id == "resedential") {
+    document.querySelector("#type_of_firms").textContent = "resedential";
+    textDiv.textContent =
+      "Resedential bla bla Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nihil quaerat! Repudiandae officiis explicabo iusto. Totam, veritatis similique. Placeat at voluptas voluptate pariatur, enim nisi dolor sunt magnam modi eos?";
+  }
+  if (item.id == "business") {
+    document.querySelector("#type_of_firms").textContent = "business";
+    textDiv.textContent =
+      "business business ojojoj bla bla Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nihil quaerat! Repudiandae officiis explicabo iusto. Totam, veritatis similique. Placeat at voluptas voluptate pariatur, enim nisi dolor sunt magnam modi eos?";
+  }
+  if (item.id == "education") {
+    document.querySelector("#type_of_firms").textContent = "educational";
+    textDiv.textContent =
+      "education is the best, education rules bla bla Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nihil quaerat! Repudiandae officiis explicabo iusto. Totam, veritatis similique. Placeat at voluptas voluptate pariatur, enim nisi dolor sunt magnam modi eos?";
+  }
+  if (item.id == "aestetic") {
+    document.querySelector("#type_of_firms").textContent = "design";
+    textDiv.textContent =
+      "aestetic aestetic,but education rules bla bla Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nihil quaerat! Repudiandae officiis explicabo iusto. Totam, veritatis similique. Placeat at voluptas voluptate pariatur, enim nisi dolor sunt magnam modi eos?";
+  }
 };
 
 const applyFill = (item, section) => {
@@ -94,6 +122,11 @@ const applyFill = (item, section) => {
   }
   if (section == section_why) {
     item.querySelector("svg").style.fill = "#ef6461";
+  }
+
+  if (section == section_types) {
+    item.style.color = "#ef6461";
+    item.style.fontWeight = "bold";
   }
 };
 
@@ -116,19 +149,169 @@ section_why_items.forEach(item => {
     clearAllItemsStyle(section_why_items, "section_why");
     applyFill(item, section_why);
     changeText(item, section_why);
-    shrinkRemoveArrow()
+    shrinkRemoveArrow();
     growAddArrow(item);
- 
-  })
-})
-function growAddArrow(box){
+  });
+});
+
+const section_types = document.querySelector("#section_types");
+let section_types_items = section_types.querySelectorAll(".type");
+section_types_items.forEach(item => {
+  item.addEventListener("click", () => {
+    console.log({ item });
+    clearAllItemsStyle(section_types_items, "section_types");
+    changeText(item, section_types);
+    changeImage(item, section_types);
+    applyFill(item, section_types);
+  });
+});
+
+function growAddArrow(box) {
   box.classList.add("arrow");
   box.classList.add("grow");
 }
-function shrinkRemoveArrow(){
-  section_why_items.forEach(bubble =>{
-        bubble.classList.remove("arrow");
-        bubble.classList.remove("grow");
-    })
+function shrinkRemoveArrow() {
+  section_why_items.forEach(bubble => {
+    bubble.classList.remove("arrow");
+    bubble.classList.remove("grow");
+  });
 }
 
+const formDiv = document.querySelector("#form");
+let questionText = formDiv.querySelector("h3");
+let options = document.querySelector("#options");
+
+let formItems = [
+  {
+    id: 1,
+    txt: "Select type of project",
+    options: function() {
+      let values = [
+        {
+          title: "New construction",
+          img: "office.png",
+          textAbout:
+            "Constructing a new house from scratch. This includes preparation of the construction site, materials and labor"
+        },
+        {
+          title: "Structural modification",
+          img: "cabin.jpg",
+          textAbout:
+            "The building is already complete but needs to be modified, altered or improved. This includes expanding the livable area and lorem ipsum"
+        },
+        {
+          title: "Renovation",
+          img: "design.png",
+          textAbout:
+            "The building is complete and needs to be renovated, repainted or completely restored. "
+        },
+        {
+          title: "Other",
+          img: "other.jpg",
+          textAbout:
+            "The building is complete and needs to be renovated, repainted or completely restored. "
+        }
+      ];
+      let form = document.createElement("form");
+      form.setAttribute("id", "projectType");
+      form.setAttribute("class", "wrapper_4_columns");
+      values.forEach(value => {
+        let divForValue = document.createElement("div");
+        let label = document.createElement("label");
+        let theInput = document.createElement("input");
+        let theBreak = document.createElement("br");
+        theInput.setAttribute("type", "radio");
+        theInput.setAttribute("name", "projectType");
+        theInput.setAttribute("value", value.title);
+        let divWrapper = document.createElement("div");
+        divWrapper.setAttribute("class", "btnRadio");
+        let nameInput = document.createElement("div");
+        nameInput.textContent = value.title;
+        let img = document.createElement("img");
+        img.setAttribute("src", "img/" + value.img);
+        img.setAttribute("class", "imgForm");
+
+        divWrapper.appendChild(img);
+        divWrapper.appendChild(nameInput);
+        form.appendChild(divForValue);
+        label.appendChild(theInput);
+        label.appendChild(divWrapper);
+        divForValue.appendChild(label);
+        divForValue.appendChild(theBreak);
+      });
+      return form;
+    }
+  },
+  {
+    id: 2,
+    txt: "Select type of building",
+    options: function() {
+      let values = [
+        {
+          title: "Resedential",
+          img: "resedential.jpg"
+        },
+        {
+          title: "Cabin",
+          img: "cabin.jpg"
+        },
+        {
+          title: "Business",
+          img: "business.png"
+        },
+        {
+          title: "Healthcare",
+          img: "healthcare.jpg"
+        },
+        {
+          title: "Industrial",
+          img: "industrial.jpg"
+        },
+        {
+          title: "Educational",
+          img: "educational.jpg"
+        },
+        {
+          title: "Landscape",
+          img: "landscape.jpg"
+        },
+        {
+          title: "Other",
+          img: "other.jpg"
+        }
+      ];
+      let form = document.createElement("form");
+      form.setAttribute("id", "buildingType");
+      form.setAttribute("class", "wrapper_3_columns");
+      values.forEach(value => {
+        let divForValue = document.createElement("div");
+        let label = document.createElement("label");
+        let theInput = document.createElement("input");
+        let theBreak = document.createElement("br");
+        theInput.setAttribute("type", "radio");
+        theInput.setAttribute("name", "buildingType");
+        theInput.setAttribute("value", value.title);
+        let divWrapper = document.createElement("div");
+        divWrapper.setAttribute("class", "btnRadio");
+        let nameInput = document.createElement("div");
+        nameInput.textContent = value.title;
+        let img = document.createElement("img");
+        img.setAttribute("src", "img/" + value.img);
+        img.setAttribute("class", "imgForm");
+
+        divWrapper.appendChild(img);
+        divWrapper.appendChild(nameInput);
+        form.appendChild(divForValue);
+        label.appendChild(theInput);
+        label.appendChild(divWrapper);
+        divForValue.appendChild(label);
+        divForValue.appendChild(theBreak);
+      });
+      return form;
+    }
+  }
+];
+
+function insertDOMforForm() {
+  options.appendChild(formItems[0].options());
+}

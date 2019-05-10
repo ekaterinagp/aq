@@ -79,6 +79,10 @@ ul {
   grid-template-rows: 2fr 4fr 2fr;
 }
 
+.wrapper_3_columns {
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+}
 .backgroundWhite {
   background-color: white;
 }
@@ -312,6 +316,13 @@ li {
 .users {
   background-color: white;
   justify-self: end;
+  background-image: url("img/icons/dimension.svg");
+  background-repeat: no-repeat;
+}
+
+.architects {
+  background-image: url("img/icons/compass.svg");
+  background-repeat: no-repeat;
 }
 
 .caruselle {
@@ -544,4 +555,48 @@ svg {
 
 #section_why_item_1 svg {
   fill: #ef6461;
+}
+
+#types_of_buildings h4 {
+  display: inline-block;
+}
+
+#resedential {
+  color: #ef6461;
+  font-weight: bold;
+}
+
+#form {
+  position: absolute;
+  width: 80%;
+  height: 90%;
+  background-color: aliceblue;
+  top: 10%;
+  left: 10%;
+}
+
+.imgForm {
+  width: 55%;
+}
+
+.btnRadio {
+  position: relative;
+  text-align: center;
+  -webkit-appearance: none;
+  padding: 1em;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: 3fr 1fr;
+
+  /* grid-template-columns: 3fr 1fr; */
+  cursor: pointer;
+  height: 5em;
+  width: 20em;
+  /* background-color: #0c0522; */
+  /* border: 1px solid #545454; */
+}
+input {
+  display: none;
+  -webkit-appearance: none;
 }

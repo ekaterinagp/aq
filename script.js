@@ -177,9 +177,35 @@ function shrinkRemoveArrow() {
   });
 }
 
+// function createDivForForm() {
+//   let divForForm = document.createElement("div");
+//   divForForm.setAttribute("id", "form");
+//   divForForm.classList.add("hidden");
+//   let h1 = document.createElement("h1");
+//   h1.textContent = "ArquitectureQuote";
+//   let h3 = document.createElement("h3");
+//   h3.textContent = "Select the type of project";
+//   let divForOptions = document.createElement("div");
+//   divForOptions.setAttribute("id", "options");
+//   let divForBtns = document.createElement("div");
+//   divForBtns.setAttribute("id", "buttonsForm");
+//   let btnPrev = document.createElement("button");
+//   btnPrev.setAttribute("id", "prev");
+//   let btnNext = document.createElement("button");
+//   btnNext.setAttribute("id", "next");
+//   divForBtns.appendChild(btnPrev);
+//   divForBtns.appendChild(btnNext);
+//   divForForm.appendChild(h1);
+//   divForForm.appendChild(h3);
+//   divForForm.appendChild(divForOptions);
+//   divForForm.appendChild(divForBtns);
+//   return divForForm;
+// }
+
 const formDiv = document.querySelector("#form");
+
 let questionText = formDiv.querySelector("h3");
-let options = document.querySelector("#options");
+let options = formDiv.querySelector("#options");
 let currentFormItem = 0;
 
 let formItems = [
@@ -318,10 +344,11 @@ let formItems = [
 
 function insertDOMforForm() {
   options.appendChild(formItems[currentFormItem].options());
+  questionText.textContent = formItems[currentFormItem].txt;
 }
 
-const prevButton = document.querySelector("#prev");
-const nextButton = document.querySelector("#next");
+const prevButton = formDiv.querySelector("#prev");
+const nextButton = formDiv.querySelector("#next");
 
 nextButton.addEventListener("click", () => {
   nextElement();
@@ -337,7 +364,7 @@ function nextElement() {
   form.querySelector("#options").innerHTML = "";
 
   let currentItem = nextItem();
-  form.querySelector("h3").textContent = currentItem.question;
+  questionText.textContent = currentItem.txt;
 
   options.appendChild(formItems[currentFormItem].options());
 }
@@ -347,7 +374,7 @@ function prevElement() {
   form.querySelector("h3").textContent = "";
   form.querySelector("#options").innerHTML = "";
   let currentItem = prevItem();
-  form.querySelector("h3").textContent = currentItem.question;
+  form.querySelector("h3").textContent = currentItem.txt;
 
   options.appendChild(formItems[currentFormItem].options());
 }
@@ -367,6 +394,16 @@ function prevItem() {
   }
   return formItems[currentFormItem];
 }
+
+let startProjectBtns = document.querySelectorAll(".freeEst");
+startProjectBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    console.log({ btn });
+    formDiv.classList.remove("hidden");
+    // document.querySelector("body").appendChild(formDiv);
+    insertDOMforForm();
+  });
+});
 
 let viewWidth = Math.max(
   document.documentElement.clientWidth,

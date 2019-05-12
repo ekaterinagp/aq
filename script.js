@@ -154,7 +154,7 @@ section_why_items.forEach(item => {
   });
 });
 
-const section_types = document.querySelector("#section_types");
+const section_types = document.querySelector("#types");
 let section_types_items = section_types.querySelectorAll(".type");
 section_types_items.forEach(item => {
   item.addEventListener("click", () => {

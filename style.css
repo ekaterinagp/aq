@@ -135,8 +135,9 @@ li{
   margin:0;
 }
 .sub_title{
+  grid-column: 1/-1;
   font-weight: 100;
-  margin:.2em auto;
+  margin:.2em auto 1em;
   width:50%;
   font-size: 1.1em;
 }
@@ -612,7 +613,44 @@ footer input{
 .ontop svg {
   width: 35%;
 }
+#prices{
+  text-align: center;
+  padding: 2em 10em;
+}
+.price{
+  position: relative;
+  border-radius: 10px;
+  margin:.5em;
+  padding:.5em;
+}
 
+.price button{
+  margin: 2em auto;
+}
+.price li{
+  text-align: left;
+  display: block;
+  margin: 1em;
+}
+
+.price h1{
+  color: #ef6461;
+}
+h1>span{
+  color:#2c2e3e;
+  font-size:0.45em;
+  vertical-align: super;
+}
+.abs{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  bottom: 70%;
+  border-radius: 10px 10px 0 0;
+}
+}
 /*   ABOUT PAGE  */
 #about_us{
   margin:5%;

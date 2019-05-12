@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-
-		<path d="M0,0v90c181.454,0,336.529,0,512,0V0H0z"/>
-
-
-		<path d="M8.789,120l172.665,171.665L197.816,512l117.349-67.903l15.234-152.271L503.211,120C267.086,120,236.639,120,8.789,120z"
-			/>
-
-</svg>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>funnel</title><path d="M0,0V90H512V0Z"/><path d="M8.79,120,181.45,291.66,197.82,512l117.34-67.9L330.4,291.83,503.21,120Z"/></svg>

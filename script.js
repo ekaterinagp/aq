@@ -160,6 +160,7 @@ let formItems = [
       let pForComplex = document.createElement("p");
       pForComplex.textContent = "Choose complexity of the project:";
       let selectComplexity = document.createElement("select");
+      selectComplexity.setAttribute("id", "complexity");
       let option1 = document.createElement("option");
       option1.setAttribute("value", "Standard");
       option1.innerHTML = "Standard";
@@ -176,6 +177,7 @@ let formItems = [
       pForInput.textContent = "Size of project:";
       let inputForSize = document.createElement("input");
       inputForSize.setAttribute("type", "number");
+      inputForSize.setAttribute("id", "size");
       inputForSize.setAttribute("name", "sizeProject");
       inputForSize.placeholder = "Square meters";
       divForInput.append(pForInput, inputForSize);
@@ -255,6 +257,7 @@ let formItems = [
       let pForSelect_2 = document.createElement("p");
       pForSelect_2.textContent = "How high?";
       let selectFloor = document.createElement("select");
+      selectFloor.setAttribute("id", "floor");
       let option_2_1 = document.createElement("option");
       option_2_1.setAttribute("value", "Ground floor only");
       option_2_1.textContent = "Ground floor only";
@@ -283,10 +286,11 @@ let formItems = [
       let pForDivToggle = document.createElement("p");
       pForDivToggle.textContent = "Basement:";
       labelForToggel.setAttribute("class", "switch");
-      let pForToggle_1 = document.createElement("p");
-      pForToggle_1.textContent = "Yes";
+      // let pForToggle_1 = document.createElement("p");
+      // pForToggle_1.textContent = "Yes";
       let inputForToggle = document.createElement("input");
       inputForToggle.setAttribute("type", "checkbox");
+      inputForToggle.setAttribute("id", "toggleBox");
       let spanForToggle = document.createElement("span");
       spanForToggle.setAttribute("class", "slider round");
       // spanForToggle.setAttribute("class", "round");
@@ -485,15 +489,23 @@ function nextElement() {
     listenerForSecondRadios();
   }
   if (userAnswers) {
-    setNextBtnDisabled(false);
     insertSavedAnswersFortheFirst();
     insertSavedAnswersFortheSecond();
   }
+
+  if (formItems[currentFormItem].id == 3) {
+    document.querySelector("#complexity").addEventListener("blur", function() {
+      listenerForComplexity();
+    });
+    document.querySelector("#size").addEventListener("blur", function() {
+      listenForSize();
+    });
+
+    document.querySelector("#floor").addEventListener("blur", function() {
+      listenForFloor();
+    });
+  }
 }
-
-// function saveInputsFromForm(){
-
-// }
 
 const insertSavedAnswersFortheFirst = () => {
   if (formItems[currentFormItem].id == 1) {
@@ -504,6 +516,7 @@ const insertSavedAnswersFortheFirst = () => {
     for (let u = 0; u < radioArr.length; u++) {
       if (radioArr[u].value == userAnswers.type_project) {
         radioArr[u].checked = true;
+        setNextBtnDisabled(false);
       }
     }
   }
@@ -518,6 +531,7 @@ const insertSavedAnswersFortheSecond = () => {
     for (let u = 0; u < radioArr.length; u++) {
       if (radioArr[u].value == userAnswers.type_of_building) {
         radioArr[u].checked = true;
+        setNextBtnDisabled(false);
       }
     }
   }
@@ -562,7 +576,7 @@ function listenerForFirstRadios() {
       if (allRadio.checked == true) {
         let radioValue = allRadio.value;
         userAnswers.type_project = radioValue;
-        // document.querySelector(".btnRadio").style.backgroundColor = "green";
+
         console.log({ radioValue });
         setNextBtnDisabled(false);
       }
@@ -580,12 +594,33 @@ function listenerForSecondRadios() {
       if (allRadio.checked == true) {
         let radioValue = allRadio.value;
         userAnswers.type_of_building = radioValue;
-        // document.querySelector(".btnRadio").style.backgroundColor = "green";
+
         console.log({ radioValue });
         setNextBtnDisabled(false);
       }
     });
   });
+}
+
+function listenerForComplexity() {
+  let formComplexity = document.getElementById("projectDetails");
+  let complexitySelect = formComplexity.querySelector("#complexity");
+  userAnswers.complexity = complexitySelect.value;
+  console.log(userAnswers.complexity);
+}
+
+function listenForSize() {
+  let formComplexity = document.getElementById("projectDetails");
+  let sizeInput = formComplexity.querySelector("#size");
+  userAnswers.size = sizeInput.value;
+  console.log(userAnswers.size);
+}
+
+function listenForFloor() {
+  let formComplexity = document.getElementById("projectDetails");
+  let floorSelect = formComplexity.querySelector("#floor");
+  userAnswers.floor = floorSelect.value;
+  console.log(userAnswers.floor);
 }
 
 // let viewWidth = Math.max(
@@ -790,21 +825,26 @@ function fetchTestimonials() {
   });
 }
 
-function insertTestimonialsToDOM(testimonials) {
+async function insertTestimonialsToDOM(testimonials) {
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
     let clone = template.cloneNode(true);
     clone.querySelector("#title").textContent = testimonials[i].title.rendered;
     clone.querySelector("#name").textContent = testimonials[i].authors_name;
     clone.querySelector("#company").textContent = testimonials[i].company;
+    console.log({ "testimonials[i]": testimonials[i] });
+    const hrefData = await fetch(
+      testimonials[i]._links["wp:featuredmedia"][0].href
+    ).then(res => res.json());
+    console.log({ hrefData });
 
-    // clone
-    //   .querySelector("img")
-    //   .setAttribute(
-    //     "src",
-    //     testimonials[i]._links["wp:featuredmedia"][0].href.media_details.sizes
-    //       .testimonials.source_url
-    //   );
+    clone
+      .querySelector("img")
+      .setAttribute(
+        "src",
+        hrefData.media_details.sizes.testimonials.source_url
+      );
+
     document.querySelector("#testimonials").appendChild(clone);
   }
 }

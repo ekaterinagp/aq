@@ -339,6 +339,276 @@ let formItems = [
       });
       return form;
     }
+  },
+  {
+    id: 3,
+    txt: "Project details",
+    options: function() {
+      let form = document.createElement("form");
+      form.setAttribute("id", "projectDetails");
+      let divForSelect = document.createElement("div");
+      // divForDropdown_1.setAttribute("class", "dropdown");
+      let pForComplex = document.createElement("p");
+      pForComplex.textContent = "Choose complexity of the project:";
+      let selectComplexity = document.createElement("select");
+      let option1 = document.createElement("option");
+      option1.setAttribute("value", "Standard");
+      option1.innerHTML = "Standard";
+      let option2 = document.createElement("option");
+      option2.setAttribute("value", "Light");
+      option2.innerHTML = "Light Complexity";
+      let option3 = document.createElement("option");
+      option3.setAttribute("value", "High");
+      option3.innerHTML = "High Complexity";
+      selectComplexity.append(option1, option2, option3);
+      divForSelect.append(pForComplex, selectComplexity);
+      // let divContent_1 = document.createElement("div");
+      // divContent_1.setAttribute("class", "dropdown-content");
+      // let p1 = document.createElement("p");
+      // p1.textContent = "Standard";
+      // let p2 = document.createElement("p");
+      // p2.textContent = "Light Complexity";
+      // let p3 = document.createElement("p");
+      // p3.textContent = "High Complexity";
+      // divContent_1.append(p1, p2, p3);
+      // divForDropdown_1.append(span_1, divContent_1);
+
+      let divForInput = document.createElement("div");
+      let pForInput = document.createElement("p");
+      pForInput.textContent = "Size of project:";
+      let inputForSize = document.createElement("input");
+      inputForSize.setAttribute("type", "number");
+      inputForSize.setAttribute("name", "sizeProject");
+      inputForSize.placeholder = "Square meters";
+      divForInput.append(pForInput, inputForSize);
+      let divForCheckBox = document.createElement("div");
+      let descPForCheckBox = document.createElement("p");
+      descPForCheckBox.textContent = "Select the relevant architectural tasks:";
+      let checkbox_1 = document.createElement("input");
+      checkbox_1.setAttribute("type", "checkbox");
+      checkbox_1.setAttribute("value", "concept");
+      checkbox_1.setAttribute("name", "design1");
+      let pForCheck_1 = document.createElement("p");
+      pForCheck_1.setAttribute("class", "inline");
+      pForCheck_1.textContent = "Concept design";
+      let br_1 = document.createElement("br");
+      let checkbox_2 = document.createElement("input");
+      checkbox_2.setAttribute("type", "checkbox");
+      checkbox_2.setAttribute("value", "schematic");
+      checkbox_2.setAttribute("name", "design2");
+      let pForCheck_2 = document.createElement("p");
+      pForCheck_2.setAttribute("class", "inline");
+      pForCheck_2.textContent = "Schematic design";
+      let br_2 = document.createElement("br");
+      let checkbox_3 = document.createElement("input");
+      checkbox_3.setAttribute("type", "checkbox");
+      checkbox_3.setAttribute("value", "detailed");
+      checkbox_3.setAttribute("name", "design3");
+      let pForCheck_3 = document.createElement("p");
+      pForCheck_3.setAttribute("class", "inline");
+      pForCheck_3.textContent = "Detailed design";
+      let br_3 = document.createElement("br");
+      let checkbox_4 = document.createElement("input");
+      checkbox_4.setAttribute("type", "checkbox");
+      checkbox_4.setAttribute("value", "tender");
+      checkbox_4.setAttribute("name", "design4");
+      let pForCheck_4 = document.createElement("p");
+      pForCheck_4.setAttribute("class", "inline");
+      pForCheck_4.textContent = "Tender";
+      let br_4 = document.createElement("br");
+      let checkbox_5 = document.createElement("input");
+      checkbox_5.setAttribute("type", "checkbox");
+      checkbox_5.setAttribute("value", "support");
+      checkbox_5.setAttribute("name", "design4");
+      let pForCheck_5 = document.createElement("p");
+      pForCheck_5.setAttribute("class", "inline");
+      pForCheck_5.textContent = "Construction to Build Support";
+      let br_5 = document.createElement("br");
+      let checkbox_6 = document.createElement("input");
+      checkbox_6.setAttribute("type", "checkbox");
+      checkbox_6.setAttribute("value", "all");
+      checkbox_6.setAttribute("name", "design5");
+      let pForCheck_6 = document.createElement("p");
+      pForCheck_6.setAttribute("class", "inline");
+      pForCheck_6.textContent = "All standard RIBA phases";
+      let br_6 = document.createElement("br");
+      divForCheckBox.append(
+        descPForCheckBox,
+        checkbox_1,
+        pForCheck_1,
+        br_1,
+        checkbox_2,
+        pForCheck_2,
+        br_2,
+        checkbox_3,
+        pForCheck_3,
+        br_3,
+        checkbox_4,
+        pForCheck_4,
+        br_4,
+        checkbox_5,
+        pForCheck_5,
+        br_5,
+        checkbox_6,
+        pForCheck_6,
+        br_6
+      );
+      let divForSelect_2 = document.createElement("div");
+      let pForSelect_2 = document.createElement("p");
+      pForSelect_2.textContent = "How high?";
+      let selectFloor = document.createElement("select");
+      // let span_2 = document.createElement("span");
+
+      let option_2_1 = document.createElement("option");
+      option_2_1.setAttribute("value", "Ground floor only");
+      option_2_1.textContent = "Ground floor only";
+      let option_2_2 = document.createElement("option");
+      option_2_2.setAttribute("value", "1 floor");
+      option_2_2.textContent = "1 floor";
+      let option_2_3 = document.createElement("option");
+      option_2_3.setAttribute("value", "2 floor");
+      option_2_3.textContent = "2 floor";
+
+      let option_2_4 = document.createElement("option");
+      option_2_4.setAttribute("value", "3 floor");
+      option_2_4.textContent = "3 floor";
+
+      let option_2_5 = document.createElement("option");
+      option_2_5.setAttribute("value", "More");
+      option_2_5.textContent = "More";
+      selectFloor.append(
+        option_2_1,
+        option_2_2,
+        option_2_3,
+        option_2_4,
+        option_2_5
+      );
+      divForSelect_2.append(pForSelect_2, selectFloor);
+      // let divContent_2 = document.createElement("div");
+      // divContent_2.setAttribute("class", "dropdown-content");
+      // let p_2_1 = document.createElement("p");
+      // p_2_1.textContent = "Ground floor only";
+      // let p_2_2 = document.createElement("p");
+      // p_2_2.textContent = "1 floor";
+      // let p_2_3 = document.createElement("p");
+      // p_2_3.textContent = "2 floor";
+      // let p_2_4 = document.createElement("p");
+      // p_2_4.textContent = "3 floor";
+      // let p_2_5 = document.createElement("p");
+      // p_2_5.textContent = "More";
+      // divContent_2.append(p_2_1, p_2_2, p_2_3, p_2_4, p_2_5);
+      // divForDropdown_2.append(span_2, divContent_2);
+      let divForToggle = document.createElement("div");
+
+      let labelForToggel = document.createElement("label");
+      let pForDivToggle = document.createElement("p");
+      pForDivToggle.textContent = "Basement:";
+      labelForToggel.setAttribute("class", "switch");
+      let pForToggle_1 = document.createElement("p");
+      pForToggle_1.textContent = "Yes";
+      let inputForToggle = document.createElement("input");
+      inputForToggle.setAttribute("type", "checkbox");
+      let spanForToggle = document.createElement("span");
+      spanForToggle.setAttribute("class", "slider round");
+      // spanForToggle.setAttribute("class", "round");
+      labelForToggel.append(inputForToggle, spanForToggle);
+      divForToggle.append(pForDivToggle, labelForToggel);
+
+      form.appendChild(divForSelect);
+      form.appendChild(divForInput);
+      form.appendChild(divForCheckBox);
+      form.appendChild(divForSelect_2);
+      form.appendChild(divForToggle);
+      return form;
+    }
+  },
+  {
+    id: 4,
+    txt: "Contact information",
+    options: function() {
+      let form = document.createElement("form");
+      form.setAttribute("id", "contactForm");
+      form.setAttribute("class", "wrapper_5_rows");
+      let divWrap_1 = document.createElement("div");
+      let labelFname = document.createElement("label");
+      labelFname.setAttribute("for", "fName");
+      labelFname.innerHTML = "First name";
+      let inputFname = document.createElement("input");
+      inputFname.setAttribute("type", "text");
+      inputFname.setAttribute("name", "first name");
+      inputFname.placeholder = "First name";
+      divWrap_1.append(labelFname, inputFname);
+      let labelLname = document.createElement("label");
+      labelLname.setAttribute("for", "lName");
+      labelLname.innerHTML = "Last name";
+      let inputLname = document.createElement("input");
+      inputLname.setAttribute("type", "text");
+      inputLname.setAttribute("name", "last name");
+      inputLname.placeholder = "Last name";
+      let divWrap_2 = document.createElement("div");
+      divWrap_2.append(labelLname, inputLname);
+      let labelPhone = document.createElement("label");
+      labelPhone.setAttribute("for", "phone");
+      labelPhone.innerHTML = "Phone number";
+      let inputPhone = document.createElement("input");
+      inputPhone.setAttribute("type", "tel");
+      inputPhone.setAttribute("name", "phone");
+      inputPhone.placeholder = "Phone number";
+      let divWrap_3 = document.createElement("div");
+      divWrap_3.append(labelPhone, inputPhone);
+      let labelemail = document.createElement("label");
+      labelemail.setAttribute("for", "email");
+      labelemail.innerHTML = "Email";
+      let inputEmail = document.createElement("input");
+      inputEmail.setAttribute("type", "email");
+      inputEmail.setAttribute("name", "email");
+      inputEmail.placeholder = "Email";
+      let divWrap_4 = document.createElement("div");
+      divWrap_4.append(labelemail, inputEmail);
+
+      let whatsupCheckbox = document.createElement("input");
+      whatsupCheckbox.setAttribute("type", "checkbox");
+      whatsupCheckbox.setAttribute("value", "whatsUp");
+      whatsupCheckbox.setAttribute("name", "whatsUp");
+
+      let pForWhatsUp = document.createElement("p");
+      pForWhatsUp.setAttribute("class", "inline");
+      pForWhatsUp.textContent = "I agree to be contected by WhatsApp";
+      let divForWhats = document.createElement("div");
+      divForWhats.append(whatsupCheckbox, pForWhatsUp);
+
+      let agreeCheckbox = document.createElement("input");
+      agreeCheckbox.setAttribute("type", "checkbox");
+      agreeCheckbox.setAttribute("value", "gdpr");
+      agreeCheckbox.setAttribute("name", "gdpr");
+      let pForGdpr = document.createElement("p");
+      pForGdpr.setAttribute("class", "inline");
+      pForGdpr.innerHTML =
+        'I agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a> of ArchitectureQuote IVS"';
+      let divForAgree = document.createElement("div");
+      divForAgree.append(agreeCheckbox, pForGdpr);
+
+      let newsCheckbox = document.createElement("input");
+      newsCheckbox.setAttribute("type", "checkbox");
+      newsCheckbox.setAttribute("value", "news");
+      newsCheckbox.setAttribute("name", "news");
+      let pForNews = document.createElement("p");
+      pForNews.setAttribute("class", "inline");
+      pForNews.innerHTML =
+        "I would like to receive relevant marketing materials and emails from ArchitectureQuote IVS";
+      let divForNews = document.createElement("div");
+      divForNews.append(newsCheckbox, pForNews);
+      form.append(
+        divWrap_1,
+        divWrap_2,
+        divWrap_3,
+        divWrap_4,
+        divForWhats,
+        divForAgree,
+        divForNews
+      );
+      return form;
+    }
   }
 ];
 

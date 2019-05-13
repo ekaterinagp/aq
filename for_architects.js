@@ -1,21 +1,20 @@
 let speechBubbles = document.querySelectorAll(".items");
-speechBubbles.forEach(bubble =>{
-  bubble.addEventListener("click", ()=>{
+speechBubbles.forEach(bubble => {
+  bubble.addEventListener("click", () => {
     // console.log(bubble);
-    shrinkRemoveArrow()
+    shrinkRemoveArrow();
     growAddArrow(bubble);
- 
-  })
-})
-function growAddArrow(box){
+  });
+});
+function growAddArrow(box) {
   box.classList.add("arrow");
   box.classList.add("grow");
 }
-function shrinkRemoveArrow(){
-    speechBubbles.forEach(bubble =>{
-        bubble.classList.remove("arrow");
-        bubble.classList.remove("grow");
-    })
+function shrinkRemoveArrow() {
+  speechBubbles.forEach(bubble => {
+    bubble.classList.remove("arrow");
+    bubble.classList.remove("grow");
+  });
 }
 
 /*direction aware hover effect
@@ -23,20 +22,20 @@ determine the mouse direction
 apply css classes depending on direction
  */
 
-var ourTeam = document.querySelector("#our_team>.wrapper_3_columns");
-ourTeam.addEventListener("mousemove", getDirection=>{
-  getDirection();
-});
+// var ourTeam = document.querySelector("#our_team>.wrapper_3_columns");
+// ourTeam.addEventListener("mousemove", getDirection => {
+//   getDirection();
+// });
 
-const getDirection = function (e, item) {
+const getDirection = function(e, item) {
   // Width and height of current item
   let w = item.offsetWidth;
   let h = item.offsetHeight;
   let position = _getPosition(item);
 
   // Calculate the x/y value of the pointer entering/exiting, relative to the center of the item.
-  let x = (e.pageX - position.x - (w / 2) * (w > h ? (h / w) : 1));
-  let y = (e.pageY - position.y - (h / 2) * (h > w ? (w / h) : 1));
+  let x = e.pageX - position.x - (w / 2) * (w > h ? h / w : 1);
+  let y = e.pageY - position.y - (h / 2) * (h > w ? w / h : 1);
 
   // Calculate the angle the pointer entered/exited and convert to clockwise format (top/right/bottom/left = 0/1/2/3).  See https://stackoverflow.com/a/3647634 for a full explanation.
   let d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
@@ -45,3 +44,11 @@ const getDirection = function (e, item) {
 
   return d;
 };
+
+let section_projects_arch = document.querySelector("#arch_projects");
+let project_arch_items = section_projects_arch.querySelectorAll(".arch_items");
+project_arch_items.forEach(item => {
+  item.addEventListener("click", () => {
+    console.log("item", item);
+  });
+});

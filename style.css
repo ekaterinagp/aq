@@ -880,6 +880,49 @@ svg {
   height: 70%;
 }
 
+
+/*   FAQ PAGE   */
+.faq{
+  margin:5% 0;
+}
+.faq> section{
+  border-radius: 10px;
+  margin: auto;
+  width:50%;
+}
+.faq_section{
+  transition: all .3s;
+  padding:1em;
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height:60px;
+}
+
+.plus{
+ display: inline;
+ font-size: 1em;
+ cursor: pointer;
+ text-align: center;
+ margin:0 1%;
+}
+.faq_section h4{
+  display: inline;
+}
+
+.show{
+  height:auto;
+}
+
+@media (max-width: 1024px){
+  .masonry_grid{
+  columns: 2;
+  }
+}
+@media (max-width: 760px){
+  .masonry_grid{
+  columns: 1;
+  }
+}
 .dropdown {
   position: relative;
   display: inline-block;

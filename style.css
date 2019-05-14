@@ -652,6 +652,7 @@ footer input {
 }
 
 .price h1 {
+  margin-top:3em;
   color: #ef6461;
 }
 h1 > span {
@@ -661,7 +662,8 @@ h1 > span {
 }
 .abs {
   position: absolute;
-  padding:5%;
+  padding:8% 5%;
+  margin:0;
   width: 100%;
   top: 0;
   left: 0;

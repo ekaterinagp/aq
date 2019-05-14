@@ -649,7 +649,7 @@ const clearAllItemsStyle = (items, sectionName) => {
       item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
     }
     if (sectionName == "section_types") {
-      item.style.color = "black";
+      item.style.color = "#2c2e3e";
       item.style.fontWeight = "normal";
     }
   });
@@ -657,7 +657,7 @@ const clearAllItemsStyle = (items, sectionName) => {
 
 const applyStyle = item => {
   item.querySelector("h3").style.color = "#EF6461";
-  item.querySelector("p").style.color = "black";
+  item.querySelector("p").style.color = "#2c2e3e";
   resizeText(2, item.querySelector("h3"));
 };
 
@@ -679,7 +679,7 @@ const changeImage = (item, section) => {
 
 const applyFill = (item, section) => {
   if (section == section_platform) {
-    item.querySelector("svg").style.fill = "black";
+    item.querySelector("svg").style.fill = "#2c2e3e";
   }
   if (section == section_why) {
     item.querySelector("svg").style.fill = "#ef6461";

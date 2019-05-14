@@ -575,9 +575,9 @@ margin: 0 20%;
   margin: 0;
   display: inline-block;
 }
-.pro > a {
+.pro > .link {
   display: block;
-  margin-left: 2em;
+  margin-left: 3em;
 }
 .pro > svg {
   display: inline-block;
@@ -915,7 +915,7 @@ svg {
   padding:1em;
   border-bottom: .5px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  height:60px;
+  height:4em;
 }
 
 .plus{
@@ -927,6 +927,9 @@ svg {
 }
 .faq_section h4{
   display: inline;
+}
+.answer{
+  margin-top:3em;
 }
 
 .show{

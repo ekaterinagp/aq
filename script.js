@@ -824,6 +824,17 @@ function fetchTestimonials() {
       });
   });
 }
+function fetchBlogPosts(){
+  let endpoint = "https://architecturequote.com/wp-json/wp/v2/posts";
+  return new Promise((resolve, reject) => {
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(function(data) {
+        resolve(data);
+      });
+  });
+}
+
 
 async function insertTestimonialsToDOM(testimonials) {
   let template = document.querySelector("#testimonialsTemplate").content;
@@ -850,8 +861,27 @@ async function insertTestimonialsToDOM(testimonials) {
 }
 // project._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
 
+async function insertBlogsToDom(blogPosts){
+  const section = document.querySelector("#blogs");
+  let templateBlogs = document.querySelector("#blogsTemplate").content;
+  for (let i = 0; i < blogPosts.length; i++) {
+    let clone = templateBlogs.cloneNode(true);
+    clone.querySelector(".blogTitle").textContent = blogPosts[i].title.rendered;
+
+    const hrefDataUrl = await fetch(
+      blogPosts[i]._links["wp:featuredmedia"][0].href
+    ).then(res => res.json());
+    // console.log({ hrefData });`id -u
+    clone.querySelector(".boxStyle").style.backgroundImage = "url(" + hrefDataUrl.media_details.sizes.medium_large.source_url + ")";
+    section.appendChild(clone);
+  }
+}
+
 async function init() {
   const testimonials = await fetchTestimonials();
+  const blogPosts = await fetchBlogPosts();
+  // console.log(blogPosts);
   console.log({ testimonials });
   insertTestimonialsToDOM(testimonials);
+  insertBlogsToDom(blogPosts);
 }

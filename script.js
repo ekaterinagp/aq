@@ -840,6 +840,7 @@ async function insertTestimonialsToDOM(testimonials) {
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
     let clone = template.cloneNode(true);
+    clone.querySelector("#textTestimonials").innerHTML = testimonials[i].content.rendered;
     clone.querySelector("#title").textContent = testimonials[i].title.rendered;
     clone.querySelector("#name").textContent = testimonials[i].authors_name;
     clone.querySelector("#company").textContent = testimonials[i].company;
@@ -849,15 +850,18 @@ async function insertTestimonialsToDOM(testimonials) {
     ).then(res => res.json());
     console.log({ hrefData });
 
-    clone
-      .querySelector("img")
-      .setAttribute(
-        "src",
-        hrefData.media_details.sizes.testimonials.source_url
-      );
+    clone.querySelector("#userImage").style.backgroundImage = "url(" + hrefData.media_details.sizes.testimonials.source_url + ")"; 
+      // .querySelector("img")
+      // .setAttribute(
+      //   "src",
+      //   hrefData.media_details.sizes.testimonials.source_url
+      // );
 
     document.querySelector("#testimonials").appendChild(clone);
+    
   }
+  let clients = document.querySelectorAll(".client");
+  initCarousel(clients);
 }
 // project._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
 
@@ -877,11 +881,93 @@ async function insertBlogsToDom(blogPosts){
   }
 }
 
+/*   TESTIMONIALS CAROUSEL   */
+let itemClassName = "client boxStyle",
+slide = 0,
+moving = true; 
+  
+function initCarousel(clients) {   
+      clients[clients.length - 1].classList.add("prev");
+      clients[0].classList.add("activeSlide");
+      clients[1].classList.add("next");
+    const nextBtn = document.querySelector(".arrowRight");
+    const  prevBtn= document.querySelector(".arrowLeft");
+  
+      nextBtn.addEventListener('click', function(){
+        moveNext(clients)});
+      prevBtn.addEventListener('click',function(){
+        movePrev(clients)});
+    }
+  
+    // Disable interaction by setting 'moving' to true for the same duration as our transition (0.5s = 500ms)
+    // function disableInteraction() {
+    //   moving = true;
+    //   setTimeout(function(){
+    //     moving = false
+    //   }, 500);
+    // }
+  
+ function moveCarouselTo(slide, clients) {
+   let newPrevious = slide - 1,
+            newNext = slide + 1,
+            oldPrevious = slide - 2,
+            oldNext = slide + 2;
+  
+      
+        if ((clients.length - 1) > 3) {
+  
+            if (newPrevious <= 0) {
+            oldPrevious = (clients.length - 1);
+          } else if (newNext >= (clients.length - 1)){
+            oldNext = 0;
+          }
+             if (slide === 0) {
+            newPrevious = (clients.length - 1);
+            oldPrevious = (clients.length - 2);
+            oldNext = (slide + 1);
+          } else if (slide === (clients.length -1)) {
+            newPrevious = (slide - 1);
+            newNext = 0;
+            oldNext = 1;
+          }
+          clients[oldPrevious].className = itemClassName;
+          clients[oldNext].className = itemClassName;
+          clients[newPrevious].className = itemClassName + " prev";
+          clients[slide].className = itemClassName + " activeSlide";
+          clients[newNext].className = itemClassName + " next";
+        }
+      }
+  
+ function moveNext(clients) {
+        if (slide === (clients.length - 1)) {
+          slide = 0;
+        } else {
+          slide++;
+        }
+        moveCarouselTo(slide, clients);
+    }
+  
+function movePrev(clients) {
+
+        if (slide === 0) {
+          slide = (clients.length - 1);
+        } else {
+          slide--;
+        }
+        moveCarouselTo(slide, clients);
+    }
+  
+   
+  
+  
+
+
 async function init() {
   const testimonials = await fetchTestimonials();
   const blogPosts = await fetchBlogPosts();
   // console.log(blogPosts);
-  console.log({ testimonials });
+  // console.log({ testimonials });
   insertTestimonialsToDOM(testimonials);
   insertBlogsToDom(blogPosts);
+ 
 }

@@ -604,15 +604,28 @@
  
     <div id="happyClients" class="widthHeight100">
       <h1 class="header">Some of our happy clients</h1>
-      <div class="wrapper_columns_2_4_2 clients width100">
-        <div></div>
-        <div class="caruselle"><template id="testimonialsTemplate"><h2 id="title"></h2>
-          <h3 id="name"></h3><h3 id="company"></h3><h4 id="website"></h3>
-            <img src="" alt="userImage" id="userImage"><p id="textTestimonials"></p>
-        </template><section id="testimonials"></section></div>
-        <div></div>
-      </div>
+      <!-- <div class="clients width100"> -->
+       <div class="carouselWrapper">
+          <section id="testimonials" class="caruselle">
+            </section>
+          </div>
+            <div class="next arrowLeft"></div>
+<div class="next arrowRight"></div>
+          <template id="testimonialsTemplate">
+            <div class="client boxStyle wrapper_2_columns">
+            <div id="userImage"></div>
+            <div>
+                <h2 id="title"></h2>
+                <p id="textTestimonials"></p>
+          <h3 id="name"></h3> <span id="company"></span>
+          <p id="website"></p>
+                     </div>
+          </div>
+        </template>
+      
+      <!-- </div> -->
     </div>
+
     <div class="widthHeight100">
       <h1 class="header">Latest Blog Posts</h1>
       

@@ -30,7 +30,7 @@
       <div id="options"></div>
       <div id="buttonsForm">
         <button id="prev">Previous</button>
-        <button id="next">Next</button>
+        <button id="next" disabled>Next</button>
       </div>
     </div>
     <div id="hero" class="hero wrapper_2_columns">
@@ -606,7 +606,10 @@
       <h1 class="header">Some of our happy clients</h1>
       <div class="wrapper_columns_2_4_2 clients width100">
         <div></div>
-        <div class="caruselle">Caruselle will go here</div>
+        <div class="caruselle"><template id="testimonialsTemplate"><h2 id="title"></h2>
+          <h3 id="name"></h3><h3 id="company"></h3><h4 id="website"></h3>
+            <img src="" alt="userImage" id="userImage"><p id="textTestimonials"></p>
+        </template><section id="testimonials"></section></div>
         <div></div>
       </div>
     </div>

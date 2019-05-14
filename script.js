@@ -140,13 +140,14 @@ section_platform_items.forEach(item => {
     changeText(item, section_platform);
   });
 });
-const arch_projects= document.querySelector("#arch_projects");
-let section_arch = arch_projects.querySelectorAll(".items");
-section_arch.forEach(item=>{
-  item.addEventListener("click", () => {
-    console.log(item);
-  })
-})
+// let arch_projects = document.querySelector("#arch_projects");
+// let section_arch = arch_projects.querySelectorAll(".items");
+// section_arch.forEach(item=>{
+//   item.addEventListener("click", () => {
+//     console.log("item", item);
+//   })
+// })
+
 const section_why = document.querySelector("#section_why");
 let section_why_items = section_why.querySelectorAll(".items");
 section_why_items.forEach(item => {

@@ -110,10 +110,9 @@ li{
   display: grid;
   grid-template-rows: 1fr .5fr 2fr;
 }
-
-.wrapper_3_columns {
-  display: grid;
-  grid-template-columns: 3fr 3fr 3fr;
+.wrapper_5_columns{
+ display:grid;
+ grid-template-columns: repeat(5, 1fr);
 }
 
 .wrapper_5_rows {
@@ -628,7 +627,7 @@ footer input{
 }
 #prices{
   text-align: center;
-  padding: 2em 10em;
+  padding: 2em;
 }
 .price{
   position: relative;
@@ -656,6 +655,7 @@ h1>span{
 }
 .abs{
   position: absolute;
+  padding:5%;
   width: 100%;
   top: 0;
   left: 0;

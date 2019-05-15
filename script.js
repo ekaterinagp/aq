@@ -187,7 +187,8 @@ let formItems = [
       let checkbox_1 = document.createElement("input");
       checkbox_1.setAttribute("type", "checkbox");
       checkbox_1.setAttribute("value", "concept");
-      checkbox_1.setAttribute("name", "design1");
+      checkbox_1.setAttribute("id", "design1");
+      checkbox_1.setAttribute("class", "checkDesign");
       let pForCheck_1 = document.createElement("p");
       pForCheck_1.setAttribute("class", "inline");
       pForCheck_1.textContent = "Concept design";
@@ -195,7 +196,8 @@ let formItems = [
       let checkbox_2 = document.createElement("input");
       checkbox_2.setAttribute("type", "checkbox");
       checkbox_2.setAttribute("value", "schematic");
-      checkbox_2.setAttribute("name", "design2");
+      checkbox_2.setAttribute("id", "design2");
+      checkbox_2.setAttribute("class", "checkDesign");
       let pForCheck_2 = document.createElement("p");
       pForCheck_2.setAttribute("class", "inline");
       pForCheck_2.textContent = "Schematic design";
@@ -203,7 +205,8 @@ let formItems = [
       let checkbox_3 = document.createElement("input");
       checkbox_3.setAttribute("type", "checkbox");
       checkbox_3.setAttribute("value", "detailed");
-      checkbox_3.setAttribute("name", "design3");
+      checkbox_3.setAttribute("id", "design3");
+      checkbox_3.setAttribute("class", "checkDesign");
       let pForCheck_3 = document.createElement("p");
       pForCheck_3.setAttribute("class", "inline");
       pForCheck_3.textContent = "Detailed design";
@@ -211,7 +214,8 @@ let formItems = [
       let checkbox_4 = document.createElement("input");
       checkbox_4.setAttribute("type", "checkbox");
       checkbox_4.setAttribute("value", "tender");
-      checkbox_4.setAttribute("name", "design4");
+      checkbox_4.setAttribute("id", "design4");
+      checkbox_4.setAttribute("class", "checkDesign");
       let pForCheck_4 = document.createElement("p");
       pForCheck_4.setAttribute("class", "inline");
       pForCheck_4.textContent = "Tender";
@@ -219,7 +223,8 @@ let formItems = [
       let checkbox_5 = document.createElement("input");
       checkbox_5.setAttribute("type", "checkbox");
       checkbox_5.setAttribute("value", "support");
-      checkbox_5.setAttribute("name", "design4");
+      checkbox_5.setAttribute("id", "design5");
+      checkbox_5.setAttribute("class", "checkDesign");
       let pForCheck_5 = document.createElement("p");
       pForCheck_5.setAttribute("class", "inline");
       pForCheck_5.textContent = "Construction to Build Support";
@@ -227,7 +232,8 @@ let formItems = [
       let checkbox_6 = document.createElement("input");
       checkbox_6.setAttribute("type", "checkbox");
       checkbox_6.setAttribute("value", "all");
-      checkbox_6.setAttribute("name", "design5");
+      checkbox_6.setAttribute("id", "design6");
+      checkbox_6.setAttribute("class", "checkDesign");
       let pForCheck_6 = document.createElement("p");
       pForCheck_6.setAttribute("class", "inline");
       pForCheck_6.textContent = "All standard RIBA phases";
@@ -429,7 +435,7 @@ let userAnswers = {
   type_of_building: "",
   complexity: "",
   size: "",
-  task: "",
+  task: [],
   floor: "",
   basement: "",
   name: "",
@@ -460,7 +466,7 @@ function insertDOMforForm() {
   options.appendChild(formItems[currentFormItem].options());
   questionText.textContent = formItems[currentFormItem].txt;
 
-  listenerForFirstRadios();
+  listenerForRadios("#projectType", "type_project");
 }
 
 const prevButton = formDiv.querySelector("#prev");
@@ -486,53 +492,88 @@ function nextElement() {
 
   options.appendChild(formItems[currentFormItem].options());
   if (formItems[currentFormItem].id == 2) {
-    listenerForSecondRadios();
+    listenerForRadios("#buildingType", "type_of_building");
   }
   if (userAnswers) {
-    insertSavedAnswersFortheFirst();
-    insertSavedAnswersFortheSecond();
+    if (formItems[currentFormItem].id == 1)
+      insertSavedAnswersRadio("projectType", "type_project");
+    if (formItems[currentFormItem].id == 2)
+      insertSavedAnswersRadio("buildingType", "type_of_building");
   }
 
   if (formItems[currentFormItem].id == 3) {
     document.querySelector("#complexity").addEventListener("blur", function() {
-      listenerForComplexity();
+      listenForValue("#complexity", "complexity");
     });
     document.querySelector("#size").addEventListener("blur", function() {
-      listenForSize();
+      listenForValue("#size", "size");
     });
 
     document.querySelector("#floor").addEventListener("blur", function() {
-      listenForFloor();
+      listenForValue("#floor", "floor");
+    });
+    document.querySelector("#toggleBox").addEventListener("change", () => {
+      if (document.querySelector("#toggleBox").checked) {
+        userAnswers.basement = "yes";
+        console.log("basememnt");
+      } else {
+        userAnswers.basement = "no";
+        console.log(" no basememnt");
+      }
+    });
+
+    document.querySelector("#design6").addEventListener("change", () => {
+      if (document.querySelector("#design6").checked) {
+        document.querySelector("#design1").checked = true;
+        document.querySelector("#design2").checked = true;
+        document.querySelector("#design3").checked = true;
+        document.querySelector("#design4").checked = true;
+        document.querySelector("#design5").checked = true;
+        userAnswers.task = document.querySelector("#design6").value;
+        console.log(userAnswers.task);
+      } else {
+        document.querySelector("#design1").checked = false;
+        document.querySelector("#design2").checked = false;
+        document.querySelector("#design3").checked = false;
+        document.querySelector("#design4").checked = false;
+        document.querySelector("#design5").checked = false;
+      }
+    });
+
+    let allSelected = document.querySelectorAll(".checkDesign");
+    let checkedTasksArray = [];
+    //modify in final answers, if all there, then the answer is all
+    allSelected.forEach(selected => {
+      selected.addEventListener("click", () => {
+        if (selected.checked == true) {
+          checkedTasksArray.push(selected.value);
+          if (selected.value == "all") {
+            checkedTasksArray = ["all"];
+          }
+          userAnswers.task = checkedTasksArray;
+
+          console.log(userAnswers.task);
+        }
+      });
+    });
+    //why this doesn't work when select first task then square?
+    document.querySelector("#projectDetails").addEventListener("change", () => {
+      if (userAnswers.task && userAnswers.size) {
+        setNextBtnDisabled(false);
+      }
     });
   }
 }
 
-const insertSavedAnswersFortheFirst = () => {
-  if (formItems[currentFormItem].id == 1) {
-    let allRadios = document
-      .getElementById("projectType")
-      .querySelectorAll("input[type=radio]");
-    let radioArr = Array.prototype.slice.call(allRadios);
-    for (let u = 0; u < radioArr.length; u++) {
-      if (radioArr[u].value == userAnswers.type_project) {
-        radioArr[u].checked = true;
-        setNextBtnDisabled(false);
-      }
-    }
-  }
-};
-
-const insertSavedAnswersFortheSecond = () => {
-  if (formItems[currentFormItem].id == 2) {
-    let allRadios = document
-      .getElementById("buildingType")
-      .querySelectorAll("input[type=radio]");
-    let radioArr = Array.prototype.slice.call(allRadios);
-    for (let u = 0; u < radioArr.length; u++) {
-      if (radioArr[u].value == userAnswers.type_of_building) {
-        radioArr[u].checked = true;
-        setNextBtnDisabled(false);
-      }
+const insertSavedAnswersRadio = (sectionStr, answerTypeStr) => {
+  let allRadios = document
+    .getElementById(sectionStr)
+    .querySelectorAll("input[type=radio]");
+  let radioArr = Array.prototype.slice.call(allRadios);
+  for (let u = 0; u < radioArr.length; u++) {
+    if (radioArr[u].value == userAnswers[answerTypeStr]) {
+      radioArr[u].checked = true;
+      setNextBtnDisabled(false);
     }
   }
 };
@@ -546,8 +587,19 @@ function prevElement() {
   form.querySelector("h3").textContent = currentItem.txt;
 
   options.appendChild(formItems[currentFormItem].options());
-  if (formItems[currentFormItem].id == 1) insertSavedAnswersFortheFirst();
-  if (formItems[currentFormItem].id == 2) insertSavedAnswersFortheSecond();
+  if (formItems[currentFormItem].id == 1)
+    insertSavedAnswersRadio("projectType", "type_project");
+  if (formItems[currentFormItem].id == 2)
+    insertSavedAnswersRadio("buildingType", "type_of_building");
+  if (formItems[currentFormItem].id == 3) {
+    document.querySelector("#complexity").value = userAnswers.complexity;
+    document.querySelector("#size").value = userAnswers.size;
+    document.querySelector("#floor").value = userAnswers.floor;
+    if (userAnswers.basement == "yes") {
+      document.querySelector("#toggleBox").checked = true;
+    }
+    //wrtie function which takes array with values and set checked to true to those checkbox where value matches with the array value
+  }
 }
 
 function nextItem() {
@@ -566,16 +618,16 @@ function prevItem() {
   return formItems[currentFormItem];
 }
 
-function listenerForFirstRadios() {
+function listenerForRadios(formType, answerType) {
   let allRadios = document
-    .querySelector("#projectType")
+    .querySelector(formType)
     .querySelectorAll("input[type=radio]");
 
   allRadios.forEach(allRadio => {
     allRadio.addEventListener("click", () => {
       if (allRadio.checked == true) {
         let radioValue = allRadio.value;
-        userAnswers.type_project = radioValue;
+        userAnswers[answerType] = radioValue;
 
         console.log({ radioValue });
         setNextBtnDisabled(false);
@@ -584,50 +636,12 @@ function listenerForFirstRadios() {
   });
 }
 
-function listenerForSecondRadios() {
-  let allRadios = document
-    .querySelector("#buildingType")
-    .querySelectorAll("input[type=radio]");
-
-  allRadios.forEach(allRadio => {
-    allRadio.addEventListener("click", () => {
-      if (allRadio.checked == true) {
-        let radioValue = allRadio.value;
-        userAnswers.type_of_building = radioValue;
-
-        console.log({ radioValue });
-        setNextBtnDisabled(false);
-      }
-    });
-  });
-}
-
-function listenerForComplexity() {
+function listenForValue(itemIDstr, answerTypestr) {
   let formComplexity = document.getElementById("projectDetails");
-  let complexitySelect = formComplexity.querySelector("#complexity");
-  userAnswers.complexity = complexitySelect.value;
-  console.log(userAnswers.complexity);
+  let selectedItem = formComplexity.querySelector(itemIDstr);
+  userAnswers[answerTypestr] = selectedItem.value;
+  console.log(userAnswers[answerTypestr]);
 }
-
-function listenForSize() {
-  let formComplexity = document.getElementById("projectDetails");
-  let sizeInput = formComplexity.querySelector("#size");
-  userAnswers.size = sizeInput.value;
-  console.log(userAnswers.size);
-}
-
-function listenForFloor() {
-  let formComplexity = document.getElementById("projectDetails");
-  let floorSelect = formComplexity.querySelector("#floor");
-  userAnswers.floor = floorSelect.value;
-  console.log(userAnswers.floor);
-}
-
-// let viewWidth = Math.max(
-//   document.documentElement.clientWidth,
-//   window.innerWidth || 0
-// );
-// console.log({ viewWidth });
 
 //clicking through the items
 

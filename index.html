@@ -14,7 +14,6 @@
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="platform.html">Platform</a></li>
-          <li><a href="faq.html">FAQ</a></li>
           <li><a href="for_architects.html">For Architects</a></li>
           <li><a href="our_team.html">Our team</a></li>
           <li><a href="">Blog</a></li>
@@ -79,7 +78,7 @@
     </div>
 
     <div id="platform" class="backgroundWhite">
-      <div class="platformBox shadow wrapper_rows_1_1_2" id="section_platform">
+      <div class="platformBox boxStyle wrapper_rows_1_1_2" id="section_platform">
         <div>
       <h1 class="section_title">The ArchitectureQuote Platform</h1>
       <h2 class="sub_title">Real-time tool to start, follow and finalize the best deal</h2>
@@ -291,7 +290,7 @@
       <div class="box">
       <h1 class="title">Why choose ArchitectureQuote</h1>
       <div class="bubbles wrapper_4_columns">
-        <div class="items speech-bubble" id="section_why_item_1">
+        <div class="items speech-bubble boxStyle grow arrow" id="section_why_item_1">
           <svg
             id="Layer_1"
             data-name="Layer 1"
@@ -310,7 +309,7 @@
           </svg>
           <h3>Save time</h3>
         </div>
-        <div class="items speech-bubble" id="section_why_item_2">
+        <div class="items speech-bubble boxStyle" id="section_why_item_2">
           <svg
             id="Layer_1"
             data-name="Layer 1"
@@ -485,7 +484,7 @@
             </svg>
             <h3>Hassle free</h3>
           </div>
-          <div class="items speech-bubble" id="section_why_item_3">
+          <div class="items speech-bubble boxStyle" id="section_why_item_3">
             <svg
               id="Layer_1"
               data-name="Layer 1"
@@ -499,7 +498,7 @@
             </svg>
             <h3>Better Process</h3>
           </div>
-          <div class="items speech-bubble" id="section_why_item_4">
+          <div class="items speech-bubble boxStyle" id="section_why_item_4">
             <svg
               id="Layer_1"
               data-name="Layer 1"
@@ -605,23 +604,42 @@
  
     <div id="happyClients" class="widthHeight100">
       <h1 class="header">Some of our happy clients</h1>
-      <div class="wrapper_columns_2_4_2 clients width100">
-        <div></div>
-        <div class="caruselle"><template id="testimonialsTemplate"><h2 id="title"></h2>
-          <h3 id="name"></h3><h3 id="company"></h3><h4 id="website"></h3>
-            <img src="" alt="userImage" id="userImage"><p id="textTestimonials"></p>
-        </template><section id="testimonials"></section></div>
-        <div></div>
-      </div>
+      <!-- <div class="clients width100"> -->
+       <div class="carouselWrapper">
+          <section id="testimonials" class="caruselle">
+            </section>
+          </div>
+            <div class="next arrowLeft"></div>
+<div class="next arrowRight"></div>
+          <template id="testimonialsTemplate">
+            <div class="client boxStyle wrapper_2_columns">
+            <div id="userImage"></div>
+            <div>
+                <h2 id="title"></h2>
+                <p id="textTestimonials"></p>
+          <h3 id="name"></h3> <span id="company"></span>
+          <p id="website"></p>
+                     </div>
+          </div>
+        </template>
+      
+      <!-- </div> -->
     </div>
-    <div id="blogs" class="widthHeight100 backgroundWhite">
-      <h1 class="section_title">Latest Blog Posts</h1>
-      <div id="blogPosts" class="wrapper_columns_2_4_2">
-        <div></div>
-        <div id="posts" class="backgroundWhite">Posts will go here</div>
-        <div></div>
-      </div>
-    </div>
+
+    <div class="widthHeight100">
+      <h1 class="header">Latest Blog Posts</h1>
+      
+          <section id="blogs" class="wrapper_2_columns">
+
+          </section>
+          <template id="blogsTemplate">
+            <div class="boxStyle">
+            <!-- <img src="" alt="" class="width100"> -->
+            <h2 class="blogTitle"></h2>
+          </div>
+          </template>
+          </div>
+
     <footer class="backgroundColor">
       <div>
         <img class="width30" src="img/logo.svg" />

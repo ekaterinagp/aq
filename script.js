@@ -663,7 +663,7 @@ const clearAllItemsStyle = (items, sectionName) => {
       item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
     }
     if (sectionName == "section_types") {
-      item.style.color = "black";
+      item.style.color = "#2c2e3e";
       item.style.fontWeight = "normal";
     }
   });
@@ -671,7 +671,7 @@ const clearAllItemsStyle = (items, sectionName) => {
 
 const applyStyle = item => {
   item.querySelector("h3").style.color = "#EF6461";
-  item.querySelector("p").style.color = "black";
+  item.querySelector("p").style.color = "#2c2e3e";
   resizeText(2, item.querySelector("h3"));
 };
 
@@ -693,7 +693,7 @@ const changeImage = (item, section) => {
 
 const applyFill = (item, section) => {
   if (section == section_platform) {
-    item.querySelector("svg").style.fill = "black";
+    item.querySelector("svg").style.fill = "#2c2e3e";
   }
   if (section == section_why) {
     item.querySelector("svg").style.fill = "#ef6461";
@@ -838,11 +838,23 @@ function fetchTestimonials() {
       });
   });
 }
+function fetchBlogPosts(){
+  let endpoint = "https://architecturequote.com/wp-json/wp/v2/posts";
+  return new Promise((resolve, reject) => {
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(function(data) {
+        resolve(data);
+      });
+  });
+}
+
 
 async function insertTestimonialsToDOM(testimonials) {
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
     let clone = template.cloneNode(true);
+    clone.querySelector("#textTestimonials").innerHTML = testimonials[i].content.rendered;
     clone.querySelector("#title").textContent = testimonials[i].title.rendered;
     clone.querySelector("#name").textContent = testimonials[i].authors_name;
     clone.querySelector("#company").textContent = testimonials[i].company;
@@ -852,20 +864,124 @@ async function insertTestimonialsToDOM(testimonials) {
     ).then(res => res.json());
     console.log({ hrefData });
 
-    clone
-      .querySelector("img")
-      .setAttribute(
-        "src",
-        hrefData.media_details.sizes.testimonials.source_url
-      );
+    clone.querySelector("#userImage").style.backgroundImage = "url(" + hrefData.media_details.sizes.testimonials.source_url + ")"; 
+      // .querySelector("img")
+      // .setAttribute(
+      //   "src",
+      //   hrefData.media_details.sizes.testimonials.source_url
+      // );
 
     document.querySelector("#testimonials").appendChild(clone);
+    
   }
+  let clients = document.querySelectorAll(".client");
+  initCarousel(clients);
 }
 // project._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
 
+async function insertBlogsToDom(blogPosts){
+  const section = document.querySelector("#blogs");
+  let templateBlogs = document.querySelector("#blogsTemplate").content;
+  for (let i = 0; i < blogPosts.length; i++) {
+    let clone = templateBlogs.cloneNode(true);
+    clone.querySelector(".blogTitle").textContent = blogPosts[i].title.rendered;
+
+    const hrefDataUrl = await fetch(
+      blogPosts[i]._links["wp:featuredmedia"][0].href
+    ).then(res => res.json());
+    // console.log({ hrefData });`id -u
+    clone.querySelector(".boxStyle").style.backgroundImage = "url(" + hrefDataUrl.media_details.sizes.medium_large.source_url + ")";
+    section.appendChild(clone);
+  }
+}
+
+/*   TESTIMONIALS CAROUSEL   */
+let itemClassName = "client boxStyle",
+slide = 0,
+moving = true; 
+  
+function initCarousel(clients) {   
+      clients[clients.length - 1].classList.add("prev");
+      clients[0].classList.add("activeSlide");
+      clients[1].classList.add("next");
+    const nextBtn = document.querySelector(".arrowRight");
+    const  prevBtn= document.querySelector(".arrowLeft");
+  
+      nextBtn.addEventListener('click', function(){
+        moveNext(clients)});
+      prevBtn.addEventListener('click',function(){
+        movePrev(clients)});
+    }
+  
+    // Disable interaction by setting 'moving' to true for the same duration as our transition (0.5s = 500ms)
+    // function disableInteraction() {
+    //   moving = true;
+    //   setTimeout(function(){
+    //     moving = false
+    //   }, 500);
+    // }
+  
+ function moveCarouselTo(slide, clients) {
+   let newPrevious = slide - 1,
+            newNext = slide + 1,
+            oldPrevious = slide - 2,
+            oldNext = slide + 2;
+  
+      
+        if ((clients.length - 1) > 3) {
+  
+            if (newPrevious <= 0) {
+            oldPrevious = (clients.length - 1);
+          } else if (newNext >= (clients.length - 1)){
+            oldNext = 0;
+          }
+             if (slide === 0) {
+            newPrevious = (clients.length - 1);
+            oldPrevious = (clients.length - 2);
+            oldNext = (slide + 1);
+          } else if (slide === (clients.length -1)) {
+            newPrevious = (slide - 1);
+            newNext = 0;
+            oldNext = 1;
+          }
+          clients[oldPrevious].className = itemClassName;
+          clients[oldNext].className = itemClassName;
+          clients[newPrevious].className = itemClassName + " prev";
+          clients[slide].className = itemClassName + " activeSlide";
+          clients[newNext].className = itemClassName + " next";
+        }
+      }
+  
+ function moveNext(clients) {
+        if (slide === (clients.length - 1)) {
+          slide = 0;
+        } else {
+          slide++;
+        }
+        moveCarouselTo(slide, clients);
+    }
+  
+function movePrev(clients) {
+
+        if (slide === 0) {
+          slide = (clients.length - 1);
+        } else {
+          slide--;
+        }
+        moveCarouselTo(slide, clients);
+    }
+  
+   
+  
+  
+
+
 async function init() {
   const testimonials = await fetchTestimonials();
-  console.log({ testimonials });
+  const blogPosts = await fetchBlogPosts();
+  // console.log(blogPosts);
+  // console.log({ testimonials });
   insertTestimonialsToDOM(testimonials);
+  insertBlogsToDom(blogPosts);
+ 
 }

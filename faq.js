@@ -36,12 +36,14 @@ async function init() {
   let plusses = document.querySelectorAll(".plus");
   plusses.forEach(plus=>{
       plus.addEventListener("click", function(){
-          console.log(plus.nextElementSibling.className)
+          // console.log(plus.nextElementSibling.className)
           if(plus.nextElementSibling.className === "answer"){
             plus.parentElement.style.height = "auto";
+            plus.innerHTML= "&#9650;"
           }
             else{
-                plus.parentElement.style.height = "60px"; 
+                plus.parentElement.style.height = "4em"; 
+                plus.innerHTML= "&#9660;"
             }
             plus.nextElementSibling.classList.toggle("show");
       })

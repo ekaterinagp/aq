@@ -1,11 +1,40 @@
 let speechBubbles = document.querySelectorAll(".items");
+const architect_section = document.querySelector("#arch_projects");
 speechBubbles.forEach(bubble => {
   bubble.addEventListener("click", () => {
     // console.log(bubble);
+    clearAllItemsStyle(speechBubbles);
+    applyFill(bubble);
+    changeText(bubble, architect_section);
     shrinkRemoveArrow();
-    growAddArrow(bubble);
+    growAddArrow(bubble);f
   });
 });
+
+const applyFill = (item) => {
+    item.querySelector("svg").style.fill = "#ef6461";
+}; 
+const changeText = (item, section) => {
+  let textDiv = section.querySelector("p");
+  // let title = section.querySelector("h2");
+if (item.id == "organic") {
+    // title.textContent = " time";
+    textDiv.textContent =
+      "Organic Leads yay!!  harum iste magni numquam, quisquam non soluta enim.Lorem ipsum dolor sit amet consectetur adipisicing elit.Facere sunt laborum magnam quia! Vel ipsum, nobis eveniet quod animi eum nostrum repellat harum iste magni numquam, quisquam non soluta enim";
+  }
+
+  if (item.id == "freelance") {
+    // title.textContent = "Hassle free";
+    textDiv.textContent =
+      "freeeeelance! harum iste magni numquam, quisquam non soluta enim.Lorem ipsum dolor sit amet consectetur adipisicing elit.Facere sunt laborum magnam quia! Vel ipsum, nobis eveniet quod animi eum nostrum repellat harum iste magni numquam, quisquam non soluta enim";
+  }
+  if (item.id == "tender") {
+    // title.textContent = "Hassle free";
+    textDiv.textContent =
+      "tenders and rfp! harum iste magni numquam, quisquam non soluta enim.Lorem ipsum dolor sit amet consectetur adipisicing elit.Facere sunt laborum magnam quia! Vel ipsum, nobis eveniet quod animi eum nostrum repellat harum iste magni numquam, quisquam non soluta enim";
+  }
+};
+
 function growAddArrow(box) {
   box.classList.add("arrow");
   box.classList.add("grow");
@@ -16,6 +45,14 @@ function shrinkRemoveArrow() {
     bubble.classList.remove("grow");
   });
 }
+const clearAllItemsStyle = (items) => {
+  items.forEach(item => {
+      item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
+    
+  });
+};
+
+
 
 /*direction aware hover effect
 determine the mouse direction
@@ -45,10 +82,3 @@ const getDirection = function(e, item) {
   return d;
 };
 
-let section_projects_arch = document.querySelector("#arch_projects");
-let project_arch_items = section_projects_arch.querySelectorAll(".arch_items");
-project_arch_items.forEach(item => {
-  item.addEventListener("click", () => {
-    console.log("item", item);
-  });
-});

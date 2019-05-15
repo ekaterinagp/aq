@@ -850,12 +850,11 @@ async function insertTestimonialsToDOM(testimonials) {
     ).then(res => res.json());
     console.log({ hrefData });
 
-    clone.querySelector("#userImage").style.backgroundImage = "url(" + hrefData.media_details.sizes.testimonials.source_url + ")"; 
-      // .querySelector("img")
-      // .setAttribute(
-      //   "src",
-      //   hrefData.media_details.sizes.testimonials.source_url
-      // );
+    clone.querySelector("img")
+      .setAttribute(
+        "src",
+        hrefData.media_details.sizes.testimonials.source_url
+      );
 
     document.querySelector("#testimonials").appendChild(clone);
     

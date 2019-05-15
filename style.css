@@ -473,6 +473,7 @@ grid-template-rows: .5fr;
   background-repeat: no-repeat;
 } */
 
+/*   Testimonials   */
 #happyClients{
   position: relative;
 }
@@ -503,25 +504,32 @@ grid-template-rows: .5fr;
   margin:auto;
 }
 #userImage{
-  height:auto;
-background-size: contain;
-background-repeat: no-repeat;
+  width:22%;
+  border-radius: 50%;
+  position: absolute; 
+  top:-8vh;
+  left:0;
+  right:0;
+  margin:auto;
 }
 
 .carouselWrapper {
-  overflow: hidden;
   width: 70%;
   margin: auto;
 }
-
+.center{
+  width:80%;
+  margin:auto;
+  transform: translateY(-50%, -50%);
+}
 .client{
   text-align: left;
   opacity: 0;
   position: absolute;
-  top:0;
+  top:7vh;
   width: 100%;
   margin: auto;
-  padding: 1rem 4rem;
+  padding: 5%;
   z-index: 100;
   transition: transform .5s, opacity .5s, z-index .5s;
 }
@@ -530,6 +538,12 @@ background-repeat: no-repeat;
   opacity: 1;
   position: relative;
   z-index: 900;
+}
+.client>div{
+  text-align: right;
+}
+#name{
+  display :inline;
 }
 
 
@@ -546,11 +560,7 @@ background-repeat: no-repeat;
   transform: translateX(100%);
 }
 
-
-
-/* .clients {
-  height: 80%;
-} */
+  /* blogposts */
 
 #blogPosts {
   width: 100%;

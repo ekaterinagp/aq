@@ -452,7 +452,7 @@ let userAnswers = {
 let startProjectBtns = document.querySelectorAll(".freeEst");
 startProjectBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-    console.log({ btn });
+    console.log({ formWrapper });
     formWrapper.classList.remove("hidden");
     // document.querySelector("body").appendChild(formDiv);
     insertDOMforForm();
@@ -465,6 +465,12 @@ closeFormBtn.forEach(btn=>{
     btn.parentElement.parentElement.classList.add("hidden");
   })
 })
+// window.addEventListener("click", ()=>{
+//   if(formWrapper.className="formWrapper"){
+//     formWrapper.classList.add("hidden");
+//   }
+// });
+
 function setNextBtnDisabled(bool) {
   document.getElementById("next").disabled = bool;
 }

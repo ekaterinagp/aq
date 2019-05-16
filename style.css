@@ -476,11 +476,11 @@ footer input {
   background-repeat: no-repeat;
 }
 
-#blogBG {
+.blogBG {
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
-  height: auto;
+  /* height: auto; */
 }
 
 .carouselWrapper {
@@ -1114,4 +1114,11 @@ input:checked + .btnRadio {
 
 #blog_front {
   padding-top: 10%;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+#lastBlog {
+  width: 50%;
+  height: 50%;
 }

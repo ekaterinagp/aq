@@ -17,9 +17,8 @@ function fetchBlogPosts() {
 
 async function insertBlogsToDOM(posts) {
   let template = document.querySelector("template").content;
-  let divForLatest = document.createElement("div");
-
-  document.querySelector("#blog_front").appendChild(divForLatest);
+  let divForLastBlog = document.createElement("div");
+  document.querySelector("#blog_front").appendChild(divForLastBlog);
   for (let i = 0; i < posts.length; i++) {
     let clone = template.cloneNode(true);
     clone.querySelector("h2").textContent = posts[i].title.rendered;
@@ -29,13 +28,19 @@ async function insertBlogsToDOM(posts) {
       res => res.json()
     );
     console.log({ imgs });
-    clone.querySelector("#blogBG").style.backgroundImage =
-      "url(" + imgs.media_details.sizes.testimonials.source_url + ")";
+    clone.querySelector(".blogBG").style.backgroundImage =
+      "url(" + imgs.media_details.sizes.full.source_url + ")";
 
     document.querySelector("#blog_front").appendChild(clone);
   }
-  document.querySelector("#blogBG").style.height = "50%";
-  divForLatest.appendChild(document.querySelector("#blogBG"));
+  let allBlogs = document.querySelectorAll(".blogBG");
+  let latestBlog = allBlogs[0];
+  latestBlog.setAttribute("id", "lastBlog");
+  console.log({ latestBlog });
+  divForLastBlog.append(latestBlog);
+  // document.querySelector("#blogBG").style.width = "50%";
+  // document.querySelector("#blogBG").style.height = "50%";
+  // divForLatest.appendChild(document.querySelector(".blogBG"));
 }
 
 async function init() {

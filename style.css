@@ -184,9 +184,9 @@ display:block;
   display: grid;
   grid-template-rows: 1fr 0.5fr 2fr;
 }
-.wrapper_5_columns{
- display:grid;
- grid-template-columns: repeat(5, 1fr);
+.wrapper_5_columns {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .wrapper_5_rows {
@@ -275,8 +275,6 @@ display:block;
   align-self: center;
 }
 /* //reusable CSS ends */
-
-
 
 /* FRONTPAGE */
 #hero {
@@ -489,22 +487,22 @@ grid-template-rows: .5fr;
 #happyClients{
   position: relative;
 }
-.next{
-  position:absolute;
-  top:30vh;
+.next {
+  position: absolute;
+  top: 30vh;
   border: solid #2c2e3e;
   border-width: 0 5px 5px 0;
   display: inline-block;
   padding: 10px;
 }
 .arrowRight {
-  right:10vw;
+  right: 10vw;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
 
 .arrowLeft {
-  left:10vw;
+  left: 10vw;
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
@@ -513,7 +511,7 @@ grid-template-rows: .5fr;
   width: 70%;
   height: 60%;
   text-align: center;
-  margin:auto;
+  margin: auto;
 }
 #userImage{
   width:22%;
@@ -525,6 +523,7 @@ grid-template-rows: .5fr;
   margin:auto;
 }
 
+
 .carouselWrapper {
   width: 70%;
   margin: auto;
@@ -532,7 +531,6 @@ grid-template-rows: .5fr;
 .center{
   width:80%;
   margin:auto;
-  transform: translateY(-50%, -50%);
 }
 .client{
   text-align: left;
@@ -543,10 +541,11 @@ grid-template-rows: .5fr;
   margin: auto;
   padding: 5%;
   z-index: 100;
-  transition: transform .5s, opacity .5s, z-index .5s;
+  transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
 }
 
-.initial,.activeSlide {
+.initial,
+.activeSlide {
   opacity: 1;
   position: relative;
   z-index: 900;
@@ -557,7 +556,6 @@ grid-template-rows: .5fr;
 #name{
   display :inline;
 }
-
 
 .client.prev,
 .client.next {
@@ -573,6 +571,9 @@ grid-template-rows: .5fr;
 }
 
   /* blogposts */
+/* .clients {
+  height: 80%;
+} */
 
 #blogPosts {
   width: 100%;
@@ -588,7 +589,7 @@ width:60vw;
 margin: 0 auto;
 
 }
-#blogs .boxStyle{
+#blogs .boxStyle {
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -597,8 +598,8 @@ margin: 0 auto;
   margin: 1vw;
   justify-self: center;
 }
-.blogTitle{
-  background:white;
+.blogTitle {
+  background: white;
   position: absolute;
   width:28vw;
   height:15vh;
@@ -793,7 +794,7 @@ margin: 0 auto;
 }
 
 .price h1 {
-  margin-top:3em;
+  margin-top: 3em;
   color: #ef6461;
 }
 h1 > span {
@@ -803,8 +804,8 @@ h1 > span {
 }
 .abs {
   position: absolute;
-  padding:8% 5%;
-  margin:0;
+  padding: 8% 5%;
+  margin: 0;
   width: 100%;
   top: 0;
   left: 0;
@@ -965,7 +966,7 @@ svg {
   color: #ef6461;
   font-weight: bold;
 }
-.type{
+.type {
   padding: 0 5% 0 0;
   font-family: "Poppins", sans-serif;
 }
@@ -1046,51 +1047,51 @@ svg {
   height: 70%;
 }
 /*  FORM MEDIA QUERIES  */
-@media 
+ @media (max-width: 1024px) {}
 
 /*   FAQ PAGE   */
-.faq{
-  margin:5% 0;
+.faq {
+  margin: 5% 0;
 }
-.faq> section{
+.faq > section {
   border-radius: 10px;
   margin: auto;
-  width:50%;
+  width: 50%;
 }
-.faq_section{
-  transition: all .3s;
-  padding:1em;
-  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+.faq_section {
+  transition: all 0.3s;
+  padding: 1em;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  height:4em;
+  height: 4em;
 }
 
-.plus{
- display: inline;
- font-size: 1em;
- cursor: pointer;
- text-align: center;
- margin:0 1%;
+.plus {
+  display: inline;
+  font-size: 1em;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 1%;
 }
-.faq_section h4{
+.faq_section h4 {
   display: inline;
 }
-.answer{
-  margin-top:3em;
+.answer {
+  margin-top: 3em;
 }
 
-.show{
-  height:auto;
+.show {
+  height: auto;
 }
 
-@media (max-width: 1024px){
-  .masonry_grid{
-  columns: 2;
+@media (max-width: 1024px) {
+  .masonry_grid {
+    columns: 2;
   }
 }
-@media (max-width: 760px){
-  .masonry_grid{
-  columns: 1;
+@media (max-width: 760px) {
+  .masonry_grid {
+    columns: 1;
   }
 }
 .dropdown {
@@ -1189,4 +1190,27 @@ input:checked + .slider:before {
 input:checked + .btnRadio {
   transform:scale(1.1);
    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#blog_front h1 {
+  color: #ef6461;
+  column-span:all;
+}
+
+#blog_front {
+  padding-top: 10%;
+  columns:200px 4;
+}
+
+#lastBlog {
+  column-width: 50vw;
+}
+.blogBG{
+  height:auto;
+  break-inside: avoid;
+  padding: 5px;
+background-size: contain;
+background-repeat: no-repeat;
+width: 100%;
+/* height: auto; */
 }

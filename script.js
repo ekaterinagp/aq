@@ -342,7 +342,7 @@ let formItems = [
       labelFname.innerHTML = "First name";
       let inputFname = document.createElement("input");
       inputFname.setAttribute("type", "text");
-      inputFname.setAttribute("name", "first name");
+      inputFname.setAttribute("id", "first_name");
       inputFname.placeholder = "First name";
       divWrap_1.append(labelFname, inputFname);
       let labelLname = document.createElement("label");
@@ -350,7 +350,7 @@ let formItems = [
       labelLname.innerHTML = "Last name";
       let inputLname = document.createElement("input");
       inputLname.setAttribute("type", "text");
-      inputLname.setAttribute("name", "last name");
+      inputLname.setAttribute("id", "last_name");
       inputLname.placeholder = "Last name";
       let divWrap_2 = document.createElement("div");
       divWrap_2.append(labelLname, inputLname);
@@ -359,7 +359,7 @@ let formItems = [
       labelPhone.innerHTML = "Phone number";
       let inputPhone = document.createElement("input");
       inputPhone.setAttribute("type", "tel");
-      inputPhone.setAttribute("name", "phone");
+      inputPhone.setAttribute("id", "phone");
       inputPhone.placeholder = "Phone number";
       let divWrap_3 = document.createElement("div");
       divWrap_3.append(labelPhone, inputPhone);
@@ -368,14 +368,14 @@ let formItems = [
       labelemail.innerHTML = "Email";
       let inputEmail = document.createElement("input");
       inputEmail.setAttribute("type", "email");
-      inputEmail.setAttribute("name", "email");
+      inputEmail.setAttribute("id", "email");
       inputEmail.placeholder = "Email";
       let divWrap_4 = document.createElement("div");
       divWrap_4.append(labelemail, inputEmail);
       let whatsupCheckbox = document.createElement("input");
       whatsupCheckbox.setAttribute("type", "checkbox");
       whatsupCheckbox.setAttribute("value", "whatsUp");
-      whatsupCheckbox.setAttribute("name", "whatsUp");
+      whatsupCheckbox.setAttribute("id", "whatsUp");
       let pForWhatsUp = document.createElement("p");
       pForWhatsUp.setAttribute("class", "inline");
       pForWhatsUp.textContent = "I agree to be contected by WhatsApp";
@@ -384,17 +384,18 @@ let formItems = [
       let agreeCheckbox = document.createElement("input");
       agreeCheckbox.setAttribute("type", "checkbox");
       agreeCheckbox.setAttribute("value", "gdpr");
-      agreeCheckbox.setAttribute("name", "gdpr");
+      agreeCheckbox.setAttribute("id", "gdpr");
+      agreeCheckbox.required = true;
       let pForGdpr = document.createElement("p");
       pForGdpr.setAttribute("class", "inline");
       pForGdpr.innerHTML =
-        'I agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a> of ArchitectureQuote IVS"';
+        'I agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a> of ArchitectureQuote IVS';
       let divForAgree = document.createElement("div");
       divForAgree.append(agreeCheckbox, pForGdpr);
       let newsCheckbox = document.createElement("input");
       newsCheckbox.setAttribute("type", "checkbox");
       newsCheckbox.setAttribute("value", "news");
-      newsCheckbox.setAttribute("name", "news");
+      newsCheckbox.setAttribute("id", "news");
       let pForNews = document.createElement("p");
       pForNews.setAttribute("class", "inline");
       pForNews.innerHTML =
@@ -435,16 +436,17 @@ let formItems = [
 let userAnswers = {
   type_project: "",
   type_of_building: "",
-  complexity: "",
+  complexity: "Standard",
   size: "",
   task: [],
-  floor: "",
+  floor: "Ground floor only",
   basement: "",
   name: "",
   last_name: "",
   phone: "",
   email: "",
-  whatsApp: ""
+  whatsApp: "",
+  news: ""
 };
 
 let startProjectBtns = document.querySelectorAll(".freeEst");
@@ -504,68 +506,67 @@ function nextElement() {
   }
 
   if (formItems[currentFormItem].id == 3) {
-    document.querySelector("#complexity").addEventListener("blur", function() {
-      listenForValue("#complexity", "complexity");
-    });
-    document.querySelector("#size").addEventListener("blur", function() {
-      listenForValue("#size", "size");
-    });
-
-    document.querySelector("#floor").addEventListener("blur", function() {
-      listenForValue("#floor", "floor");
-    });
-    document.querySelector("#toggleBox").addEventListener("change", () => {
-      if (document.querySelector("#toggleBox").checked) {
-        userAnswers.basement = "yes";
-        console.log("basememnt");
-      } else {
-        userAnswers.basement = "no";
-        console.log(" no basememnt");
-      }
-    });
-
-    document.querySelector("#design6").addEventListener("change", () => {
-      if (document.querySelector("#design6").checked) {
-        document.querySelector("#design1").checked = true;
-        document.querySelector("#design2").checked = true;
-        document.querySelector("#design3").checked = true;
-        document.querySelector("#design4").checked = true;
-        document.querySelector("#design5").checked = true;
-        userAnswers.task = document.querySelector("#design6").value;
-        console.log(userAnswers.task);
-      } else {
-        document.querySelector("#design1").checked = false;
-        document.querySelector("#design2").checked = false;
-        document.querySelector("#design3").checked = false;
-        document.querySelector("#design4").checked = false;
-        document.querySelector("#design5").checked = false;
-      }
-    });
-
-    let allSelected = document.querySelectorAll(".checkDesign");
-    let checkedTasksArray = [];
-    //modify in final answers, if all there, then the answer is all
-    allSelected.forEach(selected => {
-      selected.addEventListener("click", () => {
-        if (selected.checked == true) {
-          checkedTasksArray.push(selected.value);
-          if (selected.value == "all") {
-            checkedTasksArray = ["all"];
-          }
-          userAnswers.task = checkedTasksArray;
-
-          console.log(userAnswers.task);
-        }
-      });
-    });
+    listenerForChange();
     //why this doesn't work when select first task then square?
-    document.querySelector("#projectDetails").addEventListener("change", () => {
-      if (userAnswers.task && userAnswers.size) {
-        setNextBtnDisabled(false);
+    // document.querySelector("#projectDetails").addEventListener("change", () => {
+    //   setTimeout(() => {
+    //     console.log(userAnswers);
+    //     if (userAnswers.task && userAnswers.size) {
+    //       setNextBtnDisabled(false);
+    //     }
+    //   }, 100);
+    // });
+  }
+
+  if (formItems[currentFormItem].id == 4) {
+    document.querySelector("#next").style.display = "none";
+    let submitBtn = document.createElement("input");
+    submitBtn.value = "Submit";
+    submitBtn.setAttribute("type", "submit");
+    submitBtn.setAttribute("id", "submitBtn");
+    submitBtn.disabled = true;
+    document.querySelector("#buttonsForm").appendChild(submitBtn);
+    listenerForInput("#first_name", "name");
+    listenerForInput("#last_name", "last_name");
+    listenerForInput("#phone", "phone");
+    listenerForInput("#email", "email");
+    document.querySelector("#whatsUp").addEventListener("click", () => {
+      if (document.querySelector("#whatsUp").checked) {
+        userAnswers.whatsApp = "yes";
+      } else {
+        userAnswers.whatsApp = "no";
+      }
+      console.log(userAnswers.whatsApp);
+    });
+    document.querySelector("#news").addEventListener("click", () => {
+      if (document.querySelector("#news").checked) {
+        userAnswers.news = "yes";
+      } else {
+        userAnswers.news = "no";
+      }
+    });
+    document.querySelector("#contactForm").addEventListener("change", () => {
+      if (
+        (document.querySelector("#gdpr").checked &&
+          userAnswers.name &&
+          userAnswers.phone) ||
+        (document.querySelector("#gdpr").checked &&
+          userAnswers.name &&
+          userAnswers.email)
+      ) {
+        submitBtn.disabled = false;
       }
     });
   }
 }
+
+const listenerForInput = (inputStr, answerTypeStr) => {
+  let input = document.querySelector(inputStr);
+  input.addEventListener("blur", () => {
+    userAnswers[answerTypeStr] = input.value;
+    console.log(userAnswers[answerTypeStr]);
+  });
+};
 
 const insertSavedAnswersRadio = (sectionStr, answerTypeStr) => {
   let allRadios = document
@@ -582,6 +583,7 @@ const insertSavedAnswersRadio = (sectionStr, answerTypeStr) => {
 
 function prevElement() {
   setNextBtnDisabled(false);
+
   let form = document.querySelector("#form");
   form.querySelector("h3").textContent = "";
   form.querySelector("#options").innerHTML = "";
@@ -589,19 +591,104 @@ function prevElement() {
   form.querySelector("h3").textContent = currentItem.txt;
 
   options.appendChild(formItems[currentFormItem].options());
+
   if (formItems[currentFormItem].id == 1)
     insertSavedAnswersRadio("projectType", "type_project");
   if (formItems[currentFormItem].id == 2)
     insertSavedAnswersRadio("buildingType", "type_of_building");
   if (formItems[currentFormItem].id == 3) {
+    document.querySelector("#submitBtn").style.display = "none";
+    document.querySelector("#next").style.display = "block";
+
     document.querySelector("#complexity").value = userAnswers.complexity;
     document.querySelector("#size").value = userAnswers.size;
     document.querySelector("#floor").value = userAnswers.floor;
     if (userAnswers.basement == "yes") {
       document.querySelector("#toggleBox").checked = true;
     }
-    //wrtie function which takes array with values and set checked to true to those checkbox where value matches with the array value
+    insertCheckBoxForTask();
+    listenerForChange();
   }
+}
+
+function listenerForChange() {
+  document.querySelector("#complexity").addEventListener("click", function() {
+    listenForValue("#complexity", "complexity");
+  });
+  document.querySelector("#size").addEventListener("keyup", function() {
+    listenForValue("#size", "size");
+  });
+
+  document.querySelector("#floor").addEventListener("click", function() {
+    listenForValue("#floor", "floor");
+  });
+  document.querySelector("#toggleBox").addEventListener("change", () => {
+    if (document.querySelector("#toggleBox").checked) {
+      userAnswers.basement = "yes";
+      console.log("basememnt");
+    } else {
+      userAnswers.basement = "no";
+      console.log(" no basememnt");
+    }
+  });
+  checkAllBox();
+  let allSelected = document.querySelectorAll(".checkDesign");
+  let checkedTasksArray = [];
+  //modify in final answers, if all there, then the answer is all
+  allSelected.forEach(selected => {
+    selected.addEventListener("click", () => {
+      if (selected.checked == true) {
+        checkedTasksArray.push(selected.value);
+        // if (selected.value == "all") {
+        //   checkedTasksArray = ["all"];
+        // }
+        userAnswers.task = checkedTasksArray;
+
+        console.log(userAnswers.task);
+      }
+    });
+  });
+}
+
+//ugly, rewrite
+function checkAllBox() {
+  document.querySelector("#design6").addEventListener("change", () => {
+    if (document.querySelector("#design6").checked) {
+      document.querySelector("#design1").checked = true;
+      document.querySelector("#design2").checked = true;
+      document.querySelector("#design3").checked = true;
+      document.querySelector("#design4").checked = true;
+      document.querySelector("#design5").checked = true;
+      userAnswers.task = document.querySelector("#design6").value;
+      console.log(userAnswers.task);
+    } else {
+      document.querySelector("#design1").checked = false;
+      document.querySelector("#design2").checked = false;
+      document.querySelector("#design3").checked = false;
+      document.querySelector("#design4").checked = false;
+      document.querySelector("#design5").checked = false;
+    }
+  });
+}
+
+function insertCheckBoxForTask() {
+  console.log(userAnswers.task);
+  let allCheckbox = document.querySelectorAll(".checkDesign");
+  console.log(allCheckbox);
+
+  if (userAnswers.task.includes("all")) {
+    allCheckbox.forEach(checkBox => {
+      checkBox.checked = true;
+    });
+  }
+
+  allCheckbox.forEach(checkBox => {
+    // let found = userAnswers.task.find(task => task == checkBox.value);
+    // if (found) checkBox.checked = true;
+    if (userAnswers.task.includes(checkBox.value)) {
+      checkBox.checked = true;
+    }
+  });
 }
 
 function nextItem() {
@@ -639,10 +726,14 @@ function listenerForRadios(formType, answerType) {
 }
 
 function listenForValue(itemIDstr, answerTypestr) {
-  let formComplexity = document.getElementById("projectDetails");
-  let selectedItem = formComplexity.querySelector(itemIDstr);
+  let form = document.getElementById("projectDetails");
+  let selectedItem = form.querySelector(itemIDstr);
   userAnswers[answerTypestr] = selectedItem.value;
   console.log(userAnswers[answerTypestr]);
+
+  if (userAnswers.task && userAnswers.size) {
+    setNextBtnDisabled(false);
+  }
 }
 
 //clicking through the items
@@ -840,7 +931,7 @@ function fetchTestimonials() {
       });
   });
 }
-function fetchBlogPosts(){
+function fetchBlogPosts() {
   let endpoint = "https://architecturequote.com/wp-json/wp/v2/posts";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
@@ -851,12 +942,12 @@ function fetchBlogPosts(){
   });
 }
 
-
 async function insertTestimonialsToDOM(testimonials) {
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
     let clone = template.cloneNode(true);
-    clone.querySelector("#textTestimonials").innerHTML = testimonials[i].content.rendered;
+    clone.querySelector("#textTestimonials").innerHTML =
+      testimonials[i].content.rendered;
     clone.querySelector("#title").textContent = testimonials[i].title.rendered;
     clone.querySelector("#name").textContent = testimonials[i].authors_name;
     clone.querySelector("#company").textContent = testimonials[i].company;
@@ -873,14 +964,13 @@ async function insertTestimonialsToDOM(testimonials) {
       );
 
     document.querySelector("#testimonials").appendChild(clone);
-    
   }
   let clients = document.querySelectorAll(".client");
   initCarousel(clients);
 }
 // project._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
 
-async function insertBlogsToDom(blogPosts){
+async function insertBlogsToDom(blogPosts) {
   const section = document.querySelector("#blogs");
   let templateBlogs = document.querySelector("#blogsTemplate").content;
   for (let i = 0; i < blogPosts.length; i++) {
@@ -891,91 +981,86 @@ async function insertBlogsToDom(blogPosts){
       blogPosts[i]._links["wp:featuredmedia"][0].href
     ).then(res => res.json());
     // console.log({ hrefData });`id -u
-    clone.querySelector(".boxStyle").style.backgroundImage = "url(" + hrefDataUrl.media_details.sizes.medium_large.source_url + ")";
+    clone.querySelector(".boxStyle").style.backgroundImage =
+      "url(" + hrefDataUrl.media_details.sizes.medium_large.source_url + ")";
     section.appendChild(clone);
   }
 }
 
 /*   TESTIMONIALS CAROUSEL   */
 let itemClassName = "client boxStyle",
-slide = 0,
-moving = true; 
-  
-function initCarousel(clients) {   
-      clients[clients.length - 1].classList.add("prev");
-      clients[0].classList.add("activeSlide");
-      clients[1].classList.add("next");
-    const nextBtn = document.querySelector(".arrowRight");
-    const  prevBtn= document.querySelector(".arrowLeft");
-  
-      nextBtn.addEventListener('click', function(){
-        moveNext(clients)});
-      prevBtn.addEventListener('click',function(){
-        movePrev(clients)});
+  slide = 0,
+  moving = true;
+
+function initCarousel(clients) {
+  clients[clients.length - 1].classList.add("prev");
+  clients[0].classList.add("activeSlide");
+  clients[1].classList.add("next");
+  const nextBtn = document.querySelector(".arrowRight");
+  const prevBtn = document.querySelector(".arrowLeft");
+
+  nextBtn.addEventListener("click", function() {
+    moveNext(clients);
+  });
+  prevBtn.addEventListener("click", function() {
+    movePrev(clients);
+  });
+}
+
+// Disable interaction by setting 'moving' to true for the same duration as our transition (0.5s = 500ms)
+// function disableInteraction() {
+//   moving = true;
+//   setTimeout(function(){
+//     moving = false
+//   }, 500);
+// }
+
+function moveCarouselTo(slide, clients) {
+  let newPrevious = slide - 1,
+    newNext = slide + 1,
+    oldPrevious = slide - 2,
+    oldNext = slide + 2;
+
+  if (clients.length - 1 > 3) {
+    if (newPrevious <= 0) {
+      oldPrevious = clients.length - 1;
+    } else if (newNext >= clients.length - 1) {
+      oldNext = 0;
     }
-  
-    // Disable interaction by setting 'moving' to true for the same duration as our transition (0.5s = 500ms)
-    // function disableInteraction() {
-    //   moving = true;
-    //   setTimeout(function(){
-    //     moving = false
-    //   }, 500);
-    // }
-  
- function moveCarouselTo(slide, clients) {
-   let newPrevious = slide - 1,
-            newNext = slide + 1,
-            oldPrevious = slide - 2,
-            oldNext = slide + 2;
-  
-      
-        if ((clients.length - 1) > 3) {
-  
-            if (newPrevious <= 0) {
-            oldPrevious = (clients.length - 1);
-          } else if (newNext >= (clients.length - 1)){
-            oldNext = 0;
-          }
-             if (slide === 0) {
-            newPrevious = (clients.length - 1);
-            oldPrevious = (clients.length - 2);
-            oldNext = (slide + 1);
-          } else if (slide === (clients.length -1)) {
-            newPrevious = (slide - 1);
-            newNext = 0;
-            oldNext = 1;
-          }
-          clients[oldPrevious].className = itemClassName;
-          clients[oldNext].className = itemClassName;
-          clients[newPrevious].className = itemClassName + " prev";
-          clients[slide].className = itemClassName + " activeSlide";
-          clients[newNext].className = itemClassName + " next";
-        }
-      }
-  
- function moveNext(clients) {
-        if (slide === (clients.length - 1)) {
-          slide = 0;
-        } else {
-          slide++;
-        }
-        moveCarouselTo(slide, clients);
+    if (slide === 0) {
+      newPrevious = clients.length - 1;
+      oldPrevious = clients.length - 2;
+      oldNext = slide + 1;
+    } else if (slide === clients.length - 1) {
+      newPrevious = slide - 1;
+      newNext = 0;
+      oldNext = 1;
     }
-  
+    clients[oldPrevious].className = itemClassName;
+    clients[oldNext].className = itemClassName;
+    clients[newPrevious].className = itemClassName + " prev";
+    clients[slide].className = itemClassName + " activeSlide";
+    clients[newNext].className = itemClassName + " next";
+  }
+}
+
+function moveNext(clients) {
+  if (slide === clients.length - 1) {
+    slide = 0;
+  } else {
+    slide++;
+  }
+  moveCarouselTo(slide, clients);
+}
+
 function movePrev(clients) {
-
-        if (slide === 0) {
-          slide = (clients.length - 1);
-        } else {
-          slide--;
-        }
-        moveCarouselTo(slide, clients);
-    }
-  
-   
-  
-  
-
+  if (slide === 0) {
+    slide = clients.length - 1;
+  } else {
+    slide--;
+  }
+  moveCarouselTo(slide, clients);
+}
 
 async function init() {
   const testimonials = await fetchTestimonials();
@@ -984,5 +1069,4 @@ async function init() {
   // console.log({ testimonials });
   insertTestimonialsToDOM(testimonials);
   insertBlogsToDom(blogPosts);
- 
 }

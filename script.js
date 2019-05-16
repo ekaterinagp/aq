@@ -41,7 +41,7 @@ let formItems = [
       ];
       let form = document.createElement("form");
       form.setAttribute("id", "projectType");
-      form.setAttribute("class", "wrapper_4_columns");
+      // form.setAttribute("class", "wrapper_4_columns");
       values.forEach(value => {
         let divForValue = document.createElement("div");
         let label = document.createElement("label");
@@ -118,7 +118,7 @@ let formItems = [
       ];
       let form = document.createElement("form");
       form.setAttribute("id", "buildingType");
-      form.setAttribute("class", "wrapper_3_columns");
+      // form.setAttribute("class", "wrapper_3_columns");
       values.forEach(value => {
         let divForValue = document.createElement("div");
         let label = document.createElement("label");
@@ -335,7 +335,7 @@ let formItems = [
     options: function() {
       let form = document.createElement("form");
       form.setAttribute("id", "contactForm");
-      form.setAttribute("class", "wrapper_5_rows");
+      // form.setAttribute("class", "wrapper_5_rows");
       let divWrap_1 = document.createElement("div");
       let labelFname = document.createElement("label");
       labelFname.setAttribute("for", "fName");
@@ -389,7 +389,7 @@ let formItems = [
       let pForGdpr = document.createElement("p");
       pForGdpr.setAttribute("class", "inline");
       pForGdpr.innerHTML =
-        'I agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a> of ArchitectureQuote IVS';
+        'I agree to the <a href="" class="link" >Terms of Service</a> and <a href="" class="link">Privacy Policy</a> of ArchitectureQuote IVS';
       let divForAgree = document.createElement("div");
       divForAgree.append(agreeCheckbox, pForGdpr);
       let newsCheckbox = document.createElement("input");
@@ -458,7 +458,13 @@ startProjectBtns.forEach(btn => {
     insertDOMforForm();
   });
 });
-
+let closeFormBtn = document.querySelectorAll(".close");
+closeFormBtn.forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    // console.log(btn.parentElement.parentElement);
+    btn.parentElement.parentElement.classList.add("hidden");
+  })
+})
 function setNextBtnDisabled(bool) {
   document.getElementById("next").disabled = bool;
 }
@@ -524,6 +530,7 @@ function nextElement() {
     submitBtn.value = "Submit";
     submitBtn.setAttribute("type", "submit");
     submitBtn.setAttribute("id", "submitBtn");
+    submitBtn.setAttribute("class", "orange_button");
     submitBtn.disabled = true;
     document.querySelector("#buttonsForm").appendChild(submitBtn);
     listenerForInput("#first_name", "name");

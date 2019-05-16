@@ -912,7 +912,7 @@ svg {
 }
 #form {
   position: absolute;
-  min-width: 80%;
+  /* min-width: 80%; */
   width: auto;
   height: 90%;
   background-color: aliceblue;
@@ -952,9 +952,9 @@ svg {
   -webkit-appearance: none;
 }
 
-/* #next {
+#next {
   float: right;
-} */
+}
 
 .hidden {
   display: none;

@@ -16,25 +16,25 @@ let formItems = [
       let values = [
         {
           title: "New construction",
-          img: "construction.png",
+          img: "office.png",
           textAbout:
             "Constructing a new house from scratch. This includes preparation of the construction site, materials and labor"
         },
         {
           title: "Structural modification",
-          img: "roof.png",
+          img: "cabin.jpg",
           textAbout:
-            "The building is already complete but needs to be modified, altered or improved."
+            "The building is already complete but needs to be modified, altered or improved. This includes expanding the livable area and lorem ipsum"
         },
         {
           title: "Renovation",
-          img: "work.png",
+          img: "design.png",
           textAbout:
             "The building is complete and needs to be renovated, repainted or completely restored. "
         },
         {
           title: "Other",
-          img: "architect.png",
+          img: "other.jpg",
           textAbout:
             "The building is complete and needs to be renovated, repainted or completely restored. "
         }
@@ -54,11 +54,10 @@ let formItems = [
         description.textContent = value.textAbout;
         let divWrapper = document.createElement("div");
         divWrapper.setAttribute("class", "btnRadio");
-        let nameInput = document.createElement("h3");
+        let nameInput = document.createElement("div");
         nameInput.textContent = value.title;
-        let img = document.createElement("div");
-        img.style.backgroundImage = "url(img/" + value.img + ")";
-        // setAttribute("src", "img/" + value.img);
+        let img = document.createElement("img");
+        img.setAttribute("src", "img/" + value.img);
         img.setAttribute("class", "imgForm");
 
         divWrapper.appendChild(img);
@@ -129,7 +128,7 @@ let formItems = [
         theInput.setAttribute("value", value.title);
         let divWrapper = document.createElement("div");
         divWrapper.setAttribute("class", "btnRadio");
-        let nameInput = document.createElement("h3");
+        let nameInput = document.createElement("div");
         nameInput.textContent = value.title;
         let img = document.createElement("img");
         img.setAttribute("src", "img/" + value.img);

@@ -51,12 +51,6 @@ ul {
 li {
   display: inline;
 }
-input,
-select{
-  border:none;
-  border-bottom:.5px solid rgba(0, 0, 0, 0.3);
-  padding: .5em .5em .5em 0;
-}
 /*  HEADER  */
 header {
   width: 100%;
@@ -101,11 +95,11 @@ footer li {
 }
 footer input {
   background-color: transparent;
+  border: none;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
 }
 
 /* //reusable CSS */
-
-
 .boxStyle{
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -132,13 +126,7 @@ footer input {
 .hero_text h1 {
   font-size: 3em;
 }
-.form_button{
-border:none;
-border-radius:5px;
-padding: .7em 2em;
-font-weight:700;
-display:block;
-}
+
 .orange_button {
   border-radius: 5px;
   background-color: #ef6461;
@@ -915,6 +903,7 @@ h1 > span {
 #contact_form input[type="text"],
 #contact_form input[type="email"] {
   border-radius: 5px;
+  padding: 2%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 #contact_form input[type="text"]:hover,
@@ -982,11 +971,12 @@ svg {
 }
 #form {
   position: fixed;
-  /* min-width: 80%; */
-  width: 80vw;
+  min-width: 80%;
+
+  width: auto;
+  height: 80vh;
   background-color: white;
-  margin:10vw; 
-  padding:2% 5%; 
+  margin:10vh;  
 }
 
 .gridForForm {
@@ -995,35 +985,30 @@ svg {
 }
 
 .imgForm {
-  width: 100%;
-  height:60%;
-  background-size:cover;
-  background-repeat: no-repeat;
-  border-radius: 10px 10px 0 0 ;
+  width: 55%;
 }
-
+.btnRadio>p{
+  text-align: left;
+}
 .btnRadio {
-  transition: all .3s;
+  height:100%;
+  width: 30%;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: relative;
-  text-align: left;
+  text-align: center;
   -webkit-appearance: none;
-  align-self: center;
-  margin:auto;
+  padding: .5em;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+margin:5%;
+  /* grid-template-columns: 3fr 1fr; */
   cursor: pointer;
-  width: 90%;
-  
-}
-#projectType .btnRadio{
-  height: 35vh;
-}
-#buildingType .btnRadio{
-  height:15vh;
-}
-.btnRadio>h3, .btnRadio>p{
-  padding: 0 2%;
-  font-size: .8em;
+  height: 30%;
+  width: 80%;
+  /* background-color: #0c0522; */
+  /* border: 1px solid #545454; */
 }
 #buildingType input[type="radio"],
 #projectType input[type="radio"] {
@@ -1045,8 +1030,7 @@ svg {
 #options {
   height: 70%;
 }
-/*  FORM MEDIA QUERIES  */
-@media 
+
 
 /*   FAQ PAGE   */
 .faq{
@@ -1117,7 +1101,6 @@ svg {
   display: inline-block;
   width: 60px;
   height: 34px;
-  margin: auto 0;
 }
 
 .switch input {
@@ -1174,19 +1157,16 @@ input:checked + .slider:before {
 
 #projectDetails {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  padding: 0 4em;
+  grid-template-columns: 2fr 2fr;
+  padding: 2em;
 }
-#projectDetails>div:last-child{
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  
-}
+
 .inline {
   display: inline;
 }
 
 input:checked + .btnRadio {
-  transform:scale(1.1);
-   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background-color: green;
 }
+
+

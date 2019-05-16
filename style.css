@@ -476,6 +476,13 @@ footer input {
   background-repeat: no-repeat;
 }
 
+#blogBG {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+}
+
 .carouselWrapper {
   overflow: hidden;
   width: 70%;
@@ -1099,4 +1106,12 @@ input:checked + .slider:before {
 
 input:checked + .btnRadio {
   background-color: green;
+}
+
+#blog_front h1 {
+  color: #ef6461;
+}
+
+#blog_front {
+  padding-top: 10%;
 }

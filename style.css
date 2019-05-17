@@ -8,13 +8,13 @@ h2,
 h3 {
   font-family: "Poppins", sans-serif;
 }
-h1{
+h1 {
   font-size: 2em;
 }
-h2{
+h2 {
   font-size: 1.5em;
 }
-h3{
+h3 {
   font-size: 1em;
 }
 p{
@@ -52,10 +52,10 @@ li {
   display: inline;
 }
 input,
-select{
-  border:none;
-  border-bottom:.5px solid rgba(0, 0, 0, 0.3);
-  padding: .5em .5em .5em 0;
+select {
+  border: none;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+  padding: 0.5em 0.5em 0.5em 0;
 }
 /*  HEADER  */
 header {
@@ -105,8 +105,7 @@ footer input {
 
 /* //reusable CSS */
 
-
-.boxStyle{
+.boxStyle {
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -122,7 +121,7 @@ footer input {
   background-size: cover;
 }
 .hero_text {
-  padding: 5em;
+  padding: 2em;
   align-self: center;
 }
 .hero_text h1,
@@ -130,23 +129,31 @@ footer input {
   text-align: left;
 }
 .hero_text h1 {
-  font-size: 3em;
+  font-size: 2.5em;
 }
-.back_button{
-border:none;
-border-radius:5px;
-padding: .7em 2em;
-font-weight:700;
-display:block;
-background:#2c2e3e;
-color:white;
-transition:all .3s
+#textHero {
+  font-size: 1.3em;
+  padding-right: 5em;
+}
+
+.pForHero {
+  font-size: 1.1em;
+  padding-right: 5.5em;
+}
+.back_button {
+  border: none;
+  border-radius: 5px;
+  padding: 0.7em 2em;
+  font-weight: 700;
+  display: block;
+  background: #2c2e3e;
+  color: white;
+  transition: all 0.3s;
 }
 .orange_button:disabled,
-.back_button:disabled{
-  background:lightgrey;
-  opacity: .8;
-
+.back_button:disabled {
+  background: lightgrey;
+  opacity: 0.8;
 }
 .orange_button {
   border-radius: 5px;
@@ -157,7 +164,7 @@ transition:all .3s
   border: none;
   font-weight: 700;
   display: block;
-  transition:all .3s
+  transition: all 0.3s;
 }
 .link {
   color: #ef6461;
@@ -212,7 +219,7 @@ transition:all .3s
 }
 
 .textPadding {
-  width:75%;
+  width: 75%;
   margin: auto;
 }
 .section_title,
@@ -255,11 +262,11 @@ transition:all .3s
 .widthHeight100 {
   width: 100%;
   height: 100%;
-  margin:5% 0;
+  margin: 5% 0;
 }
-.fullScreen{
-  height:90vh;
-  margin:5% 0;
+.fullScreen {
+  height: 90vh;
+  margin: 5% 0;
 }
 .viewheight {
   max-height: 100vh;
@@ -298,12 +305,12 @@ transition:all .3s
   height: 100%;
   margin: 2% 0;
 } */
-#cons img{
-  width:100%;
-  align-self:center;
+#cons img {
+  width: 100%;
+  align-self: center;
 }
-#section_whatyouget{
-grid-template-rows: .5fr;
+#section_whatyouget {
+  grid-template-rows: 0.5fr;
 }
 
 .platformBox {
@@ -318,7 +325,7 @@ grid-template-rows: .5fr;
 
 #types,
 #sections {
-  padding:5% 0;
+  padding: 5% 0;
   position: relative;
 }
 .gradient {
@@ -438,8 +445,8 @@ grid-template-rows: .5fr;
   margin: 0;
 }
 
-#sections{
-  padding:5% 0;
+#sections {
+  padding: 5% 0;
 }
 
 .sectionWrapper {
@@ -474,7 +481,7 @@ grid-template-rows: .5fr;
   bottom: 0;
   right: 0;
   width: 80%;
-  height:80%;
+  height: 80%;
   z-index: -1;
   opacity: 0.2;
   color: #2c2e3e;
@@ -493,7 +500,7 @@ grid-template-rows: .5fr;
 } */
 
 /*   Testimonials   */
-#happyClients{
+#happyClients {
   position: relative;
 }
 .next {
@@ -522,30 +529,35 @@ grid-template-rows: .5fr;
   text-align: center;
   margin: auto;
 }
-#userImage{
-  width:22%;
+#userImage {
+  width: 22%;
   border-radius: 50%;
-  position: absolute; 
-  top:-8vh;
-  left:0;
-  right:0;
-  margin:auto;
+  position: absolute;
+  top: -8vh;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
-
+head .blogBG {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  /* height: auto; */
+}
 .carouselWrapper {
   width: 70%;
   margin: auto;
 }
-.center{
-  width:80%;
-  margin:auto;
+.center {
+  width: 80%;
+  margin: auto;
 }
-.client{
+.client {
   text-align: left;
   opacity: 0;
   position: absolute;
-  top:7vh;
+  top: 7vh;
   width: 100%;
   margin: auto;
   padding: 5%;
@@ -559,11 +571,11 @@ grid-template-rows: .5fr;
   position: relative;
   z-index: 900;
 }
-.client>div{
+.client > div {
   text-align: right;
 }
-#name{
-  display :inline;
+#name {
+  display: inline;
 }
 
 .client.prev,
@@ -579,7 +591,7 @@ grid-template-rows: .5fr;
   transform: translateX(100%);
 }
 
-  /* blogposts */
+/* blogposts */
 /* .clients {
   height: 80%;
 } */
@@ -593,29 +605,28 @@ grid-template-rows: .5fr;
   text-align: center;
 }
 
-#blogs{
-width:60vw;
-margin: 0 auto;
-
+#blogs {
+  width: 60vw;
+  margin: 0 auto;
 }
 #blogs .boxStyle {
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
-  width:28vw;
-  height:35vh;
+  width: 28vw;
+  height: 35vh;
   margin: 1vw;
   justify-self: center;
 }
 .blogTitle {
   background: white;
   position: absolute;
-  width:28vw;
-  height:15vh;
+  width: 28vw;
+  height: 15vh;
   border-radius: 0 0 10px 10px;
-  padding:5% 2%;
-  margin:0;
-  bottom:0;
+  padding: 5% 2%;
+  margin: 0;
+  bottom: 0;
   font-size: 1.1em;
 }
 /* PLATFORM PAGE  */
@@ -981,36 +992,35 @@ svg {
 }
 
 /*  Free estimation form  */
-.close{
-  cursor:pointer;
+.close {
+  cursor: pointer;
   font-size: 1em;
-    position: absolute;
-    margin: 5%;
-    right: 0;
+  position: absolute;
+  margin: 5%;
+  right: 0;
 }
-.formWrapper{
-  position: fixed; 
+.formWrapper {
+  position: fixed;
   z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; 
+  width: 100%;
   height: 100%;
-  overflow: auto; 
+  overflow: auto;
   /* padding:5%; */
-  background-color: rgba(0,0,0,0.6);
-
+  background-color: rgba(0, 0, 0, 0.6);
 }
-#buttonsForm{
+#buttonsForm {
   margin-top: 1%;
 }
 #form {
   position: fixed;
   /* min-width: 80%; */
   width: 80vw;
-  max-height:100%;
+  max-height: 100%;
   background-color: white;
-  margin:0 10vw; 
-  padding: 0 5% 2%; 
+  margin: 0 10vw;
+  padding: 0 5% 2%;
   overflow: auto;
 }
 
@@ -1018,40 +1028,41 @@ svg {
   display: grid;
   grid-template-rows: 1fr 1fr 4fr 1fr;
 }
-#projectType{
-  display:grid;
+#projectType {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 .imgForm {
   width: 100%;
-  height:60%;
-  background-size:cover;
+  height: 60%;
+  background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 10px 10px 0 0 ;
+  border-radius: 10px 10px 0 0;
 }
 
 .btnRadio {
-  transition: all .3s;
+  transition: all 0.3s;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: relative;
   text-align: left;
   -webkit-appearance: none;
   align-self: center;
-  margin:auto;
+  margin: auto;
   cursor: pointer;
   width: 90%;
 }
-#projectType .btnRadio{
+#projectType .btnRadio {
   height: 50vh;
 }
 
-#buildingType .btnRadio{
-  height:25vh;
+#buildingType .btnRadio {
+  height: 25vh;
 }
-.btnRadio>h3, .btnRadio>p{
+.btnRadio > h3,
+.btnRadio > p {
   padding: 0 2%;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 #buildingType input[type="radio"],
 #projectType input[type="radio"] {
@@ -1059,32 +1070,34 @@ svg {
   -webkit-appearance: none;
 }
 
-#next, #prev, #submitBtn{
-  margin:5% 10%;
+#next,
+#prev,
+#submitBtn {
+  margin: 5% 10%;
 }
-#next, #submitBtn {
+#next,
+#submitBtn {
   grid-column: 4;
 }
 
 .hidden {
   display: none;
 }
-#contactForm{
-  width:60%;
-  margin:auto;
+#contactForm {
+  width: 60%;
+  margin: auto;
 }
-#contactForm>div:first-child,
-#contactForm>div:nth-child(2),
-#contactForm>div:nth-child(3),
-#contactForm>div:nth-child(4)
-{
+#contactForm > div:first-child,
+#contactForm > div:nth-child(2),
+#contactForm > div:nth-child(3),
+#contactForm > div:nth-child(4) {
   display: grid;
-  grid-template-columns: .5fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
   margin: 1em 0;
 }
 
-#contactForm label{
-  margin-right:8%;
+#contactForm label {
+  margin-right: 8%;
   text-align: right;
 }
 
@@ -1151,30 +1164,31 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-#projectDetails, #buildingType {
+#projectDetails,
+#buildingType {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));;
-  margin:auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: auto;
 }
-#projectDetails{
-padding: 0 4em;
-width:70%;
+#projectDetails {
+  padding: 0 4em;
+  width: 70%;
 }
-#projectDetails>div:last-child{
+#projectDetails > div:last-child {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  
 }
 .inline {
   display: inline;
 }
 
 input:checked + .btnRadio {
-  transform:scale(1.1);
-   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 /*  FORM MEDIA QUERIES  */
- @media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+}
 
 /*   FAQ PAGE   */
 .faq {
@@ -1272,57 +1286,89 @@ input:checked + .btnRadio {
   display: block;
 }
 
-
-
 #blog_front h1 {
   color: #ef6461;
-  column-span:all;
+  column-span: all;
 }
 
 #blog_front {
   padding-top: 10%;
-  columns:200px 4;
+  /* display: grid;
+  grid-template-columns: 3fr 2fr; */
 }
 
-#lastBlog {
+#latestBlog {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 60%;
+}
+
+#latestBlog_text_blog p,
+#latestBlog_text_blog,
+#latestBlog h2,
+#latestBlog_date {
+  background-color: rgba(0, 0, 0, 0.74);
+  margin: 0;
+  color: white;
+}
+
+/* #latestBlog_text_blog {
+  margin: 0;
+}
+/* 
+#latestBlog h2 {
+  margin: 0;
+} */
+/* columns:200px 4;
+} */
+
+/* #lastBlog {
   column-width: 50vw;
 }
-.blogBG{
-  height:auto;
+.blogBG {
+  height: auto;
   break-inside: avoid;
   padding: 5px;
-background-size: contain;
-background-repeat: no-repeat;
-width: 100%;
-/* height: auto; */
-}
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  /* height: auto; */
+/* } */
 
 @media (max-width: 400px) {
-
-  p,label,span{
-    font-size: .8em;
+  p,
+  label,
+  span {
+    font-size: 0.8em;
   }
+
   .section_title {
     font-size: 1.5em;
   }
   .sub_title{
     font-size: 1em;
   }
-  #contactForm{
-    width:auto;
-    margin:0 5% 2%;
+
+  #contactForm {
+    width: auto;
+    margin: 0 5% 2%;
   }
-  #form{
-    max-height:100%;
-    padding:0 5% 2%;
+
+  #form {
+    max-height: 100%;
+    padding: 0 5% 2%;
   }
-  #projectDetails{
-    display:initial;
+
+  #projectDetails {
+    display: initial;
   }
-  #options{
-    height:auto;
+
+  #options {
+    height: auto;
   }
-  #contactForm label{
+
+  #contactForm label {
     text-align: left;
   }
 }

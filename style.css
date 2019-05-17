@@ -121,7 +121,7 @@ footer input {
   background-size: cover;
 }
 .hero_text {
-  padding: 5em;
+  padding: 2em;
   align-self: center;
 }
 .hero_text h1,
@@ -129,7 +129,16 @@ footer input {
   text-align: left;
 }
 .hero_text h1 {
-  font-size: 3em;
+  font-size: 2.5em;
+}
+#textHero {
+  font-size: 1.3em;
+  padding-right: 5em;
+}
+
+.pForHero {
+  font-size: 1.1em;
+  padding-right: 5.5em;
 }
 .back_button {
   border: none;

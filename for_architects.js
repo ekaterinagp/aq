@@ -5,33 +5,33 @@ speechBubbles.forEach(bubble => {
     // console.log(bubble);
     clearAllItemsStyle(speechBubbles);
     applyFill(bubble);
-    changeText(bubble, architect_section);
+    changeText(bubble, arch_projects);
     shrinkRemoveArrow();
-    growAddArrow(bubble);f
+    growAddArrow(bubble);
   });
 });
 
-const applyFill = (item) => {
-    item.querySelector("svg").style.fill = "#ef6461";
-}; 
+const applyFill = item => {
+  item.querySelector("svg").style.fill = "#ef6461";
+};
 const changeText = (item, section) => {
   let textDiv = section.querySelector("p");
-  // let title = section.querySelector("h2");
-if (item.id == "organic") {
-    // title.textContent = " time";
+  let title = section.querySelector("h2");
+  if (item.id == "organic") {
+    title.textContent = "Organically generated local projects";
     textDiv.textContent =
-      "Organic Leads yay!!  harum iste magni numquam, quisquam non soluta enim.Lorem ipsum dolor sit amet consectetur adipisicing elit.Facere sunt laborum magnam quia! Vel ipsum, nobis eveniet quod animi eum nostrum repellat harum iste magni numquam, quisquam non soluta enim";
+      "We validate organic leads that sign up through our site and deliver them instantly";
   }
 
   if (item.id == "freelance") {
-    // title.textContent = "Hassle free";
+    title.textContent = "Freelance opportunities: small and large projects";
     textDiv.textContent =
-      "freeeeelance! harum iste magni numquam, quisquam non soluta enim.Lorem ipsum dolor sit amet consectetur adipisicing elit.Facere sunt laborum magnam quia! Vel ipsum, nobis eveniet quod animi eum nostrum repellat harum iste magni numquam, quisquam non soluta enim";
+      "We aggrigate opportunities from around the globe. Connect. Bid. Win.";
   }
   if (item.id == "tender") {
-    // title.textContent = "Hassle free";
+    title.textContent = "Government tenders and RFPs from all over Europe";
     textDiv.textContent =
-      "tenders and rfp! harum iste magni numquam, quisquam non soluta enim.Lorem ipsum dolor sit amet consectetur adipisicing elit.Facere sunt laborum magnam quia! Vel ipsum, nobis eveniet quod animi eum nostrum repellat harum iste magni numquam, quisquam non soluta enim";
+      "Build a proposal on the platform. Export. Win a project.";
   }
 };
 
@@ -45,14 +45,11 @@ function shrinkRemoveArrow() {
     bubble.classList.remove("grow");
   });
 }
-const clearAllItemsStyle = (items) => {
+const clearAllItemsStyle = items => {
   items.forEach(item => {
-      item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
-    
+    item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
   });
 };
-
-
 
 /*direction aware hover effect
 determine the mouse direction
@@ -81,4 +78,3 @@ const getDirection = function(e, item) {
 
   return d;
 };
-

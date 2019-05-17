@@ -477,7 +477,7 @@ footer input {
 }
 
 .blogBG {
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   /* height: auto; */
@@ -1114,11 +1114,30 @@ input:checked + .btnRadio {
 
 #blog_front {
   padding-top: 10%;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
+  /* display: grid;
+  grid-template-columns: 3fr 2fr; */
 }
 
-#lastBlog {
-  width: 50%;
-  height: 50%;
+#latestBlog {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 60%;
 }
+
+#latestBlog_text_blog p,
+#latestBlog_text_blog,
+#latestBlog h2,
+#latestBlog_date {
+  background-color: rgba(0, 0, 0, 0.74);
+  margin: 0;
+  color: white;
+}
+
+/* #latestBlog_text_blog {
+  margin: 0;
+}
+
+#latestBlog h2 {
+  margin: 0;
+} */

@@ -24,15 +24,18 @@
         </button>
       </div>
     </header>
-    <div id="form" class="hidden">
-      <h1>ArquitectureQuote</h1>
-      <h3>Select the type of project</h3>
+    <div class="formWrapper hidden">
+    <div id="form" class="boxStyle">
+      <span class="close">X</span>
+      <h1 class="section_title">ArquitectureQuote</h1>
+      <h3 class="sub_title">Select the type of project</h3>
       <div id="options"></div>
-      <div id="buttonsForm">
-        <button id="prev">Previous</button>
-        <button id="next" disabled>Next</button>
+      <div id="buttonsForm" class="wrapper_4_columns">
+        <button id="prev" class="back_button">Previous</button>
+        <button id="next" class="orange_button" disabled>Next</button>
       </div>
     </div>
+  </div>
     <div id="hero" class="hero wrapper_2_columns">
       <div class="hero_text">
         <h1>Here will be a beautiful text about wonderful product</h1>
@@ -42,12 +45,14 @@
       </div>
       <img src="img/platform.png" alt="platform" class="hero_laptop" />
     </div>
+    
     <div id="cons" class="backgroundWhite">
-      <h1 class="section_title">What you get with ArchitectureQuote</h1>
-      <h2 class="sub_title">
-        The best architects for your project in one place
-      </h2>
-      <div id="section_whatyouget" class="part wrapper_2_columns ">
+
+      <div id="section_whatyouget" class="fullScreen wrapper_2_columns ">
+          <h1 class="section_title">What you get with ArchitectureQuote</h1>
+          <h2 class="sub_title">
+            The best architects for your project in one place
+          </h2>
         <div class="textPadding">
           <div class="item" id="section_whatyouget_item_1">
             <h3>Free quote</h3>
@@ -71,13 +76,12 @@
             </p>
           </div>
         </div>
-        <div class="divForImg">
           <img src="img/laptop.png" alt="laptop" />
-        </div>
+        
       </div>
     </div>
 
-    <div id="platform" class="backgroundWhite">
+    <div id="platform" class="widthHeight100 backgroundWhite">
       <div class="platformBox boxStyle wrapper_rows_1_1_2" id="section_platform">
         <div>
       <h1 class="section_title">The ArchitectureQuote Platform</h1>
@@ -532,15 +536,14 @@
       </div>
     </div>
 
-    <div id="types" class="widthHeight100">
+    <div id="types" >
         <div class="gradient"> </div>
-      <div>
-        <h1 class="section_title">We work with all types of projects</h1>
-        <h2 class="sub_title">
-          Everything from small homes to large industrial projects
-        </h2>
-      </div>
-      <div class="wrapper_2_columns">
+     
+      <div class="wrapper_2_columns fullScreen">
+          <h1 class="section_title">We work with all types of projects</h1>
+          <h2 class="sub_title">
+            Everything from small homes to large industrial projects
+          </h2>
         <div class="textPadding">
           <ul>
             <li id="resedential" class="type">Residential</li>
@@ -566,7 +569,7 @@
         <img class="logo" src="img/house.png" alt="building" />
       </div>
     </div>
-    <div id="sections" class=" widthHeight100 ">
+    <div id="sections" >
       <div class="gradient_reverse"></div>
       <div class="sectionWrapper shadow wrapper_2_columns">
       
@@ -602,7 +605,7 @@
     </div>
     </div>
  
-    <div id="happyClients" class="widthHeight100">
+    <div id="happyClients" class="fullScreen">
       <h1 class="header">Some of our happy clients</h1>
       <!-- <div class="clients width100"> -->
        <div class="carouselWrapper">
@@ -612,24 +615,25 @@
             <div class="next arrowLeft"></div>
 <div class="next arrowRight"></div>
           <template id="testimonialsTemplate">
-            <div class="client boxStyle wrapper_2_columns">
-            <div id="userImage"></div>
-            <div>
+            <div class="client boxStyle">
+            <img id="userImage" alt="client image" src="">
+           
                 <h2 id="title"></h2>
                 <p id="textTestimonials"></p>
+                <div>
           <h3 id="name"></h3> <span id="company"></span>
           <p id="website"></p>
-                     </div>
+        </div>
           </div>
         </template>
       
       <!-- </div> -->
     </div>
 
-    <div class="widthHeight100">
+    <div class="fullScreen">
       <h1 class="header">Latest Blog Posts</h1>
       
-          <section id="blogs" class="wrapper_2_columns">
+          <section id="blogs" class=" wrapper_2_columns">
 
           </section>
           <template id="blogsTemplate">

@@ -16,32 +16,32 @@ let formItems = [
       let values = [
         {
           title: "New construction",
-          img: "construction.png",
+          img: "office.png",
           textAbout:
             "Constructing a new house from scratch. This includes preparation of the construction site, materials and labor"
         },
         {
           title: "Structural modification",
-          img: "roof.png",
+          img: "cabin.jpg",
           textAbout:
-            "The building is already complete but needs to be modified, altered or improved."
+            "The building is already complete but needs to be modified, altered or improved. This includes expanding the livable area and lorem ipsum"
         },
         {
           title: "Renovation",
-          img: "work.png",
+          img: "design.png",
           textAbout:
             "The building is complete and needs to be renovated, repainted or completely restored. "
         },
         {
           title: "Other",
-          img: "architect.png",
+          img: "other.jpg",
           textAbout:
             "The building is complete and needs to be renovated, repainted or completely restored. "
         }
       ];
       let form = document.createElement("form");
       form.setAttribute("id", "projectType");
-      // form.setAttribute("class", "wrapper_4_columns");
+      form.setAttribute("class", "wrapper_4_columns");
       values.forEach(value => {
         let divForValue = document.createElement("div");
         let label = document.createElement("label");
@@ -54,11 +54,10 @@ let formItems = [
         description.textContent = value.textAbout;
         let divWrapper = document.createElement("div");
         divWrapper.setAttribute("class", "btnRadio");
-        let nameInput = document.createElement("h3");
+        let nameInput = document.createElement("div");
         nameInput.textContent = value.title;
-        let img = document.createElement("div");
-        img.style.backgroundImage = "url(img/" + value.img + ")";
-        // setAttribute("src", "img/" + value.img);
+        let img = document.createElement("img");
+        img.setAttribute("src", "img/" + value.img);
         img.setAttribute("class", "imgForm");
 
         divWrapper.appendChild(img);
@@ -118,7 +117,7 @@ let formItems = [
       ];
       let form = document.createElement("form");
       form.setAttribute("id", "buildingType");
-      // form.setAttribute("class", "wrapper_3_columns");
+      form.setAttribute("class", "wrapper_3_columns");
       values.forEach(value => {
         let divForValue = document.createElement("div");
         let label = document.createElement("label");
@@ -129,7 +128,7 @@ let formItems = [
         theInput.setAttribute("value", value.title);
         let divWrapper = document.createElement("div");
         divWrapper.setAttribute("class", "btnRadio");
-        let nameInput = document.createElement("h3");
+        let nameInput = document.createElement("div");
         nameInput.textContent = value.title;
         let img = document.createElement("img");
         img.setAttribute("src", "img/" + value.img);
@@ -335,14 +334,14 @@ let formItems = [
     options: function() {
       let form = document.createElement("form");
       form.setAttribute("id", "contactForm");
-      // form.setAttribute("class", "wrapper_5_rows");
+      form.setAttribute("class", "wrapper_5_rows");
       let divWrap_1 = document.createElement("div");
       let labelFname = document.createElement("label");
       labelFname.setAttribute("for", "fName");
       labelFname.innerHTML = "First name";
       let inputFname = document.createElement("input");
       inputFname.setAttribute("type", "text");
-      inputFname.setAttribute("id", "first_name");
+      inputFname.setAttribute("name", "first name");
       inputFname.placeholder = "First name";
       divWrap_1.append(labelFname, inputFname);
       let labelLname = document.createElement("label");
@@ -350,7 +349,7 @@ let formItems = [
       labelLname.innerHTML = "Last name";
       let inputLname = document.createElement("input");
       inputLname.setAttribute("type", "text");
-      inputLname.setAttribute("id", "last_name");
+      inputLname.setAttribute("name", "last name");
       inputLname.placeholder = "Last name";
       let divWrap_2 = document.createElement("div");
       divWrap_2.append(labelLname, inputLname);
@@ -359,7 +358,7 @@ let formItems = [
       labelPhone.innerHTML = "Phone number";
       let inputPhone = document.createElement("input");
       inputPhone.setAttribute("type", "tel");
-      inputPhone.setAttribute("id", "phone");
+      inputPhone.setAttribute("name", "phone");
       inputPhone.placeholder = "Phone number";
       let divWrap_3 = document.createElement("div");
       divWrap_3.append(labelPhone, inputPhone);
@@ -368,14 +367,14 @@ let formItems = [
       labelemail.innerHTML = "Email";
       let inputEmail = document.createElement("input");
       inputEmail.setAttribute("type", "email");
-      inputEmail.setAttribute("id", "email");
+      inputEmail.setAttribute("name", "email");
       inputEmail.placeholder = "Email";
       let divWrap_4 = document.createElement("div");
       divWrap_4.append(labelemail, inputEmail);
       let whatsupCheckbox = document.createElement("input");
       whatsupCheckbox.setAttribute("type", "checkbox");
       whatsupCheckbox.setAttribute("value", "whatsUp");
-      whatsupCheckbox.setAttribute("id", "whatsUp");
+      whatsupCheckbox.setAttribute("name", "whatsUp");
       let pForWhatsUp = document.createElement("p");
       pForWhatsUp.setAttribute("class", "inline");
       pForWhatsUp.textContent = "I agree to be contected by WhatsApp";
@@ -384,18 +383,17 @@ let formItems = [
       let agreeCheckbox = document.createElement("input");
       agreeCheckbox.setAttribute("type", "checkbox");
       agreeCheckbox.setAttribute("value", "gdpr");
-      agreeCheckbox.setAttribute("id", "gdpr");
-      agreeCheckbox.required = true;
+      agreeCheckbox.setAttribute("name", "gdpr");
       let pForGdpr = document.createElement("p");
       pForGdpr.setAttribute("class", "inline");
       pForGdpr.innerHTML =
-        'I agree to the <a href="" class="link" >Terms of Service</a> and <a href="" class="link">Privacy Policy</a> of ArchitectureQuote IVS';
+        'I agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a> of ArchitectureQuote IVS"';
       let divForAgree = document.createElement("div");
       divForAgree.append(agreeCheckbox, pForGdpr);
       let newsCheckbox = document.createElement("input");
       newsCheckbox.setAttribute("type", "checkbox");
       newsCheckbox.setAttribute("value", "news");
-      newsCheckbox.setAttribute("id", "news");
+      newsCheckbox.setAttribute("name", "news");
       let pForNews = document.createElement("p");
       pForNews.setAttribute("class", "inline");
       pForNews.innerHTML =
@@ -436,40 +434,27 @@ let formItems = [
 let userAnswers = {
   type_project: "",
   type_of_building: "",
-  complexity: "Standard",
+  complexity: "",
   size: "",
   task: [],
-  floor: "Ground floor only",
+  floor: "",
   basement: "",
   name: "",
   last_name: "",
   phone: "",
   email: "",
-  whatsApp: "",
-  news: ""
+  whatsApp: ""
 };
 
 let startProjectBtns = document.querySelectorAll(".freeEst");
 startProjectBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-    console.log({ formWrapper });
+    console.log({ btn });
     formWrapper.classList.remove("hidden");
     // document.querySelector("body").appendChild(formDiv);
     insertDOMforForm();
   });
 });
-let closeFormBtn = document.querySelectorAll(".close");
-closeFormBtn.forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    // console.log(btn.parentElement.parentElement);
-    btn.parentElement.parentElement.classList.add("hidden");
-  })
-})
-// window.addEventListener("click", ()=>{
-//   if(formWrapper.className="formWrapper"){
-//     formWrapper.classList.add("hidden");
-//   }
-// });
 
 function setNextBtnDisabled(bool) {
   document.getElementById("next").disabled = bool;
@@ -518,68 +503,68 @@ function nextElement() {
   }
 
   if (formItems[currentFormItem].id == 3) {
-    listenerForChange();
-    //why this doesn't work when select first task then square?
-    // document.querySelector("#projectDetails").addEventListener("change", () => {
-    //   setTimeout(() => {
-    //     console.log(userAnswers);
-    //     if (userAnswers.task && userAnswers.size) {
-    //       setNextBtnDisabled(false);
-    //     }
-    //   }, 100);
-    // });
-  }
+    document.querySelector("#complexity").addEventListener("blur", function() {
+      listenForValue("#complexity", "complexity");
+    });
+    document.querySelector("#size").addEventListener("blur", function() {
+      listenForValue("#size", "size");
+    });
 
-  if (formItems[currentFormItem].id == 4) {
-    document.querySelector("#next").style.display = "none";
-    let submitBtn = document.createElement("input");
-    submitBtn.value = "Submit";
-    submitBtn.setAttribute("type", "submit");
-    submitBtn.setAttribute("id", "submitBtn");
-    submitBtn.setAttribute("class", "orange_button");
-    submitBtn.disabled = true;
-    document.querySelector("#buttonsForm").appendChild(submitBtn);
-    listenerForInput("#first_name", "name");
-    listenerForInput("#last_name", "last_name");
-    listenerForInput("#phone", "phone");
-    listenerForInput("#email", "email");
-    document.querySelector("#whatsUp").addEventListener("click", () => {
-      if (document.querySelector("#whatsUp").checked) {
-        userAnswers.whatsApp = "yes";
-      } else {
-        userAnswers.whatsApp = "no";
-      }
-      console.log(userAnswers.whatsApp);
+    document.querySelector("#floor").addEventListener("blur", function() {
+      listenForValue("#floor", "floor");
     });
-    document.querySelector("#news").addEventListener("click", () => {
-      if (document.querySelector("#news").checked) {
-        userAnswers.news = "yes";
+    document.querySelector("#toggleBox").addEventListener("change", () => {
+      if (document.querySelector("#toggleBox").checked) {
+        userAnswers.basement = "yes";
+        console.log("basememnt");
       } else {
-        userAnswers.news = "no";
+        userAnswers.basement = "no";
+        console.log(" no basememnt");
       }
     });
-    document.querySelector("#contactForm").addEventListener("change", () => {
-      if (
-        (document.querySelector("#gdpr").checked &&
-          userAnswers.name &&
-          userAnswers.phone) ||
-        (document.querySelector("#gdpr").checked &&
-          userAnswers.name &&
-          userAnswers.email)
-      ) {
-        submitBtn.disabled = false;
+
+    document.querySelector("#design6").addEventListener("change", () => {
+      if (document.querySelector("#design6").checked) {
+        document.querySelector("#design1").checked = true;
+        document.querySelector("#design2").checked = true;
+        document.querySelector("#design3").checked = true;
+        document.querySelector("#design4").checked = true;
+        document.querySelector("#design5").checked = true;
+        userAnswers.task = document.querySelector("#design6").value;
+        console.log(userAnswers.task);
+      } else {
+        document.querySelector("#design1").checked = false;
+        document.querySelector("#design2").checked = false;
+        document.querySelector("#design3").checked = false;
+        document.querySelector("#design4").checked = false;
+        document.querySelector("#design5").checked = false;
+      }
+    });
+
+    let allSelected = document.querySelectorAll(".checkDesign");
+    let checkedTasksArray = [];
+    //modify in final answers, if all there, then the answer is all
+    allSelected.forEach(selected => {
+      selected.addEventListener("click", () => {
+        if (selected.checked == true) {
+          checkedTasksArray.push(selected.value);
+          if (selected.value == "all") {
+            checkedTasksArray = ["all"];
+          }
+          userAnswers.task = checkedTasksArray;
+
+          console.log(userAnswers.task);
+        }
+      });
+    });
+    //why this doesn't work when select first task then square?
+    document.querySelector("#projectDetails").addEventListener("change", () => {
+      if (userAnswers.task && userAnswers.size) {
+        setNextBtnDisabled(false);
       }
     });
   }
 }
-
-const listenerForInput = (inputStr, answerTypeStr) => {
-  let input = document.querySelector(inputStr);
-  input.addEventListener("blur", () => {
-    userAnswers[answerTypeStr] = input.value;
-    console.log(userAnswers[answerTypeStr]);
-  });
-};
 
 const insertSavedAnswersRadio = (sectionStr, answerTypeStr) => {
   let allRadios = document
@@ -596,7 +581,6 @@ const insertSavedAnswersRadio = (sectionStr, answerTypeStr) => {
 
 function prevElement() {
   setNextBtnDisabled(false);
-
   let form = document.querySelector("#form");
   form.querySelector("h3").textContent = "";
   form.querySelector("#options").innerHTML = "";
@@ -604,104 +588,19 @@ function prevElement() {
   form.querySelector("h3").textContent = currentItem.txt;
 
   options.appendChild(formItems[currentFormItem].options());
-
   if (formItems[currentFormItem].id == 1)
     insertSavedAnswersRadio("projectType", "type_project");
   if (formItems[currentFormItem].id == 2)
     insertSavedAnswersRadio("buildingType", "type_of_building");
   if (formItems[currentFormItem].id == 3) {
-    document.querySelector("#submitBtn").style.display = "none";
-    document.querySelector("#next").style.display = "block";
-
     document.querySelector("#complexity").value = userAnswers.complexity;
     document.querySelector("#size").value = userAnswers.size;
     document.querySelector("#floor").value = userAnswers.floor;
     if (userAnswers.basement == "yes") {
       document.querySelector("#toggleBox").checked = true;
     }
-    insertCheckBoxForTask();
-    listenerForChange();
+    //wrtie function which takes array with values and set checked to true to those checkbox where value matches with the array value
   }
-}
-
-function listenerForChange() {
-  document.querySelector("#complexity").addEventListener("click", function() {
-    listenForValue("#complexity", "complexity");
-  });
-  document.querySelector("#size").addEventListener("keyup", function() {
-    listenForValue("#size", "size");
-  });
-
-  document.querySelector("#floor").addEventListener("click", function() {
-    listenForValue("#floor", "floor");
-  });
-  document.querySelector("#toggleBox").addEventListener("change", () => {
-    if (document.querySelector("#toggleBox").checked) {
-      userAnswers.basement = "yes";
-      console.log("basememnt");
-    } else {
-      userAnswers.basement = "no";
-      console.log(" no basememnt");
-    }
-  });
-  checkAllBox();
-  let allSelected = document.querySelectorAll(".checkDesign");
-  let checkedTasksArray = [];
-  //modify in final answers, if all there, then the answer is all
-  allSelected.forEach(selected => {
-    selected.addEventListener("click", () => {
-      if (selected.checked == true) {
-        checkedTasksArray.push(selected.value);
-        // if (selected.value == "all") {
-        //   checkedTasksArray = ["all"];
-        // }
-        userAnswers.task = checkedTasksArray;
-
-        console.log(userAnswers.task);
-      }
-    });
-  });
-}
-
-//ugly, rewrite
-function checkAllBox() {
-  document.querySelector("#design6").addEventListener("change", () => {
-    if (document.querySelector("#design6").checked) {
-      document.querySelector("#design1").checked = true;
-      document.querySelector("#design2").checked = true;
-      document.querySelector("#design3").checked = true;
-      document.querySelector("#design4").checked = true;
-      document.querySelector("#design5").checked = true;
-      userAnswers.task = document.querySelector("#design6").value;
-      console.log(userAnswers.task);
-    } else {
-      document.querySelector("#design1").checked = false;
-      document.querySelector("#design2").checked = false;
-      document.querySelector("#design3").checked = false;
-      document.querySelector("#design4").checked = false;
-      document.querySelector("#design5").checked = false;
-    }
-  });
-}
-
-function insertCheckBoxForTask() {
-  console.log(userAnswers.task);
-  let allCheckbox = document.querySelectorAll(".checkDesign");
-  console.log(allCheckbox);
-
-  if (userAnswers.task.includes("all")) {
-    allCheckbox.forEach(checkBox => {
-      checkBox.checked = true;
-    });
-  }
-
-  allCheckbox.forEach(checkBox => {
-    // let found = userAnswers.task.find(task => task == checkBox.value);
-    // if (found) checkBox.checked = true;
-    if (userAnswers.task.includes(checkBox.value)) {
-      checkBox.checked = true;
-    }
-  });
 }
 
 function nextItem() {
@@ -739,14 +638,10 @@ function listenerForRadios(formType, answerType) {
 }
 
 function listenForValue(itemIDstr, answerTypestr) {
-  let form = document.getElementById("projectDetails");
-  let selectedItem = form.querySelector(itemIDstr);
+  let formComplexity = document.getElementById("projectDetails");
+  let selectedItem = formComplexity.querySelector(itemIDstr);
   userAnswers[answerTypestr] = selectedItem.value;
   console.log(userAnswers[answerTypestr]);
-
-  if (userAnswers.task && userAnswers.size) {
-    setNextBtnDisabled(false);
-  }
 }
 
 //clicking through the items
@@ -944,7 +839,7 @@ function fetchTestimonials() {
       });
   });
 }
-function fetchBlogPosts() {
+function fetchBlogPosts(){
   let endpoint = "https://architecturequote.com/wp-json/wp/v2/posts";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
@@ -955,12 +850,12 @@ function fetchBlogPosts() {
   });
 }
 
+
 async function insertTestimonialsToDOM(testimonials) {
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
     let clone = template.cloneNode(true);
-    clone.querySelector("#textTestimonials").innerHTML =
-      testimonials[i].content.rendered;
+    clone.querySelector("#textTestimonials").innerHTML = testimonials[i].content.rendered;
     clone.querySelector("#title").textContent = testimonials[i].title.rendered;
     clone.querySelector("#name").textContent = testimonials[i].authors_name;
     clone.querySelector("#company").textContent = testimonials[i].company;
@@ -977,13 +872,14 @@ async function insertTestimonialsToDOM(testimonials) {
       );
 
     document.querySelector("#testimonials").appendChild(clone);
+    
   }
   let clients = document.querySelectorAll(".client");
   initCarousel(clients);
 }
 // project._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
 
-async function insertBlogsToDom(blogPosts) {
+async function insertBlogsToDom(blogPosts){
   const section = document.querySelector("#blogs");
   let templateBlogs = document.querySelector("#blogsTemplate").content;
   for (let i = 0; i < blogPosts.length; i++) {
@@ -994,86 +890,91 @@ async function insertBlogsToDom(blogPosts) {
       blogPosts[i]._links["wp:featuredmedia"][0].href
     ).then(res => res.json());
     // console.log({ hrefData });`id -u
-    clone.querySelector(".boxStyle").style.backgroundImage =
-      "url(" + hrefDataUrl.media_details.sizes.medium_large.source_url + ")";
+    clone.querySelector(".boxStyle").style.backgroundImage = "url(" + hrefDataUrl.media_details.sizes.medium_large.source_url + ")";
     section.appendChild(clone);
   }
 }
 
 /*   TESTIMONIALS CAROUSEL   */
 let itemClassName = "client boxStyle",
-  slide = 0,
-  moving = true;
-
-function initCarousel(clients) {
-  clients[clients.length - 1].classList.add("prev");
-  clients[0].classList.add("activeSlide");
-  clients[1].classList.add("next");
-  const nextBtn = document.querySelector(".arrowRight");
-  const prevBtn = document.querySelector(".arrowLeft");
-
-  nextBtn.addEventListener("click", function() {
-    moveNext(clients);
-  });
-  prevBtn.addEventListener("click", function() {
-    movePrev(clients);
-  });
-}
-
-// Disable interaction by setting 'moving' to true for the same duration as our transition (0.5s = 500ms)
-// function disableInteraction() {
-//   moving = true;
-//   setTimeout(function(){
-//     moving = false
-//   }, 500);
-// }
-
-function moveCarouselTo(slide, clients) {
-  let newPrevious = slide - 1,
-    newNext = slide + 1,
-    oldPrevious = slide - 2,
-    oldNext = slide + 2;
-
-  if (clients.length - 1 > 3) {
-    if (newPrevious <= 0) {
-      oldPrevious = clients.length - 1;
-    } else if (newNext >= clients.length - 1) {
-      oldNext = 0;
+slide = 0,
+moving = true; 
+  
+function initCarousel(clients) {   
+      clients[clients.length - 1].classList.add("prev");
+      clients[0].classList.add("activeSlide");
+      clients[1].classList.add("next");
+    const nextBtn = document.querySelector(".arrowRight");
+    const  prevBtn= document.querySelector(".arrowLeft");
+  
+      nextBtn.addEventListener('click', function(){
+        moveNext(clients)});
+      prevBtn.addEventListener('click',function(){
+        movePrev(clients)});
     }
-    if (slide === 0) {
-      newPrevious = clients.length - 1;
-      oldPrevious = clients.length - 2;
-      oldNext = slide + 1;
-    } else if (slide === clients.length - 1) {
-      newPrevious = slide - 1;
-      newNext = 0;
-      oldNext = 1;
+  
+    // Disable interaction by setting 'moving' to true for the same duration as our transition (0.5s = 500ms)
+    // function disableInteraction() {
+    //   moving = true;
+    //   setTimeout(function(){
+    //     moving = false
+    //   }, 500);
+    // }
+  
+ function moveCarouselTo(slide, clients) {
+   let newPrevious = slide - 1,
+            newNext = slide + 1,
+            oldPrevious = slide - 2,
+            oldNext = slide + 2;
+  
+      
+        if ((clients.length - 1) > 3) {
+  
+            if (newPrevious <= 0) {
+            oldPrevious = (clients.length - 1);
+          } else if (newNext >= (clients.length - 1)){
+            oldNext = 0;
+          }
+             if (slide === 0) {
+            newPrevious = (clients.length - 1);
+            oldPrevious = (clients.length - 2);
+            oldNext = (slide + 1);
+          } else if (slide === (clients.length -1)) {
+            newPrevious = (slide - 1);
+            newNext = 0;
+            oldNext = 1;
+          }
+          clients[oldPrevious].className = itemClassName;
+          clients[oldNext].className = itemClassName;
+          clients[newPrevious].className = itemClassName + " prev";
+          clients[slide].className = itemClassName + " activeSlide";
+          clients[newNext].className = itemClassName + " next";
+        }
+      }
+  
+ function moveNext(clients) {
+        if (slide === (clients.length - 1)) {
+          slide = 0;
+        } else {
+          slide++;
+        }
+        moveCarouselTo(slide, clients);
     }
-    clients[oldPrevious].className = itemClassName;
-    clients[oldNext].className = itemClassName;
-    clients[newPrevious].className = itemClassName + " prev";
-    clients[slide].className = itemClassName + " activeSlide";
-    clients[newNext].className = itemClassName + " next";
-  }
-}
-
-function moveNext(clients) {
-  if (slide === clients.length - 1) {
-    slide = 0;
-  } else {
-    slide++;
-  }
-  moveCarouselTo(slide, clients);
-}
-
+  
 function movePrev(clients) {
-  if (slide === 0) {
-    slide = clients.length - 1;
-  } else {
-    slide--;
-  }
-  moveCarouselTo(slide, clients);
-}
+
+        if (slide === 0) {
+          slide = (clients.length - 1);
+        } else {
+          slide--;
+        }
+        moveCarouselTo(slide, clients);
+    }
+  
+   
+  
+  
+
 
 async function init() {
   const testimonials = await fetchTestimonials();
@@ -1082,4 +983,5 @@ async function init() {
   // console.log({ testimonials });
   insertTestimonialsToDOM(testimonials);
   insertBlogsToDom(blogPosts);
+ 
 }

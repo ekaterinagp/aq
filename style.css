@@ -178,6 +178,11 @@ footer input {
   display: grid;
   grid-template-columns: 2fr 2fr;
 }
+.wrapper_2_columns_rows {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: .1fr.1fr 1fr; 
+}
 .wrapper_3_columns {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -228,7 +233,7 @@ footer input {
   text-align: center;
 }
 .section_title {
-  padding: 2em 0 0;
+  /* padding: 2em 0 0; */
   grid-column: 1/-1;
   margin: 0;
 }
@@ -239,7 +244,7 @@ footer input {
   font-size: 1.1em;
 }
 .header {
-  margin: 2em 0 1em;
+  margin: 1em 0;
   grid-column: 1/-1;
 }
 
@@ -277,8 +282,9 @@ footer input {
 }
 
 .halfImg {
-  width: 130%;
+  width: 110%;
   overflow-x: hidden;
+  margin-left:1em;
 }
 
 .imgStyle {
@@ -309,9 +315,7 @@ footer input {
   width: 100%;
   align-self: center;
 }
-#section_whatyouget {
-  grid-template-rows: 0.5fr;
-}
+
 
 .platformBox {
   width: 95%;
@@ -325,8 +329,10 @@ footer input {
 
 #types,
 #sections {
-  padding: 5% 0;
   position: relative;
+}
+#types>.fullScreen{
+  margin:0;
 }
 .gradient {
   position: absolute;
@@ -404,7 +410,7 @@ footer input {
 #arch_projects,
 #section_why {
   position: relative;
-  margin: 2em 0;
+  margin: 3em 0 0;
 }
 .box {
   background-color: #f4f5f8;
@@ -733,7 +739,8 @@ head .blogBG {
   margin: 2em;
 }
 .network > .halfImg {
-  margin-left: -10em;
+  margin-left: -7em;
+  width: 120%;
 }
 .text {
   margin: auto auto auto 5em;
@@ -753,12 +760,14 @@ head .blogBG {
 }
 #stop_firing img {
   justify-self: center;
-  width: auto;
+  width: 90%;
 }
 #stop_firing > .wrapper_2_columns > div {
-  margin: 2em;
+  margin: 0 1em;
 }
-
+#arch_projects .click_text{
+  margin-top:10em;
+}
 #pros_icons {
   margin: 2% auto;
   width: 60%;
@@ -776,10 +785,19 @@ head .blogBG {
   align-self: end;
 }
 .text_left {
-  margin: 2em 2em 0 5em;
+  margin: 0 0 0 5em;
 }
 .text_left > button {
   margin: 3em 0;
+}
+.text_left h3, .text_left p{
+  margin:.5%;
+}
+.text_left>div{
+  margin:5% 0 0;
+}
+.text_left>div:first-child{
+  margin:0;
 }
 #cons p,
 #cons h3 {
@@ -836,13 +854,14 @@ h1 > span {
 
 /*   ABOUT PAGE  */
 #about_us {
-  margin: 5%;
-  position: relative;
-  top: 70px;
+  margin: 130px 5% 10%;
 }
 #our_team img {
   display: block;
   width: 100%;
+}
+#our_team .sub_title{
+  width: 50%;
 }
 #our_team .wrapper_3_columns {
   margin: 2% 20% 0;
@@ -1214,7 +1233,7 @@ input:checked + .btnRadio {
 .faq > section {
   margin: auto;
   grid-column: 1;
-  padding: 0 2%;
+  padding: 2%;
 }
 .faq>.section_title, .faq>.sub_title{
   grid-column: 1;

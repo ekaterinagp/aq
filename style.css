@@ -18,7 +18,7 @@ h3{
   font-size: 1em;
 }
 p{
-  font-size: .9em;
+  font-size: .935em;
 }
 p,
 div,
@@ -117,7 +117,7 @@ footer input {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 .hero {
-  height: 90%;
+  height: 95vh;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -229,7 +229,6 @@ transition:all .3s
   grid-column: 1/-1;
   font-weight: 100;
   margin: 0.2em auto 1em;
-  width: 50%;
   font-size: 1.1em;
 }
 .header {
@@ -445,7 +444,7 @@ grid-template-rows: .5fr;
 
 .sectionWrapper {
   border-radius: 10px;
-  width: 70%;
+  width: 80%;
   margin:auto;
 }
 .sectionItem {
@@ -1179,36 +1178,68 @@ input:checked + .btnRadio {
 
 /*   FAQ PAGE   */
 .faq {
-  margin: 5% 0;
+  margin: 5%;
+  position: relative;
+  grid-template-columns: 1.5fr 1fr;
+}
+.faq>img {
+  margin: 15% 4%;
+  width: 130%;
+  grid-column: 2;
+  grid-row: 1/7;
+}
+.faq>.backgroundColor{
+  border-radius: 10px;
+  z-index: -1;
+  position: absolute;
+  width: 90vw;
+  height: 70vh;
+  top: 0;
+  left: 0vw;
 }
 .faq > section {
-  border-radius: 10px;
   margin: auto;
-  width: 50%;
+  grid-column: 1;
+  padding: 0 2%;
+}
+.faq>.section_title, .faq>.sub_title{
+  grid-column: 1;
 }
 .faq_section {
+  display: grid;
+  grid-template-columns: 3fr .5fr;
   transition: all 0.3s;
-  padding: 1em;
+  padding: 1em 0 0;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  height: 4em;
+  height: 3.5em;
+}
+.faq_section:first-child{
+  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
 .plus {
   display: inline;
   font-size: 1em;
   cursor: pointer;
-  text-align: center;
+  text-align: end;
   margin: 0 1%;
+  color:#ef6461;
 }
 .faq_section h4 {
-  display: inline;
+  margin:0;
+  font-size:.9em;
 }
 .answer {
-  margin-top: 3em;
+  height:0;
+  transform:translateY(-100%);
+  margin-top: 2em;
+  grid-column: 1/-1;
+  transition: all .3s;
 }
 
 .show {
+  transform:translateY(0);
   height: auto;
 }
 
@@ -1275,7 +1306,6 @@ width: 100%;
     font-size: 1.5em;
   }
   .sub_title{
-    width: 100%;
     font-size: 1em;
   }
   #contactForm{

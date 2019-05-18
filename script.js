@@ -1003,7 +1003,6 @@ async function insertBlogsToDom(blogPosts) {
 /*   TESTIMONIALS CAROUSEL   */
 let itemClassName = "client boxStyle",
   slide = 0,
-  moving = true;
 
 function initCarousel(clients) {
   clients[clients.length - 1].classList.add("prev");
@@ -1020,13 +1019,7 @@ function initCarousel(clients) {
   });
 }
 
-// Disable interaction by setting 'moving' to true for the same duration as our transition (0.5s = 500ms)
-// function disableInteraction() {
-//   moving = true;
-//   setTimeout(function(){
-//     moving = false
-//   }, 500);
-// }
+
 
 function moveCarouselTo(slide, clients) {
   let newPrevious = slide - 1,

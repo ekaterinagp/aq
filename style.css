@@ -1230,7 +1230,7 @@ input:checked + .btnRadio {
   grid-template-columns: 1.5fr 1fr;
 }
 .faq>img {
-  margin: 15% 4%;
+  margin: 0 4%;
   width: 130%;
   grid-column: 2;
   grid-row: 1/7;
@@ -1268,12 +1268,13 @@ input:checked + .btnRadio {
 }
 
 .plus {
-  display: inline;
-  font-size: 1em;
-  cursor: pointer;
-  text-align: end;
-  margin: 0 1%;
-  color:#ef6461;
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #ef6461;
+  transition:all .3s;
+  margin-left: 60%;
 }
 .faq_section h4 {
   margin:0;

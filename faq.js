@@ -41,12 +41,13 @@ async function init() {
           console.log(open)
           if(open===false){
             plus.parentElement.style.height = "40vh";
-            plus.innerHTML= "&#9650;"
+            plus.style.transform= "rotate(180deg)";
+            
             open = true;
           }
            else{
                 plus.parentElement.style.height = "4em"; 
-                plus.innerHTML= "&#9660;"
+                plus.style.transform= "rotate(0)";
                 open = false;
             }
             // plus.nextElementSibling.classList.toggle("show");

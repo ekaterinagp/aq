@@ -956,8 +956,10 @@ function fetchBlogPosts() {
 }
 
 async function insertTestimonialsToDOM(testimonials) {
+  // let imgTemplate = document.querySelector("#testimonialsImg").content;
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
+    // let imgClone = imgTemplate.cloneNode(true);
     let clone = template.cloneNode(true);
     clone.querySelector("#textTestimonials").innerHTML =
       testimonials[i].content.rendered;
@@ -975,10 +977,25 @@ async function insertTestimonialsToDOM(testimonials) {
         "src",
         hrefData.media_details.sizes.testimonials.source_url
       );
+// imgClone.querySelector("img")
+// .setAttribute(
+//   "src",
+//   hrefData.media_details.sizes.testimonials.source_url
+// );
+// imgClone.querySelector("img")
+// .setAttribute("class", testimonials[i].title.rendered );
 
+// document.querySelector("#imgSection").appendChild(imgClone);
     document.querySelector("#testimonials").appendChild(clone);
   }
+  
   let clients = document.querySelectorAll(".client");
+  // let allClientImg = document.querySelectorAll("#tempImg");
+  // allClientImg.forEach(img =>{
+  //   img.addEventListener("click", ()=>{
+  //     console.log(img.className);
+  //   })
+  // })
   initCarousel(clients);
 }
 // project._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
@@ -1002,7 +1019,7 @@ async function insertBlogsToDom(blogPosts) {
 
 /*   TESTIMONIALS CAROUSEL   */
 let itemClassName = "client boxStyle",
-  slide = 0,
+  slide = 0;
 
 function initCarousel(clients) {
   clients[clients.length - 1].classList.add("prev");

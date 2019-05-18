@@ -1245,7 +1245,7 @@ input:checked + .btnRadio {
   left: 0vw;
 }
 .faq > section {
-  margin: auto;
+  margin: 2% auto 0;
   grid-column: 1;
   padding: 0 2%;
   border-radius: 10px;
@@ -1257,7 +1257,7 @@ input:checked + .btnRadio {
 .faq_section {
   display: grid;
   grid-template-columns: 3fr .5fr;
-  transition: all 0.3s;
+  transition: height 0.3s;
   padding: 1em 0 0;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -1280,17 +1280,11 @@ input:checked + .btnRadio {
   font-size:.9em;
 }
 .answer {
-  height:0;
-  transform:translateY(-100%);
   margin-top: 2em;
   grid-column: 1/-1;
-  transition: all .3s;
+  /* transition: all .3s; */
 }
 
-.show {
-  transform:translateY(0);
-  height: auto;
-}
 
 @media (max-width: 1024px) {
   .masonry_grid {

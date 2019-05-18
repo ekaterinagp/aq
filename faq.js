@@ -34,18 +34,22 @@ async function init() {
   console.log(faqData);
   showFaq(faqData);
   let plusses = document.querySelectorAll(".plus");
+  let open = false;
   plusses.forEach(plus=>{
       plus.addEventListener("click", function(){
-          // console.log(plus.nextElementSibling.className)
-          if(plus.nextElementSibling.className === "answer"){
-            plus.parentElement.style.height = "auto";
+        
+          console.log(open)
+          if(open===false){
+            plus.parentElement.style.height = "40vh";
             plus.innerHTML= "&#9650;"
+            open = true;
           }
-            else{
+           else{
                 plus.parentElement.style.height = "4em"; 
                 plus.innerHTML= "&#9660;"
+                open = false;
             }
-            plus.nextElementSibling.classList.toggle("show");
+            // plus.nextElementSibling.classList.toggle("show");
       })
   })
 }

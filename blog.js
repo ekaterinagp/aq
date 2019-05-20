@@ -42,24 +42,26 @@ async function insertBlogsToDOM(posts) {
 
   console.log({ posts });
 
-  // insertThreeLastBlogsInDOM(
-  //   "#lastestBlog",
-  //   0,
-  //   "#latestBlog_text_blog",
-  //   "#latestBlog_date",
-  //   posts
-  // );
-  let divForLatestBlog = document.querySelector("#latestBlog");
-  divForLatestBlog.querySelector("h2").textContent = posts[0].title.rendered;
-  divForLatestBlog.querySelector("#latestBlog_text_blog").innerHTML =
-    posts[0].excerpt.rendered;
-  divForLatestBlog.querySelector("#latestBlog_date").textContent =
-    posts[0].date;
-  const imgLatestBlog = await fetch(
-    posts[0]._links["wp:featuredmedia"][0].href
-  ).then(res => res.json());
-  divForLatestBlog.style.backgroundImage =
-    "url(" + imgLatestBlog.media_details.sizes.full.source_url + ")";
+  insertThreeLastBlogsInDOM(
+    "#latestBlog",
+    0,
+    "#latestBlog_text_blog",
+    "#latestBlog_date",
+    posts
+  );
+  // let divForLatestBlog = document.querySelector("#latestBlog");
+  // divForLatestBlog.querySelector("h2").textContent = posts[0].title.rendered;
+  // divForLatestBlog.querySelector("#latestBlog_text_blog").innerHTML =
+  //   posts[0].excerpt.rendered;
+
+  // divForLatestBlog.querySelector("#latestBlog_date").textContent =
+  //   posts[0].date;
+  // const imgLatestBlog = await fetch(
+  //   posts[0]._links["wp:featuredmedia"][0].href
+  // ).then(res => res.json());
+  // divForLatestBlog.style.backgroundImage =
+  //   "url(" + imgLatestBlog.media_details.sizes.full.source_url + ")";
+
   let divForSecondLast = document.querySelector("#secondLatestBlog");
   divForSecondLast.querySelector("h2").textContent = posts[1].title.rendered;
   divForSecondLast.querySelector("#secondLatestBlog_text_blog").innerHTML =
@@ -86,6 +88,11 @@ async function insertBlogsToDOM(posts) {
     let clone = template.cloneNode(true);
     clone.querySelector("h2").textContent = posts[i].title.rendered;
     clone.querySelector("#text_blog").innerHTML = posts[i].excerpt.rendered;
+
+    let a = document.createElement("a");
+    a.href = "subpage_blog.html?id=" + posts[i].id;
+    a.appendChild(clone.querySelector(".excerpt-hellip"));
+    clone.querySelector("#text_blog").appendChild(a);
     clone.querySelector("#date").textContent = posts[i].date;
     const imgs = await fetch(posts[i]._links["wp:featuredmedia"][0].href).then(
       res => res.json()

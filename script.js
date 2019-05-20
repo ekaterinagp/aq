@@ -453,18 +453,20 @@ let startProjectBtns = document.querySelectorAll(".freeEst");
 startProjectBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     console.log({ formWrapper });
+
     formWrapper.classList.remove("hidden");
+
     // document.querySelector("body").appendChild(formDiv);
     insertDOMforForm();
   });
 });
 let closeFormBtn = document.querySelectorAll(".close");
-closeFormBtn.forEach(btn=>{
-  btn.addEventListener("click", ()=>{
+closeFormBtn.forEach(btn => {
+  btn.addEventListener("click", () => {
     // console.log(btn.parentElement.parentElement);
     btn.parentElement.parentElement.classList.add("hidden");
-  })
-})
+  });
+});
 // window.addEventListener("click", ()=>{
 //   if(formWrapper.className="formWrapper"){
 //     formWrapper.classList.add("hidden");
@@ -476,6 +478,7 @@ function setNextBtnDisabled(bool) {
 }
 
 function insertDOMforForm() {
+  document.querySelector("#options").textContent = "";
   if (formItems[currentFormItem].id == 1)
     document.querySelector("#prev").classList.add("hidden");
 
@@ -972,23 +975,24 @@ async function insertTestimonialsToDOM(testimonials) {
     ).then(res => res.json());
     console.log({ hrefData });
 
-    clone.querySelector("img")
+    clone
+      .querySelector("img")
       .setAttribute(
         "src",
         hrefData.media_details.sizes.testimonials.source_url
       );
-// imgClone.querySelector("img")
-// .setAttribute(
-//   "src",
-//   hrefData.media_details.sizes.testimonials.source_url
-// );
-// imgClone.querySelector("img")
-// .setAttribute("class", testimonials[i].title.rendered );
+    // imgClone.querySelector("img")
+    // .setAttribute(
+    //   "src",
+    //   hrefData.media_details.sizes.testimonials.source_url
+    // );
+    // imgClone.querySelector("img")
+    // .setAttribute("class", testimonials[i].title.rendered );
 
-// document.querySelector("#imgSection").appendChild(imgClone);
+    // document.querySelector("#imgSection").appendChild(imgClone);
     document.querySelector("#testimonials").appendChild(clone);
   }
-  
+
   let clients = document.querySelectorAll(".client");
   // let allClientImg = document.querySelectorAll("#tempImg");
   // allClientImg.forEach(img =>{
@@ -1035,8 +1039,6 @@ function initCarousel(clients) {
     movePrev(clients);
   });
 }
-
-
 
 function moveCarouselTo(slide, clients) {
   let newPrevious = slide - 1,

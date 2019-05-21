@@ -37,6 +37,11 @@ let formItems = [
           img: "architect.png",
           textAbout:
             "The building is complete and needs to be renovated, repainted or completely restored. "
+        },
+        {
+          title: "Interior",
+          img: "building.png",
+          textAbout: "The building is complete and needs to be decorated. "
         }
       ];
       let form = document.createElement("form");

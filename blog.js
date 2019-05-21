@@ -26,8 +26,16 @@ async function insertThreeLastBlogsInDOM(
   console.log("divHolder", divHolder);
   divHolder.querySelector("h2").textContent =
     posts[positionInArray].title.renderd;
+  console.log(posts[positionInArray].title.renderd);
   divHolder.querySelector(textHolderStr).innerHTML =
     posts[positionInArray].excerpt.rendered;
+  let a = document.createElement("a");
+  a.href = "subpage_blog.html?id=" + posts[positionInArray].id;
+
+  a.appendChild(
+    divHolder.querySelector(textHolderStr).querySelector(".excerpt-hellip")
+  );
+  document.querySelector(textHolderStr).appendChild(a);
   divHolder.querySelector(dateHolderStr).textContent =
     posts[positionInArray].date;
   const imgLatestBlog = await fetch(
@@ -49,23 +57,35 @@ async function insertBlogsToDOM(posts) {
     "#latestBlog_date",
     posts
   );
-  // let divForLatestBlog = document.querySelector("#latestBlog");
-  // divForLatestBlog.querySelector("h2").textContent = posts[0].title.rendered;
-  // divForLatestBlog.querySelector("#latestBlog_text_blog").innerHTML =
-  //   posts[0].excerpt.rendered;
 
-  // divForLatestBlog.querySelector("#latestBlog_date").textContent =
-  //   posts[0].date;
-  // const imgLatestBlog = await fetch(
-  //   posts[0]._links["wp:featuredmedia"][0].href
-  // ).then(res => res.json());
-  // divForLatestBlog.style.backgroundImage =
-  //   "url(" + imgLatestBlog.media_details.sizes.full.source_url + ")";
+  // insertThreeLastBlogsInDOM(
+  //   "#secondLatestBlog",
+  //   1,
+  //   "#secondLatestBlog_text_blog",
+  //   "#secondLatestBlog_date",
+  //   posts
+  // );
+
+  // insertThreeLastBlogsInDOM(
+  //   "#thirdLatestBlog",
+  //   2,
+  //   "#thirdLatestBlog_text_blog",
+  //   "#thirdLatestBlog_date",
+  //   posts
+  // );
 
   let divForSecondLast = document.querySelector("#secondLatestBlog");
   divForSecondLast.querySelector("h2").textContent = posts[1].title.rendered;
   divForSecondLast.querySelector("#secondLatestBlog_text_blog").innerHTML =
     posts[1].excerpt.rendered;
+  let a = document.createElement("a");
+  a.href = "subpage_blog.html?id=" + posts[1].id;
+  a.appendChild(
+    divForSecondLast
+      .querySelector("#secondLatestBlog_text_blog")
+      .querySelector(".excerpt-hellip")
+  );
+  document.querySelector("#secondLatestBlog_text_blog").appendChild(a);
   divForSecondLast.querySelector("#secondLatestBlog_date").textContent =
     posts[1].date;
   const imgSecondLatestBlog = await fetch(
@@ -73,10 +93,19 @@ async function insertBlogsToDOM(posts) {
   ).then(res => res.json());
   divForSecondLast.style.backgroundImage =
     "url(" + imgSecondLatestBlog.media_details.sizes.medium.source_url + ")";
+
   let divForThirdLast = document.querySelector("#thirdLatestBlog");
   divForThirdLast.querySelector("h2").textContent = posts[2].title.rendered;
   divForThirdLast.querySelector("#thirdLatestBlog_text_blog").innerHTML =
     posts[2].excerpt.rendered;
+  let a_3 = document.createElement("a");
+  a_3.href = "subpage_blog.html?id=" + posts[2].id;
+  a_3.appendChild(
+    divForThirdLast
+      .querySelector("#thirdLatestBlog_text_blog")
+      .querySelector(".excerpt-hellip")
+  );
+  document.querySelector("#thirdLatestBlog_text_blog").appendChild(a_3);
   divForThirdLast.querySelector("#thirdLatestBlog_date").textContent =
     posts[2].date;
   const imgThirdLatestBlog = await fetch(
@@ -103,14 +132,6 @@ async function insertBlogsToDOM(posts) {
 
     document.querySelector("#blogs").appendChild(clone);
   }
-  // let allBlogs = document.querySelectorAll(".blogBG");
-  // let latestBlog = allBlogs[0];
-  // latestBlog.setAttribute("id", "lastBlog");
-  // console.log({ latestBlog });
-  // divForLastBlog.append(latestBlog);
-  // document.querySelector("#blogBG").style.width = "50%";
-  // document.querySelector("#blogBG").style.height = "50%";
-  // divForLatest.appendChild(document.querySelector(".blogBG"));
 }
 
 async function init() {

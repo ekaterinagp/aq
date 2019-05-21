@@ -1427,9 +1427,10 @@ input:checked + .btnRadio {
 }
 #mainTextBlog {
   width: 80%;
-  height: 100%;
+  height: auto;
   margin: -5em 5em 5em 5em;
   z-index: 20;
+  background-color: white;
 }
 @media (max-width: 1024px) {
   .masonry_grid {

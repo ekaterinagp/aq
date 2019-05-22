@@ -1132,9 +1132,9 @@ svg {
   width: 2em;
 }
 
-/* #section_platform_item_1 svg {
+#section_platform_item_1 svg {
   fill: black;
-} */
+}
 
 .items:first-child > svg:first-child {
   fill: #ef6461;
@@ -1570,6 +1570,72 @@ input:checked + .btnRadio {
   width: 100%;
   /* height: auto; */
 /* } */
+
+/* //wireframes  */
+
+#wireframe_description {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(175, 174, 174);
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+}
+
+.description_text {
+  padding: 4em;
+}
+
+.description_text p {
+  font-size: 1.1em;
+}
+
+.description_text h3 {
+  font-size: 2em;
+}
+
+#wireframe_description img {
+  width: 100%;
+  height: auto;
+}
+
+.caruselle {
+  width: 100%;
+  padding: 4em;
+}
+
+#benefits {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+#platform {
+  padding: 2em;
+}
+
+#benefits img {
+  width: 100%;
+  height: auto;
+}
+
+#benefits_list ul {
+  list-style-type: circle;
+}
+
+#benefits_list li {
+  display: block;
+  font-size: 1.3em;
+}
+
+#benefits h3 {
+  font-size: 2em;
+}
+#whatOffer {
+  width: 100%;
+  height: 100%;
+  background-color: azure;
+}
 
 @media (max-width: 400px) {
   p,

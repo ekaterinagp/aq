@@ -44,7 +44,7 @@ let sequenceNumber = 1;
 let slideShow = document.querySelector("#slide");
 
 function changeSrc() {
-  slideShow.src = "slideshow" + sequenceNumber + ".jpg";
+  slideShow.src = "cabin/slideshow" + sequenceNumber + ".jpg";
   sequenceNumber++;
   if (sequenceNumber > 6) {
     sequenceNumber = 0;

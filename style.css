@@ -222,9 +222,9 @@ footer input {
   grid-template-columns: repeat(5, 1fr);
 }
 
-.wrapper_6_columns {
+.wrapper_7_columns {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
 }
 .wrapper_5_rows {
   display: grid;
@@ -260,7 +260,7 @@ footer input {
   font-family: "Poppins";
 }
 .header {
-  margin: 1em 0;
+  margin: 1em 0 ;
   grid-column: 1/-1;
 }
 
@@ -319,11 +319,46 @@ footer input {
 
 
 /*HERO ANIMATION*/
-#hero .hero_laptop,
-#hero .hero_text{
+.lineSvg{
+  z-index: 5;
+  width:96vw;
+  top: 84vh;
+  bottom:0;
+  position: absolute;
+stroke:#000;
+stroke-width:.1px;
+display: block;
+left:2vw;
+stroke-dasharray: 1;
+stroke-dashoffset: 1;
+stroke-miterlimit: 10;
+animation:dash .3s forwards;
+}
+.blue{
+  border-radius: 10px;
+  z-index:0;
+  position:absolute;
+  height:0;
+  width:96vw;
+  bottom:0vh;
+  left:0;
+  visibility: hidden;
+  background: linear-gradient(
+    to bottom,
+    rgba(219, 228, 243, 1) 0%,
+    rgba(243, 246, 251, 1) 100%
+  );
+/* background-color: #dbe4f3; */
+}
+.height{
+  visibility:initial;
+  animation: addheight .5s forwards;
+}
+
+#hero .hero_laptop{
   opacity:0;
   animation:fadeIn .5s forwards;
-  animation-delay: 3s;
+  animation-delay: 2.8s;
 }
 .drawSvg .cls-1{
   stroke:#2c2e3e;
@@ -338,31 +373,30 @@ footer input {
 fill:#2c2e3e;
 }
 .drawSvg {
-  z-index: 1;
+    z-index: 2;
   width:96vw;
   top: 0;
   height:auto;
   position:absolute;
-  z-index: 1;
+fill: none;
+stroke-dasharray: 1;
+stroke-dashoffset: 1;
+stroke-miterlimit: 10;
   }
 .heroImg{
   border-radius: 10px;
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   width:96vw;
   height:auto;
   top:0;
-  animation: fadeIn .5s ease-in forwards;
-  animation-delay: 2s;
+  animation: fadeIn .3s ease-in forwards;
+  animation-delay: 2.7s;
   display:block;
 opacity: 0;
 }
 
 .draw{
-fill: none;
-stroke-dasharray: 1;
-stroke-dashoffset: 1;
-stroke-miterlimit: 10;
 animation: dash .5s forwards; 
 }
 
@@ -375,9 +409,15 @@ animation: dash .5s forwards;
 @keyframes fadeIn {
  100% {
     opacity: 1;
-    
  }
 } 
+@keyframes addheight{
+  100%{
+      height:85vh;
+  }
+  }
+
+  /* animation ends */
 /* #cons,
 #platform {
   height: 100%;
@@ -739,8 +779,12 @@ head .blogBG {
 }
 
 /*   platform timeline */
-#timelineSection {
-  margin: 5% 10%;
+#timelineSection{
+  margin:5% 10% 10%;
+}
+#timelineSection ul {
+  display:grid;
+  grid-template-columns: repeat(15, 1fr);
 }
 
 .timelineWrapper {
@@ -748,11 +792,13 @@ head .blogBG {
   background-size: cover;
   position: relative;
   transition: all 0.3s;
-  margin-left: -25%;
+  border-radius:5px;
   height: 50vh;
+  grid-row:1;
 }
 .timelineWrapper h1 {
-  padding: 25% 15% 0;
+  font-size: 1.8em;
+  padding: 25% 10% 0;
 }
 .timelineWrapper:hover {
   z-index: 10;
@@ -769,13 +815,37 @@ head .blogBG {
   transition: all 0.3s;
 }
 
+.timelineWrapper:nth-child(1) {
+  background-image: url(img/signup.png);
+  grid-column:1/4;
+}
+.timelineWrapper:nth-child(2) {
+  grid-column:3/6;
+}
+.timelineWrapper:nth-child(3) {
+  grid-column:5/8;
+}
+.timelineWrapper:nth-child(4) {
+  grid-column:7/10;
+}
+.timelineWrapper:nth-child(4) h1{
+  padding: 10% 10% 0;
+}
+.timelineWrapper:nth-child(5) {
+  grid-column:9/12;
+}
+.timelineWrapper:nth-child(6) {
+  grid-column:11/14;
+}
+.timelineWrapper:nth-child(7) {
+  grid-column:13/-1;
+}
 .timelineWrapper:nth-child(odd) {
-  margin-top: 20vh;
+ margin-top:30vh;
 }
 .timelineWrapper:nth-child(even) {
-  margin-bottom: 20vh;
-}
-
+  margin-bottom:30vh;
+ }
 /*   Part two of Platform */
 
 .pros {
@@ -792,7 +862,7 @@ head .blogBG {
 .pros > div button {
   margin: 1em auto;
 }
-.pros .pro_text {
+.pro_text {
   grid-column: 2/-1;
   grid-row: 1;
   padding: 8% 5% 0 25%;
@@ -1686,21 +1756,22 @@ h2{
 /* } */
 
 /* //wireframes  */
-
-#wireframe_description {
+#benefits, 
+#wireframe_description{
+  position: relative;
   width: 100%;
   height: 100%;
-  background-color: rgb(175, 174, 174);
-  display: grid;
-  grid-template-columns: 3fr 3fr;
+  padding:0 5vw;
+  grid-template-rows: .1fr 1fr;
+}
+
+#wireframe_description .header{
+  margin-bottom: 0;
 }
 
 .description_text {
-  padding: 4em;
-}
-
-.description_text p {
   font-size: 1.1em;
+  margin-top:10%;
 }
 
 .description_text h3 {
@@ -1709,28 +1780,24 @@ h2{
 
 #wireframe_description img {
   width: 100%;
+  align-self: center;
   height: auto;
 }
 
-.caruselle {
+.cabinCarousel {
   width: 100%;
-  padding: 4em;
+  padding: 0 4em;
 }
 
-#benefits {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 2fr 2fr;
-}
 
-#platform {
-  padding: 2em;
-}
+
 
 #benefits img {
   width: 100%;
   height: auto;
+}
+#benefits p{
+  width:90%;
 }
 
 #benefits_list ul {
@@ -1745,10 +1812,18 @@ h2{
 #benefits h3 {
   font-size: 2em;
 }
-#whatOffer {
-  width: 100%;
-  height: 100%;
-  background-color: azure;
+#whatOffer >.pros{
+background: linear-gradient( to bottom, rgb(1, 138, 174) 0%, rgb(0, 167, 204) 50%, rgb(58, 199, 228) 100% );
+ }
+ 
+.cabinImg{
+  background-image:url(img/jorge-gil-563925-unsplash.jpg);
+  background-position:bottom;
+  background-size:100%;
+  grid-column: 1/3;
+  grid-row: 1;
+  width: 60vw;
+  border-radius: 10px 0 0 10px;
 }
 
 @media (max-width: 400px) {

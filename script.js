@@ -1091,23 +1091,35 @@ function movePrev(clients) {
   }
   moveCarouselTo(slide, clients);
 }
-function drawSvg(){
-let drawFirst = document.querySelector("#first").children;
-let n = 0;
-console.log(drawFirst);
-for(let i=0; i< drawFirst.length; i++){
-    drawFirst[i].classList.add("draw");
-    drawFirst[i].style.animationDelay = (n+=0.05) + "s";
-    // console.log(n)
-};
+
+
+function startSvgAnimation(){
+  let svg = document.querySelector(".drawSvg");
+  let drawFirst = document.querySelector("#first").children;
+  let n = 0;
+  svg.style.visibilty = "initial;"
+  console.log(drawFirst);
+  for(let i=0; i< drawFirst.length; i++){
+      drawFirst[i].classList.add("draw");
+      drawFirst[i].style.animationDelay = (n+=0.03) + "s";
+      console.log(n);
+  };
 }
 
-
+function startHeroAnimation(){
+let img = document.querySelector(".blue");
+img.classList.add("height");
+document.querySelector(".lineSvg").style.display="none";
+img.addEventListener("animationend",()=>{
+console.log("img finished");
+startSvgAnimation();
+})
+}
 
 async function init() {
- drawSvg();
-  
-  const testimonials = await fetchTestimonials();
+  document.querySelector(".lineSvg").addEventListener("animationend", startHeroAnimation);
+//  drawSvg();
+    const testimonials = await fetchTestimonials();
   const blogPosts = await fetchBlogPosts();
   // console.log(blogPosts);
   // console.log({ testimonials });

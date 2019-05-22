@@ -29,12 +29,12 @@ async function insertPartsToDOM(parts) {
 
   document
     .querySelector("#wireframe_description")
-    .querySelector("h3").textContent = parts[1].title.rendered;
+    .querySelector("h1").textContent = parts[1].title.rendered;
   document
     .querySelector("#wireframe_description")
     .querySelector("p").innerHTML = parts[1].content.rendered;
 
-  document.querySelector("#benefits_list").querySelector("h3").innerHTML =
+  document.querySelector("#benefits").querySelector("h1").innerHTML =
     parts[0].title.rendered;
   document.querySelector("#benefits_list").querySelector("p").innerHTML =
     parts[0].content.rendered;

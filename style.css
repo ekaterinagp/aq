@@ -109,7 +109,9 @@ footer input {
 }
 
 /* //reusable CSS */
-
+.fade{
+  animation: fadeIn .5s forwards;
+}
 .boxStyle {
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -121,13 +123,16 @@ footer input {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 .hero {
-  height: 85vh;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 11vh 2% 2%;
+  position: relative;
+  overflow: hidden;
+  height:85vh;
+  width:96vw;
+  margin: 10vh auto 2%;
   border-radius: 10px;
 }
 .hero_text {
+  width:85%;
+  z-index: 3;
   text-align: left;
   padding: 2em;
   align-self: center;
@@ -304,19 +309,76 @@ footer input {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 .hero_laptop {
+  z-index: 3;
   width: 100%;
   align-self: center;
 }
 /* //reusable CSS ends */
 
 /* FRONTPAGE */
-#hero {
-  height: 90%;
-  background-image: url("img/hero.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+
+
+/*HERO ANIMATION*/
+#hero .hero_laptop,
+#hero .hero_text{
+  opacity:0;
+  animation:fadeIn .5s forwards;
+  animation-delay: 3s;
+}
+.drawSvg .cls-1{
+  stroke:#2c2e3e;
+  stroke-miterlimit:10;
+  stroke-width:2px;
+}
+.drawSvg .cls-1,
+.drawSvg .cls-3{
+  fill:none;
+}
+.drawSvg .cls-2{
+fill:#2c2e3e;
+}
+.drawSvg {
+  z-index: 1;
+  width:96vw;
+  top: 0;
+  height:auto;
+  position:absolute;
+  z-index: 1;
+  
+}
+.heroImg{
+  border-radius: 10px;
+  position: absolute;
+  z-index: 0;
+  width:96vw;
+  height:auto;
+  top:0;
+  animation: fadeIn .5s ease-in forwards;
+  animation-delay: 2s;
+  display:block;
+opacity: 0;
 }
 
+.draw{
+fill: none;
+stroke-dasharray: 1;
+stroke-dashoffset: 1;
+stroke-miterlimit: 10;
+animation: dash .5s forwards; 
+}
+
+@keyframes dash {
+100% {
+  stroke-dashoffset: 0;
+ } 
+}
+
+@keyframes fadeIn {
+ 100% {
+    opacity: 1;
+    
+ }
+} 
 /* #cons,
 #platform {
   height: 100%;
@@ -644,12 +706,11 @@ head .blogBG {
   text-align: center;
 }
 
-#blogs {
-  display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
-  margin: 0 auto;
+#frontpageBlogs {
+  width:70%;
+  margin:auto;
 }
-#blogs .boxStyle {
+#frontpageBlogs .boxStyle {
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -672,7 +733,10 @@ head .blogBG {
 /* PLATFORM PAGE  */
 
 #hero_platform {
-  background-image: url(img/hero_platform.png);
+  z-index: 5;
+  /* background-image: url(img/hero_platform.png);
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 2.5s; */
 }
 
 /*   platform timeline */
@@ -1426,11 +1490,40 @@ input:checked + .btnRadio {
   height: 60%;
 }
 #mainTextBlog {
-  width: 80%;
+  border-radius: 10px;
+  width: 70%;
   height: auto;
-  margin: -5em 5em 5em 5em;
+  margin: -5em auto 0;
   z-index: 20;
+padding:1em;
   background-color: white;
+}
+#mainTextBlog h1{
+  margin:0;
+  padding:1em;
+}
+#mainTextBlog img{
+  height:auto;
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+}
+
+.odd > td.column-1 {
+  padding: 2.5em 0 .5em;
+}
+tr strong{
+  font-size: 1.5em;
+  font-family: 'Poppins';
+}
+td.column-2{
+  padding-left:1em;
+}
+iframe{
+  width:90%;
+  margin:auto;
+  height:90%;
 }
 @media (max-width: 1024px) {
   .masonry_grid {
@@ -1461,6 +1554,8 @@ input:checked + .btnRadio {
   display: block;
 }
 
+/*  BLOG PAGE  */
+
 #blog_front h1 {
   color: #ef6461;
   column-span: all;
@@ -1472,8 +1567,8 @@ input:checked + .btnRadio {
 
 #three_latest {
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  grid-gap: 2em;
+  grid-template-columns: 2.5fr 2fr;
+  grid-gap: 1em;
 }
 #secondLatestBlog,
 #thirdLatestBlog {
@@ -1492,9 +1587,9 @@ input:checked + .btnRadio {
 }
 
 #secondLatestBlog p,
-#thirdLatestBlog p {
+#thirdLatestBlog p, #blogs p{
   font-size: 0.8em;
-  margin-bottom: 0;
+  margin:.5em 0 0 0 ;
 }
 
 .a {
@@ -1509,6 +1604,19 @@ input:checked + .btnRadio {
 .c {
   grid-row: 2 / span 1;
 }
+#secondLatestBlog, #thirdLatestBlog{
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#blogs .boxstyle{
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 28vw;
+  height: 45vh;
+  margin: 1vw;
+  justify-self: center;
+}
 
 #blogs h2 {
   font-size: 1.1em;
@@ -1522,7 +1630,6 @@ input:checked + .btnRadio {
 #latestBlog {
   background-repeat: no-repeat;
   background-size: contain;
-  width: 45vw;
   height: 70vh;
 }
 .blogTextStyle {
@@ -1535,15 +1642,23 @@ input:checked + .btnRadio {
 }
 #blogs .blogTextStyle {
   width: 28vw;
-  height: 15vh;
+  height: 20vh;
+  padding-top:.8em;
+}
+#date,
+#latestBlog_date,
+#secondLatestBlog_date,
+#thirdLatestBlog_date,
+h2{
+  display: inline;
 }
 #date,
 #latestBlog_date,
 #secondLatestBlog_date,
 #thirdLatestBlog_date {
-  text-align: right;
-  /* font-size: 0.7em; */
-  margin-top: 0;
+ float:right;
+  margin:.5em 0 0 2em;
+  font-size: .8em;
 }
 /* #text_blog {
   display: none;

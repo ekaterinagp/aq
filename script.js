@@ -40,7 +40,7 @@ let formItems = [
         },
         {
           title: "Interior",
-          img: "building.png",
+          img: "jason-briscoe-332508-unsplash.jpg",
           textAbout: "The building is complete and needs to be decorated. "
         }
       ];
@@ -1010,7 +1010,7 @@ async function insertTestimonialsToDOM(testimonials) {
 // project._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
 
 async function insertBlogsToDom(blogPosts) {
-  const section = document.querySelector("#blogs");
+  const section = document.querySelector("#frontpageBlogs");
   let templateBlogs = document.querySelector("#blogsTemplate").content;
   for (let i = 0; i < blogPosts.length; i++) {
     let clone = templateBlogs.cloneNode(true);
@@ -1091,12 +1091,27 @@ function movePrev(clients) {
   }
   moveCarouselTo(slide, clients);
 }
+function drawSvg(){
+let drawFirst = document.querySelector("#first").children;
+let n = 0;
+console.log(drawFirst);
+for(let i=0; i< drawFirst.length; i++){
+    drawFirst[i].classList.add("draw");
+    drawFirst[i].style.animationDelay = (n+=0.05) + "s";
+    // console.log(n)
+};
+}
+
+
 
 async function init() {
+ drawSvg();
+  
   const testimonials = await fetchTestimonials();
   const blogPosts = await fetchBlogPosts();
   // console.log(blogPosts);
   // console.log({ testimonials });
   insertTestimonialsToDOM(testimonials);
   insertBlogsToDom(blogPosts);
+  
 }

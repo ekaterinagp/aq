@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
   init();
 });
 
-function fetchParts() {
+function fetchAllParts() {
   let endpoint = "https://architecturequote.com/wp-json/wp/v2/wireframe1";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
@@ -15,12 +15,28 @@ function fetchParts() {
   });
 }
 
-async function fetchImg(parts) {
+async function fetchBackgroundImg(parts) {
   const backgroundIMG = await fetch(
-    parts[2]._links["wp:featuredmedia"][0].href
+    parts[3]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
   console.log({ backgroundIMG });
   return backgroundIMG;
+}
+
+async function fetchImgForSecondPart(parts) {
+  const imgForSecond = await fetch(
+    parts[2]._links["wp:featuredmedia"][0].href
+  ).then(res => res.json());
+  console.log({ imgForSecond });
+  return imgForSecond;
+}
+
+async function fetchImgForMorePart(parts) {
+  const imgForMore = await fetch(
+    parts[0]._links["wp:featuredmedia"][0].href
+  ).then(res => res.json());
+  console.log({ imgForMore });
+  return imgForMore;
 }
 
 // async function insertPartsToDOM(parts) {
@@ -60,11 +76,40 @@ async function fetchImg(parts) {
 // }
 
 async function init() {
-  const wireframeParts = await fetchParts();
+  const wireframeParts = await fetchAllParts();
   console.log({ wireframeParts });
-  const img = await fetchImg(wireframeParts);
-  console.log({ img });
-  createAboveTheFold(wireframeParts, img, 2);
+  const backgroundImg = await fetchBackgroundImg(wireframeParts);
+  console.log({ backgroundImg });
+  createAboveTheFold(wireframeParts, backgroundImg, 3);
+  const imgForSecond = await fetchImgForSecondPart(wireframeParts);
+  console.log({ imgForSecond });
+  createSimpleImgTextLayout(wireframeParts, imgForSecond, 2);
+  let imgsForCaruselle = [
+    {
+      num: "cabin/slideshow0.jpg"
+    },
+    {
+      num: "cabin/slideshow1.jpg"
+    },
+    {
+      num: "cabin/slideshow2.jpg"
+    },
+    {
+      num: "cabin/slideshow3.jpg"
+    },
+    {
+      num: "cabin/slideshow4.jpg"
+    },
+    {
+      num: "cabin/slideshow5.jpg"
+    },
+    {
+      num: "cabin/slideshow6.jpg"
+    }
+  ];
+  createDivFromWP(wireframeParts, 1);
+  const imgForMore = await fetchImgForMorePart(wireframeParts);
+  createSimple2ColumnsBGTextRight(wireframeParts, imgForMore, 0);
   // insertPartsToDOM(wireframeParts);
   // setInterval(changeSrc, 4000);
 }

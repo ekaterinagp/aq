@@ -32,7 +32,7 @@ function createAboveTheFold(parts, img, i) {
   h1.innerHTML = parts[i].title.rendered;
   let p = document.createElement("p");
   p.setAttribute("class", "sub_title");
-  p.innerHTML = parts[i].excerpt.rendered;
+  p.innerHTML = parts[i].content.rendered;
   let button = createButtonForForm("Get your free estimate", "freeEst");
   divForText.append(h1, p, button);
   abovetheFoldHolder.append(divForText);
@@ -102,4 +102,16 @@ function createSimple2ColumnsBGTextRight(parts, img, i) {
   pDiv.append(pText, link);
   divHolder.append(h1, pDiv);
   document.querySelector(".wrapper").append(divHolder);
+}
+
+function createTimeline(parts, i) {
+  let div = document.createElement("div");
+  div.id = "timelineSection";
+  div.setAttribute("class", "fullScreen");
+  let h1 = document.createElement("h1");
+  h1.innerHTML = parts[i].title.rendered;
+  let divForContent = document.createElement("div");
+  divForContent.innerHTML = parts[i].content.rendered;
+  div.append(h1, divForContent);
+  document.querySelector(".wrapper").append(div);
 }

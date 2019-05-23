@@ -2,10 +2,6 @@
 
 window.addEventListener("load", initForm);
 
-function openForm(){
-    formWrapper.classList.remove("hidden");
-    insertDOMforForm();
-}
 const formDiv = document.querySelector("#form");
 const formWrapper = document.querySelector(".formWrapper");
 let questionText = formDiv.querySelector("h3");
@@ -459,7 +455,6 @@ let userAnswers = {
   news: ""
 };
 
-
 // startProjectBtns.forEach(btn => {
 //   btn.addEventListener("click", () => {
 //     console.log({ formWrapper });
@@ -761,55 +756,59 @@ function listenForValue(itemIDstr, answerTypestr) {
     setNextBtnDisabled(false);
   }
 }
-function createFormWrapper(){
-    
-    console.log("form!");
-    let formWrapper = document.createElement("div");
-    formWrapper.className ="formWrapper hidden";
-    let formDiv = document.createElement("div");
-    formDiv.className = "boxStyle";
-    formDiv.id = "form";
-    let closeSpan = document.createElement("span");
-    closeSpan.className="close";
-    closeSpan.textContent = "X";
-    let title = document.createElement("h1");
-    title.className = "section_title";
-    title.textContent = "ArquitectureQuote";
-    let subTitle = document.createElement("h3");
-    subTitle.className="sub_title";
-    subTitle.textContent="Select the type of project";
-    let optionDiv  = document.createElement("div");
-    optionDiv.id = "options";
-    let buttonsDiv = document.createElement("div");
-    buttonsDiv.id = "buttonsForm";
-    buttonsDiv.className ="wrapper_4_columns";
-    let formPrevBtn = document.createElement("button");
-    formPrevBtn.id = "prev";
-    formPrevBtn.className="back_button";
-    formPrevBtn.textContent="previous";
-    let formNextBtn = document.createElement("button");
-    formNextBtn.id ="next";
-    formNextBtn.className="orange_button";
-    formNextBtn.textContent="Next";
-    formNextBtn.disabled=true;
+function createFormWrapper() {
+  console.log("form!");
+  let formWrapper = document.createElement("div");
+  formWrapper.className = "formWrapper hidden";
+  let formDiv = document.createElement("div");
+  formDiv.className = "boxStyle";
+  formDiv.id = "form";
+  let closeSpan = document.createElement("span");
+  closeSpan.className = "close";
+  closeSpan.textContent = "X";
+  let title = document.createElement("h1");
+  title.className = "section_title";
+  title.textContent = "ArquitectureQuote";
+  let subTitle = document.createElement("h3");
+  subTitle.className = "sub_title";
+  subTitle.textContent = "Select the type of project";
+  let optionDiv = document.createElement("div");
+  optionDiv.id = "options";
+  let buttonsDiv = document.createElement("div");
+  buttonsDiv.id = "buttonsForm";
+  buttonsDiv.className = "wrapper_4_columns";
+  let formPrevBtn = document.createElement("button");
+  formPrevBtn.id = "prev";
+  formPrevBtn.className = "back_button";
+  formPrevBtn.textContent = "previous";
+  let formNextBtn = document.createElement("button");
+  formNextBtn.id = "next";
+  formNextBtn.className = "orange_button";
+  formNextBtn.textContent = "Next";
+  formNextBtn.disabled = true;
 
-    document.querySelector("body").appendChild(formWrapper);
-    // console.log(body);
-    formWrapper.appendChild(formDiv);
-    formWrapper.appendChild(closeSpan);
-    formWrapper.appendChild(title);
-    formWrapper.appendChild(subTitle);
-    formWrapper.appendChild(optionDiv);
-    formWrapper.appendChild(buttonsDiv);
-    buttonsDiv.appendChild(formPrevBtn);
-    buttonsDiv.appendChild(formNextBtn);
+  document.querySelector("body").appendChild(formWrapper);
+  // console.log(body);
+  formWrapper.appendChild(formDiv);
+  formWrapper.appendChild(closeSpan);
+  formWrapper.appendChild(title);
+  formWrapper.appendChild(subTitle);
+  formWrapper.appendChild(optionDiv);
+  formWrapper.appendChild(buttonsDiv);
+  buttonsDiv.appendChild(formPrevBtn);
+  buttonsDiv.appendChild(formNextBtn);
 
-    openForm();
+  openForm();
+}
+
+function openForm() {
+  formWrapper.classList.remove("hidden");
+  insertDOMforForm();
 }
 
 function initForm() {
-    let startProjectBtns = document.querySelectorAll(".freeEst");
-    startProjectBtns.forEach(button =>{
-       button.addEventListener("click", createFormWrapper);
-   })
+  let startProjectBtns = document.querySelectorAll(".freeEst");
+  startProjectBtns.forEach(button => {
+    button.addEventListener("click", createFormWrapper);
+  });
 }

@@ -130,6 +130,14 @@ footer input {
   margin: 10vh auto 2%;
   border-radius: 10px;
 }
+.hero_lp{
+  margin: 10vh auto 2%;
+  border-radius: 10px;
+  width:96%;
+  height:80%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .hero_text {
   width:85%;
   z-index: 3;

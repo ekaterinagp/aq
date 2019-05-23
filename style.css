@@ -364,7 +364,7 @@ footer input {
 
 #hero .hero_laptop {
   opacity: 0;
-  animation: fadeIn 0.8s forwards;
+  animation: fadeIn 0.3s forwards;
   animation-delay: 2.8s;
 }
 .drawSvg .cls-1 {
@@ -397,7 +397,7 @@ footer input {
   width: 96vw;
   height: auto;
   top: 0;
-  animation: fadeIn 0.5s ease-in forwards;
+  animation: fadeIn 0.3s ease-in forwards;
   animation-delay: 2.7s;
   display: block;
   opacity: 0;
@@ -780,9 +780,9 @@ head .blogBG {
 
 #hero_platform {
   z-index: 5;
-  /* background-image: url(img/hero_platform.png);
+  background-image: url(img/hero_platform.png);
   animation: fadeIn 2s ease-in forwards;
-  animation-delay: 2.5s; */
+  animation-delay: 2.5s;
 }
 
 /*   platform timeline */
@@ -833,38 +833,6 @@ head .blogBG {
 }
 
 .timelineWrapper:nth-child(1) {
-<<<<<<< HEAD
-  background-image: url(img/563059-PL2C99-583.jpg);
-  grid-column:1/4;
-}
-.timelineWrapper:nth-child(2) {
-  grid-column:3/6;
-  background-image: url(img/2231.jpg);
-  background-position: center;
-}
-.timelineWrapper:nth-child(3) {
-  background-image: url(img/2231.jpg);
-  grid-column:5/8;
-}
-.timelineWrapper:nth-child(4) {
-  background-image: url(img/blueprints.jpg);
-  grid-column:7/10;
-}
-.timelineWrapper:nth-child(4) h1{
-    padding: 10% 10% 0;
-}
-.timelineWrapper:nth-child(5) {
-  background-image: url(img/3835.jpg);
-  grid-column:9/12;
-}
-.timelineWrapper:nth-child(6) {
-  background-image: url(img/tolu-olubode-418914-unsplash.jpg);
-  grid-column:11/14;
-}
-.timelineWrapper:nth-child(7) {
-  background-image: url(img/shaking_hands.jpg);
-  grid-column:13/-1;
-=======
   background-image: url(img/signup.png);
   grid-column: 1/4;
 }
@@ -891,7 +859,6 @@ head .blogBG {
 }
 .timelineWrapper:nth-child(7) {
   grid-column: 13/-1;
->>>>>>> ff14701a69cb308f509b6f913d77f5f0ec0147d9
 }
 .timelineWrapper:nth-child(odd) {
   margin-top: 30vh;
@@ -1011,9 +978,9 @@ head .blogBG {
 .icon_item:nth-child(odd) {
   margin-bottom: 20vh;
 }
-.icon_item img{
-  width:100%;
-  position:absolute;
+.icon_item img {
+  width: 100%;
+  position: absolute;
   margin: auto;
   top: 40%;
   right: 0;

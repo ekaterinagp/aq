@@ -3,6 +3,7 @@
 window.addEventListener("load", initForm);
 
 function openForm(formWrapper) {
+  currentFormItem = 0;
   formWrapper.classList.remove("hidden");
 
   let questionText = formWrapper.querySelector("h3");
@@ -477,7 +478,11 @@ let userAnswers = {
 // //   });
 // // });
 function closeForm() {
-  document.querySelector(".formWrapper").classList.add("hidden");
+  // document.querySelector(".formWrapper").classList.add("hidden");
+  // let formWrapperExists = document.querySelector(".formWrapper");
+  // if (formWrapperExists) {
+  document.querySelector(".formWrapper").remove();
+  // }
 }
 
 // // window.addEventListener("click", ()=>{
@@ -495,8 +500,9 @@ function insertDOMforForm() {
   let questionText = formDiv.querySelector("h3");
   let options = formDiv.querySelector("#options");
   options.textContent = "";
-  if (formItems[currentFormItem].id == 1)
+  if (formItems[currentFormItem].id == 1) {
     document.querySelector("#prev").classList.add("hidden");
+  }
   options.appendChild(formItems[currentFormItem].options());
   questionText.textContent = formItems[currentFormItem].txt;
 
@@ -504,6 +510,7 @@ function insertDOMforForm() {
 }
 
 function nextElement(questionText) {
+  console.log("nextElement");
   setNextBtnDisabled(true);
   document.querySelector("#prev").style.display = "block";
   let form = document.querySelector("#form");
@@ -603,6 +610,7 @@ const insertSavedAnswersRadio = (sectionStr, answerTypeStr) => {
 };
 
 function prevElement() {
+  console.log("prevElement");
   setNextBtnDisabled(false);
 
   let form = document.querySelector("#form");
@@ -747,6 +755,7 @@ function listenerForRadios(formType, answerType) {
 }
 
 function listenForValue(itemIDstr, answerTypestr) {
+  console.log("listenForValue");
   let form = document.getElementById("projectDetails");
   let selectedItem = form.querySelector(itemIDstr);
   userAnswers[answerTypestr] = selectedItem.value;
@@ -786,16 +795,12 @@ function createFormWrapper() {
   formNextBtn.textContent = "Next";
   formNextBtn.disabled = true;
 
-  // console.log(body);
-
   formDiv.append(closeSpan, title, subTitle, optionDiv);
   buttonsDiv.append(formPrevBtn, formNextBtn);
   formDiv.appendChild(buttonsDiv);
   formWrapper.append(formDiv);
   document.querySelector("body").appendChild(formWrapper);
   openForm(formWrapper);
-  console.log("elements created");
-
   closeSpan.addEventListener("click", closeForm);
 }
 
@@ -803,12 +808,7 @@ function initForm() {
   let startProjectBtns = document.querySelectorAll(".freeEst");
   startProjectBtns.forEach(button => {
     button.addEventListener("click", () => {
-      if (document.querySelector(".formWrapper")) {
-        let formWrapper = document.querySelector(".formWrapper");
-        openForm(formWrapper);
-      } else {
-        createFormWrapper();
-      }
+      createFormWrapper();
     });
   });
 }

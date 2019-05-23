@@ -2,16 +2,22 @@
 
 window.addEventListener("load", initForm);
 
-function openForm(){
-    formWrapper.classList.remove("hidden");
-    insertDOMforForm();
-}
-const formDiv = document.querySelector("#form");
-const formWrapper = document.querySelector(".formWrapper");
-let questionText = formDiv.querySelector("h3");
-let options = formDiv.querySelector("#options");
-let currentFormItem = 0;
+function openForm(formWrapper){
+formWrapper.classList.remove("hidden");
 
+let questionText = formWrapper.querySelector("h3");
+insertDOMforForm();
+const prevButton = document.querySelector("#prev");
+const nextButton = document.querySelector("#next");
+nextButton.addEventListener("click", () => {
+  nextElement(questionText);
+});
+prevButton.addEventListener("click", () => {
+  prevElement();
+});
+};
+
+let currentFormItem = 0;
 let formItems = [
   {
     id: 1,
@@ -49,8 +55,11 @@ let formItems = [
         }
       ];
 
+      
       let form = document.createElement("form");
       form.setAttribute("id", "projectType");
+
+
       // form.setAttribute("class", "wrapper_4_columns");
       values.forEach(value => {
         let divForValue = document.createElement("div");
@@ -460,57 +469,48 @@ let userAnswers = {
 };
 
 
-// startProjectBtns.forEach(btn => {
-//   btn.addEventListener("click", () => {
-//     console.log({ formWrapper });
+// // startProjectBtns.forEach(btn => {
+// //   btn.addEventListener("click", () => {
+// //     console.log({ formWrapper });
 
-//     formWrapper.classList.remove("hidden");
+// //     formWrapper.classList.remove("hidden");
 
-//     // document.querySelector("body").appendChild(formDiv);
-//     insertDOMforForm();
-//   });
-// });
-let closeFormBtn = document.querySelectorAll(".close");
-closeFormBtn.forEach(btn => {
-  btn.addEventListener("click", () => {
-    // console.log(btn.parentElement.parentElement);
-    btn.parentElement.parentElement.classList.add("hidden");
-  });
-});
-// window.addEventListener("click", ()=>{
-//   if(formWrapper.className="formWrapper"){
-//     formWrapper.classList.add("hidden");
-//   }
-// });
+// //     // document.querySelector("body").appendChild(formDiv);
+// //     insertDOMforForm();
+// //   });
+// // });
+function closeForm(){
+    document.querySelector(".formWrapper").classList.add("hidden");
+}
+
+
+// // window.addEventListener("click", ()=>{
+// //   if(formWrapper.className="formWrapper"){
+// //     formWrapper.classList.add("hidden");
+// //   }
+// // });
 
 function setNextBtnDisabled(bool) {
   document.getElementById("next").disabled = bool;
 }
 
 function insertDOMforForm() {
-  document.querySelector("#options").textContent = "";
+const formDiv = document.querySelector("#form");
+let questionText = formDiv.querySelector("h3");
+let options = formDiv.querySelector("#options");
+  options.textContent = "";
   if (formItems[currentFormItem].id == 1)
     document.querySelector("#prev").classList.add("hidden");
-
   options.appendChild(formItems[currentFormItem].options());
   questionText.textContent = formItems[currentFormItem].txt;
 
   listenerForRadios("#projectType", "type_project");
 }
 
-const prevButton = formDiv.querySelector("#prev");
-const nextButton = formDiv.querySelector("#next");
 
-nextButton.addEventListener("click", () => {
-  nextElement();
-});
 
-prevButton.addEventListener("click", () => {
-  prevElement();
-});
-
-function nextElement() {
-  setNextBtnDisabled(true);
+function nextElement(questionText) {
+      setNextBtnDisabled(true);
   document.querySelector("#prev").style.display = "block";
   let form = document.querySelector("#form");
   form.querySelector("h3").textContent = "";
@@ -551,6 +551,7 @@ function nextElement() {
     submitBtn.setAttribute("id", "submitBtn");
     submitBtn.setAttribute("class", "orange_button");
     submitBtn.disabled = true;
+    submitBtn.addEventListener("click", closeForm);
     document.querySelector("#buttonsForm").appendChild(submitBtn);
     listenerForInput("#first_name", "name");
     listenerForInput("#last_name", "last_name");
@@ -762,10 +763,8 @@ function listenForValue(itemIDstr, answerTypestr) {
   }
 }
 function createFormWrapper(){
-    
-    console.log("form!");
     let formWrapper = document.createElement("div");
-    formWrapper.className ="formWrapper hidden";
+    formWrapper.className ="formWrapper";
     let formDiv = document.createElement("div");
     formDiv.className = "boxStyle";
     formDiv.id = "form";
@@ -777,7 +776,7 @@ function createFormWrapper(){
     title.textContent = "ArquitectureQuote";
     let subTitle = document.createElement("h3");
     subTitle.className="sub_title";
-    subTitle.textContent="Select the type of project";
+    subTitle.textContent="Select the type of a project";
     let optionDiv  = document.createElement("div");
     optionDiv.id = "options";
     let buttonsDiv = document.createElement("div");
@@ -786,30 +785,38 @@ function createFormWrapper(){
     let formPrevBtn = document.createElement("button");
     formPrevBtn.id = "prev";
     formPrevBtn.className="back_button";
-    formPrevBtn.textContent="previous";
+    formPrevBtn.textContent="Previous";
     let formNextBtn = document.createElement("button");
     formNextBtn.id ="next";
     formNextBtn.className="orange_button";
     formNextBtn.textContent="Next";
     formNextBtn.disabled=true;
 
-    document.querySelector("body").appendChild(formWrapper);
+   
     // console.log(body);
-    formWrapper.appendChild(formDiv);
-    formWrapper.appendChild(closeSpan);
-    formWrapper.appendChild(title);
-    formWrapper.appendChild(subTitle);
-    formWrapper.appendChild(optionDiv);
-    formWrapper.appendChild(buttonsDiv);
-    buttonsDiv.appendChild(formPrevBtn);
-    buttonsDiv.appendChild(formNextBtn);
+   
+    formDiv.append(closeSpan, title, subTitle, optionDiv);
+    buttonsDiv.append(formPrevBtn, formNextBtn);
+    formDiv.appendChild(buttonsDiv);
+    formWrapper.append(formDiv);
+ document.querySelector("body").appendChild(formWrapper);
+    openForm(formWrapper);
+    console.log("elements created");
+  
+closeSpan.addEventListener("click", closeForm);
 
-    openForm();
 }
 
 function initForm() {
     let startProjectBtns = document.querySelectorAll(".freeEst");
     startProjectBtns.forEach(button =>{
-       button.addEventListener("click", createFormWrapper);
+       button.addEventListener("click", ()=>{
+          if(document.querySelector(".formWrapper")){
+              let formWrapper = document.querySelector(".formWrapper")
+              openForm(formWrapper);
+          } else{
+        createFormWrapper();
+          }
    })
+});
 }

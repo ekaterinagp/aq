@@ -834,31 +834,35 @@ head .blogBG {
 }
 
 .timelineWrapper:nth-child(1) {
-  background-image: url(img/signup.png);
+  background-image: url(img/563059-PL2C99-583.jpg);
   grid-column:1/4;
 }
 .timelineWrapper:nth-child(2) {
   grid-column:3/6;
-  background-image: url(img/390256-PCBJXY-291.jpg);
+  background-image: url(img/2231.jpg);
   background-position: center;
 }
 .timelineWrapper:nth-child(3) {
-  background-image: url(img/335012-P9WNJ5-587.jpg);
+  background-image: url(img/2231.jpg);
   grid-column:5/8;
 }
 .timelineWrapper:nth-child(4) {
+  background-image: url(img/blueprints.jpg);
   grid-column:7/10;
 }
 .timelineWrapper:nth-child(4) h1{
-  padding: 10% 10% 0;
+    padding: 10% 10% 0;
 }
 .timelineWrapper:nth-child(5) {
+  background-image: url(img/3835.jpg);
   grid-column:9/12;
 }
 .timelineWrapper:nth-child(6) {
+  background-image: url(img/tolu-olubode-418914-unsplash.jpg);
   grid-column:11/14;
 }
 .timelineWrapper:nth-child(7) {
+  background-image: url(img/shaking_hands.jpg);
   grid-column:13/-1;
 }
 .timelineWrapper:nth-child(odd) {

@@ -961,7 +961,7 @@ head .blogBG {
 }
 #pros_icons {
   margin: 2% auto;
-  width: 60vw;
+  width: 80vw;
 }
 .prosWrapper {
   display: grid;
@@ -972,6 +972,7 @@ head .blogBG {
   background: white;
   position: relative;
   height: 35vh;
+  overflow: hidden;
   transition: all 0.3s;
   grid-row: 1;
 }
@@ -981,6 +982,14 @@ head .blogBG {
 }
 .icon_item:nth-child(odd) {
   margin-bottom: 20vh;
+}
+.icon_item img{
+  width:100%;
+  position:absolute;
+  margin: auto;
+  top: 40%;
+  right: 0;
+  left: 0;
 }
 
 .icon_item svg {
@@ -999,7 +1008,7 @@ head .blogBG {
   transition: all 0.3s;
   align-self: end;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .icon_item p {
   transition: all 0.3s;
@@ -1025,7 +1034,8 @@ head .blogBG {
 .icon_item:hover p {
   opacity: 1;
 }
-.icon_item:hover svg {
+.icon_item:hover svg,
+.icon_item:hover img {
   opacity: 0.1;
 }
 .text_left {

@@ -1,4 +1,5 @@
 let endpoint = "https://architecturequote.com/wp-json/wp/v2/faq"
+
 window.addEventListener("load", function() {
     init();
   });
@@ -31,7 +32,7 @@ window.addEventListener("load", function() {
 
 async function init() {
   const faqData = await fetchFaq();
-  console.log(faqData);
+  // console.log(faqData);
   showFaq(faqData);
   let plusses = document.querySelectorAll(".plus");
   let open = false;
@@ -50,7 +51,7 @@ async function init() {
                 plus.style.transform= "rotate(0)";
                 open = false;
             }
-            // plus.nextElementSibling.classList.toggle("show");
+            
       })
   })
 }

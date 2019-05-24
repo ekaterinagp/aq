@@ -790,15 +790,15 @@ const applyStyle = item => {
 };
 
 const changeImage = (item, section) => {
-  let img = section.querySelector("img");
+  let img = section.querySelector(".absolute:nth-child(2)");
   console.log({ "item.id": item.id });
 
   if (item.id === "section_whatyouget_item_1")
-    img.setAttribute("src", "img/formfirst.png");
+    img.setAttribute("src", "img/form.png");
   if (item.id === "section_whatyouget_item_2")
-    img.setAttribute("src", "img/platform_home.png");
+    img.setAttribute("src", "img/platform_discover_single.png");
   if (item.id === "section_whatyouget_item_3")
-    img.setAttribute("src", "img/laptop_placeholder.png");
+    img.setAttribute("src", "img/platform_deal_single.png");
   if (item.id === "resedential") img.setAttribute("src", "img/resihouse.png");
   if (item.id === "business") img.setAttribute("src", "img/office.png");
   if (item.id === "education") img.setAttribute("src", "img/school.png");

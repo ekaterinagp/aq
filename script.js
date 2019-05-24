@@ -832,20 +832,30 @@ section_whatyouget_items.forEach(item => {
 
 const changeText = (item, section) => {
   let textDiv = section.querySelector("p");
-  let title = section.querySelector("h2");
+  let title = section.querySelector("h3");
 
-  if (item.id === "section_platform_item_1")
+  if (item.id === "section_platform_item_1") {
     textDiv.textContent =
       "Overview of the process helps to avoid misunderstanding and prevent mistakes. It helps to identify the ongoing state of a process to know how it can be improved. It is also a way to structure and organize the process. ";
-  if (item.id == "section_platform_item_2")
+    title.textContent = "One place for all Architecture";
+  }
+
+  if (item.id == "section_platform_item_2") {
     textDiv.textContent =
       "We all know how important the right match is. With the help of the platform you get access to portfolios of many specialists at once and can choose the one for your taste, need and budget.";
-  if (item.id == "section_platform_item_3")
+    title.textContent = "Get the right match";
+  }
+
+  if (item.id == "section_platform_item_3") {
     textDiv.textContent =
       "It is important to avoid misunderstanding and miscommunication. The platform provides different communication tools, including integrated messangers and cloud storages. Reduce the noise for the better result. ";
-  if (item.id == "section_platform_item_4")
+    title.textContent = "Better communication";
+  }
+  if (item.id == "section_platform_item_4") {
     textDiv.textContent =
       "We provide all the tools to make the process as smooth as possible. Create profile, upload insperational images and requirements, browse architects portfolios, get digital proposals, follow the process online and let your dream project come true.";
+    title.textContent = "Follow the process online";
+  }
   if (item.id == "section_why_item_1") {
     title.textContent = "Save time";
     textDiv.textContent =
@@ -953,7 +963,8 @@ function fetchTestimonials() {
   });
 }
 function fetchBlogPosts() {
-  let endpoint = "https://architecturequote.com/wp-json/wp/v2/posts?_embed&per_page=4";
+  let endpoint =
+    "https://architecturequote.com/wp-json/wp/v2/posts?_embed&per_page=4";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
       .then(res => res.json())

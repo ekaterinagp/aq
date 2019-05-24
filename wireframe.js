@@ -23,7 +23,7 @@ function changeSrc(slideShow, imgArray) {
 function createAboveTheFold(parts, img, i) {
   let abovetheFoldHolder = document.createElement("div");
   abovetheFoldHolder.setAttribute("id", "hero-img");
-  abovetheFoldHolder.setAttribute("class", "hero");
+  abovetheFoldHolder.setAttribute("class", "heroWireframe");
   abovetheFoldHolder.style.backgroundImage =
     "url(" + img.media_details.sizes.large.source_url + ")";
   let divForText = document.createElement("div");
@@ -54,13 +54,13 @@ function createSimpleImgTextLayout(parts, pic, i) {
   pText.classList.add(...classesToAdd);
   pText.innerHTML = parts[i].content.rendered;
   divForP.append(pText);
-  let divForImg = document.createElement("div");
-  divForImg.setAttribute("class", "platformImg");
+  // let divForImg = document.createElement("div");
+  // divForImg.setAttribute("class", "platformImg");
   let img = document.createElement("img");
   img.setAttribute("id", "platform");
   img.src = pic.media_details.sizes.large.source_url;
-  divForImg.appendChild(img);
-  div.append(gradient, h1, divForP, divForImg);
+  // divForImg.appendChild(img);
+  div.append(gradient, h1, divForP, img);
   document.querySelector(".wrapper").append(div);
 }
 

@@ -1101,7 +1101,7 @@ function startSvgAnimation() {
   console.log(drawFirst);
   for (let i = 0; i < drawFirst.length; i++) {
     drawFirst[i].classList.add("draw");
-    drawFirst[i].style.animationDelay = (n += 0.03) + "s";
+    // drawFirst[i].style.animationDelay = (n += 0.03) + "s";
     // console.log(n);
   }
   let figure = document.querySelector(".heroImg");
@@ -1122,17 +1122,15 @@ function startSvgAnimation() {
 function startHeroAnimation() {
   let img = document.querySelector(".blue");
   img.classList.add("height");
-  document.querySelector(".lineSvg").style.display = "none";
-  img.addEventListener("animationend", () => {
+    img.addEventListener("animationend", () => {
     console.log("img finished");
     startSvgAnimation();
   });
 }
 
 async function init() {
-  document
-    .querySelector(".lineSvg")
-    .addEventListener("animationend", startHeroAnimation);
+  // startHeroAnimation();
+  startSvgAnimation();
   //  drawSvg();
   const testimonials = await fetchTestimonials();
   const blogPosts = await fetchBlogPosts();

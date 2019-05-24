@@ -1104,6 +1104,11 @@ function startSvgAnimation() {
     // drawFirst[i].style.animationDelay = (n += 0.03) + "s";
     // console.log(n);
   }
+
+  greenSockFade();
+}
+
+function greenSockFade() {
   let figure = document.querySelector(".heroImg");
   TweenMax.fromTo(
     figure,
@@ -1115,7 +1120,21 @@ function startSvgAnimation() {
       opacity: 1,
       ease: Power3.easeIn
     },
-    2.7
+    5
+  );
+
+  let laptop = document.querySelector(".hero_laptop");
+  TweenMax.fromTo(
+    laptop,
+    1,
+    {
+      opacity: 0
+    },
+    {
+      opacity: 1,
+      ease: Power3.easeIn
+    },
+    10
   );
 }
 

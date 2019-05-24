@@ -426,7 +426,7 @@ footer input {
 }
 
 .draw {
-  animation: dash 0.5s forwards;
+  animation: dash 0.8s forwards;
 }
 
 @keyframes dash {
@@ -524,11 +524,14 @@ footer input {
 
 .absolute {
   position: absolute;
+  top:0;
+ 
+}
+#section_platform .absolute{
   top: 10em;
   right: -10em;
   width: 65%;
 }
-
 .arrow:after {
   content: "";
   position: absolute;
@@ -1304,6 +1307,12 @@ svg {
   fill: rgb(207, 205, 205);
 }
 
+.img_wrapper{
+  position: relative;
+}
+#section_whatyouget .absolute{
+  width:100%;
+}
 #section_whatyouget_item_1 h3 {
   color: #ef6461;
   font-size: 1.4em;

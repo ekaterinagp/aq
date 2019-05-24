@@ -21,6 +21,7 @@ const clearAllItemsStyle = (items, sectionName) => {
     }
     if (sectionName === "section_platform" || sectionName === "section_why") {
       item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
+      item.querySelector("h3").style.color="rgb(207, 205, 205)";
     }
     if (sectionName == "section_types") {
       item.style.color = "#2c2e3e";
@@ -66,6 +67,7 @@ img.addEventListener("animationend", ()=>{
 const applyFill = (item, section) => {
   if (section == section_platform) {
     item.querySelector("svg").style.fill = "#2c2e3e";
+    item.querySelector("h3").style.color = "#2c2e3e";
   }
   if (section == section_why) {
     item.querySelector("svg").style.fill = "#ef6461";
@@ -91,20 +93,33 @@ section_whatyouget_items.forEach(item => {
 
 const changeText = (item, section) => {
   let textDiv = section.querySelector("p");
-  let title = section.querySelector("h2");
-textDiv.classList.add("textAnimation");
-  if (item.id === "section_platform_item_1")
+  let title = section.querySelector(".titleToChange");
+
+  textDiv.classList.add("textAnimation");
+  title.classList.add("textAnimation");
+  if (item.id === "section_platform_item_1") {
     textDiv.textContent =
       "Overview of the process helps to avoid misunderstanding and prevent mistakes. It helps to identify the ongoing state of a process to know how it can be improved. It is also a way to structure and organize the process. ";
-  if (item.id == "section_platform_item_2")
+    title.textContent = "One place for all Architecture";
+  }
+
+  if (item.id == "section_platform_item_2") {
     textDiv.textContent =
       "We all know how important the right match is. With the help of the platform you get access to portfolios of many specialists at once and can choose the one for your taste, need and budget.";
-  if (item.id == "section_platform_item_3")
+    title.textContent = "Get the right match";
+    // item.querySelector("h3").classList.add()
+  }
+
+  if (item.id == "section_platform_item_3") {
     textDiv.textContent =
       "It is important to avoid misunderstanding and miscommunication. The platform provides different communication tools, including integrated messangers and cloud storages. Reduce the noise for the better result. ";
-  if (item.id == "section_platform_item_4")
+    title.textContent = "Better communication";
+  }
+  if (item.id == "section_platform_item_4") {
     textDiv.textContent =
       "We provide all the tools to make the process as smooth as possible. Create profile, upload insperational images and requirements, browse architects portfolios, get digital proposals, follow the process online and let your dream project come true.";
+    title.textContent = "Follow the process online";
+  }
   if (item.id == "section_why_item_1") {
     title.textContent = "Save time";
     textDiv.textContent =
@@ -151,7 +166,11 @@ textDiv.classList.add("textAnimation");
   textDiv.addEventListener("animationend", ()=>{
     console.log("removed");
     removeAnimationClass(textDiv, "textAnimation");
-  })
+  });
+  title.addEventListener("animationend", ()=>{
+    console.log("removed");
+    removeAnimationClass(title, "textAnimation");
+  });
 };
 
 const section_platform = document.querySelector("#section_platform");
@@ -220,7 +239,8 @@ function fetchTestimonials() {
   });
 }
 function fetchBlogPosts() {
-  let endpoint = "https://architecturequote.com/wp-json/wp/v2/posts?_embed&per_page=4";
+  let endpoint =
+    "https://architecturequote.com/wp-json/wp/v2/posts?_embed&per_page=4";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
       .then(res => res.json())

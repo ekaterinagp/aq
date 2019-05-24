@@ -469,6 +469,14 @@ footer input {
 .platformBox h3{
   color:#cfcdcd;
 }
+.platformBox p{
+  height:15vh;
+  padding: 0 10% 0 0 ;
+}
+.platformBox .titleToChange{
+  color:#ef6461;
+  font-size: 1.1em;
+}
 
 #types,
 #sections {
@@ -476,6 +484,9 @@ footer input {
 }
 #types > .fullScreen {
   margin: 0;
+}
+#textForTypes{
+  height:15vh;
 }
 .gradient {
   position: absolute;
@@ -1355,9 +1366,11 @@ svg {
 }
 
 #section_platform_item_1 svg {
-  fill: black;
+  fill: #2c2e3e;
 }
-
+#section_platform_item_1 h3{
+  color:#2c2e3e;
+}
 .items:first-child > svg:first-child {
   fill: #ef6461;
 }

@@ -953,7 +953,7 @@ function fetchTestimonials() {
   });
 }
 function fetchBlogPosts() {
-  let endpoint = "https://architecturequote.com/wp-json/wp/v2/posts";
+  let endpoint = "https://architecturequote.com/wp-json/wp/v2/posts?_embed&per_page=4";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
       .then(res => res.json())

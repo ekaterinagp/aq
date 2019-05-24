@@ -427,7 +427,7 @@ footer input {
 }
 
 .draw {
-  animation: dash 0.5s forwards;
+  animation: dash 0.8s forwards;
 }
 
 @keyframes dash {

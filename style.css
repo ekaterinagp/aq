@@ -348,7 +348,7 @@ footer input {
 /* FRONTPAGE */
 
 /*HERO ANIMATION*/
-.lineSvg {
+/* .lineSvg {
   z-index: 5;
   width: 96vw;
   top: 84vh;
@@ -376,9 +376,9 @@ footer input {
     to bottom,
     rgba(219, 228, 243, 1) 0%,
     rgba(243, 246, 251, 1) 100%
-  );
+  ); */
   /* background-color: #dbe4f3; */
-}
+/* } */
 .height {
   visibility: initial;
   animation: addheight 0.5s forwards;
@@ -466,6 +466,9 @@ footer input {
 .platformBox > .wrapper_4_columns {
   width: 50%;
 }
+.platformBox h3{
+  color:#cfcdcd;
+}
 
 #types,
 #sections {
@@ -521,12 +524,35 @@ footer input {
   margin: auto;
   text-align: center;
 }
-
+.overflowHidden{
+  overflow: hidden;
+}
 .absolute {
   position: absolute;
   top:0;
- 
+ }
+ .change{
+   opacity: 0;
+   transform: translateX(50%);
+   animation: moveIn .5s forwards;
+ }
+ .textAnimation{
+   opacity:0;
+   /* transform: translateX(-100%); */
+   animation:moveIn .8s forwards;
+ }
+ /* @keyframes moveInText{
+   100%{
+     opacity:1;
+   }
+ } */
+@keyframes moveIn{
+  100%{
+    opacity:1;
+    transform:translateX(0);
+  }
 }
+
 #section_platform .absolute{
   top: 10em;
   right: -10em;

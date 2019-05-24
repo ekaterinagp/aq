@@ -71,6 +71,7 @@ const applyFill = (item, section) => {
   }
   if (section == section_why) {
     item.querySelector("svg").style.fill = "#ef6461";
+    item.querySelector("h3").style.color = "#2c2e3e";;
   }
 
   if (section == section_types) {

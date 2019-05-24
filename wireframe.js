@@ -86,6 +86,7 @@ function createDivFromWP(parts, i) {
 function createSimple2ColumnsBGTextRight(parts, img, i) {
   let divHolder = document.createElement("div");
   divHolder.setAttribute("id", "forMore");
+  divHolder.setAttribute("class", "textOnImage");
   divHolder.style.backgroundImage =
     "url(" + img.media_details.sizes.large.source_url + ")";
   let h1 = document.createElement("h1");

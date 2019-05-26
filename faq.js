@@ -27,8 +27,31 @@ window.addEventListener("load", function() {
           clone.querySelector(".answer").innerHTML = faqData[i].content.rendered;
           allFaq.appendChild(clone);
       }
+    }
       
+  
+  function timelineAnimation() {
+    let tl = new TimelineMax();
+    tl.staggerFromTo(".timelineWrapper", 1,
+     { 
+      scale:1.1,
+      opacity:0
+    },
+    {scale:1,
+      opacity:1,
+      ease:Power3.easeIn, 
+      force3D:true
+    }, 
+    .2).staggerFromTo(
+      ".timelineContent",
+      .5,{
+       opacity:0
+      },
+      {
+        opacity:1
+      }, 0.2);
   }
+    timelineAnimation();
 
 async function init() {
   const faqData = await fetchFaq();
@@ -55,3 +78,4 @@ async function init() {
       })
   })
 }
+  

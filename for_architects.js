@@ -17,6 +17,8 @@ const applyFill = item => {
 const changeText = (item, section) => {
   let textDiv = section.querySelector("p");
   let title = section.querySelector("h2");
+  textDiv.classList.add("textAnimation");
+  title.classList.add("textAnimation");
   if (item.id == "organic") {
     title.textContent = "Organically generated local projects";
     textDiv.textContent =
@@ -33,6 +35,17 @@ const changeText = (item, section) => {
     textDiv.textContent =
       "Build a proposal on the platform. Export. Win a project.";
   }
+  textDiv.addEventListener("animationend", ()=>{
+    console.log("removed");
+    removeAnimationClass(textDiv, "textAnimation");
+  });
+  title.addEventListener("animationend", ()=>{
+    console.log("removed");
+    removeAnimationClass(title, "textAnimation");
+  });
+};
+const removeAnimationClass = (item, classToRemove) => {
+  item.classList.remove(classToRemove);
 };
 
 function growAddArrow(box) {
@@ -51,4 +64,27 @@ const clearAllItemsStyle = items => {
   });
 };
 
+function timelineAnimation() {
+  // let tl = new TimelineMax();
+  TweenMax.staggerFromTo(".hover_wrapper", 1,
+   { 
+    scale:1.1,
+    opacity:0
+  },
+  {scale:1,
+    opacity:1,
+    ease:Power3.easeIn, 
+    force3D:true
+  }, 
+  .2);
+  // .staggerFromTo(
+  //   ".hover_wrapper>img",
+  //   .5,{
+  //    opacity:0
+  //   },
+  //   {
+  //     opacity:1
+  //   }, 0.2);
+}
 
+timelineAnimation();

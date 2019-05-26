@@ -493,6 +493,7 @@ function closeForm() {
 
 function setNextBtnDisabled(bool) {
   document.getElementById("next").disabled = bool;
+  console.log("now next is", bool);
 }
 
 function insertDOMforForm() {
@@ -511,6 +512,7 @@ function insertDOMforForm() {
 
 function nextElement(questionText) {
   console.log("nextElement");
+
   setNextBtnDisabled(true);
   document.querySelector("#prev").style.display = "block";
   let form = document.querySelector("#form");
@@ -532,16 +534,15 @@ function nextElement(questionText) {
   }
 
   if (formItems[currentFormItem].id == 3) {
+    checkIfAnswersForTasks(userAnswers);
+    document.querySelector("#complexity").value = userAnswers.complexity;
+    document.querySelector("#size").value = userAnswers.size;
+    document.querySelector("#floor").value = userAnswers.floor;
+    if (userAnswers.basement == "yes") {
+      document.querySelector("#toggleBox").checked = true;
+    }
+    insertCheckBoxForTask();
     listenerForChange();
-    //why this doesn't work when select first task then square?
-    // document.querySelector("#projectDetails").addEventListener("change", () => {
-    //   setTimeout(() => {
-    //     console.log(userAnswers);
-    //     if (userAnswers.task && userAnswers.size) {
-    //       setNextBtnDisabled(false);
-    //     }
-    //   }, 100);
-    // });
   }
 
   if (formItems[currentFormItem].id == 4) {
@@ -611,6 +612,7 @@ const insertSavedAnswersRadio = (sectionStr, answerTypeStr) => {
 
 function prevElement() {
   console.log("prevElement");
+  console.log({ currentFormItem });
   setNextBtnDisabled(false);
 
   let form = document.querySelector("#form");
@@ -621,11 +623,19 @@ function prevElement() {
 
   options.appendChild(formItems[currentFormItem].options());
 
-  if (formItems[currentFormItem].id == 1)
+  if (formItems[currentFormItem].id == 1) {
+    console.log("it is first and saved need to be insert");
     insertSavedAnswersRadio("projectType", "type_project");
-  if (formItems[currentFormItem].id == 2)
+  }
+
+  if (formItems[currentFormItem].id == 2) {
+    console.log("it is second and saved need to be insert");
     insertSavedAnswersRadio("buildingType", "type_of_building");
+  }
+
   if (formItems[currentFormItem].id == 3) {
+    console.log("it is 3 and items need to be insert");
+    setNextBtnDisabled(false);
     document.querySelector("#submitBtn").style.display = "none";
     document.querySelector("#next").style.display = "block";
 
@@ -675,8 +685,18 @@ function listenerForChange() {
 
         console.log(userAnswers.task);
       }
+      checkIfAnswersForTasks(userAnswers);
     });
   });
+}
+
+function checkIfAnswersForTasks(userAnswers) {
+  if (userAnswers.task.length && userAnswers.size) {
+    console.log("it should wait for task and size");
+    setNextBtnDisabled(false);
+  } else {
+    setNextBtnDisabled(true);
+  }
 }
 
 //ugly, rewrite
@@ -760,10 +780,9 @@ function listenForValue(itemIDstr, answerTypestr) {
   let selectedItem = form.querySelector(itemIDstr);
   userAnswers[answerTypestr] = selectedItem.value;
   console.log(userAnswers[answerTypestr]);
-
-  if (userAnswers.task && userAnswers.size) {
-    setNextBtnDisabled(false);
-  }
+  console.log({ "userAnswers.task.length": userAnswers.task.length });
+  console.log({ "userAnswers.size": userAnswers.size });
+  checkIfAnswersForTasks(userAnswers);
 }
 function createFormWrapper() {
   let formWrapper = document.createElement("div");

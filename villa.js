@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
 });
 
 function fetchAllParts() {
-  let endpoint = "https://architecturequote.com/wp-json/wp/v2/wireframe2";
+  let endpoint = "https://architecturequote.com/wp-json/wp/v2/villa";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
       .then(res => res.json())

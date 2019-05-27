@@ -7,6 +7,9 @@ function createButtonForForm(textStr, additionalClass) {
   button.classList.add(...classesToAdd);
 
   button.textContent = textStr;
+  button.addEventListener("click", () => {
+    createFormWrapper();
+  });
   return button;
 }
 
@@ -117,23 +120,25 @@ function createTimeline(parts, i) {
   document.querySelector(".wrapper").append(div);
 }
 
-function aboveTheFoldWith2parts(parts, img, i) {
-  let abovetheFoldHolder = document.createElement("div");
-  abovetheFoldHolder.setAttribute("id", "hero-img");
-  let img = document.createElement("img");
-  img.src = "url(" + img.media_details.sizes.large.source_url + ")";
-  // abovetheFoldHolder.setAttribute("class", "heroWireframe");
-  // abovetheFoldHolder.style.backgroundImage =
-  //   "url(" + img.media_details.sizes.large.source_url + ")";
-  let divForText = document.createElement("div");
-  divForText.setAttribute("class", "hero_text");
-  let h1 = document.createElement("h1");
-  h1.innerHTML = parts[i].title.rendered;
-  let p = document.createElement("p");
-  p.setAttribute("class", "sub_title");
-  p.innerHTML = parts[i].content.rendered;
-  let button = createButtonForForm("Get your free estimate", "freeEst");
-  divForText.append(h1, p, button);
-  abovetheFoldHolder.append(divForText);
-  document.querySelector(".wrapper").append(abovetheFoldHolder);
-}
+// layout for the hero part with img and text next to each other
+// function aboveTheFoldWith2parts(parts, img, i) {
+//   let abovetheFoldHolder = document.createElement("div");
+//   abovetheFoldHolder.setAttribute("id", "hero-img");
+//   abovetheFoldHolder.setAttribute("class", "wrapper_2_columns");
+//   let pic = document.createElement("img");
+//   pic.setAttribute("src", img.media_details.sizes.large.source_url);
+//   // abovetheFoldHolder.setAttribute("class", "heroWireframe");
+//   // abovetheFoldHolder.style.backgroundImage =
+//   //   "url(" + img.media_details.sizes.large.source_url + ")";
+//   let divForText = document.createElement("div");
+//   divForText.setAttribute("class", "hero_text");
+//   let h1 = document.createElement("h1");
+//   h1.innerHTML = parts[i].title.rendered;
+//   let p = document.createElement("p");
+//   p.setAttribute("class", "sub_title");
+//   p.innerHTML = parts[i].content.rendered;
+//   let button = createButtonForForm("Get your free estimate", "freeEst");
+//   divForText.append(h1, p, button);
+//   abovetheFoldHolder.append(pic, divForText);
+//   document.querySelector(".wrapper").append(abovetheFoldHolder);
+// }

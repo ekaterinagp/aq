@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
 });
 
 function fetchAllParts() {
-  let endpoint = "https://architecturequote.com/wp-json/wp/v2/educational";
+  let endpoint = "https://architecturequote.com/wp-json/wp/v2/spatial_planning";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
       .then(res => res.json())

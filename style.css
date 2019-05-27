@@ -19,6 +19,7 @@ h3 {
 }
 p {
   font-size: 0.935em;
+  line-height: 1.3em;
 }
 p,
 div,
@@ -114,6 +115,12 @@ footer input {
   transform: scale(1.1);
 }
 /* //reusable CSS */
+.textOnImage{
+  background-size: cover;
+  border-radius: 10px;
+  padding: 5% 5% 5% 50%;
+  text-align: center;
+}
 .fade {
   animation: fadeIn 0.5s forwards;
 }
@@ -207,6 +214,10 @@ footer input {
   font-weight: 700;
   display: block;
   transition: all 0.3s;
+}
+.orange_button:hover {
+  transform:scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 .link {
   color: #ef6461;
@@ -379,10 +390,10 @@ footer input {
   ); */
   /* background-color: #dbe4f3; */
 /* } */
-.height {
+/* .height {
   visibility: initial;
   animation: addheight 0.5s forwards;
-}
+} */
 
 #hero .hero_laptop {
   opacity: 0;
@@ -426,7 +437,7 @@ footer input {
 }
 
 .draw {
-  animation: dash 0.8s forwards;
+  animation: dash 1s forwards;
 }
 
 @keyframes dash {
@@ -455,6 +466,9 @@ footer input {
 #cons img {
   width: 100%;
   align-self: center;
+}
+.item p, .item h3{
+  transition:all .3s;
 }
 
 .platformBox {
@@ -544,30 +558,34 @@ footer input {
  }
  .change{
    opacity: 0;
-   transform: translateX(50%);
+   transform: scaleX(0);
+   transform: translateX(20%);
+   transform-origin: right;
    animation: moveIn .5s forwards;
  }
  .textAnimation{
    opacity:0;
-   /* transform: translateX(-100%); */
-   animation:moveIn .8s forwards;
+   transform: translateY(10%);
+   animation:moveInText .5s forwards;
  }
- /* @keyframes moveInText{
+ @keyframes moveInText{
    100%{
      opacity:1;
+     transform: translateY(0);
    }
- } */
+ }
 @keyframes moveIn{
   100%{
     opacity:1;
+    transform:scaleX(1);
     transform:translateX(0);
   }
 }
 
 #section_platform .absolute{
-  top: 10em;
-  right: -10em;
-  width: 65%;
+  top: 6em;
+  right: -6em;
+  width: 60%;
 }
 .arrow:after {
   content: "";
@@ -862,86 +880,118 @@ head .blogBG {
 }
 
 .timelineWrapper {
-  background-image: url(img/architect.png);
-  background-size: cover;
   position: relative;
   transition: all 0.3s;
   border-radius: 5px;
   height: 50vh;
   grid-row: 1;
+  background-color: white;
 }
-.timelineWrapper h1 {
-  font-size: 1.8em;
-  padding: 25% 10% 0;
+.timelineWrapper h3 {
+  font-size: 1.3em;
+  padding: 5%;
+}
+
+.timelineWrapper p {
+  font-size: 1.2em;
+   opacity: 0;
+  padding: 5% 5% 0;
+  font-size: 0.8em;
+  transition: all 0.3s;
+  line-height: 1.5em;
+}
+.timelineContent{
+  background-position-y: 50%;
+  background-size: 150%;
+  background-repeat: no-repeat;
+  margin-bottom: 10%;
+  height:100%;
+  width:100%;
+}
+.timelineText{
+  transition:all .3s;
+}
+.timelineWrapper:hover .timelineText{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(250,250,250,.9);
+  border-radius: 5px;
+  margin:5%;
 }
 .timelineWrapper:hover {
   z-index: 10;
   transform: scale(1.1);
-  /* height: 60vh; */
 }
 .timelineWrapper:hover p {
-  /* opacity: 1; */
-  /* transform:translateY(0);*/
-  visibility: initial;
-  height: 5em;
+  opacity: 1;
 }
-.timelineWrapper p {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0;
-  background: white;
-  border-radius: 0 0 10px 10px;
-  visibility: hidden;
-  padding: 0 2% 0;
-  font-size: 0.8em;
-  transition: all 0.3s;
-}
-
-.timelineWrapper:nth-child(1) {
-  background-image: url(img/signup.png);
+.timelineWrapper:nth-child(1){
   grid-column: 1/4;
 }
+.timelineWrapper:nth-child(1) .timelineContent{
+  background-image: url(img/project_laptop.png);}
+
 .timelineWrapper:nth-child(2) {
   grid-column: 3/6;
-  background-image: url(img/390256-PCBJXY-291.jpg);
-  background-position: center;
 }
+.timelineWrapper:nth-child(2) .timelineContent{
+  background-image: url(img/nodeals_laptop.png);
+}
+
 .timelineWrapper:nth-child(3) {
-  background-image: url(img/335012-P9WNJ5-587.jpg);
   grid-column: 5/8;
 }
+.timelineWrapper:nth-child(3) .timelineContent{
+  background-image: url(img/discover_laptop.png);}
+
 .timelineWrapper:nth-child(4) {
   grid-column: 7/10;
 }
-.timelineWrapper:nth-child(4) h1 {
-  padding: 10% 10% 0;
+.timelineWrapper:nth-child(4) .timelineContent{
+  background-image: url(img/blueprint_laptop.png);
+}
+.timelineWrapper:nth-child(4) h3 {
+ padding:2% 5%;
 }
 .timelineWrapper:nth-child(5) {
   grid-column: 9/12;
 }
+.timelineWrapper:nth-child(5) .timelineContent{
+  background-image: url(img/document_laptop.png);}
+
 .timelineWrapper:nth-child(6) {
   grid-column: 11/14;
 }
+.timelineWrapper:nth-child(6) .timelineContent{
+  background-image: url(img/construction_laptop.png);}
+
 .timelineWrapper:nth-child(7) {
   grid-column: 13/-1;
 }
-.timelineWrapper:nth-child(odd) {
+.timelineWrapper:nth-child(7) .timelineContent{
+  background-image: url(img/house_laptop.png);
+}
+
+.timelineWrapper:nth-child(even) {
   margin-top: 30vh;
 }
-.timelineWrapper:nth-child(even) {
+.timelineWrapper:nth-child(odd) {
   margin-bottom: 30vh;
 }
 /*   Part two of Platform */
 
 .pros {
+    background-image: url(img/563059-PL2C99-583.jpg);
   position: relative;
   margin: 5em 2em;
   height: 60vh;
-  border-radius: 10px;
   text-align: center;
-  background-color: #eeeef0;
+  
+  border-radius: 10px ;
+  /* background-color: #eeeef0; */
 }
 .fill {
   grid-column: 1/-1;
@@ -949,19 +999,18 @@ head .blogBG {
 .pros > div button {
   margin: 1em auto;
 }
-.pro_text {
-  grid-column: 2/-1;
-  grid-row: 1;
-  padding: 8% 5% 0 25%;
-}
-.pros .img {
+/* .pro_text {
+  padding: 8% 5% 0 25%; 
+} */
+/* .pros .img {
   background-image: url(img/563059-PL2C99-583.jpg);
   background-size: cover;
   grid-column: 1/3;
   grid-row: 1;
-  width: 60vw;
-  border-radius: 10px 0 0 10px;
-}
+  width: 100%;
+  height:100%;
+  border-radius: 10px ;
+} */
 .wrapper_pro {
   position: absolute;
   bottom: 10px;
@@ -1023,20 +1072,19 @@ head .blogBG {
 }
 #pros_icons {
   margin: 2% auto;
-  width: 80vw;
+  width: 70vw;
 }
 .prosWrapper {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
 }
 .icon_item {
-  padding: 5%;
-  background: white;
-  position: relative;
+  padding:5%;
   height: 35vh;
   overflow: hidden;
-  transition: all 0.3s;
-  grid-row: 1;
+}
+.icon_item p{
+padding: 5% 5% 0;
 }
 
 .icon_item:nth-child(even) {
@@ -1045,61 +1093,53 @@ head .blogBG {
 .icon_item:nth-child(odd) {
   margin-bottom: 20vh;
 }
-.icon_item img {
-  width: 100%;
-  position: absolute;
-  margin: auto;
-  top: 40%;
-  right: 0;
-  left: 0;
-}
 
-.icon_item svg {
-  fill: #ef6461;
-  width: 8vw;
-  /* opacity:.3; */
-  position: absolute;
-  display: block;
-  margin: auto;
-  top: 45%;
-  right: 0;
-  left: 0;
-}
 .icon_item h3 {
   /* transform:translateY( calc100%); */
   transition: all 0.3s;
   align-self: end;
-  text-align: center;
-  font-size: 1em;
+  text-align: left;
+  margin: 0 0;
+  font-size: 1.1em;
 }
-.icon_item p {
-  transition: all 0.3s;
-  opacity: 0;
+.icon_item .timelineContent{
+ background-size: 90%;
+ background-position: bottom center;
+  margin-bottom: -50%;
 }
 .icon_item:first-child {
   grid-column: 1/4;
 }
+.icon_item:first-child .timelineContent{
+  background-image: url("img/architect_leads_laptop.png");
+}
 .icon_item:nth-child(2) {
   grid-column: 3/6;
 }
+.icon_item:nth-child(2) .timelineContent{
+  background-image: url("img/platform_chat_laptop.png");
+}
+
 .icon_item:nth-child(3) {
-  grid-column: 5/8;
+    grid-column: 5/8;
 }
+.icon_item:nth-child(3) .timelineContent{
+  background-image: url("img/architect_project_laptop.png");
+}
+
 .icon_item:nth-child(4) {
-  grid-column: 7/-1;
+   grid-column: 7/-1;
 }
-.icon_item:hover {
-  /* height:25vh; */
+.icon_item:nth-child(4) .timelineContent{
+  background-image: url("img/architect_home_laptop.png");
+ 
+}
+/* .icon_item:hover {
+  /* height:25vh; 
   z-index: 10;
   transform: scale(1.1);
-}
-.icon_item:hover p {
-  opacity: 1;
-}
-.icon_item:hover svg,
-.icon_item:hover img {
-  opacity: 0.1;
-}
+} */
+
 .text_left {
   margin: 0 0 0 5em;
 }
@@ -1378,7 +1418,9 @@ svg {
 #types_of_buildings h4 {
   display: inline-block;
 }
-
+#tyoes li{
+  cursor: pointer;
+}
 #business {
   color: #ef6461;
   font-weight: bold;
@@ -1702,10 +1744,7 @@ iframe {
   }
 }
 @media (max-width: 760px) {
-  .masonry_grid {
-    columns: 1;
-  }
-}
+ }
 .dropdown {
   position: relative;
   display: inline-block;
@@ -1735,7 +1774,9 @@ iframe {
 #blog_front {
   padding: 5vh 5vw;
 }
-
+#blog_front a, #blog_front p {
+  display:inline;
+}
 #three_latest {
   display: grid;
   grid-template-columns: 2.5fr 2fr;
@@ -1809,7 +1850,7 @@ iframe {
   background: white;
   position: absolute;
   border-radius: 0 0 10px 10px;
-  padding: 0 2%;
+  padding: 0 2% 2%;
   margin: 0;
   bottom: 0;
 }
@@ -1958,15 +1999,10 @@ iframe {
 }
 
 #forMore {
-  background-size: cover;
   width: 90%;
   height: 70%;
   margin: 5% auto;
-
-  border-radius: 10px;
-  padding: 5% 5% 5% 50%;
   color: white;
-  text-align: center;
 }
 
 #forMore .orange_button {

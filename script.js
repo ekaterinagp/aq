@@ -71,6 +71,7 @@ const applyFill = (item, section) => {
   }
   if (section == section_why) {
     item.querySelector("svg").style.fill = "#ef6461";
+    item.querySelector("h3").style.color = "#2c2e3e";;
   }
 
   if (section == section_types) {
@@ -391,7 +392,6 @@ function startSvgAnimation() {
     // drawFirst[i].style.animationDelay = (n += 0.03) + "s";
     // console.log(n);
   }
-
   greenSockFade();
 }
 
@@ -411,14 +411,11 @@ function greenSockFade() {
   );
 
   let laptop = document.querySelector(".hero_laptop");
-  TweenMax.fromTo(
+  TweenMax.from(
     laptop,
     1,
     {
-      opacity: 0
-    },
-    {
-      opacity: 1,
+      opacity: 0,
       ease: Power3.easeIn
     },
     10

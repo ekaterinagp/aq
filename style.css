@@ -880,6 +880,7 @@ head .blogBG {
 }
 
 .timelineWrapper {
+  opacity:0;
   position: relative;
   transition: all 0.3s;
   border-radius: 5px;
@@ -1418,7 +1419,7 @@ svg {
 #types_of_buildings h4 {
   display: inline-block;
 }
-#tyoes li{
+#types li{
   cursor: pointer;
 }
 #business {

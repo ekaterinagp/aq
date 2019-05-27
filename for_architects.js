@@ -66,17 +66,16 @@ const clearAllItemsStyle = items => {
 
 function timelineAnimation() {
   // let tl = new TimelineMax();
-  TweenMax.staggerFromTo(".hover_wrapper", 1,
+  TweenMax.staggerFromTo(".hover_wrapper", .3,
    { 
     scale:1.1,
     opacity:0
   },
-  {scale:1,
-    opacity:1,
-    ease:Power3.easeIn, 
-    force3D:true
+  {
+    scale:1,
+    opacity:1
   }, 
-  .2);
+  .02);
   // .staggerFromTo(
   //   ".hover_wrapper>img",
   //   .5,{

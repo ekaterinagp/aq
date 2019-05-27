@@ -32,24 +32,25 @@ window.addEventListener("load", function() {
   
   function timelineAnimation() {
     let tl = new TimelineMax();
-    tl.staggerFromTo(".timelineWrapper", 1,
+    tl.staggerFromTo(".timelineWrapper", .3,
      { 
-      scale:1.1,
-      opacity:0
+      scale:1.2,
+      opacity:0,
+      skewY:15
     },
     {scale:1,
       opacity:1,
-      ease:Power3.easeIn, 
-      force3D:true
+      skewY:0,
+      ease:Power1.easeInOut,
     }, 
     .2).staggerFromTo(
       ".timelineContent",
-      .5,{
+      .3,{
        opacity:0
       },
       {
         opacity:1
-      }, 0.2);
+      }, 0.1);
   }
     timelineAnimation();
 

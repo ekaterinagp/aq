@@ -45,26 +45,34 @@ function showFaq(faqData) {
       
   
   function timelineAnimation() {
-    let tl = new TimelineMax();
+    let tl = new new TimelineMax({ repeat:-1, reverse:true });
     tl.staggerFromTo(".timelineWrapper", .3,
      { 
       scale:1.2,
       opacity:0,
+      rotation: 0.01,
+      // autoAlpha:0,
       skewY:15
     },
     {scale:1,
       opacity:1,
+      rotation: 0,
+      // autoAlpha:1,
       skewY:0,
-      ease:Power1.easeInOut,
+      ease: Power0.easeNone
     }, 
-    .2).staggerFromTo(
+    .1).staggerFromTo(
       ".timelineContent",
       .3,{
+       rotation: 0.01,
        opacity:0
+      // autoAlpha:1
       },
       {
-        opacity:1
-      }, 0.1);
+      rotation: 0,
+        opacity:1,
+        ease: Power0.easeNone
+      }, .1);
   }
     timelineAnimation();
 

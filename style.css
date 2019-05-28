@@ -155,7 +155,7 @@ footer input {
 .heroWireframe > .hero_text {
   color: white;
   text-align: right;
-  padding: 10% 5% 5% 50%;
+  padding: 10% 50% 5% 10%;
   margin: auto;
   width: auto;
 }
@@ -293,7 +293,7 @@ footer input {
   grid-column: 1/-1;
   margin: 0;
 }
-.sub_title {
+.sub_title, #mce_0 {
   grid-column: 1/-1;
   font-weight: 100;
   margin: 0.2em auto 1em;
@@ -355,7 +355,47 @@ footer input {
   align-self: center;
 }
 /* //reusable CSS ends */
+/*  Loader animation  */
 
+.loaderWrapper{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  height:100vh;
+  width:100vw;
+ padding:25%;
+  text-align: center;
+  background:white;
+  transition:all .3s;
+}
+
+.loader{
+fill: #2c2e3e;
+display:block;
+width:5vw;
+margin:auto;
+}
+
+.hideLoader{
+transform:translateY(-200vh);
+}
+
+.circle-mask {
+transform-origin: 50% 90%;
+animation: scale 3s infinite ease-out;
+}
+
+@keyframes scale {
+0%, 100% {
+transform: scale(0);
+}
+
+50% {
+transform: scale(1);
+}
+}
 /* FRONTPAGE */
 
 /*HERO ANIMATION*/
@@ -498,6 +538,27 @@ footer input {
 }
 #types > .fullScreen {
   margin: 0;
+}
+.houseIcon{
+  width:55%;
+  align-self: end;
+  margin:0 0 10vh 15vh;
+}
+.big{
+  color:lightgray;
+  font-size: 4em;
+  line-height: 1em;
+  position:absolute;
+  bottom:10vh;
+  left:5vw;
+  margin:0;
+}
+.line{
+  position:absolute;
+  bottom:10vh;
+  border:2px solid lightgrey;
+  width:100%;
+  height:3px;
 }
 #textForTypes{
   height:15vh;
@@ -877,16 +938,22 @@ head .blogBG {
 #timelineSection ul {
   display: grid;
   grid-template-columns: repeat(15, 1fr);
+transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
 }
 
 .timelineWrapper {
   opacity:0;
   position: relative;
-  transition: all 0.3s;
+  /* transition: all 0.3s; */
   border-radius: 5px;
   height: 50vh;
   grid-row: 1;
   background-color: white;
+  backface-visibility: hidden;
+	filter: grayscale(0);
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
 }
 .timelineWrapper h3 {
   font-size: 1.3em;
@@ -908,6 +975,9 @@ head .blogBG {
   margin-bottom: 10%;
   height:100%;
   width:100%;
+  backface-visibility: hidden;
+	filter: grayscale(0);
+  transform: translateZ(0);
 }
 .timelineText{
   transition:all .3s;
@@ -1485,6 +1555,7 @@ svg {
 }
 
 .btnRadio {
+  position: relative;
   transition: all 0.3s;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -1629,6 +1700,28 @@ input:checked + .slider:before {
 input:checked + .btnRadio {
   transform: scale(1.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+input:checked + .btnRadio:before{
+  content: "✓";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 30% auto;
+  font-size: 1.5em;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  background-color: rgba(0,0,0,.5);
+  border-radius: 50%;
+  border: 2px solid white;
+  line-height: 1em;
+  color: white;
+  padding: .5em;
+  box-sizing: border-box;
+
+
 }
 /*  FORM MEDIA QUERIES  */
 @media (max-width: 1024px) {

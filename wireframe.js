@@ -51,6 +51,9 @@ function createSimpleImgTextLayout(parts, pic, i) {
   let h1 = document.createElement("h1");
   h1.setAttribute("class", "header");
   h1.textContent = parts[i].title.rendered;
+  let h2 = document.createElement("h2");
+  h2.classList.add("sub_title");
+  h2.innerHTML = parts[i].excerpt.rendered;
   let divForP = document.createElement("div");
   let pText = document.createElement("p");
   let classesToAdd = ["description_text", "textPadding"];
@@ -63,7 +66,7 @@ function createSimpleImgTextLayout(parts, pic, i) {
   img.setAttribute("id", "platform");
   img.src = pic.media_details.sizes.large.source_url;
   // divForImg.appendChild(img);
-  div.append(gradient, h1, divForP, img);
+  div.append(gradient, h1, h2, divForP, img);
   document.querySelector(".wrapper").append(div);
 }
 
@@ -143,7 +146,7 @@ function createTimeline(parts, i) {
 //   document.querySelector(".wrapper").append(abovetheFoldHolder);
 // }
 
-function sellingPointsForIndividuals(parts, i) {
+function sellingPointsForIndividuals(parts, i, imgSrc) {
   let divHolder = document.createElement("div");
   divHolder.id = "section_whatyouget";
   let classesToAdd = ["fullScreen", "wrapper_2_columns_rows"];
@@ -168,10 +171,10 @@ function sellingPointsForIndividuals(parts, i) {
   divImgHolder.append(img_1, img_2);
   divHolder.append(h1, h2, divTextHolder, divImgHolder);
   document.querySelector(".wrapper").append(divHolder);
-  sectionWhatYouGet();
+  sectionWhatYouGet(imgSrc);
 }
 
-function sectionWhatYouGet() {
+function sectionWhatYouGet(imgSrc) {
   const section_whatyouget = document.querySelector("#section_whatyouget");
   let section_whatyouget_items = section_whatyouget.querySelectorAll(".item");
   let section_whatyouget_img = section_whatyouget.querySelector(
@@ -182,12 +185,12 @@ function sectionWhatYouGet() {
       clearAllItemsStyle(section_whatyouget_items, "section_whatyouget");
       console.log({ item });
       applyStyle(item);
-      changeImage(item, section_whatyouget_img);
+      changeImage(item, section_whatyouget_img, imgSrc);
     });
   });
 }
 
-const changeImage = (item, img) => {
+const changeImage = (item, img, imgSrc) => {
   // let img = section.querySelector("img");
   console.log({ "item.id": item.id });
 
@@ -196,8 +199,7 @@ const changeImage = (item, img) => {
     img.setAttribute("src", "img/form.png");
   if (item.id === "section_whatyouget_item_2")
     img.setAttribute("src", "img/platform_discover_single.png");
-  if (item.id === "section_whatyouget_item_3")
-    img.setAttribute("src", "cabin/summerhouse.jpg");
+  if (item.id === "section_whatyouget_item_3") img.setAttribute("src", imgSrc);
   // if (item.id === "resedential") img.setAttribute("src", "img/resihouse.png");
   // if (item.id === "business") img.setAttribute("src", "img/office.png");
   // if (item.id === "education") img.setAttribute("src", "img/school.png");

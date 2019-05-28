@@ -16,15 +16,15 @@ function fetchAllParts() {
 
 async function fetchBackgroundImg(parts) {
   const backgroundIMG = await fetch(
-    parts[3]._links["wp:featuredmedia"][0].href
+    parts[4]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
   console.log({ backgroundIMG });
   return backgroundIMG;
 }
 
-async function fetchImgForSecondPart(parts) {
+async function fetchImgForCustomPart(parts) {
   const imgForSecond = await fetch(
-    parts[2]._links["wp:featuredmedia"][0].href
+    parts[0]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
   console.log({ imgForSecond });
   return imgForSecond;
@@ -32,7 +32,7 @@ async function fetchImgForSecondPart(parts) {
 
 async function fetchImgForLastPart(parts) {
   const imgForMore = await fetch(
-    parts[1]._links["wp:featuredmedia"][0].href
+    parts[2]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
   console.log({ imgForMore });
   return imgForMore;
@@ -43,11 +43,13 @@ async function init() {
   console.log({ wireframeParts });
   const backgroundImg = await fetchBackgroundImg(wireframeParts);
   console.log({ backgroundImg });
-  createAboveTheFold(wireframeParts, backgroundImg, 3);
-  const imgForSecond = await fetchImgForSecondPart(wireframeParts);
-  console.log({ imgForSecond });
-  createSimpleImgTextLayout(wireframeParts, imgForSecond, 2);
-  createTimeline(wireframeParts, 0);
+  createAboveTheFold(wireframeParts, backgroundImg, 4);
+  const ImgForCustomPart = await fetchImgForCustomPart(wireframeParts);
+
+  sellingPointsForIndividuals(wireframeParts, 3, "villa/villa_laptop.png");
+
+  createTimeline(wireframeParts, 1);
   const imgForMore = await fetchImgForLastPart(wireframeParts);
-  createSimple2ColumnsBGTextRight(wireframeParts, imgForMore, 1);
+  createSimpleImgTextLayout(wireframeParts, ImgForCustomPart, 0);
+  createSimple2ColumnsBGTextRight(wireframeParts, imgForMore, 2);
 }

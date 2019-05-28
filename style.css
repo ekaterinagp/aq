@@ -444,21 +444,18 @@ transform: scale(1);
   stroke: #2c2e3e;
   stroke-miterlimit: 10;
   stroke-width: 2px;
+  fill:none;
 }
-.drawSvg .cls-1,
-.drawSvg .cls-3 {
+.drawSvg .dontShow {
   fill: none;
 }
-.drawSvg .cls-2 {
-  fill: #2c2e3e;
-}
+
 .drawSvg {
   z-index: 2;
   width: 96vw;
   top: 0;
   height: auto;
   position: absolute;
-  fill: none;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   stroke-miterlimit: 10;
@@ -477,12 +474,13 @@ transform: scale(1);
 }
 
 .draw {
-  animation: dash 1s forwards;
+  animation: dash 2s forwards;
 }
 
 @keyframes dash {
   100% {
     stroke-dashoffset: 0;
+    stroke:white;
   }
 }
 
@@ -628,6 +626,7 @@ transform: scale(1);
    opacity:0;
    transform: translateY(10%);
    animation:moveInText .5s forwards;
+   animation-delay: .5s;
  }
  @keyframes moveInText{
    100%{
@@ -925,10 +924,10 @@ head .blogBG {
 /* PLATFORM PAGE  */
 
 #hero_platform {
-  z-index: 5;
-  background-image: url(img/hero_platform.png);
-  animation: fadeIn 2s ease-in forwards;
-  animation-delay: 2.5s;
+  /* z-index: 5; */
+  /* background-image: url(img/hero_platform.png); */
+  /* animation: fadeIn 2s ease-in forwards; */
+  /* animation-delay: 2.5s; */
 }
 
 /*   platform timeline */
@@ -943,7 +942,6 @@ transform: translateZ(0);
 }
 
 .timelineWrapper {
-  opacity:0;
   position: relative;
   /* transition: all 0.3s; */
   border-radius: 5px;
@@ -1124,7 +1122,7 @@ transform: translateZ(0);
 
 /* ARCHITECT PAGE */
 #hero_architects {
-  background-image: url(img/hero_arch.png);
+  /* background-image: url(img/hero_arch.png); */
 }
 
 #stop_firing {
@@ -1290,23 +1288,18 @@ h1 > span {
   background: #f4f4f4;
   margin: 4% 2%;
   border-radius: 10px;
-}
-.bgImg {
-  background-image: url(img/cathryn-lavery-67851-unsplash.jpg);
+  background-image: url(img/working_man.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 0 30% 10% 5%;
+  padding: 5% 5% 5% 55%;
   height: 70vh;
-  width: 90%;
-  grid-column: 1/3;
-  grid-row: 1;
-  border-radius: 10px 0 0 10px;
+/* width: 90%; */
+  /* grid-column: 1/3; */
+  /* grid-row: 1; */
 }
 #about_us .long_text {
-  grid-column: 2/-1;
-  margin-left: 40%;
+  /* margin-left: 50%; */
   align-self: center;
-  grid-row: 1;
   font-size: 1.1em;
 }
 #our_team img {
@@ -1398,6 +1391,7 @@ h1 > span {
 #last_about {
   margin: 2% 10% 5%;
 }
+
 .long_text {
   text-align: left;
   margin: 2% 5%;

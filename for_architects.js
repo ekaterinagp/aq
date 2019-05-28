@@ -1,3 +1,5 @@
+window.addEventListener("load", init)
+
 let speechBubbles = document.querySelectorAll(".items");
 const architect_section = document.querySelector("#arch_projects");
 speechBubbles.forEach(bubble => {
@@ -87,3 +89,55 @@ function timelineAnimation() {
 }
 
 timelineAnimation();
+
+function startSvgAnimation() {
+  let title = document.querySelector(".hero_text>h1");
+  let subTitle = document.querySelector(".hero_text>p")
+ title.classList.add("textAnimation");
+  subTitle.classList.add("textAnimation");
+  let svg = document.querySelector(".drawSvg");
+  let drawFirst = document.querySelector("#first").children;
+  let n = 0;
+  svg.style.visibilty = "initial;";
+
+  console.log(drawFirst);
+  for (let i = 0; i < drawFirst.length; i++) {
+    drawFirst[i].classList.add("draw");
+    // drawFirst[i].style.animationDelay = (n += 0.03) + "s";
+    // console.log(n);
+  }
+  greenSockFade();
+}
+
+function greenSockFade() {
+  let figure = document.querySelector(".heroImg");
+  TweenMax.fromTo(
+    figure,
+    1,
+    {
+      opacity: 0
+    },
+    {
+      opacity: 1,
+      ease: Power3.easeIn
+    },
+    5
+  );
+
+  let laptop = document.querySelector(".hero_laptop");
+  TweenMax.from(
+    laptop,
+    1,
+    {
+      opacity: 0,
+      ease: Power3.easeIn
+    },
+    10
+  );
+}
+
+function init(){
+  document.querySelector(".loaderWrapper").classList.add("hideLoader");
+  // startHeroAnimation();
+  startSvgAnimation();
+}

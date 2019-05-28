@@ -394,6 +394,10 @@ function movePrev(clients) {
 }
 
 function startSvgAnimation() {
+  let title = document.querySelector(".hero_text>h1");
+  let subTitle = document.querySelector(".hero_text>p")
+ title.classList.add("textAnimation");
+  subTitle.classList.add("textAnimation");
   let svg = document.querySelector(".drawSvg");
   let drawFirst = document.querySelector("#first").children;
   let n = 0;

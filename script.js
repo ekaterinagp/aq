@@ -51,10 +51,10 @@ const changeImage = (item, img) => {
     img.setAttribute("src", "img/platform_discover_single.png");
   if (item.id === "section_whatyouget_item_3")
     img.setAttribute("src", "img/home.png");
-  if (item.id === "resedential") img.setAttribute("src", "img/resihouse.png");
-  if (item.id === "business") img.setAttribute("src", "img/office.png");
-  if (item.id === "education") img.setAttribute("src", "img/school.png");
-  if (item.id === "aestetic") img.setAttribute("src", "img/gazebo.png");
+  if (item.id === "resedential") img.setAttribute("src", "img/icons/buildings.svg");
+  if (item.id === "business") img.setAttribute("src", "img/icons/cityscape.svg");
+  if (item.id === "education") img.setAttribute("src", "img/icons/school.svg");
+  if (item.id === "aestetic") img.setAttribute("src", "img/icons/fountain.svg");
   if (item.id === "section_platform_item_1") img.setAttribute("src", "img/platform_home_single.png");
   if (item.id === "section_platform_item_2") img.setAttribute("src", "img/platform_discover_single.png");
   if (item.id === "section_platform_item_3") img.setAttribute("src", "img/platform_chat_single.png");
@@ -98,6 +98,9 @@ const changeText = (item, section) => {
 
   textDiv.classList.add("textAnimation");
   title.classList.add("textAnimation");
+  if(section.id === "types"){
+    document.querySelector(".big").classList.add("textAnimation");
+  }
   if (item.id === "section_platform_item_1") {
     textDiv.textContent =
       "Overview of the process helps to avoid misunderstanding and prevent mistakes. It helps to identify the ongoing state of a process to know how it can be improved. It is also a way to structure and organize the process. ";
@@ -145,21 +148,25 @@ const changeText = (item, section) => {
       "The platform provides smooth and natural flow with no obligations before the contract is signed. No obligations, no pressure! Take your time and choose what fits you best! ";
   }
   if (item.id == "resedential") {
-    document.querySelector("#type_of_firms").textContent = "resedential";
+    document.querySelector(".big").textContent="Residential";
+        document.querySelector("#type_of_firms").textContent = "resedential";
     textDiv.textContent =
       "Everybody dreams of a spacious luxurious or a modern cozy place to live. Whether you need a cabin, a villa or a family mansion, we have architects for any needs and budget.";
   }
   if (item.id == "business") {
+    document.querySelector(".big").textContent="Business";
     document.querySelector("#type_of_firms").textContent = "business";
     textDiv.textContent =
       "In a competitive environment where improvement is foremost, to hire a good architect is essential. Do you need to construct a resedential complex, a new modern hospital,a large industrial building or a family-driven brewery? We have spectialists in all of the types and they are ready to start building proposals!";
   }
   if (item.id == "education") {
+    document.querySelector(".big").textContent="Education";
     document.querySelector("#type_of_firms").textContent = "educational";
     textDiv.textContent =
       "Educational architecture has its own specifics, it is not just about functionality, it should bring people together. Schools, universities, research centers, kindergartens,campuses - find the right architect for you with the help of the platform! ";
   }
   if (item.id == "aestetic") {
+    document.querySelector(".big").textContent="Design";
     document.querySelector("#type_of_firms").textContent = "design";
     textDiv.textContent =
       "Do you want to get a breath of fresh air at your favourite place? Architects know how to create a unique and functional atmosphere. Why waiting? Start you project now and make your home even better.";
@@ -172,6 +179,12 @@ const changeText = (item, section) => {
     console.log("removed");
     removeAnimationClass(title, "textAnimation");
   });
+  if(section.id === "types"){
+    document.querySelector(".big").addEventListener("animationend", ()=>{
+      removeAnimationClass(document.querySelector(".big"), "textAnimation");
+    })
+   
+      }
 };
 
 const section_platform = document.querySelector("#section_platform");
@@ -202,7 +215,7 @@ section_why_items.forEach(item => {
 
 const section_types = document.querySelector("#types");
 let section_types_items = section_types.querySelectorAll(".type");
-let section_types_img = section_types.querySelector(".logo");
+let section_types_img = section_types.querySelector(".houseIcon");
 section_types_items.forEach(item => {
   item.addEventListener("click", () => {
     console.log({ item });
@@ -432,6 +445,7 @@ function startHeroAnimation() {
 }
 
 async function init() {
+  document.querySelector(".loaderWrapper").classList.add("hideLoader");
   // startHeroAnimation();
   startSvgAnimation();
   //  drawSvg();

@@ -51,6 +51,9 @@ const changeImage = (item, img) => {
     img.setAttribute("src", "img/platform_discover_single.png");
   if (item.id === "section_whatyouget_item_3")
     img.setAttribute("src", "img/home.png");
+    if(item.id === "network_item_1")img.setAttribute("src", "img/platform_nodeals_single");
+    if(item.id === "network_item_2")img.setAttribute("src", "img/platform_deals_single.png");
+    if(item.id === "network_item_3")img.setAttribute("src", "img/platform_discover_single");
   if (item.id === "resedential") img.setAttribute("src", "img/icons/buildings.svg");
   if (item.id === "business") img.setAttribute("src", "img/icons/cityscape.svg");
   if (item.id === "education") img.setAttribute("src", "img/icons/school.svg");
@@ -282,11 +285,10 @@ async function insertTestimonialsToDOM(testimonials) {
     console.log({ hrefData });
 
     clone
-      .querySelector("img")
-      .setAttribute(
-        "src",
-        hrefData.media_details.sizes.testimonials.source_url
-      );
+      .querySelector("#userImage")
+      .style.backgroundImage="url("+
+        hrefData.media_details.sizes.medium.source_url +")";
+      
     // imgClone.querySelector("img")
     // .setAttribute(
     //   "src",
@@ -439,20 +441,11 @@ function greenSockFade() {
   );
 }
 
-function startHeroAnimation() {
-  let img = document.querySelector(".blue");
-  img.classList.add("height");
-  img.addEventListener("animationend", () => {
-    console.log("img finished");
-    startSvgAnimation();
-  });
-}
+
 
 async function init() {
   document.querySelector(".loaderWrapper").classList.add("hideLoader");
-  // startHeroAnimation();
   startSvgAnimation();
-  //  drawSvg();
   const testimonials = await fetchTestimonials();
   const blogPosts = await fetchBlogPosts();
   // console.log(blogPosts);

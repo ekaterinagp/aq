@@ -42,77 +42,7 @@ function showFaq(faqData) {
   }
 }
 
-function timelineAnimation() {
-  let tl = new TimelineMax();
-  tl.staggerFromTo(
-    ".timelineWrapper",
-    0.3,
-    {
-      scale: 1.2,
-      opacity: 0,
-      skewY: 15
-    },
-    { scale: 1, opacity: 1, skewY: 0, ease: Power1.easeInOut },
-    0.2
-  ).staggerFromTo(
-    ".timelineContent",
-    0.3,
-    {
-      opacity: 0
-    },
-    {
-      opacity: 1
-    },
-    0.1
-  );
-}
 
-// timelineAnimation();
-
-// get the element to animate
-let element = document.querySelector(".timelineWrapper");
-var elementHeight = element.clientHeight;
-
-// listen for scroll event and call animate function
-document.addEventListener("scroll", animate);
-
-// check if element is in view
-function inView() {
-  // get window height
-  var windowHeight = window.innerHeight;
-  // get number of pixels that the document is scrolled
-  var scrollY = window.scrollY || window.pageYOffset;
-
-  // get current scroll position (distance from the top of the page to the bottom of the current viewport)
-  var scrollPosition = scrollY + windowHeight;
-  // get element position (distance from the top of the page to the bottom of the element)
-  var elementPosition =
-    element.getBoundingClientRect().top + scrollY + elementHeight;
-
-  // is scroll position greater than element position? (is element in view?)
-  if (scrollPosition > elementPosition) {
-    return true;
-  }
-
-  return false;
-}
-
-// animate element when it is in view
-
-// Set animation running to false
-let isInViewAnimationRunning = false;
-function animate() {
-  // Only go further if no animation is running
-  if (!isInViewAnimationRunning) {
-    // is element in view?
-    let isInView = inView();
-    // If element is in view, go ahead and start animation and set animation is running to true, to avoid starting animation over and over
-    if (isInView) {
-      isInViewAnimationRunning = true;
-      timelineAnimation();
-    }
-  }
-}
 function startSvgAnimation() {
   let title = document.querySelector(".hero_text>h1");
   let subTitle = document.querySelector(".hero_text>p")
@@ -158,8 +88,52 @@ function greenSockFade() {
     10
   );
 }
-
-
+const section_network = document.querySelector(".network");
+let section_network_items = section_network.querySelectorAll(".item");
+let section_network_img = section_network.querySelector(".absolute:nth-child(2)");
+section_network_items.forEach(item => {
+  item.addEventListener("click", () => {
+    clearAllItemsStyle(section_network_items, "section_network");
+    // console.log({ item });
+    applyStyle(item);
+    changeImage(item, section_network_img);
+  });
+});
+const applyStyle = item => {
+  item.querySelector("h3").style.color = "#EF6461";
+  item.querySelector("p").style.color = "#2c2e3e";
+  resizeText(2, item.querySelector("h3"));
+};
+function resizeText(multiplier, p) {
+  if (p.style.fontSize == "") {
+    p.style.fontSize = "1.0em";
+  }
+  p.style.fontSize = parseFloat(p.style.fontSize) + multiplier * 0.2 + "em";
+}
+const changeImage = (item, img) => {
+  // let img = section.querySelector("img");
+  console.log({ "item.id": item.id });
+  
+  img.classList.add("change");
+  if(item.id === "network_item_1")img.setAttribute("src", "img/platform_brief_single.png");
+if(item.id === "network_item_2")img.setAttribute("src", "img/platform_deal_single.png");
+if(item.id === "network_item_3")img.setAttribute("src", "img/platform_discover_single.png");
+img.addEventListener("animationend", ()=>{
+  removeAnimationClass(img, "change");
+})
+};
+const clearAllItemsStyle = (items, sectionName) => {
+  items.forEach(item => {
+    if (sectionName === "section_network") {
+      item.querySelector("h3").style.color = "grey";
+      item.querySelector("p").style.color = "grey";
+      item.querySelector("h3").style.fontSize = "1em";
+    }
+     });
+};
+const removeAnimationClass = (item, classToRemove) => {
+  item.classList.remove(classToRemove);
+};
 async function init() {
   document.querySelector(".loaderWrapper").classList.add("hideLoader");
   startSvgAnimation(); 

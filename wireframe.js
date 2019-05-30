@@ -46,8 +46,8 @@ function createSimpleImgTextLayout(parts, pic, i) {
   let div = document.createElement("div");
   div.setAttribute("id", "wireframe_description");
   div.setAttribute("class", "wrapper_2_columns");
-  let gradient = document.createElement("div");
-  gradient.setAttribute("class", "gradient");
+  // let gradient = document.createElement("div");
+  // gradient.setAttribute("class", "gradient");
   let h1 = document.createElement("h1");
   h1.setAttribute("class", "header");
   h1.textContent = parts[i].title.rendered;
@@ -66,7 +66,7 @@ function createSimpleImgTextLayout(parts, pic, i) {
   img.setAttribute("id", "platform");
   img.src = pic.media_details.sizes.large.source_url;
   // divForImg.appendChild(img);
-  div.append(gradient, h1, h2, divForP, img);
+  div.append(h1, h2, divForP, img);
   document.querySelector(".wrapper").append(div);
 }
 
@@ -74,8 +74,8 @@ function createDivFromWP(parts, i) {
   let divHolder = document.createElement("div");
   divHolder.setAttribute("id", "benefits");
   // divHolder.setAttribute("class", "wrapper_2_columns");
-  let gradient = document.createElement("div");
-  gradient.setAttribute("class", "gradient_reverse");
+  // let gradient = document.createElement("div");
+  // gradient.setAttribute("class", "gradient_reverse");
   let h1 = document.createElement("h1");
   h1.setAttribute("class", "header");
   h1.innerHTML = parts[i].title.rendered;
@@ -85,7 +85,7 @@ function createDivFromWP(parts, i) {
   pText.innerHTML = parts[i].content.rendered;
 
   pDiv.append(pText);
-  divHolder.append(gradient, h1, pDiv);
+  divHolder.append(h1, pDiv);
   document.querySelector(".wrapper").append(divHolder);
 }
 

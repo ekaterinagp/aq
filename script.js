@@ -54,7 +54,7 @@ const changeImage = (item, img) => {
   
   if (item.id === "resedential") img.setAttribute("src", "img/icons/buildings.svg");
   if (item.id === "business") img.setAttribute("src", "img/icons/cityscape.svg");
-  if (item.id === "education") img.setAttribute("src", "img/icons/school.svg");
+  if (item.id === "recreational") img.setAttribute("src", "img/icons/generic.svg");
   if (item.id === "aestetic") img.setAttribute("src", "img/icons/fountain.svg");
   if (item.id === "section_platform_item_1") img.setAttribute("src", "img/platform_home_single.png");
   if (item.id === "section_platform_item_2") img.setAttribute("src", "img/platform_discover_single.png");
@@ -67,12 +67,12 @@ img.addEventListener("animationend", ()=>{
 
 const applyFill = (item, section) => {
   if (section == section_platform) {
-    item.querySelector("svg").style.fill = "#2c2e3e";
-    item.querySelector("h3").style.color = "#2c2e3e";
+    item.querySelector("svg").style.fill = "#ef6461";
+    item.querySelector("h3").style.color = "#ef6461";
   }
   if (section == section_why) {
     item.querySelector("svg").style.fill = "#ef6461";
-    item.querySelector("h3").style.color = "#2c2e3e";;
+    item.querySelector("h3").style.color = "#ef6461";;
   }
 
   if (section == section_types) {
@@ -160,11 +160,11 @@ const changeText = (item, section) => {
     textDiv.textContent =
       "In a competitive environment where improvement is foremost, to hire a good architect is essential. Do you need to construct a resedential complex, a new modern hospital,a large industrial building or a family-driven brewery? We have spectialists in all of the types and they are ready to start building proposals!";
   }
-  if (item.id == "education") {
-    document.querySelector(".big").textContent="Education";
-    document.querySelector("#type_of_firms").textContent = "educational";
+  if (item.id == "recreational") {
+    document.querySelector(".big").textContent="Recreational";
+    document.querySelector("#type_of_firms").textContent = "Recreational";
     textDiv.textContent =
-      "Educational architecture has its own specifics, it is not just about functionality, it should bring people together. Schools, universities, research centers, kindergartens,campuses - find the right architect for you with the help of the platform! ";
+      "Recreational architecture has its own specifics, it is not just about functionality, it should bring people together. Schools, universities, research centers, kindergartens,campuses - find the right architect for you with the help of the platform! ";
   }
   if (item.id == "aestetic") {
     document.querySelector(".big").textContent="Design";
@@ -316,6 +316,11 @@ async function insertBlogsToDom(blogPosts) {
   for (let i = 0; i < blogPosts.length; i++) {
     let clone = templateBlogs.cloneNode(true);
     clone.querySelector(".blogTitle").textContent = blogPosts[i].title.rendered;
+    
+    let a = document.createElement("a");
+    a.href = "subpage_blog.html?id=" + blogPosts[i].id;
+    a.appendChild(clone.querySelector(".blogTitle"));
+    clone.querySelector(".boxStyle").appendChild(a);
 
     const hrefDataUrl = await fetch(
       blogPosts[i]._links["wp:featuredmedia"][0].href

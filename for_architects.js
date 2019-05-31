@@ -15,6 +15,7 @@ speechBubbles.forEach(bubble => {
 
 const applyFill = item => {
   item.querySelector("svg").style.fill = "#ef6461";
+  item.querySelector("h3").style.color="#ef6461";
 };
 const changeText = (item, section) => {
   let textDiv = section.querySelector("p");
@@ -143,7 +144,7 @@ section_better_items.forEach(item => {
 });
 const applyStyle = item => {
   item.querySelector("h3").style.color = "#EF6461";
-  item.querySelector("p").style.color = "#2c2e3e";
+  item.querySelector("p").style.color = "#EF6461";
   resizeText(2, item.querySelector("h3"));
 };
 function resizeText(multiplier, p) {
@@ -172,7 +173,8 @@ const clearAllItemsStyle = (items, sectionName) => {
       item.querySelector("h3").style.fontSize = "1em";
     }
     if(sectionName ==="arch_projects"){
-      item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
+      item.querySelector("svg").style.fill = "lightgrey";
+      item.querySelector("h3").style.color ="lightgrey";
     }
      });
 };

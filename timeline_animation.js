@@ -28,7 +28,11 @@ let element = document.querySelector(".timelineWrapper");
 var elementHeight = element.clientHeight;
 
 // listen for scroll event and call animate function
-document.addEventListener("scroll", animate);
+document.addEventListener("scroll", ()=>{
+  console.log("scrolling");
+  animate();
+}
+  );
 
 // check if element is in view
 function inView() {
@@ -59,10 +63,12 @@ let isInViewAnimationRunning = false;
 function animate() {
   // Only go further if no animation is running
   if (!isInViewAnimationRunning) {
+    console.log("it's not in view");
     // is element in view?
     let isInView = inView();
     // If element is in view, go ahead and start animation and set animation is running to true, to avoid starting animation over and over
     if (isInView) {
+      console.log("it's in view");
       isInViewAnimationRunning = true;
       timelineAnimation();
     }

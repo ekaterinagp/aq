@@ -407,7 +407,7 @@ let formItems = [
       let pForGdpr = document.createElement("p");
       pForGdpr.setAttribute("class", "inline");
       pForGdpr.innerHTML =
-        'I agree to the <a href="" class="link" >Terms of Service</a> and <a href="" class="link">Privacy Policy</a> of ArchitectureQuote IVS';
+        'I agree to the <a href="policy.html" class="link" >Terms of Service</a> and <a href="policy.html" class="link">Privacy Policy</a> of ArchitectureQuote IVS';
       let divForAgree = document.createElement("div");
       divForAgree.append(agreeCheckbox, pForGdpr);
       let newsCheckbox = document.createElement("input");

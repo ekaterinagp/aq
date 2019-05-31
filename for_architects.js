@@ -63,29 +63,6 @@ function shrinkRemoveArrow() {
 }
 
 
-function timelineAnimation() {
-  // let tl = new TimelineMax();
-  TweenMax.staggerFromTo(".hover_wrapper", .3,
-   { 
-    scale:1.1,
-    opacity:0
-  },
-  {
-    scale:1,
-    opacity:1
-  }, 
-  .02);
-  // .staggerFromTo(
-  //   ".hover_wrapper>img",
-  //   .5,{
-  //    opacity:0
-  //   },
-  //   {
-  //     opacity:1
-  //   }, 0.2);
-}
-
-timelineAnimation();
 
 function startSvgAnimation() {
   let title = document.querySelector(".hero_text>h1");

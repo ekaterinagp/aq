@@ -1319,7 +1319,9 @@ head .blogBG {
   background-image: none;
   }
   #prosWrapper .timelineWrapper h1{
-    margin:auto;
+    padding-top: 50%;
+    font-size: 5em;
+    text-align: center;
   }
 /* #prosWrapper .timelineWrapper:hover {
   /* height:25vh; 

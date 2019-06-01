@@ -1,5 +1,13 @@
 "use strict";
 
+function incrementByOneForIndex(content, u) {
+  let i = 0;
+  setInterval(function() {
+    if (i == u) clearInterval(this);
+    else content.innerHTML = i++;
+  }, 5);
+}
+
 function timelineAnimation() {
   let tl = new TimelineMax();
   tl.staggerFromTo(
@@ -23,16 +31,18 @@ function timelineAnimation() {
     },
     0.1
   );
+  setTimeout(() => {
+    incrementByOneForIndex(clientsNumber, 144);
+  }, 1000);
 }
 let element = document.querySelector(".timelineWrapper");
 var elementHeight = element.clientHeight;
 
 // listen for scroll event and call animate function
-document.addEventListener("scroll", ()=>{
+document.addEventListener("scroll", () => {
   console.log("scrolling");
   animate();
-}
-  );
+});
 
 // check if element is in view
 function inView() {

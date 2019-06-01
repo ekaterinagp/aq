@@ -180,7 +180,7 @@ const changeText = (item, section) => {
   }
   if (item.id == "recreational") {
     document.querySelector(".big").textContent = "Recreational";
-    document.querySelector("#type_of_firms").textContent = "Recreational";
+    document.querySelector("#type_of_firms").textContent = "recreational";
     incrementByOneForIndex(changeNumber, 178);
     textDiv.textContent =
       "Recreational architecture has its own specifics, it is not just about functionality, it should bring people together. Sport complex, spa, playgrounds for kids, cinemas, restaurants - find the right architect with the help of the platform! ";

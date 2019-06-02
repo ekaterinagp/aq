@@ -155,6 +155,11 @@ footer .orange_button{
 footer h4 {
   margin: 0 0 3%;
 }
+footer a>img{
+  width:5%;
+  display: inline;
+  margin:1%;
+}
 footer p {
   font-size: 0.8em;
 }

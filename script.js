@@ -90,8 +90,11 @@ const applyFill = (item, section) => {
 function incrementByOneForIndex(content, u) {
   let i = 0;
   setInterval(function() {
-    if (i == u) clearInterval(this);
-    else content.innerHTML = i++;
+    if (i == u) {
+      clearInterval(this);
+    } else {
+      content.innerHTML = i++;
+    }
   }, 5);
 }
 
@@ -355,6 +358,7 @@ let itemClassName = "client boxStyle",
   slide = 0;
 
 function initCarousel(clients) {
+  console.log({ clients });
   clients[clients.length - 1].classList.add("prev");
   clients[0].classList.add("activeSlide");
   clients[1].classList.add("next");
@@ -399,6 +403,7 @@ function moveCarouselTo(slide, clients) {
 }
 
 function moveNext(clients) {
+  console.log({ clients });
   if (slide === clients.length - 1) {
     slide = 0;
   } else {

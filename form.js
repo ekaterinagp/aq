@@ -703,19 +703,17 @@ function checkIfAnswersForTasks(userAnswers) {
 function checkAllBox() {
   document.querySelector("#design6").addEventListener("change", () => {
     if (document.querySelector("#design6").checked) {
-      document.querySelector("#design1").checked = true;
-      document.querySelector("#design2").checked = true;
-      document.querySelector("#design3").checked = true;
-      document.querySelector("#design4").checked = true;
-      document.querySelector("#design5").checked = true;
+      document.querySelectorAll(".checkDesign").forEach(designItemCheckBox => {
+        if (designItemCheckBox.id != "design6") {
+          designItemCheckBox.checked = true;
+        }
+      });
       userAnswers.task = document.querySelector("#design6").value;
       console.log(userAnswers.task);
     } else {
-      document.querySelector("#design1").checked = false;
-      document.querySelector("#design2").checked = false;
-      document.querySelector("#design3").checked = false;
-      document.querySelector("#design4").checked = false;
-      document.querySelector("#design5").checked = false;
+      document.querySelectorAll(".checkDesign").forEach(designItemCheckBox => {
+        designItemCheckBox.checked = false;
+      });
     }
   });
 }
@@ -784,6 +782,7 @@ function listenForValue(itemIDstr, answerTypestr) {
   console.log({ "userAnswers.size": userAnswers.size });
   checkIfAnswersForTasks(userAnswers);
 }
+
 function createFormWrapper() {
   let formWrapper = document.createElement("div");
   formWrapper.className = "formWrapper";

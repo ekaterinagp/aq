@@ -91,6 +91,14 @@ section_whatyouget_items.forEach(item => {
     applyStyle(item);
     changeImage(item, section_whatyouget_img);
   });
+  item.addEventListener("mouseover", ()=>{
+    // console.log("hover");
+    item.classList.add("hover");
+});
+item.addEventListener("mouseleave", ()=>{
+  item.classList.remove("hover");
+  // console.log("hover");
+});
 });
 
 const changeText = (item, section) => {
@@ -199,6 +207,15 @@ section_platform_items.forEach(item => {
     changeText(item, section_platform);
     changeImage(item, section_platform_img);
   });
+  item.addEventListener("mouseover", ()=>{
+    // console.log("hover");
+    item.classList.add("hover");
+});
+item.addEventListener("mouseleave", ()=>{
+  item.classList.remove("hover");
+  // console.log("hover");
+});
+
 });
 
 const section_why = document.querySelector("#section_why");
@@ -212,6 +229,7 @@ section_why_items.forEach(item => {
     shrinkRemoveArrow();
     growAddArrow(item);
   });
+ 
 });
 
 const section_types = document.querySelector("#types");
@@ -219,12 +237,20 @@ let section_types_items = section_types.querySelectorAll(".type");
 let section_types_img = section_types.querySelector(".houseIcon");
 section_types_items.forEach(item => {
   item.addEventListener("click", () => {
-    console.log({ item });
+    // console.log({ item });
     clearAllItemsStyle(section_types_items, "section_types");
     changeText(item, section_types);
     changeImage(item, section_types_img);
     applyFill(item, section_types);
   });
+  item.addEventListener("mouseover", ()=>{
+    // console.log("hover");
+    item.classList.add("hover");
+});
+item.addEventListener("mouseleave", ()=>{
+  item.classList.remove("hover");
+  // console.log("hoverOut");
+});
 });
 
 
@@ -331,6 +357,8 @@ async function insertBlogsToDom(blogPosts) {
     section.appendChild(clone);
   }
 }
+
+
 
 /*   TESTIMONIALS CAROUSEL   */
 let itemClassName = "client boxStyle",

@@ -101,6 +101,7 @@ function createSimple2ColumnsBGTextRight(parts, img, i) {
   let pDiv = document.createElement("div");
   pDiv.id = "more";
   let pText = document.createElement("p");
+  pText.className="sub_title";
   pText.innerHTML = parts[i].content.rendered;
   let link = document.createElement("a");
   link.href = "platform.html";
@@ -114,7 +115,7 @@ function createSimple2ColumnsBGTextRight(parts, img, i) {
 function createTimeline(parts, i) {
   let div = document.createElement("div");
   div.id = "timelineSection";
-  div.setAttribute("class", "fullScreen");
+  // div.setAttribute("class", "fullScreen");
   let h1 = document.createElement("h1");
   h1.innerHTML = parts[i].title.rendered;
   let divForContent = document.createElement("div");
@@ -306,20 +307,31 @@ const clearAllItemsStyle = (items, sectionName) => {
       item.querySelector("p").style.color = "grey";
       item.querySelector("h3").style.fontSize = "1em";
     }
-    // if (sectionName === "section_platform" || sectionName === "section_why") {
-    //   item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
-    //   item.querySelector("h3").style.color="rgb(207, 205, 205)";
-    // }
+    if (sectionName === "section_platform" || sectionName === "section_why") {
+      item.querySelector("img").style.opacity = ".2";
+      item.querySelector("h3").style.opacity = ".2";
+    }
     // if (sectionName == "section_types") {
     //   item.style.color = "#2c2e3e";
     //   item.style.fontWeight = "normal";
     // }
   });
 };
+const applyFill = (item, section) => {
+  if (section == section_platform) {
+    item.querySelector("img").style.opacity = "1";
+    item.querySelector("h3").style.opacity = "1";
+    item.querySelector("h3").style.color = "#ef6461";
+  }
+  // if (section == section_why) {
+  //   item.querySelector("svg").style.fill = "#ef6461";
+  //   item.querySelector("h3").style.color = "#ef6461";;
+  // }
+};
 
 const applyStyle = item => {
   item.querySelector("h3").style.color = "#EF6461";
-  item.querySelector("p").style.color = "#2c2e3e";
+  item.querySelector("p").style.color = "#EF6461";
   resizeText(2, item.querySelector("h3"));
 };
 
@@ -344,7 +356,7 @@ function sectionOverview() {
     item.addEventListener("click", () => {
       console.log({ item });
       clearAllItemsStyle(section_platform_items, "section_platform");
-      // applyFill(item, section_platform);
+      applyFill(item, section_platform);
       changeText(item, section_platform);
       changeImage(item, section_platform_img);
     });
@@ -374,7 +386,7 @@ function sellingPointsForBusiness(parts, i) {
   divItem.id = "section_platform_item_1";
   divItem.classList.add("icon");
   let img_1 = document.createElement("img");
-  img_1.src = "img/icons/logo-magnigla.svg";
+  img_1.src = "img/icons/logo-blue.svg";
   let h3 = document.createElement("h3");
   h3.textContent = "Overview";
   divItem.append(img_1, h3);
@@ -407,7 +419,7 @@ function sellingPointsForBusiness(parts, i) {
   let classesToAdd_2 = ["another_color", "wrapper_2_columns"];
   divWrapper_2.classList.add(...classesToAdd_2);
   let divPadding = document.createElement("div");
-  divPadding.classList.add("padding3em");
+  divPadding.classList.add("padding0em3em");
   let p = document.createElement("p");
   p.id = "textHolderForPlatform";
   p.innerHTML = parts[i].content.rendered;
@@ -429,3 +441,8 @@ function sellingPointsForBusiness(parts, i) {
   document.querySelector(".wrapper").append(divHolder);
   sectionOverview();
 }
+
+
+
+
+

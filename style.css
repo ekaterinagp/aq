@@ -213,7 +213,7 @@ footer input {
 .heroWireframe > .hero_text {
   color: white;
   text-align: right;
-  padding: 5% 10% 5% 50%;
+  padding: 5% 5% 5% 45%;
   margin: auto;
   width: auto;
 }
@@ -353,7 +353,7 @@ footer input {
   margin: 1em 0 0;
 }
 .sub_title,
-#mce_0 {
+.sub_title>h2{
   grid-column: 1/-1;
   font-weight: 100;
   margin: 0.2em auto 1em;
@@ -380,6 +380,9 @@ footer input {
 
 .padding3em {
   padding: 3em;
+}
+.padding0em3em{
+  padding: 0 3em;
 }
 
 .widthHeight100 {
@@ -473,11 +476,20 @@ button,
   cursor: pointer;
 }
 /*  Hover  */
-.network_item:hover h3,
+.hover>h3{
+  color:#ef6461 !important;
+}
+.hover svg{
+  fill:#ef6461 !important;
+}
+.type.hover {
+  color:#ef6461 !important;
+}
+/* .network_item:hover h3,
 .item:hover h3 {
   font-size: 1em;
   color: #ef6461;
-}
+} */
 /* FRONTPAGE */
 
 /*HERO ANIMATION*/
@@ -603,7 +615,7 @@ button,
   color: #cfcdcd;
 }
 .platformBox p {
-  height: 15vh;
+  height: 18vh;
   padding: 0 10% 0 0;
 }
 .platformBox .titleToChange{
@@ -688,12 +700,12 @@ button,
   margin: auto;
   text-align: center;
 }
-.icon:hover svg{
+/* .icon:hover svg{
 fill:#ef6461;
 }
 .icon:hover h3{
   color:#ef6461;
-  }
+  } */
 .overflowHidden{
   overflow: hidden;
 }
@@ -825,6 +837,7 @@ fill:#ef6461;
   margin: auto;
 }
 .sectionItem {
+  background:white;
   border-radius: 10px;
   width: 100%;
   padding: 10% 5%;
@@ -1322,9 +1335,10 @@ head .blogBG {
     padding-top: 50%;
     font-size: 5em;
     text-align: center;
+    margin:0;
   }
-/* #prosWrapper .timelineWrapper:hover {
-  /* height:25vh; 
+/* .timelineWrapper:hover {
+
   z-index: 10;
   transform: scale(1.1);
 } */
@@ -2100,6 +2114,30 @@ iframe {
 /* } */
 
 /* //wireframes  */
+.wf .hero_text p{
+ font-size: 1.2em;
+}
+.wf .icon img{
+  opacity: .2;
+}
+.wf .icon h3{
+  color:#ef6461;
+  opacity: .2;
+}
+.wf .icon img{
+  opacity: .2;
+}
+.wf .icon:first-child h3,
+.wf .icon:first-child img{
+   opacity: 1;
+}
+/* #educationalPage .hero_text, */
+#healthcarePage .hero_text,
+#businessPage #forMore,
+#remodelingPage #forMore,
+#interiorPage .hero_text{
+  color:#2c2e3e;
+}
 #benefits,
 #wireframe_description {
   position: relative;

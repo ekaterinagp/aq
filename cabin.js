@@ -40,6 +40,7 @@ async function fetchImgForMorePart(parts) {
 }
 
 async function init() {
+  document.querySelector(".loaderWrapper").classList.add("hideLoader");
   const wireframeParts = await fetchAllParts();
   console.log({ wireframeParts });
   const backgroundImg = await fetchBackgroundImg(wireframeParts);
@@ -55,26 +56,26 @@ async function init() {
   createSimple2ColumnsBGTextRight(wireframeParts, imgForMore, 1);
 }
 
-let imgsForCaruselle = [
-  {
-    num: "cabin/slideshow0.jpg"
-  },
-  {
-    num: "cabin/slideshow1.jpg"
-  },
-  {
-    num: "cabin/slideshow2.jpg"
-  },
-  {
-    num: "cabin/slideshow3.jpg"
-  },
-  {
-    num: "cabin/slideshow4.jpg"
-  },
-  {
-    num: "cabin/slideshow5.jpg"
-  },
-  {
-    num: "cabin/slideshow6.jpg"
-  }
-];
+// let imgsForCaruselle = [
+//   {
+//     num: "cabin/slideshow0.jpg"
+//   },
+//   {
+//     num: "cabin/slideshow1.jpg"
+//   },
+//   {
+//     num: "cabin/slideshow2.jpg"
+//   },
+//   {
+//     num: "cabin/slideshow3.jpg"
+//   },
+//   {
+//     num: "cabin/slideshow4.jpg"
+//   },
+//   {
+//     num: "cabin/slideshow5.jpg"
+//   },
+//   {
+//     num: "cabin/slideshow6.jpg"
+//   }
+// ];

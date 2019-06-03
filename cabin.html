@@ -9,14 +9,24 @@
   <body>
     <header id="cabinPage">
       <div class="wrapper_1_3_1">
-        <img src="/img/logo.svg" alt="logo" class="logo" />
+        <a href="index.html">
+          <img src="img/logo.svg" alt="logo" class="logo"
+        /></a>
 
         <ul>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/platform.html">Platform</a></li>
-          <li><a href="/for_architects.html">For Architects</a></li>
-          <li><a href="/our_team.html">Our team</a></li>
-          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <div class="dropdown">
+              <p class="drop">Platform</p>
+              <div class="dropdownContent">
+                <a href="platform.html">Looking for an acrhitect?</a>
+                <a href="for_architects.html">Are you an architect?</a>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="our_team.html">Our team</a></li>
+          <li><a href="blog.html">Blog</a></li>
         </ul>
         <button class="orange_button freeEst">
           Get your free estimate
@@ -77,15 +87,15 @@
           id="subscribe_email"
           placeholder=" Enter your Email"
         />
-        <input type="submit" value="Submit" class="orange_button">
+        <input type="submit" value="Submit" class="orange_button" />
         <p>
           Subscribe to our mailing list to receive new updates and special
           offers.
         </p>
       </div>
     </footer>
-    <script src="cabin.js"></script>
-    <script src="wireframe.js"></script>
-    <script src="form.js"></script>
+    <script src="js/cabin.js"></script>
+    <script src="js/wireframe.js"></script>
+    <script src="js/form.js"></script>
   </body>
 </html>

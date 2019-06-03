@@ -44,37 +44,16 @@ async function init() {
   console.log({ wireframeParts });
   const backgroundImg = await fetchBackgroundImg(wireframeParts);
   console.log({ backgroundImg });
+  //creates the first part of the website with a picture as a background, title, subtitle and CTA
   createAboveTheFold(wireframeParts, backgroundImg, 4);
   const ImgForCustomPart = await fetchImgForCustomPart(wireframeParts);
-  // console.log({ imgForSecond });
+  //creates a div with clickable selling points and animation of the images, which runs accordingly
   sellingPointsForIndividuals(wireframeParts, 3, "cabin/summerhouse.png");
-  // createSimpleImgTextLayout(wireframeParts, imgForSecond, 2);
+  //creates a timeline for the process
   createDivFromWP(wireframeParts, 2);
   const imgForMore = await fetchImgForMorePart(wireframeParts);
+  //creates a simple layout - text and image
   createSimpleImgTextLayout(wireframeParts, ImgForCustomPart, 0);
+  //creates a 2 column layout with an image as a background, text and CTA
   createSimple2ColumnsBGTextRight(wireframeParts, imgForMore, 1);
 }
-
-let imgsForCaruselle = [
-  {
-    num: "cabin/slideshow0.jpg"
-  },
-  {
-    num: "cabin/slideshow1.jpg"
-  },
-  {
-    num: "cabin/slideshow2.jpg"
-  },
-  {
-    num: "cabin/slideshow3.jpg"
-  },
-  {
-    num: "cabin/slideshow4.jpg"
-  },
-  {
-    num: "cabin/slideshow5.jpg"
-  },
-  {
-    num: "cabin/slideshow6.jpg"
-  }
-];

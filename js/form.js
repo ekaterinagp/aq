@@ -89,12 +89,7 @@ let formItems = [
         divForValue.appendChild(theBreak);
       });
       return form;
-    },
-    answer: [
-      {
-        type_project: ""
-      }
-    ]
+    }
   },
   {
     id: 2,
@@ -162,12 +157,7 @@ let formItems = [
         divForValue.appendChild(theBreak);
       });
       return form;
-    },
-    answer: [
-      {
-        type_building: ""
-      }
-    ]
+    }
   },
   {
     id: 3,
@@ -328,24 +318,7 @@ let formItems = [
       form.appendChild(divForSelect_2);
       form.appendChild(divForToggle);
       return form;
-    },
-    answer: [
-      {
-        complexity: ""
-      },
-      {
-        size: ""
-      },
-      {
-        task: ""
-      },
-      {
-        floor: ""
-      },
-      {
-        basememnt: ""
-      }
-    ]
+    }
   },
   {
     id: 4,
@@ -430,24 +403,7 @@ let formItems = [
         divForNews
       );
       return form;
-    },
-    answer: [
-      {
-        name: ""
-      },
-      {
-        last_name: ""
-      },
-      {
-        phone: ""
-      },
-      {
-        email: ""
-      },
-      {
-        whatsApp: ""
-      }
-    ]
+    }
   }
 ];
 
@@ -467,29 +423,9 @@ let userAnswers = {
   news: ""
 };
 
-// // startProjectBtns.forEach(btn => {
-// //   btn.addEventListener("click", () => {
-// //     console.log({ formWrapper });
-
-// //     formWrapper.classList.remove("hidden");
-
-// //     // document.querySelector("body").appendChild(formDiv);
-// //     insertDOMforForm();
-// //   });
-// // });
 function closeForm() {
-  // document.querySelector(".formWrapper").classList.add("hidden");
-  // let formWrapperExists = document.querySelector(".formWrapper");
-  // if (formWrapperExists) {
   document.querySelector(".formWrapper").remove();
-  // }
 }
-
-// // window.addEventListener("click", ()=>{
-// //   if(formWrapper.className="formWrapper"){
-// //     formWrapper.classList.add("hidden");
-// //   }
-// // });
 
 function setNextBtnDisabled(bool) {
   document.getElementById("next").disabled = bool;
@@ -730,8 +666,6 @@ function insertCheckBoxForTask() {
   }
 
   allCheckbox.forEach(checkBox => {
-    // let found = userAnswers.task.find(task => task == checkBox.value);
-    // if (found) checkBox.checked = true;
     if (userAnswers.task.includes(checkBox.value)) {
       checkBox.checked = true;
     }

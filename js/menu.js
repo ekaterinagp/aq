@@ -17,7 +17,7 @@ function toggleMenu() {
   bars[0].classList.toggle("rotateDown");
   bars[1].classList.toggle("fadeOut");
   bars[2].classList.toggle("rotateUp");
-  menu.classList.toggle("hidden");
+  menu.classList.toggle("hiddenMenu");
 }
 
 //MENU ends

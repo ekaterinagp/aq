@@ -98,6 +98,14 @@ section_network_items.forEach(item => {
     applyStyle(item);
     changeImage(item, section_network_img);
   });
+  item.addEventListener("mouseover", ()=>{
+    // console.log("hover");
+    item.classList.add("hover");
+});
+item.addEventListener("mouseleave", ()=>{
+  item.classList.remove("hover");
+  // console.log("hoverOut");
+});
 });
 const applyStyle = item => {
   item.querySelector("h3").style.color = "#EF6461";

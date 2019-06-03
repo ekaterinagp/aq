@@ -40,6 +40,7 @@ async function fetchImgForMorePart(parts) {
 }
 
 async function init() {
+  document.querySelector(".loaderWrapper").classList.add("hideLoader");
   const wireframeParts = await fetchAllParts();
   console.log({ wireframeParts });
   const backgroundImg = await fetchBackgroundImg(wireframeParts);

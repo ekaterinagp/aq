@@ -38,8 +38,33 @@ async function fetchImgForMorePart(parts) {
   console.log({ imgForMore });
   return imgForMore;
 }
+function timelineAnimation() {
+  let tl = new TimelineMax();
+  tl.staggerFromTo(
+    ".timelineWrapper",
+    0.3,
+    {
+      scale: 1.2,
+      opacity: 0,
+      skewY: 15
+    },
+    { scale: 1, opacity: 1, skewY: 0, ease: Power1.easeInOut },
+    0.2
+  ).staggerFromTo(
+    ".timelineContent",
+    0.3,
+    {
+      opacity: 0
+    },
+    {
+      opacity: 1
+    },
+    0.1
+  );
+}
 
 async function init() {
+  document.querySelector(".loaderWrapper").classList.add("hideLoader");
   const wireframeParts = await fetchAllParts();
   console.log({ wireframeParts });
   const backgroundImg = await fetchBackgroundImg(wireframeParts);
@@ -57,4 +82,6 @@ async function init() {
   const imgForMore = await fetchImgForMorePart(wireframeParts);
   createSimpleImgTextLayout(wireframeParts, ImgForCustomPart, 0);
   createSimple2ColumnsBGTextRight(wireframeParts, imgForMore, 1);
+  checkIfInView();
+
 }

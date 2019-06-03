@@ -503,6 +503,9 @@ button,
 .type.hover {
   color:#ef6461 !important;
 }
+.icon.hoverwf>h3, .icon.hoverwf>img{
+  opacity:1;
+}
 /* .network_item:hover h3,
 .item:hover h3 {
   font-size: 1em;
@@ -715,6 +718,7 @@ button,
 }
 
 .icon {
+  z-index: 1;
   margin: auto;
   text-align: center;
 }
@@ -759,6 +763,7 @@ fill:#ef6461;
 }
 
 #section_platform .absolute{
+  z-index:0;
   top: 8em;
   right: -3em;
   width: 60%;

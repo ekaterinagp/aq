@@ -368,15 +368,16 @@ function sectionOverview() {
       changeText(item, section_platform);
       changeImage(item, section_platform_img);
     });
+    item.addEventListener("mouseover", ()=>{
+      console.log("hover");
+      item.classList.add("hoverwf");
   });
-  item.addEventListener("mouseover", ()=>{
-    // console.log("hover");
-    item.classList.add("hover");
-});
-item.addEventListener("mouseleave", ()=>{
-  item.classList.remove("hover");
-  // console.log("hoverOut");
-});
+  item.addEventListener("mouseleave", ()=>{
+    item.classList.remove("hoverwf");
+    console.log("hoverOut");
+  });
+  });
+  
 }
 
 function sellingPointsForBusiness(parts, i) {
@@ -402,7 +403,7 @@ function sellingPointsForBusiness(parts, i) {
   divItem.id = "section_platform_item_1";
   divItem.classList.add("icon");
   let img_1 = document.createElement("img");
-  img_1.src = "img/icons/logo-blue.svg";
+  img_1.src = "img/icons/logo-red.svg";
   let h3 = document.createElement("h3");
   h3.textContent = "Overview";
   divItem.append(img_1, h3);
@@ -410,7 +411,7 @@ function sellingPointsForBusiness(parts, i) {
   divItem_2.id = "section_platform_item_2";
   divItem_2.classList.add("icon");
   let img_2 = document.createElement("img");
-  img_2.src = "img/icons/puzzle.svg";
+  img_2.src = "img/icons/puzzle-red.svg";
   let h3_2 = document.createElement("h3");
   h3_2.textContent = "Matching";
   divItem_2.append(img_2, h3_2);
@@ -418,7 +419,7 @@ function sellingPointsForBusiness(parts, i) {
   divItem_3.id = "section_platform_item_3";
   divItem_3.classList.add("icon");
   let img_3 = document.createElement("img");
-  img_3.src = "img/icons/communication.svg";
+  img_3.src = "img/icons/communication-red.svg";
   let h3_3 = document.createElement("h3");
   h3_3.textContent = "Communication";
   divItem_3.append(img_3, h3_3);
@@ -426,7 +427,7 @@ function sellingPointsForBusiness(parts, i) {
   divItem_4.id = "section_platform_item_4";
   divItem_4.classList.add("icon");
   let img_4 = document.createElement("img");
-  img_4.src = "img/icons/checked.svg";
+  img_4.src = "img/icons/checked-red.svg";
   let h3_4 = document.createElement("h3");
   h3_4.textContent = "Deal flow";
   divItem_4.append(img_4, h3_4);

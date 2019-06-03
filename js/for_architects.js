@@ -1,4 +1,6 @@
-window.addEventListener("load", init)
+window.addEventListener("load", () => {
+  init();
+});
 
 let speechBubbles = document.querySelectorAll(".items");
 const architect_section = document.querySelector("#arch_projects");
@@ -11,12 +13,11 @@ speechBubbles.forEach(bubble => {
     shrinkRemoveArrow();
     growAddArrow(bubble);
   });
- 
 });
 
 const applyFill = item => {
   item.querySelector("svg").style.fill = "#ef6461";
-  item.querySelector("h3").style.color="#ef6461";
+  item.querySelector("h3").style.color = "#ef6461";
 };
 const changeText = (item, section) => {
   let textDiv = section.querySelector("p");
@@ -39,11 +40,11 @@ const changeText = (item, section) => {
     textDiv.textContent =
       "Build a proposal on the platform. Export. Win a project.";
   }
-  textDiv.addEventListener("animationend", ()=>{
+  textDiv.addEventListener("animationend", () => {
     console.log("removed");
     removeAnimationClass(textDiv, "textAnimation");
   });
-  title.addEventListener("animationend", ()=>{
+  title.addEventListener("animationend", () => {
     console.log("removed");
     removeAnimationClass(title, "textAnimation");
   });
@@ -52,23 +53,21 @@ const removeAnimationClass = (item, classToRemove) => {
   item.classList.remove(classToRemove);
 };
 
-function growAddArrow(box) {
+const growAddArrow = box => {
   box.classList.add("arrow");
   box.classList.add("grow");
-}
-function shrinkRemoveArrow() {
+};
+const shrinkRemoveArrow = () => {
   speechBubbles.forEach(bubble => {
     bubble.classList.remove("arrow");
     bubble.classList.remove("grow");
   });
-}
+};
 
-
-
-function startSvgAnimation() {
+let startSvgAnimation = () => {
   let title = document.querySelector(".hero_text>h1");
-  let subTitle = document.querySelector(".hero_text>p")
- title.classList.add("textAnimation");
+  let subTitle = document.querySelector(".hero_text>p");
+  title.classList.add("textAnimation");
   subTitle.classList.add("textAnimation");
   let svg = document.querySelector(".drawSvg");
   let drawFirst = document.querySelector("#first").children;
@@ -81,9 +80,9 @@ function startSvgAnimation() {
     // console.log(n);
   }
   greenSockFade();
-}
+};
 
-function greenSockFade() {
+let greenSockFade = () => {
   let figure = document.querySelector(".heroImg");
   TweenMax.fromTo(
     figure,
@@ -108,7 +107,7 @@ function greenSockFade() {
     },
     10
   );
-}
+};
 const section_better = document.querySelector("#better");
 let section_better_items = section_better.querySelectorAll(".item");
 let section_better_img = section_better.querySelector(".absolute:nth-child(2)");
@@ -119,37 +118,41 @@ section_better_items.forEach(item => {
     applyStyle(item);
     changeImage(item, section_better_img);
   });
-  item.addEventListener("mouseover", ()=>{
+  item.addEventListener("mouseover", () => {
     // console.log("hover");
     item.classList.add("hover");
-});
-item.addEventListener("mouseleave", ()=>{
-  item.classList.remove("hover");
-  // console.log("hoverOut");
-});
+  });
+  item.addEventListener("mouseleave", () => {
+    item.classList.remove("hover");
+    // console.log("hoverOut");
+  });
 });
 const applyStyle = item => {
   item.querySelector("h3").style.color = "#EF6461";
   item.querySelector("p").style.color = "#EF6461";
   resizeText(2, item.querySelector("h3"));
 };
-function resizeText(multiplier, p) {
+const resizeText = (multiplier, p) => {
   if (p.style.fontSize == "") {
     p.style.fontSize = "1.0em";
   }
   p.style.fontSize = parseFloat(p.style.fontSize) + multiplier * 0.2 + "em";
-}
+};
 const changeImage = (item, img) => {
   // let img = section.querySelector("img");
   // console.log({ "item.id": item.id });
-    img.classList.add("change");
-  if(item.id === "better_item_1")img.setAttribute("src", "img/architect_project_single.png");
-if(item.id === "better_item_2")img.setAttribute("src", "img/architect_leads_single.png");
-if(item.id === "better_item_3")img.setAttribute("src", "img/architect_tender_single.png");
-if(item.id === "better_item_4")img.setAttribute("src", "img/architect_view_project_single.png");
-img.addEventListener("animationend", ()=>{
-  removeAnimationClass(img, "change");
-})
+  img.classList.add("change");
+  if (item.id === "better_item_1")
+    img.setAttribute("src", "img/architect_project_single.png");
+  if (item.id === "better_item_2")
+    img.setAttribute("src", "img/architect_leads_single.png");
+  if (item.id === "better_item_3")
+    img.setAttribute("src", "img/architect_tender_single.png");
+  if (item.id === "better_item_4")
+    img.setAttribute("src", "img/architect_view_project_single.png");
+  img.addEventListener("animationend", () => {
+    removeAnimationClass(img, "change");
+  });
 };
 const clearAllItemsStyle = (items, sectionName) => {
   items.forEach(item => {
@@ -158,11 +161,11 @@ const clearAllItemsStyle = (items, sectionName) => {
       item.querySelector("p").style.color = "grey";
       item.querySelector("h3").style.fontSize = "1em";
     }
-    if(sectionName ==="arch_projects"){
+    if (sectionName === "arch_projects") {
       item.querySelector("svg").style.fill = "lightgrey";
-      item.querySelector("h3").style.color ="lightgrey";
+      item.querySelector("h3").style.color = "lightgrey";
     }
-     });
+  });
 };
 
 // function timelineAnimation() {
@@ -232,8 +235,8 @@ const clearAllItemsStyle = (items, sectionName) => {
 //     }
 //   }
 // }
-function init(){
+let init = () => {
   document.querySelector(".loaderWrapper").classList.add("hideLoader");
   // startHeroAnimation();
   startSvgAnimation();
-}
+};

@@ -1,6 +1,6 @@
 "use strict";
 
-function createButtonForForm(textStr, additionalClass) {
+const createButtonForForm = (textStr, additionalClass) => {
   let button = document.createElement("button");
   let classesToAdd = ["orange_button", additionalClass];
 
@@ -11,19 +11,19 @@ function createButtonForForm(textStr, additionalClass) {
     createFormWrapper();
   });
   return button;
-}
+};
 
-function changeSrc(slideShow, imgArray) {
+const changeSrc = (slideShow, imgArray) => {
   for (let i = 0; i < imgArray.length; i++) {
     slideShow.src = imgArray[i].num;
     if (i > imgArray.length) {
       i = 0;
     }
   }
-}
+};
 
 //creates a simple above-the-fold with a background image, h1 and subtitle from WP
-function createAboveTheFold(parts, img, i) {
+const createAboveTheFold = (parts, img, i) => {
   let abovetheFoldHolder = document.createElement("div");
   abovetheFoldHolder.setAttribute("id", "hero-img");
   abovetheFoldHolder.setAttribute("class", "heroWireframe");
@@ -40,9 +40,9 @@ function createAboveTheFold(parts, img, i) {
   divForText.append(h1, p, button);
   abovetheFoldHolder.append(divForText);
   document.querySelector(".wrapper").append(abovetheFoldHolder);
-}
+};
 
-function createSimpleImgTextLayout(parts, pic, i) {
+const createSimpleImgTextLayout = (parts, pic, i) => {
   let div = document.createElement("div");
   div.setAttribute("id", "wireframe_description");
   div.setAttribute("class", "wrapper_2_columns");
@@ -68,9 +68,9 @@ function createSimpleImgTextLayout(parts, pic, i) {
   // divForImg.appendChild(img);
   div.append(h1, h2, divForP, img);
   document.querySelector(".wrapper").append(div);
-}
+};
 
-function createDivFromWP(parts, i) {
+const createDivFromWP = (parts, i) => {
   let divHolder = document.createElement("div");
   divHolder.setAttribute("id", "benefits");
   // divHolder.setAttribute("class", "wrapper_2_columns");
@@ -87,32 +87,54 @@ function createDivFromWP(parts, i) {
   pDiv.append(pText);
   divHolder.append(h1, pDiv);
   document.querySelector(".wrapper").append(divHolder);
-}
+};
 
-function createSimple2ColumnsBGTextRight(parts, img, i) {
+const createSimple2ColumnsBGTextRight = (parts, img, i) => {
   let divHolder = document.createElement("div");
   divHolder.setAttribute("id", "forMore");
   divHolder.setAttribute("class", "textOnImage");
   divHolder.style.backgroundImage =
     "url(" + img.media_details.sizes.large.source_url + ")";
+  let divForsvg1 = document.createElement("div");
+  divForsvg1.classList.add("pro");
+  let imgchecked = document.createElement("img");
+  imgchecked.src = "img/icons/checked-red.svg";
+  imgchecked.classList.add("checkedWireframe");
+  // let svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  // svg1.setAttribute("viewBox", "0 0 44 44");
+  // svg1.setAttribute("id", "Layer_1");
+  // svg1.setAttribute("data-name", "Layer 1");
+  // let path1 = document.createElementNS("http://www.w3.org/2000/path", "path");
+  // path1.setAttribute(
+  //   "d",
+  //   "M22,0A22,22,0,1,0,44,22,21.93664,21.93664,0,0,0,22,0ZM34.7,15.1h0l-16,16.6a.90783.90783,0,0,1-.7.3.77855.77855,0,0,1-.7-.3L9.5,23.3l-.2-.2a.96667.96667,0,0,1,0-1.4l1.4-1.4a.96667.96667,0,0,1,1.4,0l.1.1,5.5,5.9a.48333.48333,0,0,0,.7,0L31.8,12.4h.1a.96667.96667,0,0,1,1.4,0l1.4,1.4A.85265.85265,0,0,1,34.7,15.1Z"
+  // );
+  // svg1.appendChild(path1);
+  let h3forSvg = document.createElement("h3");
+  h3forSvg.textContent = "Your Data is Safe with Us";
+  let linkToRead = document.createElement("a");
+  linkToRead.href = "policy.html";
+  linkToRead.classList.add("link");
+  linkToRead.textContent = "Read about our data policy";
+  divForsvg1.append(imgchecked, h3forSvg, linkToRead);
   let h1 = document.createElement("h1");
   h1.setAttribute("class", "header");
   h1.innerHTML = parts[i].title.rendered;
   let pDiv = document.createElement("div");
   pDiv.id = "more";
   let pText = document.createElement("p");
-  pText.className="sub_title";
+  pText.className = "sub_title";
   pText.innerHTML = parts[i].content.rendered;
   let link = document.createElement("a");
   link.href = "platform.html";
   let button = createButtonForForm("Read more", "class");
   link.append(button);
   pDiv.append(pText, link);
-  divHolder.append(h1, pDiv);
+  divHolder.append(h1, pDiv, divForsvg1);
   document.querySelector(".wrapper").append(divHolder);
-}
+};
 
-function createTimeline(parts, i) {
+const createTimeline = (parts, i) => {
   let div = document.createElement("div");
   div.id = "timelineSection";
   // div.setAttribute("class", "fullScreen");
@@ -122,7 +144,7 @@ function createTimeline(parts, i) {
   divForContent.innerHTML = parts[i].content.rendered;
   div.append(h1, divForContent);
   document.querySelector(".wrapper").append(div);
-}
+};
 
 // layout for the hero part with img and text next to each other
 // function aboveTheFoldWith2parts(parts, img, i) {
@@ -147,7 +169,7 @@ function createTimeline(parts, i) {
 //   document.querySelector(".wrapper").append(abovetheFoldHolder);
 // }
 
-function sellingPointsForIndividuals(parts, i, imgSrc) {
+const sellingPointsForIndividuals = (parts, i, imgSrc) => {
   let divHolder = document.createElement("div");
   divHolder.id = "section_whatyouget";
   let classesToAdd = ["fullScreen", "wrapper_2_columns_rows"];
@@ -173,9 +195,9 @@ function sellingPointsForIndividuals(parts, i, imgSrc) {
   divHolder.append(h1, h2, divTextHolder, divImgHolder);
   document.querySelector(".wrapper").append(divHolder);
   sectionWhatYouGet(imgSrc);
-}
+};
 
-function sectionWhatYouGet(imgSrc) {
+const sectionWhatYouGet = imgSrc => {
   const section_whatyouget = document.querySelector("#section_whatyouget");
   let section_whatyouget_items = section_whatyouget.querySelectorAll(".item");
   let section_whatyouget_img = section_whatyouget.querySelector(
@@ -188,16 +210,16 @@ function sectionWhatYouGet(imgSrc) {
       applyStyle(item);
       changeImage(item, section_whatyouget_img, imgSrc);
     });
-    item.addEventListener("mouseover", ()=>{
+    item.addEventListener("mouseover", () => {
       // console.log("hover");
       item.classList.add("hover");
+    });
+    item.addEventListener("mouseleave", () => {
+      item.classList.remove("hover");
+      // console.log("hoverOut");
+    });
   });
-  item.addEventListener("mouseleave", ()=>{
-    item.classList.remove("hover");
-    // console.log("hoverOut");
-  });
-  });
-}
+};
 
 const changeImage = (item, img, imgSrc) => {
   // let img = section.querySelector("img");
@@ -343,18 +365,18 @@ const applyStyle = item => {
   resizeText(2, item.querySelector("h3"));
 };
 
-function resizeText(multiplier, p) {
+const resizeText = (multiplier, p) => {
   if (p.style.fontSize == "") {
     p.style.fontSize = "1.0em";
   }
   p.style.fontSize = parseFloat(p.style.fontSize) + multiplier * 0.2 + "em";
-}
+};
 
 const removeAnimationClass = (item, classToRemove) => {
   item.classList.remove(classToRemove);
 };
 
-function sectionOverview() {
+const sectionOverview = () => {
   const section_platform = document.querySelector("#section_platform");
   let section_platform_items = section_platform.querySelectorAll(".icon");
   let section_platform_img = section_platform.querySelector(
@@ -368,19 +390,18 @@ function sectionOverview() {
       changeText(item, section_platform);
       changeImage(item, section_platform_img);
     });
-    item.addEventListener("mouseover", ()=>{
+    item.addEventListener("mouseover", () => {
       console.log("hover");
       item.classList.add("hoverwf");
+    });
+    item.addEventListener("mouseleave", () => {
+      item.classList.remove("hoverwf");
+      console.log("hoverOut");
+    });
   });
-  item.addEventListener("mouseleave", ()=>{
-    item.classList.remove("hoverwf");
-    console.log("hoverOut");
-  });
-  });
-  
-}
+};
 
-function sellingPointsForBusiness(parts, i) {
+const sellingPointsForBusiness = (parts, i) => {
   let divHolder = document.createElement("div");
   divHolder.id = "platform";
   let classesToAdd = ["widthHeight100", "backgroundWhite"];
@@ -457,9 +478,4 @@ function sellingPointsForBusiness(parts, i) {
   divHolder.append(divPlatformBox);
   document.querySelector(".wrapper").append(divHolder);
   sectionOverview();
-}
-
-
-
-
-
+};

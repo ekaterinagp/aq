@@ -1,10 +1,10 @@
 let endpoint = "https://architecturequote.com/wp-json/wp/v2/faq";
 
-window.addEventListener("load", function() {
+window.addEventListener("load", () => {
   init();
 });
 
-function fetchFaq() {
+const fetchFaq = () => {
   return new Promise((resolve, reject) => {
     fetch(endpoint)
       .then(response => response.json())
@@ -12,9 +12,9 @@ function fetchFaq() {
         resolve(data);
       });
   });
-}
+};
 
-function showFaq(faqData) {
+let showFaq = faqData => {
   let templateFaq = document.querySelector(".faqTemplate").content;
   let allFaq = document.querySelector("section");
 
@@ -26,27 +26,12 @@ function showFaq(faqData) {
     clone.querySelector(".answer").innerHTML = faqData[i].content.rendered;
     allFaq.appendChild(clone);
   }
-}
+};
 
-function showFaq(faqData) {
-  let templateFaq = document.querySelector(".faqTemplate").content;
-  let allFaq = document.querySelector("section");
-
-  // clone.querySelector(".question").textContent = faqData[0].title.rendered;
-  // clone.querySelector(".answer").innerHTML = faqData[0].content.rendered;
-  for (let i = 0; i < faqData.length; i++) {
-    let clone = templateFaq.cloneNode(true);
-    clone.querySelector(".question").textContent = faqData[i].title.rendered;
-    clone.querySelector(".answer").innerHTML = faqData[i].content.rendered;
-    allFaq.appendChild(clone);
-  }
-}
-
-
-function startSvgAnimation() {
+const startSvgAnimation = () => {
   let title = document.querySelector(".hero_text>h1");
-  let subTitle = document.querySelector(".hero_text>p")
- title.classList.add("textAnimation");
+  let subTitle = document.querySelector(".hero_text>p");
+  title.classList.add("textAnimation");
   subTitle.classList.add("textAnimation");
   let svg = document.querySelector(".drawSvg");
   let drawFirst = document.querySelector("#first").children;
@@ -60,9 +45,9 @@ function startSvgAnimation() {
     // console.log(n);
   }
   greenSockFade();
-}
+};
 
-function greenSockFade() {
+const greenSockFade = () => {
   let figure = document.querySelector(".heroImg");
   TweenMax.fromTo(
     figure,
@@ -87,10 +72,12 @@ function greenSockFade() {
     },
     10
   );
-}
+};
 const section_network = document.querySelector(".network");
 let section_network_items = section_network.querySelectorAll(".item");
-let section_network_img = section_network.querySelector(".absolute:nth-child(2)");
+let section_network_img = section_network.querySelector(
+  ".absolute:nth-child(2)"
+);
 section_network_items.forEach(item => {
   item.addEventListener("click", () => {
     clearAllItemsStyle(section_network_items, "section_network");
@@ -98,14 +85,14 @@ section_network_items.forEach(item => {
     applyStyle(item);
     changeImage(item, section_network_img);
   });
-  item.addEventListener("mouseover", ()=>{
+  item.addEventListener("mouseover", () => {
     // console.log("hover");
     item.classList.add("hover");
-});
-item.addEventListener("mouseleave", ()=>{
-  item.classList.remove("hover");
-  // console.log("hoverOut");
-});
+  });
+  item.addEventListener("mouseleave", () => {
+    item.classList.remove("hover");
+    // console.log("hoverOut");
+  });
 });
 const applyStyle = item => {
   item.querySelector("h3").style.color = "#EF6461";
@@ -121,14 +108,17 @@ function resizeText(multiplier, p) {
 const changeImage = (item, img) => {
   // let img = section.querySelector("img");
   console.log({ "item.id": item.id });
-  
+
   img.classList.add("change");
-  if(item.id === "network_item_1")img.setAttribute("src", "img/platform_brief_single.png");
-if(item.id === "network_item_2")img.setAttribute("src", "img/platform_deal_single.png");
-if(item.id === "network_item_3")img.setAttribute("src", "img/platform_discover_single.png");
-img.addEventListener("animationend", ()=>{
-  removeAnimationClass(img, "change");
-})
+  if (item.id === "network_item_1")
+    img.setAttribute("src", "img/platform_brief_single.png");
+  if (item.id === "network_item_2")
+    img.setAttribute("src", "img/platform_deal_single.png");
+  if (item.id === "network_item_3")
+    img.setAttribute("src", "img/platform_discover_single.png");
+  img.addEventListener("animationend", () => {
+    removeAnimationClass(img, "change");
+  });
 };
 const clearAllItemsStyle = (items, sectionName) => {
   items.forEach(item => {
@@ -137,14 +127,14 @@ const clearAllItemsStyle = (items, sectionName) => {
       item.querySelector("p").style.color = "grey";
       item.querySelector("h3").style.fontSize = "1em";
     }
-     });
+  });
 };
 const removeAnimationClass = (item, classToRemove) => {
   item.classList.remove(classToRemove);
 };
 async function init() {
   document.querySelector(".loaderWrapper").classList.add("hideLoader");
-  startSvgAnimation(); 
+  startSvgAnimation();
   const faqData = await fetchFaq();
   // console.log(faqData);
   showFaq(faqData);

@@ -1,15 +1,17 @@
 "use strict";
 
-window.addEventListener("load", init);
+window.addEventListener("load", () => {
+  init();
+});
 
 //clicking through the items
 
-function resizeText(multiplier, p) {
+const resizeText = (multiplier, p) => {
   if (p.style.fontSize == "") {
     p.style.fontSize = "1.0em";
   }
   p.style.fontSize = parseFloat(p.style.fontSize) + multiplier * 0.2 + "em";
-}
+};
 
 const clearAllItemsStyle = (items, sectionName) => {
   items.forEach(item => {
@@ -87,7 +89,7 @@ const applyFill = (item, section) => {
   }
 };
 
-function incrementByOneForIndex(content, u) {
+const incrementByOneForIndex = (content, u) => {
   let i = 0;
   setInterval(function() {
     if (i == u) {
@@ -96,7 +98,7 @@ function incrementByOneForIndex(content, u) {
       content.innerHTML = i++;
     }
   }, 5);
-}
+};
 
 const section_whatyouget = document.querySelector("#section_whatyouget");
 let section_whatyouget_items = section_whatyouget.querySelectorAll(".item");
@@ -110,14 +112,14 @@ section_whatyouget_items.forEach(item => {
     applyStyle(item);
     changeImage(item, section_whatyouget_img);
   });
-  item.addEventListener("mouseover", ()=>{
+  item.addEventListener("mouseover", () => {
     // console.log("hover");
     item.classList.add("hover");
-});
-item.addEventListener("mouseleave", ()=>{
-  item.classList.remove("hover");
-  // console.log("hover");
-});
+  });
+  item.addEventListener("mouseleave", () => {
+    item.classList.remove("hover");
+    // console.log("hover");
+  });
 });
 
 const changeText = (item, section) => {
@@ -231,15 +233,14 @@ section_platform_items.forEach(item => {
     changeText(item, section_platform);
     changeImage(item, section_platform_img);
   });
-  item.addEventListener("mouseover", ()=>{
+  item.addEventListener("mouseover", () => {
     // console.log("hover");
     item.classList.add("hover");
-});
-item.addEventListener("mouseleave", ()=>{
-  item.classList.remove("hover");
-  // console.log("hover");
-});
-
+  });
+  item.addEventListener("mouseleave", () => {
+    item.classList.remove("hover");
+    // console.log("hover");
+  });
 });
 
 const section_why = document.querySelector("#section_why");
@@ -253,7 +254,6 @@ section_why_items.forEach(item => {
     shrinkRemoveArrow();
     growAddArrow(item);
   });
- 
 });
 
 const section_types = document.querySelector("#types");
@@ -267,32 +267,32 @@ section_types_items.forEach(item => {
     changeImage(item, section_types_img);
     applyFill(item, section_types);
   });
-  item.addEventListener("mouseover", ()=>{
+  item.addEventListener("mouseover", () => {
     // console.log("hover");
     item.classList.add("hover");
-});
-item.addEventListener("mouseleave", ()=>{
-  item.classList.remove("hover");
-  // console.log("hoverOut");
-});
+  });
+  item.addEventListener("mouseleave", () => {
+    item.classList.remove("hover");
+    // console.log("hoverOut");
+  });
 });
 
-function growAddArrow(box) {
+const growAddArrow = box => {
   box.classList.add("arrow");
   box.classList.add("grow");
-}
-function shrinkRemoveArrow() {
+};
+const shrinkRemoveArrow = () => {
   section_why_items.forEach(bubble => {
     bubble.classList.remove("arrow");
     bubble.classList.remove("grow");
   });
-}
+};
 
 //end of clicking functions
 
 //fetching data for frontpage
 
-function fetchTestimonials() {
+const fetchTestimonials = () => {
   let endpoint = "https://architecturequote.com/wp-json/wp/v2/testimonial";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
@@ -301,8 +301,8 @@ function fetchTestimonials() {
         resolve(data);
       });
   });
-}
-function fetchBlogPosts() {
+};
+const fetchBlogPosts = () => {
   let endpoint =
     "https://architecturequote.com/wp-json/wp/v2/posts?_embed&per_page=4";
   return new Promise((resolve, reject) => {
@@ -312,9 +312,9 @@ function fetchBlogPosts() {
         resolve(data);
       });
   });
-}
+};
 
-async function insertTestimonialsToDOM(testimonials) {
+const insertTestimonialsToDOM = async testimonials => {
   // let imgTemplate = document.querySelector("#testimonialsImg").content;
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
@@ -354,10 +354,10 @@ async function insertTestimonialsToDOM(testimonials) {
   //   })
   // })
   initCarousel(clients);
-}
+};
 // project._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
 
-async function insertBlogsToDom(blogPosts) {
+const insertBlogsToDom = async blogPosts => {
   const section = document.querySelector("#frontpageBlogs");
   let templateBlogs = document.querySelector("#blogsTemplate").content;
   for (let i = 0; i < blogPosts.length; i++) {
@@ -377,15 +377,13 @@ async function insertBlogsToDom(blogPosts) {
       "url(" + hrefDataUrl.media_details.sizes.medium_large.source_url + ")";
     section.appendChild(clone);
   }
-}
-
-
+};
 
 /*   TESTIMONIALS CAROUSEL   */
 let itemClassName = "client boxStyle",
   slide = 0;
 
-function initCarousel(clients) {
+const initCarousel = clients => {
   console.log({ clients });
   clients[clients.length - 1].classList.add("prev");
   clients[0].classList.add("activeSlide");
@@ -399,9 +397,9 @@ function initCarousel(clients) {
   prevBtn.addEventListener("click", function() {
     movePrev(clients);
   });
-}
+};
 
-function moveCarouselTo(slide, clients) {
+const moveCarouselTo = (slide, clients) => {
   let newPrevious = slide - 1,
     newNext = slide + 1,
     oldPrevious = slide - 2,
@@ -428,9 +426,9 @@ function moveCarouselTo(slide, clients) {
     clients[slide].className = itemClassName + " activeSlide";
     clients[newNext].className = itemClassName + " next";
   }
-}
+};
 
-function moveNext(clients) {
+const moveNext = clients => {
   console.log({ clients });
   if (slide === clients.length - 1) {
     slide = 0;
@@ -438,18 +436,18 @@ function moveNext(clients) {
     slide++;
   }
   moveCarouselTo(slide, clients);
-}
+};
 
-function movePrev(clients) {
+const movePrev = clients => {
   if (slide === 0) {
     slide = clients.length - 1;
   } else {
     slide--;
   }
   moveCarouselTo(slide, clients);
-}
+};
 
-function startSvgAnimation() {
+const startSvgAnimation = () => {
   let title = document.querySelector(".hero_text>h1");
   let subTitle = document.querySelector(".hero_text>p");
   title.classList.add("textAnimation");
@@ -466,9 +464,9 @@ function startSvgAnimation() {
     // console.log(n);
   }
   greenSockFade();
-}
+};
 
-function greenSockFade() {
+const greenSockFade = () => {
   let figure = document.querySelector(".heroImg");
   TweenMax.fromTo(
     figure,
@@ -493,9 +491,9 @@ function greenSockFade() {
     },
     10
   );
-}
+};
 
-async function init() {
+const init = async () => {
   document.querySelector(".loaderWrapper").classList.add("hideLoader");
   startSvgAnimation();
   const testimonials = await fetchTestimonials();
@@ -504,4 +502,4 @@ async function init() {
   // console.log({ testimonials });
   insertTestimonialsToDOM(testimonials);
   insertBlogsToDom(blogPosts);
-}
+};

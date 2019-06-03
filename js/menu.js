@@ -6,18 +6,22 @@ const bars = menuIcon.querySelectorAll("rect");
 let menuLinks = document.querySelectorAll(".menu>ul>li");
 const header = document.querySelector("header");
 let dropdown = document.querySelector(".dropdown-content");
-menuIcon.addEventListener("click", toggleMenu);
+menuIcon.addEventListener("click", () => {
+  toggleMenu;
+});
 menuLinks.forEach(link => {
-  link.addEventListener("click", toggleMenu);
+  link.addEventListener("click", () => {
+    toggleMenu;
+  });
 });
 // Link clicked menu closed
 
-function toggleMenu() {
+let toggleMenu = () => {
   menuOpen = !menuOpen;
   bars[0].classList.toggle("rotateDown");
   bars[1].classList.toggle("fadeOut");
   bars[2].classList.toggle("rotateUp");
   menu.classList.toggle("hiddenMenu");
-}
+};
 
 //MENU ends

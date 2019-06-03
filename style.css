@@ -124,14 +124,7 @@ select {
 /*  HEADER  */
 svg.menuIcon {
   display: none;
-  cursor: pointer;
-  margin: 12% 2em 0;
-  z-index: 15;
-  float: right;
-  fill: #2c2e3e;
-  height: 40px;
-  width: 40px;
-}
+  }
 svg.menuIcon rect {
   height: 8px;
   transition: all 0.6s;
@@ -1395,14 +1388,13 @@ head .blogBG {
   grid-template-columns: repeat(11, 1fr);
 }
 #prosWrapper .timelineWrapper {
-  overflow: hidden;
+  height:42vh;
+    overflow: hidden;
 }
-/* #prosWrapper .timelineWrapper p {
-  padding: 0 5% 0;
-} */
-/* #prosWrapper .timelineWrapper h3 {
-  margin: auto 0 1%;
-} */
+#prosWrapper .timelineContent{
+  background-size: 105%;
+  background-position-x: -550%;
+}
 
 #prosWrapper .timelineWrapper:nth-child(even) {
   margin-top: 20vh;
@@ -1452,7 +1444,7 @@ head .blogBG {
   background-image: none;
 }
 #prosWrapper .timelineWrapper h1 {
-  padding-top: 50%;
+  padding-top: 30%;
   font-size: 5em;
   text-align: center;
   margin: 0;
@@ -2383,9 +2375,14 @@ img#platform {
 
 /* Media Queries   */
 @media (max-width: 1024px) {
-  .masonry_grid {
-    columns: 2;
+  .big, .line{
+display: none;
   }
+  
+
+}
+@media (max-width: 800px) {
+
 }
 @media (max-width: 768px) {
   p{
@@ -2412,6 +2409,13 @@ img#platform {
     display:none;
   }
   svg.menuIcon{
+    cursor: pointer;
+  margin: 12% 2em 0;
+  z-index: 15;
+  float: right;
+  fill: #2c2e3e;
+  height: 40px;
+  width: 40px;
     grid-column: 1;
     grid-row: 1;
     display: block;
@@ -2589,7 +2593,9 @@ margin: 0 3em 4em;
 }
 
 
+@media (max-width: 600px) {
 
+}
 
 @media (max-width: 500px) {
   /*  reusable classes  */
@@ -2629,6 +2635,9 @@ margin: 0 3em 4em;
   padding:50% 25%;
 }
  /* MENU */
+ header{
+   padding:0;
+ }
  header .logo{
    width:90%;
  }
@@ -2655,11 +2664,19 @@ margin: 0 3em 4em;
   
   .hero{
     overflow: initial;
-    height: auto;
+    height: 80vh;
+    background-position: 30%;
+  }
+  .hero_laptop{
+    display: none;
   }
   .hero_text {
     padding: 2em;
     font-size: 0.8em;
+  }
+  .hero_text p{
+    
+    margin-right:5em;
   }
 
   /*  SECTION WHAT YOU GET  */
@@ -2674,6 +2691,11 @@ margin: 0 3em 4em;
     grid-row: 3;
     grid-column: 1/-1;
   }
+  #section_whatyouget .absolute, .img_wrapper .absolute {
+    width: 100%;
+    margin:0;
+    top:0;
+  }
   /* SECTION PLATFORM   */
 #platform img{
   display:none;
@@ -2686,11 +2708,8 @@ margin: 0 3em 4em;
   font-size: .7em;
 }
 
-
 /*  SECTION WHY  */
-.big,.line{
-  display:none;
-}
+
 .houseIcon{
   opacity: .2;
   z-index: 0;
@@ -2773,6 +2792,65 @@ margin: 0 3em 4em;
     margin: 4vw 0;
   }
 
+  /*  TIMELINE  */
+  #timelineSection ul, .timelineSection ul{
+    display:block;
+  }
+  .timelineWrapper{
+    opacity: 1;
+    margin:0;
+  }
+  .timelineWrapper:nth-child(odd), .timelineWrapper:nth-child(even) {
+    margin:0;
+  }
+  .timelineContent{
+    background-size: contain;
+    background-position-x: 100%;
+    height:35vh;
+    width: 100vw;
+  }
+  .timelineText, .timelineWrapper:hover .timelineText{
+    position:initial;
+    background:rgba(255,255,255,.8);
+    border-radius: 5px;
+    width:60%;
+    margin:2em 0 0 -.6em;
+
+  }
+  .timelineText p, .timelineText h3{
+    padding:0;
+  }
+  .timelineText p{
+    opacity:1;
+  }
+
+  /*  NETWORK SECTION  */
+  .network{
+    grid-template-columns: 1fr;
+    grid-template-rows: .1fr 1fr 2fr;
+  }
+  .network .img_wrapper{
+    grid-row: 2;
+  }
+  /*  FAQ  */
+.faq{
+display: block;
+margin:3em 2em;
+}
+.faq img{
+  display: none;
+}
+
+/*  Pros  */
+.pros{
+  height:70vh;
+}
+.wrapper_pro{
+  bottom:2em;
+  display: block;
+  /* position: initial; */
+  text-align: center;
+}
   #form {
     max-height: 100%;
     padding: 0 5% 2%;
@@ -2798,9 +2876,9 @@ margin: 0 3em 4em;
     background-position: 61% 74%;
   }
 
-  .wrapper_2_columns {
+  /* .wrapper_2_columns {
     display: block;
-  }
+  } */
 
   #benefits_list ul {
     display: block;
@@ -2862,9 +2940,17 @@ margin: 0 3em 4em;
   .platformBox p{
     height:25vh;
   }
-
+  .carouselWrapper{
+    height:70vh;
+  }
   
   #happyClients, .blogsPart{
     margin:4em 0;
+  }
+  .timelineContent{
+    background-position-x: 420%;
+  }
+  .network{
+    grid-template-rows: .1fr .5fr 2fr;
   }
 }

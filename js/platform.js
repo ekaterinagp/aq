@@ -132,6 +132,24 @@ const clearAllItemsStyle = (items, sectionName) => {
 const removeAnimationClass = (item, classToRemove) => {
   item.classList.remove(classToRemove);
 };
+function addHeightToFaq(plus){
+if (open === false) {
+  plus.parentElement.style.height = "40vh";
+  plus.style.transform = "rotate(180deg)";
+  open = true;
+}
+// if (open === false && screen.width <= 400) {
+//   plus.parentElement.style.height = "60vh";
+//   plus.style.transform = "rotate(180deg)";
+//   open = true;
+// }
+else{
+ plus.parentElement.style.height = "4em";
+  plus.style.transform = "rotate(0)";
+  open = false;
+}
+
+}
 async function init() {
   document.querySelector(".loaderWrapper").classList.add("hideLoader");
   startSvgAnimation();
@@ -142,17 +160,23 @@ async function init() {
   let open = false;
   plusses.forEach(plus => {
     plus.addEventListener("click", function() {
-      console.log(open);
-      if (open === false) {
-        plus.parentElement.style.height = "40vh";
-        plus.style.transform = "rotate(180deg)";
-
-        open = true;
-      } else {
-        plus.parentElement.style.height = "4em";
-        plus.style.transform = "rotate(0)";
-        open = false;
-      }
+      addHeightToFaq(plus)
+      console.log(screen.width);
+  //     if (open === false) {
+  //       plus.parentElement.style.height = "40vh";
+  //       plus.style.transform = "rotate(180deg)";
+  //       open = true;
+  //     }
+  //     if (open === false || screen.width <= 375) {
+  //       plus.parentElement.style.height = "60vh";
+  //       plus.style.transform = "rotate(180deg)";
+  //       open = true;
+  //     }
+  // else{
+  //      plus.parentElement.style.height = "4em";
+  //       plus.style.transform = "rotate(0)";
+  //       open = false;
+  //     }
     });
   });
 }

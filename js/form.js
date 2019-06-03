@@ -1,8 +1,11 @@
 "use strict";
 
-window.addEventListener("load", initForm);
+window.addEventListener("load", () => {
+  initForm();
+});
 
-function openForm(formWrapper) {
+// function openForm(formWrapper)
+let openForm = formWrapper => {
   currentFormItem = 0;
   formWrapper.classList.remove("hidden");
 
@@ -16,7 +19,7 @@ function openForm(formWrapper) {
   prevButton.addEventListener("click", () => {
     prevElement();
   });
-}
+};
 
 let currentFormItem = 0;
 let formItems = [
@@ -423,16 +426,16 @@ let userAnswers = {
   news: ""
 };
 
-function closeForm() {
+let closeForm = () => {
   document.querySelector(".formWrapper").remove();
-}
+};
 
-function setNextBtnDisabled(bool) {
+let setNextBtnDisabled = bool => {
   document.getElementById("next").disabled = bool;
   console.log("now next is", bool);
-}
+};
 
-function insertDOMforForm() {
+let insertDOMforForm = () => {
   const formDiv = document.querySelector("#form");
   let questionText = formDiv.querySelector("h3");
   let options = formDiv.querySelector("#options");
@@ -444,9 +447,9 @@ function insertDOMforForm() {
   questionText.textContent = formItems[currentFormItem].txt;
 
   listenerForRadios("#projectType", "type_project");
-}
+};
 
-function nextElement(questionText) {
+let nextElement = questionText => {
   console.log("nextElement");
 
   setNextBtnDisabled(true);
@@ -523,9 +526,9 @@ function nextElement(questionText) {
       }
     });
   }
-}
+};
 
-const listenerForInput = (inputStr, answerTypeStr) => {
+let listenerForInput = (inputStr, answerTypeStr) => {
   let input = document.querySelector(inputStr);
   input.addEventListener("blur", () => {
     userAnswers[answerTypeStr] = input.value;
@@ -533,7 +536,7 @@ const listenerForInput = (inputStr, answerTypeStr) => {
   });
 };
 
-const insertSavedAnswersRadio = (sectionStr, answerTypeStr) => {
+let insertSavedAnswersRadio = (sectionStr, answerTypeStr) => {
   let allRadios = document
     .getElementById(sectionStr)
     .querySelectorAll("input[type=radio]");
@@ -546,7 +549,7 @@ const insertSavedAnswersRadio = (sectionStr, answerTypeStr) => {
   }
 };
 
-function prevElement() {
+let prevElement = () => {
   console.log("prevElement");
   console.log({ currentFormItem });
   setNextBtnDisabled(false);
@@ -584,9 +587,9 @@ function prevElement() {
     insertCheckBoxForTask();
     listenerForChange();
   }
-}
+};
 
-function listenerForChange() {
+let listenerForChange = () => {
   document.querySelector("#complexity").addEventListener("click", function() {
     listenForValue("#complexity", "complexity");
   });
@@ -624,19 +627,18 @@ function listenerForChange() {
       checkIfAnswersForTasks(userAnswers);
     });
   });
-}
+};
 
-function checkIfAnswersForTasks(userAnswers) {
+let checkIfAnswersForTasks = userAnswers => {
   if (userAnswers.task.length && userAnswers.size) {
     console.log("it should wait for task and size");
     setNextBtnDisabled(false);
   } else {
     setNextBtnDisabled(true);
   }
-}
+};
 
-//ugly, rewrite
-function checkAllBox() {
+let checkAllBox = () => {
   document.querySelector("#design6").addEventListener("change", () => {
     if (document.querySelector("#design6").checked) {
       document.querySelectorAll(".checkDesign").forEach(designItemCheckBox => {
@@ -652,9 +654,9 @@ function checkAllBox() {
       });
     }
   });
-}
+};
 
-function insertCheckBoxForTask() {
+let insertCheckBoxForTask = () => {
   console.log(userAnswers.task);
   let allCheckbox = document.querySelectorAll(".checkDesign");
   console.log(allCheckbox);
@@ -670,25 +672,25 @@ function insertCheckBoxForTask() {
       checkBox.checked = true;
     }
   });
-}
+};
 
-function nextItem() {
+let nextItem = () => {
   if (currentFormItem + 1 < formItems.length) {
     currentFormItem++;
   }
   return formItems[currentFormItem];
-}
+};
 
-function prevItem() {
+let prevItem = () => {
   if (currentFormItem - 1 < 0) {
     currentFormItem = 0;
   } else {
     currentFormItem--;
   }
   return formItems[currentFormItem];
-}
+};
 
-function listenerForRadios(formType, answerType) {
+let listenerForRadios = (formType, answerType) => {
   let allRadios = document
     .querySelector(formType)
     .querySelectorAll("input[type=radio]");
@@ -704,9 +706,9 @@ function listenerForRadios(formType, answerType) {
       }
     });
   });
-}
+};
 
-function listenForValue(itemIDstr, answerTypestr) {
+let listenForValue = (itemIDstr, answerTypestr) => {
   console.log("listenForValue");
   let form = document.getElementById("projectDetails");
   let selectedItem = form.querySelector(itemIDstr);
@@ -715,9 +717,9 @@ function listenForValue(itemIDstr, answerTypestr) {
   console.log({ "userAnswers.task.length": userAnswers.task.length });
   console.log({ "userAnswers.size": userAnswers.size });
   checkIfAnswersForTasks(userAnswers);
-}
+};
 
-function createFormWrapper() {
+let createFormWrapper = () => {
   let formWrapper = document.createElement("div");
   formWrapper.className = "formWrapper";
   let formDiv = document.createElement("div");
@@ -754,13 +756,13 @@ function createFormWrapper() {
   document.querySelector("body").appendChild(formWrapper);
   openForm(formWrapper);
   closeSpan.addEventListener("click", closeForm);
-}
+};
 
-function initForm() {
+let initForm = () => {
   let startProjectBtns = document.querySelectorAll(".freeEst");
   startProjectBtns.forEach(button => {
     button.addEventListener("click", () => {
       createFormWrapper();
     });
   });
-}
+};

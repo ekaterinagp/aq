@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
   init();
 });
 
-function fetchBlogPosts() {
+let fetchBlogPosts = () => {
   let endpoint = "https://architecturequote.com/wp-json/wp/v2/posts";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
@@ -13,15 +13,22 @@ function fetchBlogPosts() {
         resolve(posts);
       });
   });
-}
+};
 
-async function insertThreeLastBlogsInDOM(
+// async function insertThreeLastBlogsInDOM(
+//   divHolderStr,
+//   positionInArray,
+//   textHolderStr,
+//   dateHolderStr,
+//   posts
+// )
+const insertThreeLastBlogsInDOM = async (
   divHolderStr,
   positionInArray,
   textHolderStr,
   dateHolderStr,
   posts
-) {
+) => {
   let divHolder = document.querySelector(divHolderStr);
   console.log("divHolder", divHolder);
   divHolder.querySelector("h2").textContent =
@@ -43,9 +50,10 @@ async function insertThreeLastBlogsInDOM(
   ).then(res => res.json());
   divHolder.style.backgroundImage =
     "url(" + imgLatestBlog.media_details.sizes.full.source_url + ")";
-}
+};
 
-async function insertBlogsToDOM(posts) {
+// async function insertBlogsToDOM(posts)
+const insertBlogsToDOM = async posts => {
   let template = document.querySelector("template").content;
 
   console.log({ posts });
@@ -132,10 +140,11 @@ async function insertBlogsToDOM(posts) {
 
     document.querySelector("#blogs").appendChild(clone);
   }
-}
+};
 
-async function init() {
+// async function init()
+const init = async () => {
   const blogs = await fetchBlogPosts();
   console.log({ blogs });
   insertBlogsToDOM(blogs);
-}
+};

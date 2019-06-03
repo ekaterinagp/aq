@@ -309,6 +309,23 @@ footer input {
   width: 6%;
 }
 
+.relativeDiv {
+  position: relative;
+}
+
+#industrialPage .wrapper_pro,
+#cabinPage .wrapper_pro,
+#businessPage .wrapper_pro,
+#healthcarePage .wrapper_pro,
+#interiorPage .wrapper_pro,
+#educationalPage .wrapper_pro,
+#landscapePage .wrapper_pro,
+#remodelingPage .wrapper_pro,
+#spatial_planningPage .wrapper_pro,
+#villaPage .wrapper_pro {
+  bottom: 25%;
+}
+
 #villaPage .heroWireframe > .hero_text {
   padding: 4% 5% 17% 49%;
 }

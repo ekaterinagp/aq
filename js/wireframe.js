@@ -93,6 +93,7 @@ const createSimple2ColumnsBGTextRight = (parts, img, i) => {
   let divHolder = document.createElement("div");
   divHolder.setAttribute("id", "forMore");
   divHolder.setAttribute("class", "textOnImage");
+  divHolder.classList.add("relativeDiv");
   divHolder.style.backgroundImage =
     "url(" + img.media_details.sizes.large.source_url + ")";
   let divForsvg1 = document.createElement("div");
@@ -100,28 +101,32 @@ const createSimple2ColumnsBGTextRight = (parts, img, i) => {
   let imgchecked = document.createElement("img");
   imgchecked.src = "img/icons/checked-red.svg";
   imgchecked.classList.add("checkedWireframe");
-  // let svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  // svg1.setAttribute("viewBox", "0 0 44 44");
-  // svg1.setAttribute("id", "Layer_1");
-  // svg1.setAttribute("data-name", "Layer 1");
-  // let path1 = document.createElementNS("http://www.w3.org/2000/path", "path");
-  // path1.setAttribute(
-  //   "d",
-  //   "M22,0A22,22,0,1,0,44,22,21.93664,21.93664,0,0,0,22,0ZM34.7,15.1h0l-16,16.6a.90783.90783,0,0,1-.7.3.77855.77855,0,0,1-.7-.3L9.5,23.3l-.2-.2a.96667.96667,0,0,1,0-1.4l1.4-1.4a.96667.96667,0,0,1,1.4,0l.1.1,5.5,5.9a.48333.48333,0,0,0,.7,0L31.8,12.4h.1a.96667.96667,0,0,1,1.4,0l1.4,1.4A.85265.85265,0,0,1,34.7,15.1Z"
-  // );
-  // svg1.appendChild(path1);
+
   let h3forSvg = document.createElement("h3");
   h3forSvg.textContent = "Your Data is Safe with Us";
   let linkToRead = document.createElement("a");
   linkToRead.href = "policy.html";
   linkToRead.classList.add("link");
   linkToRead.textContent = "Read about our data policy";
+  let divForsvg2 = document.createElement("div");
+  divForsvg2.classList.add("pro");
+  let imgchecked2 = document.createElement("img");
+  imgchecked2.src = "img/icons/checked-red.svg";
+  imgchecked2.classList.add("checkedWireframe");
+  let h32 = document.createElement("h3");
+  h32.textContent = "No obligation";
   divForsvg1.append(imgchecked, h3forSvg, linkToRead);
+  divForsvg2.append(imgchecked2, h32);
+  let wrapperPro = document.createElement("div");
+  let classesToAdd = ["wrapper_pro", "wrapper_2_columns"];
+  wrapperPro.classList.add(...classesToAdd);
+  wrapperPro.append(divForsvg1, divForsvg2);
   let h1 = document.createElement("h1");
   h1.setAttribute("class", "header");
   h1.innerHTML = parts[i].title.rendered;
   let pDiv = document.createElement("div");
   pDiv.id = "more";
+
   let pText = document.createElement("p");
   pText.className = "sub_title";
   pText.innerHTML = parts[i].content.rendered;
@@ -129,8 +134,8 @@ const createSimple2ColumnsBGTextRight = (parts, img, i) => {
   link.href = "platform.html";
   let button = createButtonForForm("Read more", "class");
   link.append(button);
-  pDiv.append(pText, link);
-  divHolder.append(h1, pDiv, divForsvg1);
+  pDiv.append(pText, link, wrapperPro);
+  divHolder.append(h1, pDiv);
   document.querySelector(".wrapper").append(divHolder);
 };
 

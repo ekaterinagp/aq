@@ -481,7 +481,7 @@ footer input {
   font-family: "Poppins";
 }
 .header {
-  margin: 1em 0;
+  margin: 1em 0 0;
   grid-column: 1/-1;
 }
 
@@ -1199,6 +1199,10 @@ head .blogBG {
   grid-template-columns: repeat(15, 1fr);
   /* transform: translateZ(0); */
   /* -webkit-font-smoothing: antialiased; */
+}
+
+#timelineSection h1 {
+  text-align: center;
 }
 
 .timelineWrapper {

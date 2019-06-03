@@ -1,5 +1,6 @@
 "use strict";
 
+let slide = 0;
 window.addEventListener("load", () => {
   init();
 });
@@ -314,8 +315,9 @@ const fetchBlogPosts = () => {
   });
 };
 
-const insertTestimonialsToDOM = async testimonials => {
+const insertTestimonialsToDOM = async (testimonials, slide) => {
   // let imgTemplate = document.querySelector("#testimonialsImg").content;
+  console.log({ slide });
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
     // let imgClone = imgTemplate.cloneNode(true);
@@ -353,6 +355,7 @@ const insertTestimonialsToDOM = async testimonials => {
   //     console.log(img.className);
   //   })
   // })
+
   initCarousel(clients);
 };
 // project._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
@@ -380,8 +383,7 @@ const insertBlogsToDom = async blogPosts => {
 };
 
 /*   TESTIMONIALS CAROUSEL   */
-let itemClassName = "client boxStyle",
-  slide = 0;
+let itemClassName = "client boxStyle";
 
 const initCarousel = clients => {
   console.log({ clients });
@@ -399,7 +401,13 @@ const initCarousel = clients => {
   });
 };
 
-const moveCarouselTo = (slide, clients) => {
+/**
+ * Test exists in test/script.spec.js
+ * @param {*} slide
+ * @param {*} clients
+ * @param {*} itemClassName
+ */
+const moveCarouselTo = (slide, clients, itemClassName) => {
   let newPrevious = slide - 1,
     newNext = slide + 1,
     oldPrevious = slide - 2,
@@ -429,22 +437,23 @@ const moveCarouselTo = (slide, clients) => {
 };
 
 const moveNext = clients => {
-  console.log({ clients });
+  console.log({ slide });
   if (slide === clients.length - 1) {
     slide = 0;
   } else {
     slide++;
   }
-  moveCarouselTo(slide, clients);
+  moveCarouselTo(slide, clients, itemClassName);
 };
 
 const movePrev = clients => {
+  console.log({ slide });
   if (slide === 0) {
     slide = clients.length - 1;
   } else {
     slide--;
   }
-  moveCarouselTo(slide, clients);
+  moveCarouselTo(slide, clients, itemClassName);
 };
 
 const startSvgAnimation = () => {
@@ -493,13 +502,14 @@ const greenSockFade = () => {
   );
 };
 
-const init = async () => {
+const init = async slide => {
   document.querySelector(".loaderWrapper").classList.add("hideLoader");
   startSvgAnimation();
   const testimonials = await fetchTestimonials();
   const blogPosts = await fetchBlogPosts();
   // console.log(blogPosts);
   // console.log({ testimonials });
-  insertTestimonialsToDOM(testimonials);
+  console.log({ slide });
+  insertTestimonialsToDOM(testimonials, slide);
   insertBlogsToDom(blogPosts);
 };

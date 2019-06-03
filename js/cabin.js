@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
   init();
 });
 
-function fetchAllParts() {
+const fetchAllParts = () => {
   let endpoint = "https://architecturequote.com/wp-json/wp/v2/cabin";
   return new Promise((resolve, reject) => {
     fetch(endpoint)
@@ -13,33 +13,33 @@ function fetchAllParts() {
         resolve(parts);
       });
   });
-}
+};
 
-async function fetchBackgroundImg(parts) {
+const fetchBackgroundImg = async parts => {
   const backgroundIMG = await fetch(
     parts[4]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
   console.log({ backgroundIMG });
   return backgroundIMG;
-}
+};
 
-async function fetchImgForCustomPart(parts) {
+const fetchImgForCustomPart = async parts => {
   const imgForSecond = await fetch(
     parts[0]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
   console.log({ imgForSecond });
   return imgForSecond;
-}
+};
 
-async function fetchImgForMorePart(parts) {
+const fetchImgForMorePart = async parts => {
   const imgForMore = await fetch(
     parts[1]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
   console.log({ imgForMore });
   return imgForMore;
-}
+};
 
-async function init() {
+const init = async () => {
   document.querySelector(".loaderWrapper").classList.add("hideLoader");
   const wireframeParts = await fetchAllParts();
   console.log({ wireframeParts });
@@ -57,4 +57,4 @@ async function init() {
   createSimpleImgTextLayout(wireframeParts, ImgForCustomPart, 0);
   //creates a 2 column layout with an image as a background, text and CTA
   createSimple2ColumnsBGTextRight(wireframeParts, imgForMore, 1);
-}
+};

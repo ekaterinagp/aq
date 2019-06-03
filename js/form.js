@@ -26,7 +26,7 @@ let formItems = [
   {
     id: 1,
     txt: "Select type of project",
-    options: function() {
+    options: () => {
       let values = [
         {
           title: "New construction",
@@ -97,7 +97,7 @@ let formItems = [
   {
     id: 2,
     txt: "Select type of building",
-    options: function() {
+    options: () => {
       let values = [
         {
           title: "Resedential",
@@ -165,7 +165,7 @@ let formItems = [
   {
     id: 3,
     txt: "Project details",
-    options: function() {
+    options: () => {
       let form = document.createElement("form");
       form.setAttribute("id", "projectDetails");
       let divForSelect = document.createElement("div");
@@ -326,7 +326,7 @@ let formItems = [
   {
     id: 4,
     txt: "Contact information",
-    options: function() {
+    options: () => {
       let form = document.createElement("form");
       form.setAttribute("id", "contactForm");
       // form.setAttribute("class", "wrapper_5_rows");
@@ -590,14 +590,14 @@ let prevElement = () => {
 };
 
 let listenerForChange = () => {
-  document.querySelector("#complexity").addEventListener("click", function() {
+  document.querySelector("#complexity").addEventListener("click", () => {
     listenForValue("#complexity", "complexity");
   });
-  document.querySelector("#size").addEventListener("keyup", function() {
+  document.querySelector("#size").addEventListener("keyup", () => {
     listenForValue("#size", "size");
   });
 
-  document.querySelector("#floor").addEventListener("click", function() {
+  document.querySelector("#floor").addEventListener("click", () => {
     listenForValue("#floor", "floor");
   });
   document.querySelector("#toggleBox").addEventListener("change", () => {

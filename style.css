@@ -299,6 +299,27 @@ footer input {
   margin: auto;
   width: auto;
 }
+#businessPage .heroWireframe > .hero_text,
+#healthcarePage .heroWireframe > .hero_text,
+#interiorPage .heroWireframe > .hero_text {
+  padding: 5% 45% 5% 5%;
+}
+
+.checkedWireframe {
+  width: 6%;
+}
+
+#villaPage .heroWireframe > .hero_text {
+  padding: 4% 5% 17% 49%;
+}
+
+#remodelingPage .heroWireframe > .hero_text {
+  color: rgb(93, 48, 48);
+}
+
+#educationalPage .heroWireframe > .hero_text {
+  padding: 22% 5% 5% 55%;
+}
 .hero_lp {
   margin: 10vh auto 2%;
   border-radius: 10px;

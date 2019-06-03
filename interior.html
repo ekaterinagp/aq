@@ -17,7 +17,6 @@
     </style>
   </head>
   <body id="interiorPage" class="wf">
-    <header>
       <div class="loaderWrapper">
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           viewBox="0 0 46.4 48.5" xml:space="preserve" class="loader">
@@ -51,25 +50,42 @@
                     
          <h3>Loading...</h3>
       </div>
-    <div class="wrapper_1_3_1">
-    <a href="index.html"> <img src="img/logo.svg" alt="logo" class="logo" /></a> 
-
-      <ul>
-        <li><a href="index.html" >Home</a></li>
-        <li><div class="dropdown"><p class="drop" >Platform</p><div class="dropdownContent"><a href="platform.html">Looking for an acrhitect?</a>
-          <a href="for_architects.html">Are you an architect?</a></div></div></li>
-
-
-        <!-- <li><a href="for_architects.html">For Architects</a></li> -->
-        <li><a href="our_team.html">Our team</a></li>
-        <li><a href="blog.html">Blog</a></li>
+      <header>
+          <div class="wrapper_1_3_1">
+        <a href="index.html"> <img src="img/logo.svg" alt="logo" class="logo" /></a> 
+  
+          <ul class="deskmenu">
+            <li><a href="index.html">Home</a></li>
+            <li><div class="dropdown"><p class="drop" >Platform</p><div class="dropdownContent"><a href="platform.html">Looking for an architect?</a>
+              <a href="for_architects.html">Are you an architect?</a></div></div></li>
+           <!-- <li><a href="for_architects.html">For Architects</a></li> -->
+            <li><a href="our_team.html">Our team</a></li>
+            <li><a href="blog.html">Blog</a></li>
+             </ul>
+          <button class="orange_button freeEst">
+            Get your free estimate
+          </button>
+   <svg class="menuIcon" viewBox="0 0 100 100">
+            <rect class="myrect" x="10" y="10" width="80" height="10" />
+            <rect class="myrect" x="10" y="30" width="80" height="10" />
+            <rect class="myrect" x="10" y="50" width="80" height="10" />
+          </svg>
+        </div>
+       
         
-      </ul>
-      <button class="orange_button freeEst">
-        Get your free estimate
-      </button>
-    </div>
-  </header>
+        </header>
+        <nav class="menu hiddenMenu">
+          <ul>
+              <li><a href="index.html" >Home</a></li>
+              <li><a href="platform.html">Looking for an architect?</a>
+               <li><a href="for_architects.html">For Architects</a></li>
+              <li><a href="our_team.html">Our team</a></li>
+              <li><a href="blog.html">Blog</a></li>   </ul>
+            <button class="orange_button freeEst">
+              Get your free estimate
+            </button>
+          </ul>
+        </nav>
     <div class="wrapper"></div>
     <footer class="backgroundColor">
       <div>
@@ -97,6 +113,7 @@
         <p>Subscribe to our mailing list to receive new updates and special offers.</p>
        </div>
     </footer>
+    <script src="js/menu.js"></script>
     <script src="js/interior.js"></script>
     <script src="js/wireframe.js"></script>
     <script src="js/form.js"></script>

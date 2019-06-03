@@ -188,6 +188,14 @@ function sectionWhatYouGet(imgSrc) {
       applyStyle(item);
       changeImage(item, section_whatyouget_img, imgSrc);
     });
+    item.addEventListener("mouseover", ()=>{
+      // console.log("hover");
+      item.classList.add("hover");
+  });
+  item.addEventListener("mouseleave", ()=>{
+    item.classList.remove("hover");
+    // console.log("hoverOut");
+  });
   });
 }
 
@@ -361,6 +369,14 @@ function sectionOverview() {
       changeImage(item, section_platform_img);
     });
   });
+  item.addEventListener("mouseover", ()=>{
+    // console.log("hover");
+    item.classList.add("hover");
+});
+item.addEventListener("mouseleave", ()=>{
+  item.classList.remove("hover");
+  // console.log("hoverOut");
+});
 }
 
 function sellingPointsForBusiness(parts, i) {

@@ -893,13 +893,15 @@ fill:#ef6461;
   position: relative;
 }
 .next {
+  border-radius: 20%;
   position: absolute;
   top: 30vh;
-  border: solid #2c2e3e;
+  border: solid #ef6461;
   border-width: 0 5px 5px 0;
   display: inline-block;
   padding: 10px;
 }
+
 .arrowRight {
   right: 10vw;
   transform: rotate(-45deg);

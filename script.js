@@ -2,7 +2,6 @@
 
 window.addEventListener("load", init);
 
-
 //clicking through the items
 
 function resizeText(multiplier, p) {
@@ -21,7 +20,7 @@ const clearAllItemsStyle = (items, sectionName) => {
     }
     if (sectionName === "section_platform" || sectionName === "section_why") {
       item.querySelector("svg").style.fill = "rgb(207, 205, 205)";
-      item.querySelector("h3").style.color="rgb(207, 205, 205)";
+      item.querySelector("h3").style.color = "rgb(207, 205, 205)";
     }
     if (sectionName == "section_types") {
       item.style.color = "#2c2e3e";
@@ -43,7 +42,7 @@ const removeAnimationClass = (item, classToRemove) => {
 const changeImage = (item, img) => {
   // let img = section.querySelector("img");
   console.log({ "item.id": item.id });
-  
+
   img.classList.add("change");
   if (item.id === "section_whatyouget_item_1")
     img.setAttribute("src", "img/form.png");
@@ -51,18 +50,25 @@ const changeImage = (item, img) => {
     img.setAttribute("src", "img/platform_discover_single.png");
   if (item.id === "section_whatyouget_item_3")
     img.setAttribute("src", "img/home.png");
-  
-  if (item.id === "resedential") img.setAttribute("src", "img/icons/buildings.svg");
-  if (item.id === "business") img.setAttribute("src", "img/icons/cityscape.svg");
-  if (item.id === "recreational") img.setAttribute("src", "img/icons/generic.svg");
+
+  if (item.id === "resedential")
+    img.setAttribute("src", "img/icons/buildings.svg");
+  if (item.id === "business")
+    img.setAttribute("src", "img/icons/cityscape.svg");
+  if (item.id === "recreational")
+    img.setAttribute("src", "img/icons/generic.svg");
   if (item.id === "aestetic") img.setAttribute("src", "img/icons/fountain.svg");
-  if (item.id === "section_platform_item_1") img.setAttribute("src", "img/platform_home_single.png");
-  if (item.id === "section_platform_item_2") img.setAttribute("src", "img/platform_discover_single.png");
-  if (item.id === "section_platform_item_3") img.setAttribute("src", "img/platform_chat_single.png");
-  if (item.id === "section_platform_item_4") img.setAttribute("src", "img/platform_deal_single.png");
-img.addEventListener("animationend", ()=>{
-  removeAnimationClass(img, "change");
-})
+  if (item.id === "section_platform_item_1")
+    img.setAttribute("src", "img/platform_home_single.png");
+  if (item.id === "section_platform_item_2")
+    img.setAttribute("src", "img/platform_discover_single.png");
+  if (item.id === "section_platform_item_3")
+    img.setAttribute("src", "img/platform_chat_single.png");
+  if (item.id === "section_platform_item_4")
+    img.setAttribute("src", "img/platform_deal_single.png");
+  img.addEventListener("animationend", () => {
+    removeAnimationClass(img, "change");
+  });
 };
 
 const applyFill = (item, section) => {
@@ -72,7 +78,7 @@ const applyFill = (item, section) => {
   }
   if (section == section_why) {
     item.querySelector("svg").style.fill = "#ef6461";
-    item.querySelector("h3").style.color = "#ef6461";;
+    item.querySelector("h3").style.color = "#ef6461";
   }
 
   if (section == section_types) {
@@ -81,9 +87,22 @@ const applyFill = (item, section) => {
   }
 };
 
+function incrementByOneForIndex(content, u) {
+  let i = 0;
+  setInterval(function() {
+    if (i == u) {
+      clearInterval(this);
+    } else {
+      content.innerHTML = i++;
+    }
+  }, 5);
+}
+
 const section_whatyouget = document.querySelector("#section_whatyouget");
 let section_whatyouget_items = section_whatyouget.querySelectorAll(".item");
-let section_whatyouget_img = section_whatyouget.querySelector(".absolute:nth-child(2)");
+let section_whatyouget_img = section_whatyouget.querySelector(
+  ".absolute:nth-child(2)"
+);
 section_whatyouget_items.forEach(item => {
   item.addEventListener("click", () => {
     clearAllItemsStyle(section_whatyouget_items, "section_whatyouget");
@@ -104,10 +123,10 @@ item.addEventListener("mouseleave", ()=>{
 const changeText = (item, section) => {
   let textDiv = section.querySelector("p");
   let title = section.querySelector(".titleToChange");
-
+  let changeNumber = document.querySelector("#number_firms");
   textDiv.classList.add("textAnimation");
   title.classList.add("textAnimation");
-  if(section.id === "types"){
+  if (section.id === "types") {
     document.querySelector(".big").classList.add("textAnimation");
   }
   if (item.id === "section_platform_item_1") {
@@ -156,49 +175,54 @@ const changeText = (item, section) => {
     textDiv.textContent =
       "The platform provides smooth and natural flow with no obligations before the contract is signed. No obligations, no pressure! Take your time and choose what fits you best! ";
   }
-  if (item.id == "resedential") {
-    document.querySelector(".big").textContent="Residential";
-        document.querySelector("#type_of_firms").textContent = "resedential";
+  if (item.id == "residential") {
+    document.querySelector(".big").textContent = "Residential";
+    document.querySelector("#type_of_firms").textContent = "residential";
+    incrementByOneForIndex(changeNumber, 410);
     textDiv.textContent =
       "Everybody dreams of a spacious luxurious or a modern cozy place to live. Whether you need a cabin, a villa or a family mansion, we have architects for any needs and budget.";
   }
   if (item.id == "business") {
-    document.querySelector(".big").textContent="Business";
+    document.querySelector(".big").textContent = "Business";
     document.querySelector("#type_of_firms").textContent = "business";
+    incrementByOneForIndex(changeNumber, 312);
     textDiv.textContent =
       "In a competitive environment where improvement is foremost, to hire a good architect is essential. Do you need to construct a resedential complex, a new modern hospital,a large industrial building or a family-driven brewery? We have spectialists in all of the types and they are ready to start building proposals!";
   }
   if (item.id == "recreational") {
-    document.querySelector(".big").textContent="Recreational";
-    document.querySelector("#type_of_firms").textContent = "Recreational";
+    document.querySelector(".big").textContent = "Recreational";
+    document.querySelector("#type_of_firms").textContent = "recreational";
+    incrementByOneForIndex(changeNumber, 178);
     textDiv.textContent =
-      "Recreational architecture has its own specifics, it is not just about functionality, it should bring people together. Schools, universities, research centers, kindergartens,campuses - find the right architect for you with the help of the platform! ";
+      "Recreational architecture has its own specifics, it is not just about functionality, it should bring people together. Sport complex, spa, playgrounds for kids, cinemas, restaurants - find the right architect with the help of the platform! ";
   }
   if (item.id == "aestetic") {
-    document.querySelector(".big").textContent="Design";
-    document.querySelector("#type_of_firms").textContent = "design";
+    document.querySelector(".big").textContent = "Design";
+    document.querySelector("#type_of_firms").textContent = "interior";
+    incrementByOneForIndex(changeNumber, 388);
     textDiv.textContent =
       "Do you want to get a breath of fresh air at your favourite place? Architects know how to create a unique and functional atmosphere. Why waiting? Start you project now and make your home even better.";
   }
-  textDiv.addEventListener("animationend", ()=>{
+  textDiv.addEventListener("animationend", () => {
     console.log("removed");
     removeAnimationClass(textDiv, "textAnimation");
   });
-  title.addEventListener("animationend", ()=>{
+  title.addEventListener("animationend", () => {
     console.log("removed");
     removeAnimationClass(title, "textAnimation");
   });
-  if(section.id === "types"){
-    document.querySelector(".big").addEventListener("animationend", ()=>{
+  if (section.id === "types") {
+    document.querySelector(".big").addEventListener("animationend", () => {
       removeAnimationClass(document.querySelector(".big"), "textAnimation");
-    })
-   
-      }
+    });
+  }
 };
 
 const section_platform = document.querySelector("#section_platform");
 let section_platform_items = section_platform.querySelectorAll(".icon");
-let section_platform_img = section_platform.querySelector(".absolute:nth-child(3)");
+let section_platform_img = section_platform.querySelector(
+  ".absolute:nth-child(3)"
+);
 section_platform_items.forEach(item => {
   item.addEventListener("click", () => {
     console.log({ item });
@@ -252,7 +276,6 @@ item.addEventListener("mouseleave", ()=>{
   // console.log("hoverOut");
 });
 });
-
 
 function growAddArrow(box) {
   box.classList.add("arrow");
@@ -308,11 +331,9 @@ async function insertTestimonialsToDOM(testimonials) {
     ).then(res => res.json());
     console.log({ hrefData });
 
-    clone
-      .querySelector("#userImage")
-      .style.backgroundImage="url("+
-        hrefData.media_details.sizes.medium.source_url +")";
-      
+    clone.querySelector("#userImage").style.backgroundImage =
+      "url(" + hrefData.media_details.sizes.medium.source_url + ")";
+
     // imgClone.querySelector("img")
     // .setAttribute(
     //   "src",
@@ -342,7 +363,7 @@ async function insertBlogsToDom(blogPosts) {
   for (let i = 0; i < blogPosts.length; i++) {
     let clone = templateBlogs.cloneNode(true);
     clone.querySelector(".blogTitle").textContent = blogPosts[i].title.rendered;
-    
+
     let a = document.createElement("a");
     a.href = "subpage_blog.html?id=" + blogPosts[i].id;
     a.appendChild(clone.querySelector(".blogTitle"));
@@ -365,6 +386,7 @@ let itemClassName = "client boxStyle",
   slide = 0;
 
 function initCarousel(clients) {
+  console.log({ clients });
   clients[clients.length - 1].classList.add("prev");
   clients[0].classList.add("activeSlide");
   clients[1].classList.add("next");
@@ -409,6 +431,7 @@ function moveCarouselTo(slide, clients) {
 }
 
 function moveNext(clients) {
+  console.log({ clients });
   if (slide === clients.length - 1) {
     slide = 0;
   } else {
@@ -428,8 +451,8 @@ function movePrev(clients) {
 
 function startSvgAnimation() {
   let title = document.querySelector(".hero_text>h1");
-  let subTitle = document.querySelector(".hero_text>p")
- title.classList.add("textAnimation");
+  let subTitle = document.querySelector(".hero_text>p");
+  title.classList.add("textAnimation");
   subTitle.classList.add("textAnimation");
   let svg = document.querySelector(".drawSvg");
   let drawFirst = document.querySelector("#first").children;
@@ -471,8 +494,6 @@ function greenSockFade() {
     10
   );
 }
-
-
 
 async function init() {
   document.querySelector(".loaderWrapper").classList.add("hideLoader");

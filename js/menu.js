@@ -12,7 +12,6 @@ menuIcon.addEventListener("click", () => {
 });
 menuLinks.forEach(link => {
   link.addEventListener("click", () => {
-  
     toggleMenu;
   });
 });

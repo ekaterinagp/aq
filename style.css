@@ -33,9 +33,10 @@ li {
 #happyClients,
 .blogsPart,
 header,
-
-#better, #section_whatyouget, .timelineSection, #timelinesection, .network, 
-#section_platform{
+#better, 
+#section_whatyouget,
+ .timelineSection, 
+ #timelinesection, .network{
   max-width:100vw;
   overflow:hidden;
 }
@@ -286,7 +287,7 @@ footer input {
 }
 .hero {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   height: 85vh;
   width: 96%;
   margin: 10vh auto 2em;
@@ -294,7 +295,7 @@ footer input {
 }
 .heroWireframe {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   height: 85vh;
   width: 96%;
   margin: 10vh auto 2%;
@@ -323,7 +324,7 @@ footer input {
   position: relative;
 }
 
-#industrialPage .wrapper_pro,
+/* #industrialPage .wrapper_pro,
 #cabinPage .wrapper_pro,
 #businessPage .wrapper_pro,
 #healthcarePage .wrapper_pro,
@@ -332,8 +333,9 @@ footer input {
 #landscapePage .wrapper_pro,
 #remodelingPage .wrapper_pro,
 #spatial_planningPage .wrapper_pro,
-#villaPage .wrapper_pro {
-  bottom: 25%;
+#villaPage .wrapper_pro , */
+#forMore .wrapper_pro{
+  bottom: 15%;
 }
 
 #villaPage .heroWireframe > .hero_text {
@@ -359,7 +361,7 @@ footer input {
   width: 85%;
   z-index: 3;
   text-align: left;
-  padding: 3em;
+  padding: 2em;
   align-self: center;
   animation-delay: 0.5s;
 }
@@ -560,7 +562,7 @@ footer input {
   z-index: 200;
   height: 100vh;
   width: 100vw;
-  padding: 25% 0;
+  padding: 15% 0;
   text-align: center;
   background: white;
   transition: all 0.3s;
@@ -1134,6 +1136,7 @@ fill:#ef6461;
 .client.prev,
 .client.next {
   z-index: 800;
+  pointer-events: none;
 }
 
 .client.prev {
@@ -1428,7 +1431,7 @@ head .blogBG {
 }
 #prosWrapper .timelineWrapper {
   height:42vh;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 #prosWrapper .timelineContent{
   background-size: 105%;
@@ -2424,6 +2427,25 @@ display: none;
 
 }
 @media (max-width: 768px) {
+  #happyClients,
+.blogsPart,
+header,
+#better, 
+#section_whatyouget,
+  .network, 
+#platform{
+  height:auto;
+  max-width:100vw;
+  overflow-x: clip;
+}
+.wf #section_platform .absolute{
+  top:18em;
+  right: -2em;
+  width: 70%;
+}
+ /* #platform{
+margin-bottom: -5em;
+ } */
   p {
     line-height: 1.5em;
   }
@@ -2545,14 +2567,15 @@ display: none;
   .carouselWrapper{
     margin:4em auto 0;
   }
-  .caruselle {
+  /* .caruselle {
     height: 50%;
-    
-  }
+      } */
+
   #happyClients, .blogsPart{
     margin: 0 auto;
   }
   /*  Blogs  */
+  
   #frontpageBlogs {
     width: 80%;
     margin:2em auto 0;
@@ -2610,7 +2633,7 @@ display: none;
 .textOnImage{
     padding: 10%;
   }
-  .wrapper_pro{
+  .wrapper_pro, #forMore .wrapper_pro{
     bottom: 9%;
     width: 100%;
   } 
@@ -2667,6 +2690,24 @@ background-position-x: initial;
     height: 40vw;
   }
 /*  BLOGS PAGE  */
+#three_latest, #blogs{
+  display: block;
+}
+#latestBlog {
+  height:40vh;
+}
+#secondLatestBlog,
+#thirdLatestBlog,
+#blogs .boxStyle{
+  margin:2em auto;
+height:20vh;
+width:80%;
+}
+#blog_front .blogTextStyle, #blogs .blogTextStyle {
+  width:100%;
+  height:auto;
+  font-size: 1.5em;
+}
 #secondLatestBlog_text_blog>p,
 #thirdLatestBlog_text_blog>p,
 #latestBlog_text_blog p,
@@ -2674,20 +2715,70 @@ background-position-x: initial;
 {
   display: none;
 }
+/*  WIREFRAMES  */
+#businessPage .heroWireframe > .hero_text,
+#healthcarePage .heroWireframe > .hero_text, 
+#interiorPage .heroWireframe > .hero_text,
+#villaPage .heroWireframe > .hero_text,
+#educationalPage .heroWireframe > .hero_text
+.heroWireframe >.hero_text{
+  padding: 20% 35% 5% 5%;
+  font-size: 1.1em;
+}
+#educationalPage .heroWireframe{
+  background-position: 106%;
+}
+#wireframe_description{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: .01fr .01fr 1fr 1fr;
+}
+#wireframe_description img{
+  grid-row: 3;
+  margin:0;
+}
+#forMore{
+  height:50%;
+}
+#forMore{
+  background-position-x:100%;
+}
 }
 
 
 @media (max-width: 600px) {
+ 
   /* WIREFRAMES */
-  #wireframe_description{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: .01fr .01fr 1fr 3fr;
-  }
-  #wireframe_description img{
-    grid-row: 3;
-    margin:0;
-  }
+  #businessPage .heroWireframe > .hero_text,
+#healthcarePage .heroWireframe > .hero_text, 
+#interiorPage .heroWireframe > .hero_text,
+.heroWireframe >.hero_text,
+#educationalPage .heroWireframe > .hero_text,
+#villaPage .heroWireframe > .hero_text{
+  padding: 10%;
+}
+.heroWireframe > .hero_text p{
+  margin:0;
+}
+ #forMore{
+   padding:3em;
+  font-size: .9em;
+}
+ 
+/*#industrialPage .wrapper_pro, 
+#cabinPage .wrapper_pro, 
+#businessPage .wrapper_pro, 
+#healthcarePage .wrapper_pro,
+#interiorPage .wrapper_pro, 
+#educationalPage .wrapper_pro,
+#landscapePage .wrapper_pro,
+#remodelingPage .wrapper_pro, 
+#spatial_planningPage .wrapper_pro,
+#villaPage .wrapper_pro,*/
+/* #forMore .wrapper_pro
+{ 
+  bottom:0;
+} */
   #wireframe_description h2{
     margin:0 auto;
   }
@@ -2767,7 +2858,7 @@ background-position-x: initial;
   #timelineSection ul, .timelineSection ul, #prosWrapper ul{
     display:block;
   }
-  .timelineWrapper{
+     .timelineWrapper{
     opacity: 1;
     margin:0;
   }
@@ -2926,7 +3017,7 @@ background-position-x: initial;
     right:0;
   }
   /* SECTION PLATFORM   */
-  #platform img {
+  #platform .absolute {
     display: none;
   }
   .platformBox{
@@ -2935,6 +3026,9 @@ background-position-x: initial;
   .platformBox > .wrapper_4_columns{
     margin:0;
     font-size: .9em;
+  }
+  .platformBox p{
+    padding: 5% 0;
   }
 
 /*  SECTION WHY  */
@@ -2960,6 +3054,9 @@ background-position-x: initial;
 }
 .bubbles h3{
   font-size:.8em;
+}
+.bubbles svg{
+  margin:1em 1em 0;
 }
 .arrow:after{
   bottom: -5px;
@@ -3119,51 +3216,7 @@ margin:3em 2em;
   #contactForm label {
     text-align: left;
   }
-  /* WIREFRAMES*/
-  #benefits,
-  #wireframe_description {
-    height: auto;
-  }
-  .heroWireframe {
-    background-position: 61% 74%;
-  }
-
-  
-
-  #benefits_list ul {
-    display: block;
-    /* grid-template-columns: 1fr;
-    grid-template-rows: repeat(9, 1fr); */
-  }
-  #benefits_list img {
-    width: 100%;
-  }
-
-  #benefits_list ul > div:nth-child(odd) {
-    margin: 5% 0;
-  }
-  #benefits_list ul > div:nth-child(even) {
-    margin: 5% 0;
-  }
-
-  #benefits_list ul > div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: -15%;
-    background: none;
-    box-shadow: none;
-    height: 25vh;
-  }
-
-  #benefits_list figure {
-    width: 100%;
-    margin: 0;
-  }
-  #forMore {
-    background-position: 30%;
-    padding: 5%;
-    font-size: 1em;
-  }
+ 
   /* ABOUT PAGE  */
   #about_us{
     height:50vh;
@@ -3203,7 +3256,86 @@ margin:3em 2em;
     display: block;
     /* margin:auto; */
   }
+  /*  WIREFRAMES  */
+   #benefits,
+   #wireframe_description {
+     height: auto;
+   }
+   .heroWireframe {
+     background-position: 61% 74%;
+   }
+ 
+    #benefits_list ul {
+     display: block;
+     /* grid-template-columns: 1fr;
+     grid-template-rows: repeat(9, 1fr); */
+   }
+   #benefits_list img {
+     width: 100%;
+   }
+   #benefits_list .timelineText p{
+     opacity: 1;
+     text-align: left;
+   }
+   #benefits h3{
+     font-size: 1em;
+   }
+   #benefits_list ul > div:nth-child(odd) {
+     margin: 2% 0;
+   }
+   #benefits_list ul > div:nth-child(even) {
+     margin: 2% 0;
+   }
+ 
+   #benefits_list ul > div {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     margin-top: -15%;
+     background: none;
+     box-shadow: none;
+     height: 25vh;
+   }
+ 
+   #benefits_list figure {
+     width: 100%;
+     margin: auto;
+   }
+   #benefits .timelineText{
+     margin:0;
+   }
+   #villaPage #forMore,
+   #educationalPage #forMore{
+     background-position: 100%;
+   }
+   #spatial_planningPage #forMore{
+     background-position: 62%;
+   }
+   #forMore {
+     background-position: 30%;
+     padding: 5%;
+     font-size: 1em;
+   }
+   #businessPage .heroWireframe > .hero_text, 
+   #healthcarePage .heroWireframe > .hero_text, 
+   #interiorPage .heroWireframe > .hero_text{
+     padding: 10% 5%;
+   }
+  #businessPage .heroWireframe > .hero_text,
+#healthcarePage .heroWireframe > .hero_text, 
+#interiorPage .heroWireframe > .hero_text,
+#educationalPage .heroWireframe > .hero_text,
+.heroWireframe >.hero_text{
+  font-size: .9em;
 }
+#wireframe_description{
+  grid-template-rows: .01fr .01fr 1fr 2fr;;
+}
+#forMore{
+  height:60vh;
+}
+
+}
+
 @media (max-width: 400px) {
   .textPadding {
     margin: 2em;
@@ -3223,12 +3355,17 @@ margin:3em 2em;
   .blogsPart {
     margin: 6em 0;
   }
+  #forMore{
+    height:70vh;
+  }
+  
 }
-@media (max-width: 360px) {
-  p,
-  label {
-    line-height: 1.3em;
-    font-size: 0.8em;
+@media (max-width: 375px){
+  #businessPage .heroWireframe > .hero_text,
+   #healthcarePage .heroWireframe > .hero_text,
+    #interiorPage .heroWireframe > .hero_text, 
+    .heroWireframe >.hero_text{
+    font-size: .8em;
   }
   .platformBox p {
     height: 25vh;
@@ -3253,4 +3390,9 @@ font-size: .8em;
   .pros {
     height: 55%;
   }
+}
+@media (max-width: 350px){
+p{
+font-size: 0.8em;
+}
 }

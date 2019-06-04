@@ -45,8 +45,8 @@ const removeAnimationClass = (item, classToRemove) => {
 const changeImage = (item, img) => {
   // let img = section.querySelector("img");
   console.log({ "item.id": item.id });
-
   img.classList.add("change");
+  
   if (item.id === "section_whatyouget_item_1")
     img.setAttribute("src", "img/form.png");
   if (item.id === "section_whatyouget_item_2")

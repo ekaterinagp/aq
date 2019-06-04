@@ -740,7 +740,7 @@ button,
 }
 
 .platformBox {
-  width: 96vw;
+  width: 96%;
   height: 85vh;
   margin: auto;
   border-radius: 10px;
@@ -987,6 +987,7 @@ fill:#ef6461;
   background: white;
   border-radius: 10px;
   width: 100%;
+  height:60vh;
   padding: 1em 2em;
   font-size: 1.3em;
   position: relative;
@@ -1061,7 +1062,7 @@ fill:#ef6461;
   width: 70%;
   height: 60%;
   text-align: center;
-  margin: auto;
+  margin:5em auto;
 }
 #userImage {
   background-position: center;
@@ -2416,6 +2417,31 @@ img#platform {
 }
 
 /* Media Queries   */
+@media (max-width: 1924px) {
+  #sections,
+  /* #platform,
+  .platformBox, */
+  #types,
+  #section_why,
+  #section_whatyouget,
+  #happyClients,
+  .blogsPart
+  {
+    margin:0 20em;
+    width:auto;
+  }
+  #frontpageBlogs{
+    width:auto;
+  }
+  .platformBox{
+    width:60%;
+    }
+    #section_platform .absolute{
+      top: 17em;
+      right: -17em;
+      width: 80%;
+    }
+}
 @media (max-width: 1024px) {
   .big, .line{
 display: none;

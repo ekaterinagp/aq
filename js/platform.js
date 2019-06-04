@@ -134,17 +134,14 @@ const removeAnimationClass = (item, classToRemove) => {
 };
 function addHeightToFaq(plus){
 if (open === false) {
-  plus.parentElement.style.height = "40vh";
+  plus.parentElement.style.height = "40%";
+  plus.parentElement.style.overflow = "scroll";
   plus.style.transform = "rotate(180deg)";
   open = true;
 }
-// if (open === false && screen.width <= 400) {
-//   plus.parentElement.style.height = "60vh";
-//   plus.style.transform = "rotate(180deg)";
-//   open = true;
-// }
 else{
- plus.parentElement.style.height = "4em";
+ plus.parentElement.style.height = "8%";
+ plus.parentElement.style.overflow = "hidden";
   plus.style.transform = "rotate(0)";
   open = false;
 }

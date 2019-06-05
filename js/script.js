@@ -322,7 +322,7 @@ const insertTestimonialsToDOM = async (testimonials, slide) => {
     let clone = template.cloneNode(true);
     clone.querySelector(".textTestimonials").innerHTML =
       testimonials[i].content.rendered;
-    clone.querySelector(".title").textContent = testimonials[i].title.rendered;
+    clone.querySelector(".titleTestimonials").textContent = testimonials[i].title.rendered;
     clone.querySelector(".name").textContent = testimonials[i].authors_name;
     clone.querySelector(".company").textContent = testimonials[i].company;
     console.log({ "testimonials[i]": testimonials[i] });

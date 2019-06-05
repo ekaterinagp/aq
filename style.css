@@ -1425,7 +1425,6 @@ head .blogBG {
 }
 #prosWrapper .timelineWrapper {
   height:42vh;
-    overflow-x: hidden;
 }
 #prosWrapper .timelineContent{
   background-size: 105%;

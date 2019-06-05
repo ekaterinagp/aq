@@ -26,8 +26,8 @@ let showSinglePost = async singlePost => {
   const imgBGBlog = await fetch(
     singlePost._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
-  backGroundDiv.style.backgroundImage =
-    "url(" + imgBGBlog.media_details.sizes.medium_large.source_url + ")";
+  // backGroundDiv.style.backgroundImage =
+  //   "url(" + imgBGBlog.media_details.sizes.medium_large.source_url + ")";
 };
 
 const init = async () => {

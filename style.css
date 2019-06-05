@@ -1126,16 +1126,16 @@ fill:#ef6461;
   transform: translateX(100%);
   opacity: 1;
   display: block;
-  animation: moveIn 0.5s forwards;
+  animation: moveInTestimonials 0.5s forwards;
 }
 .client.shownLeft {
   transform: translateX(-100%);
   opacity: 1;
   display: block;
-  animation: moveIn 0.5s forwards;
+  animation: moveInTestimonials 0.5s forwards;
 }
 
-@keyframes moveIn {
+@keyframes moveInTestimonials {
   100% {
     transform: translate(0);
   }
@@ -1730,7 +1730,7 @@ h1 > span {
   margin: auto;
   grid-template-rows:  0.5fr 0.5fr 2fr 1fr;;
 }
-input {
+input[type="submit"] {
   -webkit-appearance: none;
 }
 #contact_form input[type="text"],
@@ -2460,6 +2460,17 @@ img#platform {
 #forMore .orange_button {
   margin: auto;
 }
+
+/* FORM VALIDATION */
+
+input.valid {
+  border:1px solid green;
+  }
+
+  .invalid {
+   border:1px solid red;
+  }
+
 
 /* Media Queries   */
 @media only screen and (min-width: 1924px) {

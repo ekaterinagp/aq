@@ -1266,7 +1266,8 @@ head .blogBG {
 }
 .timelineWrapper:hover .timelineText,
 .timelineWrapper:focus .timelineText,
-.timelineWrapper:active .timelineText {
+.timelineWrapper:active .timelineText,
+.showTimeContent {
   position: absolute;
   top: 0;
   bottom: 0;

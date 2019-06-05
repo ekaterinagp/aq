@@ -2171,12 +2171,13 @@ iframe {
 }
 #secondLatestBlog,
 #thirdLatestBlog {
+  position: relative;
   background-size: cover;
   background-repeat: no-repeat;
 }
-#blogs .boxstyle {
+#blogs .blogBG {
   position: relative;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   width: 28vw;
   height: 45vh;
@@ -2188,12 +2189,11 @@ iframe {
   font-size: 1.1em;
   margin-bottom: 0;
 }
-#latestBlog,
-.blogBG {
-  position: relative;
-}
+/* #latestBlog, */
+
 
 #latestBlog {
+  position: relative;
   background-repeat: no-repeat;
   background-size: contain;
   height: 70vh;
@@ -2205,6 +2205,7 @@ iframe {
   padding: 0 2% 2%;
   margin: 0;
   bottom: 0;
+  /* top:80%; */
 }
 #blogs .blogTextStyle {
   width: 28vw;
@@ -2728,8 +2729,9 @@ background-position-x: initial;
 #thirdLatestBlog,
 #blogs .boxStyle{
   margin:2em auto;
-height:20vh;
+height:40vh;
 width:80%;
+background-size: contain;
 }
 #blog_front .blogTextStyle, #blogs .blogTextStyle {
   width:100%;
@@ -3147,14 +3149,14 @@ width:80%;
   /* #frontpageBlogs.wrapper_2_columns{
   display: grid;
 } */
-
+/* 
   #frontpageBlogs .boxStyle,
   .blogTitle {
     width: 80vw;
   }
   #frontpageBlogs .boxStyle {
     margin: 2em auto;
-  }
+  } */
 
   /*  TIMELINE  */
   /* #timelineSection ul, .timelineSection ul{
@@ -3203,7 +3205,6 @@ width:80%;
 }
   /*  FAQ  */
 .faq{
-  padding:2em;
 display: block;
 }
 .faq img{
@@ -3389,6 +3390,11 @@ display: block;
   #forMore{
     height:70vh;
   }
+  #secondLatestBlog,
+#thirdLatestBlog,
+#blogs .boxStyle{
+font-size: .8em;
+}
   
 }
 @media only screen and (max-width: 380px){

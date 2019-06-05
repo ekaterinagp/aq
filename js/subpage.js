@@ -31,7 +31,10 @@ let showSinglePost = async singlePost => {
 };
 
 const init = async () => {
-  document.querySelector(".loaderWrapper").classList.add("hideLoader");
+  setTimeout(   ()=>{ 
+    document.querySelector(".loaderWrapper").classList.add("hideLoader");
+   }, 1000)
+ 
   const post = await fetchPost();
   showSinglePost(post);
 };

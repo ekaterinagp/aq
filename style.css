@@ -215,7 +215,7 @@ header li {
 
 header .orange_button {
   /* float:right; */
-  margin-right: 2em;
+  margin-right: 0;
 }
 
 .logo {
@@ -2058,6 +2058,8 @@ input:checked + .btnRadio:before {
   background-image: url("img/cabin.jpg");
   width: 100%;
   height: 60%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #mainTextBlog {
   border-radius: 10px;

@@ -29,11 +29,10 @@ li {
   font-family: "Montserrat", sans-serif;
 }
 
-
-#happyClients{
-  height:auto;
-  max-width:100vw;
-  overflow:hidden;
+#happyClients {
+  height: auto;
+  max-width: 100vw;
+  overflow: hidden;
 }
 #text_message {
   grid-column: 1/-1;
@@ -1268,8 +1267,8 @@ head .blogBG {
   transition: all 0.3s;
   line-height: 1.5em;
 }
-#our_team .timelineWrapper p{
-  font-size: .8em;
+#our_team .timelineWrapper p {
+  font-size: 0.8em;
 }
 .timelineContent {
   background-position: -20% 90%;
@@ -1728,7 +1727,7 @@ h1 > span {
 #contact_form {
   grid-gap: 5%;
   margin: auto;
-  grid-template-rows:  0.5fr 0.5fr 2fr 1fr;;
+  grid-template-rows: 0.5fr 0.5fr 2fr 1fr;
 }
 input[type="submit"] {
   -webkit-appearance: none;
@@ -2481,56 +2480,55 @@ input.valid {
   #section_why,
   #section_whatyouget,
   #happyClients,
-  .blogsPart
-  {
-    margin:0 20em;
-    width:auto;
+  .blogsPart {
+    margin: 0 20em;
+    width: auto;
   }
-  #frontpageBlogs{
-    width:auto;
+  #frontpageBlogs {
+    width: auto;
   }
-  .platformBox{
-    width:60%;
-    }
-    #section_platform .absolute{
-      top: 17em;
-      right: -17em;
-      width: 80%;
-    }
-
+  .platformBox {
+    width: 60%;
+  }
+  #section_platform .absolute {
+    top: 17em;
+    right: -17em;
+    width: 80%;
+  }
 }
-@media only screen and (max-width: 1366px){
-  header .orange_button{
-    margin:auto;
+@media only screen and (max-width: 1366px) {
+  header .orange_button {
+    margin: auto;
   }
-  .hero{
+  .hero {
     max-width: 100vw;
     overflow-x: hidden;
   }
-  .faq > img{
-    width:100%;
+  .faq > img {
+    width: 100%;
     align-self: center;
   }
-  .wrapper_pro{
-    bottom:5em;
+  .wrapper_pro {
+    bottom: 5em;
   }
   .drawSvg,
   .heroImg {
     display: none;
   }
-.timelineWrapper, #prosWrapper .timelineWrapper {
-    height:30vh;
+  .timelineWrapper,
+  #prosWrapper .timelineWrapper {
+    height: 30vh;
   }
-  .timelineWrapper:nth-child(odd){
+  .timelineWrapper:nth-child(odd) {
     margin-bottom: 10vh;
   }
   .timelineWrapper:nth-child(even) {
     margin-top: 10vh;
   }
-  #prosWrapper .timelineWrapper h1{
-    padding-top:40%
+  #prosWrapper .timelineWrapper h1 {
+    padding-top: 40%;
   }
-  #about_us{
+  #about_us {
     background-position: 53%;
   }
 
@@ -2561,27 +2559,28 @@ input.valid {
   #hero_platform {
     background-image: url(img/hero_platform.png);
   }
-  #section_platform .absolute{
-    right:0;
-    top:20em;
+  #section_platform .absolute {
+    right: 0;
+    top: 20em;
   }
-  #section_platform{
-  position: relative;
-  grid-template-rows: .3fr .1fr 1fr;
+  #section_platform {
+    position: relative;
+    grid-template-rows: 0.3fr 0.1fr 1fr;
   }
 }
 @media only screen and (max-width: 1200px) {
-  .timelineWrapper, #prosWrapper .timelineWrapper{
-    height:35vh;
+  .timelineWrapper,
+  #prosWrapper .timelineWrapper {
+    height: 35vh;
   }
-  .hero_text{
-    font-size: .9em;
+  .hero_text {
+    font-size: 0.9em;
   }
-  #section_platform .absolute{
-    right:0;
+  #section_platform .absolute {
+    right: 0;
   }
-  
-  #prosWrapper .timelineWrapper h1{
+
+  #prosWrapper .timelineWrapper h1 {
     padding-top: 50%;
   }
 }
@@ -2636,22 +2635,24 @@ input.valid {
   .carouselWrapper {
     width: auto;
   }
-@media only screen and  (max-width: 768px)  {
-  .logo{
-    padding:1em 0;
+}
+@media only screen and (max-width: 768px) {
+  .logo {
+    padding: 1em 0;
   }
 
-#happyClients,
-.blogsPart,
-#better, 
-#section_whatyouget,
-.network, 
-#platform,
-.hero,
-.faq{
-  height:auto;
-  max-width:100vw;
-  overflow-x: hidden;
+  #happyClients,
+  .blogsPart,
+  #better,
+  #section_whatyouget,
+  .network,
+  #platform,
+  .hero,
+  .faq {
+    height: auto;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
 }
 @media only screen and (max-width: 768px) {
   #happyClients,
@@ -2823,7 +2824,7 @@ margin-bottom: -5em;
     width: 40vw;
   }
   /*  Platform frontpage  */
- 
+
   /* timeline  */
   .timelineWrapper {
     height: 21vh;
@@ -2874,7 +2875,7 @@ margin-bottom: -5em;
     width: 100%;
   }
   /*  frontpage architects  */
- 
+
   /* timeline  */
   #prosWrapper {
     padding-bottom: 0;
@@ -3700,6 +3701,7 @@ margin-bottom: -5em;
     font-size: 0.8em;
     margin: 1em auto;
   }
+
   .hero {
     height: 100vh;
   }

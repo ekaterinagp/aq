@@ -46,7 +46,7 @@ const changeImage = (item, img) => {
   // let img = section.querySelector("img");
   console.log({ "item.id": item.id });
   img.classList.add("change");
-  
+
   if (item.id === "section_whatyouget_item_1")
     img.setAttribute("src", "img/form.png");
   if (item.id === "section_whatyouget_item_2")
@@ -62,7 +62,7 @@ const changeImage = (item, img) => {
     img.setAttribute("src", "img/icons/generic.svg");
   if (item.id === "aestetic") img.setAttribute("src", "img/icons/fountain.svg");
   if (item.id === "section_platform_item_1")
-    img.setAttribute("src", "img/platform_home_single.png");
+    img.setAttribute("src", "img/platform_home_single-min.png");
   if (item.id === "section_platform_item_2")
     img.setAttribute("src", "img/platform_discover_single.png");
   if (item.id === "section_platform_item_3")
@@ -320,18 +320,18 @@ const insertTestimonialsToDOM = async (testimonials, slide) => {
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
     let clone = template.cloneNode(true);
-    clone.querySelector("#textTestimonials").innerHTML =
+    clone.querySelector(".textTestimonials").innerHTML =
       testimonials[i].content.rendered;
-    clone.querySelector("#title").textContent = testimonials[i].title.rendered;
-    clone.querySelector("#name").textContent = testimonials[i].authors_name;
-    clone.querySelector("#company").textContent = testimonials[i].company;
+    clone.querySelector(".title").textContent = testimonials[i].title.rendered;
+    clone.querySelector(".name").textContent = testimonials[i].authors_name;
+    clone.querySelector(".company").textContent = testimonials[i].company;
     console.log({ "testimonials[i]": testimonials[i] });
     const hrefData = await fetch(
       testimonials[i]._links["wp:featuredmedia"][0].href
     ).then(res => res.json());
     console.log({ hrefData });
 
-    clone.querySelector("#userImage").style.backgroundImage =
+    clone.querySelector(".userImage").style.backgroundImage =
       "url(" + hrefData.media_details.sizes.medium.source_url + ")";
 
     document.querySelector("#testimonials").appendChild(clone);

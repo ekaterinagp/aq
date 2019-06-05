@@ -1057,7 +1057,7 @@ fill:#ef6461;
   text-align: center;
   margin:5em auto;
 }
-#userImage {
+.userImage {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

@@ -376,6 +376,7 @@ footer input {
 }
 
 .back_button {
+  -webkit-appearance: none;
   border: none;
   border-radius: 5px;
   padding: 0.7em 2em;
@@ -391,6 +392,7 @@ footer input {
   opacity: 0.8;
 }
 .orange_button {
+  -webkit-appearance: none;
   border-radius: 5px;
   background-color: #ef6461;
   color: white;
@@ -1706,6 +1708,9 @@ h1 > span {
   margin: auto;
   grid-template-rows: 0.5fr 0.5fr 0.5fr;
 }
+input{
+  -webkit-appearance: none;
+}
 #contact_form input[type="text"],
 #contact_form input[type="email"] {
   padding: 5px;
@@ -2067,8 +2072,10 @@ input:checked + .btnRadio:before {
 
 #heroBackgroundImage {
   background-image: url("img/cabin.jpg");
-  width: 100%;
-  height: 60%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  /* width: 100%; */
+  height: 50vh;
 }
 #mainTextBlog {
   border-radius: 10px;
@@ -2455,6 +2462,16 @@ img#platform {
       right: -17em;
       width: 80%;
     }
+}@media only screen and (max-width: 1200px) {
+  .timelineWrapper, #prosWrapper .timelineWrapper{
+    height:35vh;
+  }
+  .timelineWrapper:nth-child(odd){
+    margin-bottom: 10vh;
+  }
+  .timelineWrapper:nth-child(even){
+    margin-top: 10vh;
+  }
 }
 @media only screen and (max-width: 1050px) {
   .big, .line{
@@ -2477,12 +2494,7 @@ display: none;
   #our_team .timelineWrapper h3{
     padding:0;
   }
- .timelineWrapper:nth-child(odd){
-    margin-bottom: 10vh;
-  }
-  .timelineWrapper:nth-child(even){
-    margin-top: 10vh;
-  }
+
   #about_us, .pros{
     background-position: 80%;
     padding: 10% 5% 5% 41%;

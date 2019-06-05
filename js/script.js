@@ -54,7 +54,7 @@ const changeImage = (item, img) => {
   if (item.id === "section_whatyouget_item_3")
     img.setAttribute("src", "img/home.png");
 
-  if (item.id === "resedential")
+  if (item.id === "residential")
     img.setAttribute("src", "img/icons/buildings.svg");
   if (item.id === "business")
     img.setAttribute("src", "img/icons/cityscape.svg");
@@ -316,11 +316,9 @@ const fetchBlogPosts = () => {
 };
 
 const insertTestimonialsToDOM = async (testimonials, slide) => {
-  // let imgTemplate = document.querySelector("#testimonialsImg").content;
   console.log({ slide });
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
-    // let imgClone = imgTemplate.cloneNode(true);
     let clone = template.cloneNode(true);
     clone.querySelector("#textTestimonials").innerHTML =
       testimonials[i].content.rendered;
@@ -336,29 +334,13 @@ const insertTestimonialsToDOM = async (testimonials, slide) => {
     clone.querySelector("#userImage").style.backgroundImage =
       "url(" + hrefData.media_details.sizes.medium.source_url + ")";
 
-    // imgClone.querySelector("img")
-    // .setAttribute(
-    //   "src",
-    //   hrefData.media_details.sizes.testimonials.source_url
-    // );
-    // imgClone.querySelector("img")
-    // .setAttribute("class", testimonials[i].title.rendered );
-
-    // document.querySelector("#imgSection").appendChild(imgClone);
     document.querySelector("#testimonials").appendChild(clone);
   }
 
   let clients = document.querySelectorAll(".client");
-  // let allClientImg = document.querySelectorAll("#tempImg");
-  // allClientImg.forEach(img =>{
-  //   img.addEventListener("click", ()=>{
-  //     console.log(img.className);
-  //   })
-  // })
 
   initCarousel(clients);
 };
-// project._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
 
 const insertBlogsToDom = async blogPosts => {
   const section = document.querySelector("#frontpageBlogs");

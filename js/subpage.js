@@ -18,10 +18,16 @@ const fetchPost = () => {
   });
 };
 
-let showSinglePost = singlePost => {
+let showSinglePost = async singlePost => {
   let divHolder = document.querySelector("#mainTextBlog");
+  let backGroundDiv = document.querySelector("#heroBackgroundImage");
   divHolder.querySelector("h1").textContent = singlePost.title.rendered;
   divHolder.querySelector("p").innerHTML = singlePost.content.rendered;
+  const imgBGBlog = await fetch(
+    singlePost._links["wp:featuredmedia"][0].href
+  ).then(res => res.json());
+  backGroundDiv.style.backgroundImage =
+    "url(" + imgBGBlog.media_details.sizes.medium_large.source_url + ")";
 };
 
 const init = async () => {

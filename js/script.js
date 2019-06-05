@@ -62,7 +62,7 @@ const changeImage = (item, img) => {
     img.setAttribute("src", "img/icons/generic.svg");
   if (item.id === "aestetic") img.setAttribute("src", "img/icons/fountain.svg");
   if (item.id === "section_platform_item_1")
-    img.setAttribute("src", "img/platform_home_single.png");
+    img.setAttribute("src", "img/platform_home_single-min.png");
   if (item.id === "section_platform_item_2")
     img.setAttribute("src", "img/platform_discover_single.png");
   if (item.id === "section_platform_item_3")

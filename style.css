@@ -31,6 +31,7 @@ li {
 
 
 #happyClients{
+  height:auto;
   max-width:100vw;
   overflow:hidden;
 }
@@ -194,6 +195,7 @@ svg.menuIcon rect:nth-child(3) {
 }
 
 header {
+  max-width: 100vw;
   padding: 0 2em;
   height: 10vh;
   width: 100%;
@@ -2486,15 +2488,92 @@ img#platform {
       right: -17em;
       width: 80%;
     }
-}@media only screen and (max-width: 1200px) {
-  .timelineWrapper, #prosWrapper .timelineWrapper{
-    height:35vh;
+
+}
+@media only screen and (max-width: 1366px){
+  header .orange_button{
+    margin:auto;
+  }
+  .hero{
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .faq > img{
+    width:100%;
+    align-self: center;
+  }
+  .wrapper_pro{
+    bottom:5em;
+  }
+  .drawSvg,
+  .heroImg {
+    display: none;
+  }
+.timelineWrapper, #prosWrapper .timelineWrapper {
+    height:30vh;
   }
   .timelineWrapper:nth-child(odd){
     margin-bottom: 10vh;
   }
   .timelineWrapper:nth-child(even){
     margin-top: 10vh;
+  }
+  #prosWrapper .timelineWrapper h1{
+    padding-top:40%
+  }
+  #about_us{
+    background-position: 53%;
+  }
+
+  .hero.wrapper_2_columns {
+    grid-template-columns: 1.5fr 1fr;
+  }
+  .hero_text {
+    font-size: 0.9em;
+  }
+  .hero_laptop {
+    width: 120%;
+    margin: 5em 0 0 -7em;
+  }
+  .hero {
+    margin-bottom: 0;
+    height: 80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30%;
+    /* width: 80vw; */
+  }
+  #hero {
+    background-image: url(img/hero_1.jpg);
+  }
+  #hero_architects {
+    background-image: url(img/hero_arch.png);
+  }
+  #hero_platform {
+    background-image: url(img/hero_platform.png);
+  }
+  #section_platform .absolute{
+    right:0;
+    top:20em;
+  }
+  #section_platform{
+  position: relative;
+  grid-template-rows: .3fr .1fr 1fr;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .timelineWrapper, #prosWrapper .timelineWrapper{
+    height:35vh;
+  }
+  .hero_text{
+    font-size: .9em;
+  }
+  #section_platform .absolute{
+    right:0;
+  }
+  
+  #prosWrapper .timelineWrapper h1{
+    padding-top: 50%;
   }
 }
 @media only screen and (max-width: 1050px) {
@@ -2547,13 +2626,13 @@ display: none;
     width:auto;
   }
   }
-@media only screen and  (max-width: 800px) {
-
-}
 @media only screen and  (max-width: 768px)  {
+  .logo{
+    padding:1em 0;
+  }
+
 #happyClients,
 .blogsPart,
-header,
 #better, 
 #section_whatyouget,
 .network, 
@@ -2649,9 +2728,6 @@ margin-bottom: -5em;
     background-position: 30%;
     /* width: 80vw; */
   }
-  #hero {
-    background-image: url(img/hero_1.jpg);
-  }
   /*  Section what you get  */
   #section_whatyouget .absolute {
     top: 10vh;
@@ -2721,10 +2797,7 @@ margin-bottom: -5em;
     width: 40vw;
   }
   /*  Platform frontpage  */
-  #hero_platform {
-    background-image: url(img/hero_platform.png);
-  }
-
+ 
   /* timeline  */
   .timelineWrapper {
     height: 21vh;
@@ -2774,9 +2847,7 @@ margin-bottom: -5em;
     width: 100%;
   } 
   /*  frontpage architects  */
-  #hero_architects {
-    background-image: url(img/hero_arch.png);
-  }
+ 
   /* timeline  */
   #prosWrapper {
     padding-bottom:0;
@@ -3561,7 +3632,7 @@ font-size: .8em;
     grid-template-rows: .1fr 1fr 2fr;
   } */
   .pros {
-    height: 55vh;
+    height: 65vh;
   }
   .textOnImage{
     padding:1em;

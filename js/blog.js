@@ -43,8 +43,11 @@ const insertThreeLastBlogsInDOM = async (
     divHolder.querySelector(textHolderStr).querySelector(".excerpt-hellip")
   );
   document.querySelector(textHolderStr).appendChild(a);
+  let day=  posts[positionInArray].date.substring(8,10);
+  let month =  posts[positionInArray].date.substring(5,7);
+  let year =  posts[positionInArray].date.substring(0,4);
   divHolder.querySelector(dateHolderStr).textContent =
-    posts[positionInArray].date;
+  day+"."+month+"."+year;
   const imgLatestBlog = await fetch(
     posts[positionInArray]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
@@ -69,6 +72,7 @@ const insertBlogsToDOM = async posts => {
   // insertThreeLastBlogsInDOM(
   //   "#secondLatestBlog",
   //   1,
+
   //   "#secondLatestBlog_text_blog",
   //   "#secondLatestBlog_date",
   //   posts
@@ -94,8 +98,11 @@ const insertBlogsToDOM = async posts => {
       .querySelector(".excerpt-hellip")
   );
   document.querySelector("#secondLatestBlog_text_blog").appendChild(a);
+  let daySecond= posts[1].date.substring(8,10);
+    let monthSecond = posts[1].date.substring(5,7);
+    let yearSecond = posts[1].date.substring(0,4);
   divForSecondLast.querySelector("#secondLatestBlog_date").textContent =
-    posts[1].date;
+  daySecond+"."+monthSecond+"."+yearSecond;
   const imgSecondLatestBlog = await fetch(
     posts[1]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
@@ -114,8 +121,11 @@ const insertBlogsToDOM = async posts => {
       .querySelector(".excerpt-hellip")
   );
   document.querySelector("#thirdLatestBlog_text_blog").appendChild(a_3);
+  let dayThird= posts[2].date.substring(8,10);
+    let monthThird = posts[2].date.substring(5,7);
+    let yearThird = posts[2].date.substring(0,4);
   divForThirdLast.querySelector("#thirdLatestBlog_date").textContent =
-    posts[2].date;
+  dayThird+"."+monthThird+"."+yearThird;
   const imgThirdLatestBlog = await fetch(
     posts[2]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
@@ -130,7 +140,12 @@ const insertBlogsToDOM = async posts => {
     a.href = "subpage_blog.html?id=" + posts[i].id;
     a.appendChild(clone.querySelector(".excerpt-hellip"));
     clone.querySelector("#text_blog").appendChild(a);
-    clone.querySelector("#date").textContent = posts[i].date;
+
+    let day= posts[i].date.substring(8,10);
+    let month = posts[i].date.substring(5,7);
+    let year = posts[i].date.substring(0,4);
+    // console.log(posts[i].date.substring(8,10))
+    clone.querySelector("#date").textContent = day+"."+month+"."+year;
     const imgs = await fetch(posts[i]._links["wp:featuredmedia"][0].href).then(
       res => res.json()
     );
@@ -144,6 +159,7 @@ const insertBlogsToDOM = async posts => {
 
 // async function init()
 const init = async () => {
+  document.querySelector(".loaderWrapper").classList.add("hideLoader");
   const blogs = await fetchBlogPosts();
   console.log({ blogs });
   insertBlogsToDOM(blogs);

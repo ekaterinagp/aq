@@ -315,8 +315,8 @@ const fetchBlogPosts = () => {
   });
 };
 
-const insertTestimonialsToDOM = async (testimonials, slide) => {
-  console.log({ slide });
+const insertTestimonialsToDOM = async (testimonials) => {
+  // console.log({ slide });
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
     let clone = template.cloneNode(true);
@@ -336,11 +336,41 @@ const insertTestimonialsToDOM = async (testimonials, slide) => {
 
     document.querySelector("#testimonials").appendChild(clone);
   }
+  let clients = Array.from(document.querySelectorAll(".client"));
+  console.log(clients)
+clients[0].classList.add("shown");
 
-  let clients = document.querySelectorAll(".client");
-
-  initCarousel(clients);
+document.querySelector(".arrowRight").addEventListener("click", ()=>{
+     clearClass(clients);
+    moveRight(clients);
+  // first it takes the first elements and then puts it last
+})
+document.querySelector(".arrowLeft").addEventListener("click", ()=>{
+  clearClass(clients);
+  moveLeft(clients);
+  // takes the last element and adds in to the front
+  })
 };
+
+const clearClass = (clients)=>{
+  clients.forEach(item =>{
+    item.classList.remove("shown")
+    item.classList.remove("shownLeft");
+    item.classList.remove("shownRight");
+      })
+}
+const moveLeft =(clients)=>{
+  let lastElement = clients.pop();
+  clients.unshift(lastElement);
+  console.log(clients);
+  clients[0].classList.add("shownLeft");
+}
+const moveRight =(clients)=>{
+  let firstElement = clients.shift();
+  clients.push(firstElement);
+  console.log(clients);
+  clients[0].classList.add("shownRight");
+}
 
 const insertBlogsToDom = async blogPosts => {
   const section = document.querySelector("#frontpageBlogs");
@@ -364,79 +394,7 @@ const insertBlogsToDom = async blogPosts => {
   }
 };
 
-/*   TESTIMONIALS CAROUSEL   */
-let itemClassName = "client boxStyle";
 
-const initCarousel = clients => {
-  console.log({ clients });
-  clients[clients.length - 1].classList.add("prev");
-  clients[0].classList.add("activeSlide");
-  clients[1].classList.add("next");
-  const nextBtn = document.querySelector(".arrowRight");
-  const prevBtn = document.querySelector(".arrowLeft");
-
-  nextBtn.addEventListener("click", function() {
-    moveNext(clients);
-  });
-  prevBtn.addEventListener("click", function() {
-    movePrev(clients);
-  });
-};
-
-/**
- * Test exists in test/script.spec.js
- * @param {*} slide
- * @param {*} clients
- * @param {*} itemClassName
- */
-const moveCarouselTo = (slide, clients, itemClassName) => {
-  let newPrevious = slide - 1,
-    newNext = slide + 1,
-    oldPrevious = slide - 2,
-    oldNext = slide + 2;
-
-  if (clients.length - 1 > 3) {
-    if (newPrevious <= 0) {
-      oldPrevious = clients.length - 1;
-    } else if (newNext >= clients.length - 1) {
-      oldNext = 0;
-    }
-    if (slide === 0) {
-      newPrevious = clients.length - 1;
-      oldPrevious = clients.length - 2;
-      oldNext = slide + 1;
-    } else if (slide === clients.length - 1) {
-      newPrevious = slide - 1;
-      newNext = 0;
-      oldNext = 1;
-    }
-    clients[oldPrevious].className = itemClassName;
-    clients[oldNext].className = itemClassName;
-    clients[newPrevious].className = itemClassName + " prev";
-    clients[slide].className = itemClassName + " activeSlide";
-    clients[newNext].className = itemClassName + " next";
-  }
-};
-
-const moveNext = clients => {
-  console.log({ slide });
-  if (slide === clients.length - 1) {
-    slide = 0;
-  } else {
-    slide++;
-  }
-  moveCarouselTo(slide, clients, itemClassName);
-};
-
-const movePrev = clients => {
-  console.log({ slide });
-  if (slide === 0) {
-    slide = clients.length - 1;
-  } else {
-    slide--;
-  }
-  moveCarouselTo(slide, clients, itemClassName);
-};
 
 const startSvgAnimation = () => {
   let title = document.querySelector(".hero_text>h1");
@@ -491,7 +449,7 @@ const init = async slide => {
   const blogPosts = await fetchBlogPosts();
   // console.log(blogPosts);
   // console.log({ testimonials });
-  console.log({ slide });
-  insertTestimonialsToDOM(testimonials, slide);
+  // console.log({ slide });
+  insertTestimonialsToDOM(testimonials);
   insertBlogsToDom(blogPosts);
 };

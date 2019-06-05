@@ -1260,10 +1260,9 @@ head .blogBG {
 }
 
 .timelineWrapper p {
-  font-size: 1.2em;
+  font-size: 1em;
   opacity: 0;
   padding: 5% 5% 0;
-  font-size: 0.8em;
   transition: all 0.3s;
   line-height: 1.5em;
 }

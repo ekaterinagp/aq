@@ -32,7 +32,7 @@ const insertThreeLastBlogsInDOM = async (
   let divHolder = document.querySelector(divHolderStr);
   console.log("divHolder", divHolder);
   divHolder.querySelector("h2").textContent =
-    posts[positionInArray].title.renderd;
+    posts[positionInArray].title.rendered;
   console.log(posts[positionInArray].title.renderd);
   divHolder.querySelector(textHolderStr).innerHTML =
     posts[positionInArray].excerpt.rendered;

@@ -134,14 +134,12 @@ const removeAnimationClass = (item, classToRemove) => {
 };
 function addHeightToFaq(plus){
 if (open === false) {
-  plus.parentElement.style.height = "40%";
-  plus.parentElement.style.overflow = "scroll";
+  plus.parentElement.style.height = "20em";
   plus.style.transform = "rotate(180deg)";
   open = true;
 }
 else{
- plus.parentElement.style.height = "8%";
- plus.parentElement.style.overflow = "hidden";
+ plus.parentElement.style.height = "4em";
   plus.style.transform = "rotate(0)";
   open = false;
 }
@@ -158,22 +156,6 @@ async function init() {
   plusses.forEach(plus => {
     plus.addEventListener("click", function() {
       addHeightToFaq(plus)
-      console.log(screen.width);
-  //     if (open === false) {
-  //       plus.parentElement.style.height = "40vh";
-  //       plus.style.transform = "rotate(180deg)";
-  //       open = true;
-  //     }
-  //     if (open === false || screen.width <= 375) {
-  //       plus.parentElement.style.height = "60vh";
-  //       plus.style.transform = "rotate(180deg)";
-  //       open = true;
-  //     }
-  // else{
-  //      plus.parentElement.style.height = "4em";
-  //       plus.style.transform = "rotate(0)";
-  //       open = false;
-  //     }
-    });
+      });
   });
 }

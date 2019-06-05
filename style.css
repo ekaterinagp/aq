@@ -30,13 +30,7 @@ li {
 }
 
 
-#happyClients,
-.blogsPart,
-header,
-#better, 
-#section_whatyouget,
- .timelineSection, 
- #timelinesection, .network{
+#happyClients{
   max-width:100vw;
   overflow:hidden;
 }
@@ -221,7 +215,7 @@ header li {
 
 header .orange_button {
   /* float:right; */
-  margin-right: 0;
+  margin-right: 2em;
 }
 
 .logo {
@@ -287,7 +281,7 @@ footer input {
 }
 .hero {
   position: relative;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   height: 85vh;
   width: 96%;
   margin: 10vh auto 2em;
@@ -2035,7 +2029,7 @@ input:checked + .btnRadio:before {
   padding: 1em 0 0;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  height: 8%;
+  height: 4em;
 }
 .faq_section:first-child {
   border-top: 0.5px solid rgba(0, 0, 0, 0.1);
@@ -2064,8 +2058,6 @@ input:checked + .btnRadio:before {
   background-image: url("img/cabin.jpg");
   width: 100%;
   height: 60%;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 #mainTextBlog {
   border-radius: 10px;
@@ -2419,10 +2411,10 @@ img#platform {
 }
 
 /* Media Queries   */
-@media (max-width: 1924px) {
+@media only screen and (min-width: 1924px) {
   #sections,
   /* #platform,
-  .platformBox, */
+  .platformBox,  */
   #types,
   #section_why,
   #section_whatyouget,
@@ -2444,32 +2436,40 @@ img#platform {
       width: 80%;
     }
 }
-@media (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   .big, .line{
 display: none;
   }
-  
+  }
+@media only screen and  (max-width: 800px) {
 
 }
-@media (max-width: 800px) {
-
-}
-@media (max-width: 768px) {
-  #happyClients,
+@media only screen and  (max-width: 768px)  {
+#happyClients,
 .blogsPart,
 header,
 #better, 
 #section_whatyouget,
-  .network, 
-#platform{
+.network, 
+#platform,
+.hero,
+.faq{
   height:auto;
   max-width:100vw;
-  overflow-x: clip;
+  overflow-x: hidden;
+}
+.faq{
+  margin:0;
+  padding:3em 4em;
 }
 .wf #section_platform .absolute{
   top:18em;
-  right: -2em;
+  z-index:0;
+  right: -10px;
   width: 70%;
+}
+.wf .platformBox .padding0em3em {
+  z-index: 1;
 }
  /* #platform{
 margin-bottom: -5em;
@@ -2748,13 +2748,13 @@ width:80%;
 #healthcarePage .heroWireframe > .hero_text, 
 #interiorPage .heroWireframe > .hero_text,
 #villaPage .heroWireframe > .hero_text,
-#educationalPage .heroWireframe > .hero_text
+#educationalPage .heroWireframe > .hero_text,
 .heroWireframe >.hero_text{
   padding: 20% 35% 5% 5%;
   font-size: 1.1em;
 }
 #educationalPage .heroWireframe{
-  background-position: 106%;
+  background-position: 100%;
 }
 #wireframe_description{
   display: grid;
@@ -2771,18 +2771,21 @@ width:80%;
 #forMore{
   background-position-x:100%;
 }
+.wf #platform{
+  overflow: visible;
+}
 }
 
 
-@media (max-width: 600px) {
+@media only screen and  (max-width: 600px) {
  
   /* WIREFRAMES */
-  #businessPage .heroWireframe > .hero_text,
+#businessPage .heroWireframe > .hero_text,
 #healthcarePage .heroWireframe > .hero_text, 
 #interiorPage .heroWireframe > .hero_text,
-.heroWireframe >.hero_text,
+#villaPage .heroWireframe > .hero_text,
 #educationalPage .heroWireframe > .hero_text,
-#villaPage .heroWireframe > .hero_text{
+.heroWireframe >.hero_text{
   padding: 10%;
 }
 .heroWireframe > .hero_text p{
@@ -2933,7 +2936,7 @@ width:80%;
   }
 }
 
-@media (max-width: 500px) {
+@media only screen  and  (max-width: 500px) {
   /*  reusable classes  */
   .wrapper_2_columns {
     display: block;
@@ -3348,11 +3351,12 @@ margin:3em 2em;
    #interiorPage .heroWireframe > .hero_text{
      padding: 10% 5%;
    }
-  #businessPage .heroWireframe > .hero_text,
-#healthcarePage .heroWireframe > .hero_text, 
-#interiorPage .heroWireframe > .hero_text,
-#educationalPage .heroWireframe > .hero_text,
-.heroWireframe >.hero_text{
+   #businessPage .heroWireframe > .hero_text,
+   #healthcarePage .heroWireframe > .hero_text, 
+   #interiorPage .heroWireframe > .hero_text,
+   #villaPage .heroWireframe > .hero_text,
+   #educationalPage .heroWireframe > .hero_text,
+   .heroWireframe >.hero_text{
   font-size: .9em;
 }
 #wireframe_description{
@@ -3364,7 +3368,7 @@ margin:3em 2em;
 
 }
 
-@media (max-width: 400px) {
+@media only screen  and  (max-width: 400px) {
   .textPadding {
     margin: 2em;
   }
@@ -3388,12 +3392,17 @@ margin:3em 2em;
   }
   
 }
-@media (max-width: 375px){
+@media only screen and (max-width: 380px){
   #businessPage .heroWireframe > .hero_text,
    #healthcarePage .heroWireframe > .hero_text,
     #interiorPage .heroWireframe > .hero_text, 
+    #villaPage .heroWireframe > .hero_text,
+    #educationalPage .heroWireframe > .hero_text,
     .heroWireframe >.hero_text{
     font-size: .8em;
+  }
+  #villaPage .heroWireframe{
+    background-position: 0%;
   }
   .platformBox p {
     height: 25vh;
@@ -3419,7 +3428,7 @@ font-size: .8em;
     height: 55%;
   }
 }
-@media (max-width: 350px){
+@media only screen  and (max-width: 320px){
 p{
 font-size: 0.8em;
 }

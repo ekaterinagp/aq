@@ -97,6 +97,7 @@ a:hover,
 }
 
 .dropdown:hover .dropdownContent,
+.dropdown:focus .dropdownContent,
 .dropdown:active .dropdownContent {
   display: block;
   background-color: white;
@@ -1262,6 +1263,7 @@ head .blogBG {
   transition: all 0.3s;
 }
 .timelineWrapper:hover .timelineText,
+.timelineWrapper:focus .timelineText,
 .timelineWrapper:active .timelineText {
   position: absolute;
   top: 0;
@@ -1272,11 +1274,13 @@ head .blogBG {
   border-radius: 5px;
 }
 .timelineWrapper:hover,
+.timelineWrapper:focus,
 .timelineWrapper:active {
   z-index: 10;
   transform: scale(1.2);
 }
 .timelineWrapper:hover p,
+.timelineWrapper:focus p,
 .timelineWrapper:active p {
   opacity: 1;
 }
@@ -2119,6 +2123,7 @@ iframe {
 }
 
 .dropdown:hover .dropdown-content,
+.dropdown:focus .dropdown-content,
 .dropdown:active .dropdown-content {
   display: block;
 }
@@ -2341,6 +2346,8 @@ iframe {
 }
 #benefits_list ul > div:nth-child(1):hover .timelineText,
 #benefits_list ul > div:nth-child(2):hover .timelineText,
+#benefits_list ul > div:nth-child(1):focus .timelineText,
+#benefits_list ul > div:nth-child(2):focus .timelineText,
 #benefits_list ul > div:nth-child(1):active .timelineText,
 #benefits_list ul > div:nth-child(2):active .timelineText {
   position: absolute;
@@ -2355,6 +2362,7 @@ iframe {
   margin: auto;
 }
 #benefits_list ul > div:hover p,
+#benefits_list ul > div:focus p,
 #benefits_list ul > div:active p{
   opacity: 1;
 }
@@ -2955,7 +2963,9 @@ background-size: contain;
   #prosWrapper .timelineWrapper h1{
     padding-top: initial;
   }
-  .timelineText, .timelineWrapper:hover .timelineText,
+  .timelineText, 
+  .timelineWrapper:hover .timelineText,
+  .timelineWrapper:focus .timelineText,
   .timelineWrapper:active .timelineText{
     position:initial;
     background:rgba(255,255,255,.8);
@@ -3232,7 +3242,9 @@ background-size: contain;
     height:35%;
     width: 100vw;
   } */
-  .timelineText, .timelineWrapper:hover .timelineText,
+  .timelineText, 
+  .timelineWrapper:hover .timelineText,
+  .timelineWrapper:focus .timelineText,
   .timelineWrapper:active .timelineText{
       width:60%;
     margin:2em 0 0 1em;

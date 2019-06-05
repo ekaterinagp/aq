@@ -130,7 +130,7 @@ const init = async () => {
   );
   createTimeline(wireframeParts, 2);
   const imgForMore = await fetchImgForMorePart(wireframeParts);
-  createSimpleImgTextLayout(wireframeParts, ImgForCustomPart, 0);
+  // createSimpleImgTextLayout(wireframeParts, ImgForCustomPart, 0);
   createSimple2ColumnsBGTextRight(wireframeParts, imgForMore, 1);
   checkIfInView();
 };

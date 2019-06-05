@@ -151,29 +151,6 @@ const createTimeline = (parts, i) => {
   document.querySelector(".wrapper").append(div);
 };
 
-// layout for the hero part with img and text next to each other
-// function aboveTheFoldWith2parts(parts, img, i) {
-//   let abovetheFoldHolder = document.createElement("div");
-//   abovetheFoldHolder.setAttribute("id", "hero-img");
-//   abovetheFoldHolder.setAttribute("class", "wrapper_2_columns");
-//   let pic = document.createElement("img");
-//   pic.setAttribute("src", img.media_details.sizes.large.source_url);
-//   // abovetheFoldHolder.setAttribute("class", "heroWireframe");
-//   // abovetheFoldHolder.style.backgroundImage =
-//   //   "url(" + img.media_details.sizes.large.source_url + ")";
-//   let divForText = document.createElement("div");
-//   divForText.setAttribute("class", "hero_text");
-//   let h1 = document.createElement("h1");
-//   h1.innerHTML = parts[i].title.rendered;
-//   let p = document.createElement("p");
-//   p.setAttribute("class", "sub_title");
-//   p.innerHTML = parts[i].content.rendered;
-//   let button = createButtonForForm("Get your free estimate", "freeEst");
-//   divForText.append(h1, p, button);
-//   abovetheFoldHolder.append(pic, divForText);
-//   document.querySelector(".wrapper").append(abovetheFoldHolder);
-// }
-
 const sellingPointsForIndividuals = (parts, i, imgSrc) => {
   let divHolder = document.createElement("div");
   divHolder.id = "section_whatyouget";
@@ -236,10 +213,7 @@ const changeImage = (item, img, imgSrc) => {
   if (item.id === "section_whatyouget_item_2")
     img.setAttribute("src", "img/platform_discover_single.png");
   if (item.id === "section_whatyouget_item_3") img.setAttribute("src", imgSrc);
-  // if (item.id === "resedential") img.setAttribute("src", "img/resihouse.png");
-  // if (item.id === "business") img.setAttribute("src", "img/office.png");
-  // if (item.id === "education") img.setAttribute("src", "img/school.png");
-  // if (item.id === "aestetic") img.setAttribute("src", "img/gazebo.png");
+
   if (item.id === "section_platform_item_1")
     img.setAttribute("src", "img/platform_home_single.png");
   if (item.id === "section_platform_item_2")
@@ -280,59 +254,12 @@ const changeText = (item, section) => {
   if (item.id == "section_platform_item_4") {
     textDiv.textContent =
       "We provide all the tools to make the process as smooth as possible. Create profile, upload insperational images and requirements, browse architects portfolios, get digital proposals, follow the process online and let your dream project come true.";
-    // title.textContent = "Follow the process online";
   }
-  // if (item.id == "section_why_item_1") {
-  //   title.textContent = "Save time";
-  //   textDiv.textContent =
-  //     "Start your project and get proposals from different architects instantly. It is free and will remain free!";
-  // }
 
-  // if (item.id == "section_why_item_2") {
-  //   title.textContent = "Hassle free";
-  //   textDiv.textContent =
-  //     "Do not spend hours googling for architects and researching their portfolios in different places, all architects are here and looking forward to collaboration.";
-  // }
-
-  // if (item.id == "section_why_item_3") {
-  //   title.textContent = "Better process";
-  //   textDiv.textContent =
-  //     "Improve commuication, get an overview, reduce the noise, build the house of your dreams";
-  // }
-
-  // if (item.id == "section_why_item_4") {
-  //   title.textContent = "No obligation";
-  //   textDiv.textContent =
-  //     "The platform provides smooth and natural flow with no obligations before the contract is signed. No obligations, no pressure! Take your time and choose what fits you best! ";
-  // }
-  // if (item.id == "resedential") {
-  //   document.querySelector("#type_of_firms").textContent = "resedential";
-  //   textDiv.textContent =
-  //     "Everybody dreams of a spacious luxurious or a modern cozy place to live. Whether you need a cabin, a villa or a family mansion, we have architects for any needs and budget.";
-  // }
-  // if (item.id == "business") {
-  //   document.querySelector("#type_of_firms").textContent = "business";
-  //   textDiv.textContent =
-  //     "In a competitive environment where improvement is foremost, to hire a good architect is essential. Do you need to construct a resedential complex, a new modern hospital,a large industrial building or a family-driven brewery? We have spectialists in all of the types and they are ready to start building proposals!";
-  // }
-  // if (item.id == "education") {
-  //   document.querySelector("#type_of_firms").textContent = "educational";
-  //   textDiv.textContent =
-  //     "Educational architecture has its own specifics, it is not just about functionality, it should bring people together. Schools, universities, research centers, kindergartens,campuses - find the right architect for you with the help of the platform! ";
-  // }
-  // if (item.id == "aestetic") {
-  //   document.querySelector("#type_of_firms").textContent = "design";
-  //   textDiv.textContent =
-  //     "Do you want to get a breath of fresh air at your favourite place? Architects know how to create a unique and functional atmosphere. Why waiting? Start you project now and make your home even better.";
-  // }
   textDiv.addEventListener("animationend", () => {
     console.log("removed");
     removeAnimationClass(textDiv, "textAnimation");
   });
-  // title.addEventListener("animationend", () => {
-  //   console.log("removed");
-  //   removeAnimationClass(title, "textAnimation");
-  // });
 };
 
 const clearAllItemsStyle = (items, sectionName) => {
@@ -346,10 +273,6 @@ const clearAllItemsStyle = (items, sectionName) => {
       item.querySelector("img").style.opacity = ".2";
       item.querySelector("h3").style.opacity = ".2";
     }
-    // if (sectionName == "section_types") {
-    //   item.style.color = "#2c2e3e";
-    //   item.style.fontWeight = "normal";
-    // }
   });
 };
 const applyFill = (item, section) => {
@@ -358,10 +281,6 @@ const applyFill = (item, section) => {
     item.querySelector("h3").style.opacity = "1";
     item.querySelector("h3").style.color = "#ef6461";
   }
-  // if (section == section_why) {
-  //   item.querySelector("svg").style.fill = "#ef6461";
-  //   item.querySelector("h3").style.color = "#ef6461";;
-  // }
 };
 
 const applyStyle = item => {

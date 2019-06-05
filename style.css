@@ -2921,7 +2921,6 @@ width:80%;
   }
   /* FAQ */
   .faq{
-    margin:3em 3em;
     grid-template-columns: 3fr 1fr;
   }
   .faq>img{
@@ -3204,8 +3203,8 @@ width:80%;
 }
   /*  FAQ  */
 .faq{
+  padding:2em;
 display: block;
-margin:3em 2em;
 }
 .faq img{
   display: none;
@@ -3421,9 +3420,9 @@ font-size: .8em;
   .timelineContent{
    margin: 5em 0;
   }
-  .network{
-    grid-template-rows: .1fr .5fr 2fr;
-  }
+  /* .network{
+    grid-template-rows: .1fr 1fr 2fr;
+  } */
   .pros {
     height: 55%;
   }

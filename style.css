@@ -3517,4 +3517,7 @@ font-size: 0.8em;
   font-size: .8em;
   margin:1em auto;
 }
+.hero{
+  height:100vh;
+}
 }

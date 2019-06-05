@@ -1266,6 +1266,9 @@ head .blogBG {
   transition: all 0.3s;
   line-height: 1.5em;
 }
+#our_team .timelineWrapper p{
+  font-size: .8em;
+}
 .timelineContent {
   background-position: -20% 90%;
   background-size: 150%;

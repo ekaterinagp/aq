@@ -372,7 +372,7 @@ let formItems = [
       whatsupCheckbox.setAttribute("id", "whatsUp");
       let pForWhatsUp = document.createElement("p");
       pForWhatsUp.setAttribute("class", "inline");
-      pForWhatsUp.textContent = "I agree to be contected by WhatsApp";
+      pForWhatsUp.textContent = "I agree to be contacted by WhatsApp";
       let divForWhats = document.createElement("div");
       divForWhats.append(whatsupCheckbox, pForWhatsUp);
       let agreeCheckbox = document.createElement("input");

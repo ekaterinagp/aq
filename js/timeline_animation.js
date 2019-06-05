@@ -1,19 +1,19 @@
 "use strict";
-if(screen.width <= 1024){
+if (screen.width <= 1024) {
   let timelineItems = document.querySelectorAll(".timelineWrapper");
-  timelineItems.forEach(item=>{
-    item.addEventListener("click", ()=>{
+  timelineItems.forEach(item => {
+    item.addEventListener("click", () => {
       item.querySelector(".timelineContent").classList.add("showTimeContent");
-      item.querySelector("p").style.opacity="1";
-    })
-  })
+      item.querySelector("p").style.opacity = "1";
+    });
+  });
 }
-let incrementByOneForIndex = (content, u) => {
+let incrementByOneForIndex = (content, u, time) => {
   let i = 0;
   setInterval(() => {
     if (i == u) clearInterval(this);
     else content.innerHTML = i++;
-  }, 5);
+  }, time);
 };
 
 let timelineAnimation = () => {
@@ -41,7 +41,7 @@ let timelineAnimation = () => {
   );
   if (document.querySelector("#prosWrapper")) {
     setTimeout(() => {
-      incrementByOneForIndex(clientsNumber, 144);
+      incrementByOneForIndex(clientsNumber, 144, 20);
     }, 1000);
   }
 };

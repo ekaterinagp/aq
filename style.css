@@ -877,6 +877,7 @@ fill:#ef6461;
 }
 .absolute {
   width: 100%;
+  height: auto;
   position: absolute;
   top: 0;
 }
@@ -2685,6 +2686,8 @@ input:invalid {
   }
   #section_platform .absolute {
     top: 20em;
+    /* width: 60%;
+    height: auto; */
   }
   .next {
     top: 20vh;

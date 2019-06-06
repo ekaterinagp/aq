@@ -36,7 +36,14 @@ li {
 }
 #text_message {
   grid-column: 1/-1;
+  transition: all 0.3s;
+  line-height: 1.5em;
+  margin: 1.5em;
+  padding: 18px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 #policy h1 {
   text-align: center;
 }

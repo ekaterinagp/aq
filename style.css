@@ -1646,7 +1646,7 @@ h1 > span {
   /* margin-left: 50%; */
   align-self: center;
   font-size: 1.1em;
-  margin-left: 10em;
+  /* margin-left: 10em; */
 }
 #our_team {
   margin: 2em 0;
@@ -2714,6 +2714,9 @@ input:invalid {
   }
   #about_us {
     padding: 2% 5% 5% 55%;
+  }
+  #more_about img, #last_about img{
+    align-self:center;
   }
   #about_us,
   .pros {

@@ -152,7 +152,6 @@ async function init() {
   // console.log(faqData);
   showFaq(faqData);
   let faqSection = document.querySelectorAll(".faq_section");
-  let plusses = document.querySelectorAll(".plus");
 
   faqSection.forEach(faq => {
     faq.addEventListener("click", () => {

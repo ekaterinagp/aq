@@ -1051,6 +1051,7 @@ fill:#ef6461;
 .blogsPart {
   margin: 2em 0;
   position: relative;
+  /* height:100%; */
 }
 .next {
   border-radius: 20%;
@@ -1076,7 +1077,7 @@ fill:#ef6461;
 .caruselle {
   transform-style: preserve-3d;
   width: 70%;
-  /* height: 60%; */
+  height: 60vh;
   text-align: center;
   margin: 1em auto 10%;
 }
@@ -1112,32 +1113,43 @@ fill:#ef6461;
 .client {
   text-align: left;
   opacity: 0;
-  display: none;
+  /* display: none; */
   /* position: relative; */
-  /* position: absolute; */
-  top: 7vh;
+  position: absolute;
+  /* top: 7vh; */
   width: 100%;
+  /* height:100%; */
   margin: 5em auto 0;
   padding: 5% 8%;
   z-index: 100;
-  transition: all 0.5s;
+  transition: all .3s;
 }
 .client.shown {
   opacity: 1;
   display: block;
 }
 .client.shownRight {
-  transform: translateX(100%);
-  opacity: 1;
-  display: block;
-  animation: moveInTestimonials 0.5s forwards;
-}
-.client.shownLeft {
   transform: translateX(-100%);
   opacity: 1;
-  display: block;
-  animation: moveInTestimonials 0.5s forwards;
+  /* display: block; */
+  animation: moveInTestimonials .3s ease-in-out forwards;
 }
+.client.shownLeft {
+  transform: translateX(100%);
+  opacity: 1;
+  /* display: block; */
+  animation: moveInTestimonials .3s ease-in-out forwards;
+}
+/* .client.hideRight{
+  transform:translateX(-100%);
+  transition:all 5s;
+  opacity: 1;
+}
+.client.hideLeft{
+  transform:translateX(100%);
+  transition:all 5s;
+  opacity: 1;
+} */
 
 @keyframes moveInTestimonials {
   100% {
@@ -2609,6 +2621,9 @@ input:valid {
     position: relative;
     grid-template-rows: 0.3fr 0.1fr 1fr;
   }
+  .caruselle{
+    height:30vh;
+  }
 }
 /* @media only screen and (max-width: 1200px) {
   .timelineWrapper,
@@ -2627,6 +2642,9 @@ input:valid {
   }
 } */
 @media only screen and (max-width: 1050px) {
+  .caruselle{
+    height:40vh;
+  }
   .big,
   .line {
     display: none;
@@ -2695,21 +2713,7 @@ input:valid {
     max-width: 100vw;
     overflow-x: hidden;
   }
-}
-@media only screen and (max-width: 768px) {
-  #happyClients,
-  .blogsPart,
-  header,
-  #better,
-  #section_whatyouget,
-  .network,
-  #platform,
-  .hero,
-  .faq {
-    height: auto;
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
+
   .faq {
     margin: 0;
     padding: 3em 4em;
@@ -2836,16 +2840,14 @@ margin-bottom: -5em;
     width: 80%;
   }
   /*  testimonials  */
-  #happyClients {
-    height: 60vh;
-  }
+ 
   .userImage {
     width: 12vw;
     height: 12vw;
   }
-  .carouselWrapper {
+  /* .carouselWrapper {
     margin: 4em auto 0;
-  }
+  } */
   /* .caruselle {
     height: 50%;
       } */
@@ -3029,6 +3031,9 @@ margin-bottom: -5em;
 }
 
 @media only screen and (max-width: 600px) {
+  .caruselle{
+    height:60vh;
+  }
   /* WIREFRAMES */
   #businessPage .heroWireframe > .hero_text,
   #healthcarePage .heroWireframe > .hero_text,
@@ -3398,11 +3403,12 @@ margin-bottom: -5em;
 
   /*  TESTIMONIALS  */
   .userImage {
+    top:-4em;
     width: 22vw;
     height: 22vw;
   }
   .carouselWrapper {
-    height: 60vh;
+    height: 70vh;
     width: auto;
   }
   .arrowRight {
@@ -3698,7 +3704,7 @@ margin-bottom: -5em;
     font-size: 0.8em;
   }
   .carouselWrapper {
-    height: 70vh;
+    height: 80vh;
   }
 
   #happyClients,

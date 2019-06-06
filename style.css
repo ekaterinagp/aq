@@ -2569,12 +2569,10 @@ input:invalid {
     overflow-x: hidden;
   }
   .faq > img {
-    display:none;
+    width:90%;
+    align-self:center;
   }
-  .faq{
-    display: block;
-    margin:0 10em
-  }
+  
   .wrapper_pro {
     bottom: 5em;
   }

@@ -81,6 +81,7 @@ a:hover,
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   /* margin-top: 0.5em; */
+  line-height: 1.5em;
 }
 
 .dropdownContent a {
@@ -404,6 +405,10 @@ footer input {
 .back_button:disabled {
   background: lightgrey;
   opacity: 0.8;
+}
+h4 #number_firms {
+  width: 35px;
+  float: left;
 }
 .orange_button {
   -webkit-appearance: none;
@@ -2110,7 +2115,7 @@ input:checked + .btnRadio:before {
 }
 
 #heroBackgroundImage {
-  background-image: url("img/563059-PL2C99-583-min.jpg");
+  background-image: url("img/healthcare/white_long.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   /* width: 100%; */

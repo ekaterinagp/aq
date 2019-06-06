@@ -43,24 +43,24 @@ let timelineAnimation = () => {
   let tl = new TimelineMax();
   tl.staggerFromTo(
     ".timelineWrapper",
-    0.3,
+    0.06,
     {
       scale: 1.2,
       opacity: 0,
       skewY: 15
     },
     { scale: 1, opacity: 1, skewY: 0, ease: Power1.easeInOut },
-    0.2
+    0.05
   ).staggerFromTo(
     ".timelineContent",
-    0.3,
+    0.06,
     {
       opacity: 0
     },
     {
       opacity: 1
     },
-    0.1
+    0.05
   );
 };
 

@@ -255,6 +255,14 @@ section_why_items.forEach(item => {
     shrinkRemoveArrow();
     growAddArrow(item);
   });
+  item.addEventListener("mouseover", () => {
+    // console.log("hover");
+    item.classList.add("hover");
+  });
+  item.addEventListener("mouseleave", () => {
+    item.classList.remove("hover");
+    // console.log("hover");
+  });
 });
 
 const section_types = document.querySelector("#types");
@@ -315,14 +323,15 @@ const fetchBlogPosts = () => {
   });
 };
 
-const insertTestimonialsToDOM = async (testimonials) => {
+const insertTestimonialsToDOM = async testimonials => {
   // console.log({ slide });
   let template = document.querySelector("#testimonialsTemplate").content;
   for (let i = 0; i < testimonials.length; i++) {
     let clone = template.cloneNode(true);
     clone.querySelector(".textTestimonials").innerHTML =
       testimonials[i].content.rendered;
-    clone.querySelector(".titleTestimonials").textContent = testimonials[i].title.rendered;
+    clone.querySelector(".titleTestimonials").textContent =
+      testimonials[i].title.rendered;
     clone.querySelector(".name").textContent = testimonials[i].authors_name;
     clone.querySelector(".company").textContent = testimonials[i].company;
     console.log({ "testimonials[i]": testimonials[i] });
@@ -337,40 +346,40 @@ const insertTestimonialsToDOM = async (testimonials) => {
     document.querySelector("#testimonials").appendChild(clone);
   }
   let clients = Array.from(document.querySelectorAll(".client"));
-  console.log(clients)
-clients[0].classList.add("shown");
+  console.log(clients);
+  clients[0].classList.add("shown");
 
-document.querySelector(".arrowRight").addEventListener("click", ()=>{
-     clearClass(clients);
+  document.querySelector(".arrowRight").addEventListener("click", () => {
+    clearClass(clients);
     moveRight(clients);
-  // first it takes the first elements and then puts it last
-})
-document.querySelector(".arrowLeft").addEventListener("click", ()=>{
-  clearClass(clients);
-  moveLeft(clients);
-  // takes the last element and adds in to the front
-  })
+    // first it takes the first elements and then puts it last
+  });
+  document.querySelector(".arrowLeft").addEventListener("click", () => {
+    clearClass(clients);
+    moveLeft(clients);
+    // takes the last element and adds in to the front
+  });
 };
 
-const clearClass = (clients)=>{
-  clients.forEach(item =>{
-    item.classList.remove("shown")
+const clearClass = clients => {
+  clients.forEach(item => {
+    item.classList.remove("shown");
     item.classList.remove("shownLeft");
     item.classList.remove("shownRight");
-      })
-}
-const moveLeft =(clients)=>{
+  });
+};
+const moveLeft = clients => {
   let lastElement = clients.pop();
   clients.unshift(lastElement);
   console.log(clients);
   clients[0].classList.add("shownLeft");
-}
-const moveRight =(clients)=>{
+};
+const moveRight = clients => {
   let firstElement = clients.shift();
   clients.push(firstElement);
   console.log(clients);
   clients[0].classList.add("shownRight");
-}
+};
 
 const insertBlogsToDom = async blogPosts => {
   const section = document.querySelector("#frontpageBlogs");
@@ -393,8 +402,6 @@ const insertBlogsToDom = async blogPosts => {
     section.appendChild(clone);
   }
 };
-
-
 
 const startSvgAnimation = () => {
   let title = document.querySelector(".hero_text>h1");

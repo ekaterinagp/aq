@@ -132,15 +132,15 @@ const clearAllItemsStyle = (items, sectionName) => {
 const removeAnimationClass = (item, classToRemove) => {
   item.classList.remove(classToRemove);
 };
-function addHeightToFaq(plus) {
+function addHeightToFaq(faq) {
   if (open == false) {
-    console.log("it is closed and needs to be opened");
-    plus.parentElement.style.height = "20em";
-    plus.style.transform = "rotate(180deg)";
+    // console.log("it is closed and needs to be opened");
+    faq.style.height = "20em";
+    faq.querySelector(".plus").style.transform = "rotate(180deg)";
     open = true;
   } else {
-    plus.parentElement.style.height = "4em";
-    plus.style.transform = "rotate(0)";
+    faq.style.height = "4em";
+    faq.querySelector(".plus").style.transform = "rotate(0)";
     open = false;
   }
 }
@@ -151,12 +151,13 @@ async function init() {
   const faqData = await fetchFaq();
   // console.log(faqData);
   showFaq(faqData);
+  let faqSection = document.querySelectorAll(".faq_section");
   let plusses = document.querySelectorAll(".plus");
 
-  plusses.forEach(plus => {
-    plus.addEventListener("click", () => {
+  faqSection.forEach(faq => {
+    faq.addEventListener("click", () => {
       console.log("there is a click!");
-      addHeightToFaq(plus);
+      addHeightToFaq(faq);
     });
   });
 

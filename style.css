@@ -2065,6 +2065,7 @@ input:checked + .btnRadio:before {
   grid-column: 1;
 }
 .faq_section {
+  cursor: pointer;
   display: grid;
   grid-template-columns: 3fr 0.5fr;
   transition: height 0.3s;
@@ -2478,7 +2479,7 @@ input:valid {
   #contactForm div{
     position:relative;
   }
-  input
+
 .validSymbol::after{
   content: "✓";
   position: absolute;
@@ -2512,10 +2513,6 @@ input:valid {
     }
 
 
-.invalid {
-  border: 1px solid red;
-}
-
 /* Media Queries   */
 @media only screen and (min-width: 1924px) {
   #sections,
@@ -2541,7 +2538,7 @@ input:valid {
     width: 80%;
   }
 }
-@media only screen and (max-width: 1366px) {
+@media only screen and (min-height:1000px) and (max-width: 1366px)  {
   header .orange_button {
     margin: auto;
   }
@@ -2613,7 +2610,7 @@ input:valid {
     grid-template-rows: 0.3fr 0.1fr 1fr;
   }
 }
-@media only screen and (max-width: 1200px) {
+/* @media only screen and (max-width: 1200px) {
   .timelineWrapper,
   #prosWrapper .timelineWrapper {
     height: 35vh;
@@ -2628,7 +2625,7 @@ input:valid {
   #prosWrapper .timelineWrapper h1 {
     padding-top: 50%;
   }
-}
+} */
 @media only screen and (max-width: 1050px) {
   .big,
   .line {

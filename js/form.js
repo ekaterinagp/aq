@@ -503,8 +503,8 @@ let nextElement = questionText => {
     listenerForInput("#phone", "phone");
     listenerForInput("#email", "email");
     listenerforValidity("#first_name", "name");
-    listenerforValidity("#last_name", "lName");
-    listenerforValidity("#phone", "phone");
+    // listenerforValidity("#last_name", "lName");
+    // listenerforValidity("#phone", "phone");
     listenerforValidity("#email", "email");
     document.querySelector("#whatsUp").addEventListener("click", () => {
       if (document.querySelector("#whatsUp").checked) {
@@ -795,10 +795,10 @@ let initForm = () => {
 };
 
 function saveUserData() {
-  userAnswers.name = inputFname.value;
-  userAnswers.last_name = inputLname.value;
-  userAnswers.email = inputEmail.value;
-  userAnswers.phone = inputPhone.value;
+  // userAnswers.name = document.querySelector("#first_name").value;
+  // userAnswers.last_name = document.querySelector("#last_name").value;
+  // userAnswers.email = document.querySelector("#email").value;
+  // userAnswers.phone = document.querySelector("#phone").value;
   userAnswers.whatsApp = () => {
     if (whatsupCheckbox.checked) {
       userAnswers.whatsApp = "yes";

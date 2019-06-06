@@ -35,10 +35,11 @@ li {
   overflow: hidden;
 }
 #text_message {
+  display:block;
   grid-column: 1/-1;
   transition: all 0.3s;
   line-height: 1.5em;
-  margin: 1.5em;
+  margin: 1em;
   padding: 18px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -2568,8 +2569,11 @@ input:invalid {
     overflow-x: hidden;
   }
   .faq > img {
-    width: 100%;
-    align-self: center;
+    display:none;
+  }
+  .faq{
+    display: block;
+    margin:0 10em
   }
   .wrapper_pro {
     bottom: 5em;
@@ -2739,9 +2743,12 @@ input:invalid {
   .carouselWrapper {
     width: auto;
   }
-  .faq img {
-    width: 90%;
+  .faq > img {
+    width: 100%;
     align-self: center;
+  }
+  .houseIcon{
+    margin:0;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -3627,6 +3634,10 @@ margin-bottom: -5em;
     display: block;
     /* margin:auto; */
   }
+  
+  #text_message{
+    margin:1em auto;
+  }
   /*  WIREFRAMES  */
   #benefits,
   #wireframe_description {
@@ -3745,6 +3756,9 @@ margin-bottom: -5em;
   .faq_section h4 {
     font-size: 0.8em;
   }
+  .divItemsForHeight{
+    height:65vh;
+  }
   #villaPage .heroWireframe {
     background-position: 0%;
   }
@@ -3777,6 +3791,9 @@ margin-bottom: -5em;
   }
 }
 @media only screen and (max-width: 320px) {
+  .divItemsForHeight{
+    height:85vh;
+  }
   p {
     font-size: 0.8em;
   }

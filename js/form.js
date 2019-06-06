@@ -531,6 +531,9 @@ let nextElement = questionText => {
           userAnswers.email)
       ) {
         submitBtn.disabled = false;
+        submitBtn.addEventListener("click", () => {
+          saveUserData();
+        });
       }
     });
   }
@@ -557,7 +560,6 @@ let listenerForInput = (inputStr, answerTypeStr) => {
   input.addEventListener("blur", () => {
     userAnswers[answerTypeStr] = input.value;
     console.log(userAnswers[answerTypeStr]);
-   
   });
 };
 
@@ -613,7 +615,6 @@ let prevElement = () => {
     listenerForChange();
   }
 };
-
 
 let listenerForChange = () => {
   document.querySelector("#complexity").addEventListener("click", () => {
@@ -789,6 +790,24 @@ let initForm = () => {
   startProjectBtns.forEach(button => {
     button.addEventListener("click", () => {
       createFormWrapper();
-       });
+    });
   });
 };
+
+function saveUserData() {
+  userAnswers.name = inputFname.value;
+  userAnswers.last_name = inputLname.value;
+  userAnswers.email = inputEmail.value;
+  userAnswers.phone = inputPhone.value;
+  userAnswers.whatsApp = () => {
+    if (whatsupCheckbox.checked) {
+      userAnswers.whatsApp = "yes";
+    }
+  };
+  userAnswers.news = () => {
+    if (newsCheckbox.checked) {
+      userAnswers.news = "yes";
+    }
+  };
+  console.log({ userAnswers });
+}

@@ -111,11 +111,11 @@ const changeImage = (item, img) => {
 
   img.classList.add("change");
   if (item.id === "network_item_1")
-    img.setAttribute("src", "img/platform_brief_single.png");
+    img.setAttribute("src", "img/platform_brief_single-min.png");
   if (item.id === "network_item_2")
-    img.setAttribute("src", "img/platform_deal_single.png");
+    img.setAttribute("src", "img/platform_deal_single-min.png");
   if (item.id === "network_item_3")
-    img.setAttribute("src", "img/platform_discover_single.png");
+    img.setAttribute("src", "img/platform_discover_single-min.png");
   img.addEventListener("animationend", () => {
     removeAnimationClass(img, "change");
   });
@@ -132,19 +132,19 @@ const clearAllItemsStyle = (items, sectionName) => {
 const removeAnimationClass = (item, classToRemove) => {
   item.classList.remove(classToRemove);
 };
-function addHeightToFaq(plus){
-if (open === false) {
-  plus.parentElement.style.height = "20em";
-  plus.style.transform = "rotate(180deg)";
-  open = true;
+function addHeightToFaq(plus) {
+  if (open == false) {
+    console.log("it is closed and needs to be opened");
+    plus.parentElement.style.height = "20em";
+    plus.style.transform = "rotate(180deg)";
+    open = true;
+  } else {
+    plus.parentElement.style.height = "4em";
+    plus.style.transform = "rotate(0)";
+    open = false;
+  }
 }
-else{
- plus.parentElement.style.height = "4em";
-  plus.style.transform = "rotate(0)";
-  open = false;
-}
-
-}
+let open = false;
 async function init() {
   document.querySelector(".loaderWrapper").classList.add("hideLoader");
   startSvgAnimation();
@@ -152,10 +152,19 @@ async function init() {
   // console.log(faqData);
   showFaq(faqData);
   let plusses = document.querySelectorAll(".plus");
-  let open = false;
+
   plusses.forEach(plus => {
-    plus.addEventListener("click", function() {
-      addHeightToFaq(plus)
-      });
+    plus.addEventListener("click", () => {
+      console.log("there is a click!");
+      addHeightToFaq(plus);
+    });
   });
+
+  // let faqs = document.querySelectorAll(".faqDiv");
+  // faqs.forEach(faq => {
+  //   faq.addEventListener("click", () => {
+  //     console.log("there is a click!");
+  //     addHeightToFaq(faq);
+  //   });
+  // });
 }

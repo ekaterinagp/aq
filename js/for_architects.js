@@ -13,6 +13,14 @@ speechBubbles.forEach(bubble => {
     shrinkRemoveArrow();
     growAddArrow(bubble);
   });
+  bubble.addEventListener("mouseover", () => {
+    // console.log("hover");
+    bubble.classList.add("hover");
+  });
+  bubble.addEventListener("mouseleave", () => {
+    bubble.classList.remove("hover");
+    // console.log("hover");
+  });
 });
 
 const applyFill = item => {

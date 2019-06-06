@@ -1640,6 +1640,7 @@ h1 > span {
   /* margin-left: 50%; */
   align-self: center;
   font-size: 1.1em;
+  margin-left: 10em;
 }
 #our_team {
   margin: 2em 0;

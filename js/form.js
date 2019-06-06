@@ -193,6 +193,7 @@ let formItems = [
       inputForSize.setAttribute("id", "size");
       inputForSize.setAttribute("name", "sizeProject");
       inputForSize.placeholder = "Square meters";
+      inputForSize.required= true;
       divForInput.append(pForInput, inputForSize);
       let divForCheckBox = document.createElement("div");
       let descPForCheckBox = document.createElement("p");
@@ -337,12 +338,13 @@ let formItems = [
       let inputFname = document.createElement("input");
       inputFname.setAttribute("type", "text");
       inputFname.setAttribute("id", "first_name");
+      inputFname.required= true;
       inputFname.placeholder = "First name";
       divWrap_1.append(labelFname, inputFname);
       let labelLname = document.createElement("label");
       labelLname.setAttribute("for", "lName");
       labelLname.innerHTML = "Last name";
-      let inputLname = document.createElement("input");
+            let inputLname = document.createElement("input");
       inputLname.setAttribute("type", "text");
       inputLname.setAttribute("id", "last_name");
       inputLname.placeholder = "Last name";
@@ -364,6 +366,7 @@ let formItems = [
       inputEmail.setAttribute("type", "email");
       inputEmail.setAttribute("id", "email");
       inputEmail.placeholder = "Email";
+      inputEmail.required= true;
       let divWrap_4 = document.createElement("div");
       divWrap_4.append(labelemail, inputEmail);
       let whatsupCheckbox = document.createElement("input");
@@ -482,6 +485,7 @@ let nextElement = questionText => {
     }
     insertCheckBoxForTask();
     listenerForChange();
+    listenerforValidity("#size", "size");
   }
 
   if (formItems[currentFormItem].id == 4) {
@@ -499,8 +503,8 @@ let nextElement = questionText => {
     listenerForInput("#phone", "phone");
     listenerForInput("#email", "email");
     listenerforValidity("#first_name", "name");
-    listenerforValidity("#last_name", "lName");
-    listenerforValidity("#phone", "phone");
+    // listenerforValidity("#last_name", "lName");
+    // listenerforValidity("#phone", "phone");
     listenerforValidity("#email", "email");
     document.querySelector("#whatsUp").addEventListener("click", () => {
       if (document.querySelector("#whatsUp").checked) {
@@ -534,33 +538,22 @@ let nextElement = questionText => {
     });
   }
 };
-let listenerforValidity = (inputName, inputType) => {
-  let input = document.querySelector(inputName);
-  input.addEventListener("blur", () => {
-    input.className = "";
-
-    if (inputType === "email") {
-      if (input.value.includes("@") && input.value !== "") {
-        console.log;
-        input.classList.add("valid");
-      } else {
-        input.classList.add("invalid");
-      }
+let listenerforValidity=(inputName, inputType)=>{
+  let input =document.querySelector(inputName);
+  input.addEventListener("blur", ()=>{
+    input.parentElement.className="";
+  //  if(input.)
+  console.log(input.checkValidity());
+if(input.checkValidity()){
+      input.parentElement.classList.add("validSymbol")
+      console.log(inputName, "valid")
+    } else{
+      input.classList.add("invalid");
+      input.parentElement.classList.add("invalidSymbol")
     }
-    if (
-      inputType === "name" ||
-      inputType === "lName" ||
-      inputType === "phone"
-    ) {
-      if (input.value !== "") {
-        input.classList.add("valid");
-        console.log(inputName, "valid");
-      } else {
-        input.classList.add("invalid");
-      }
-    }
-  });
-};
+     })
+  
+}
 
 let listenerForInput = (inputStr, answerTypeStr) => {
   let input = document.querySelector(inputStr);
@@ -802,10 +795,10 @@ let initForm = () => {
 };
 
 function saveUserData() {
-  userAnswers.name = inputFname.value;
-  userAnswers.last_name = inputLname.value;
-  userAnswers.email = inputEmail.value;
-  userAnswers.phone = inputPhone.value;
+  // userAnswers.name = document.querySelector("#first_name").value;
+  // userAnswers.last_name = document.querySelector("#last_name").value;
+  // userAnswers.email = document.querySelector("#email").value;
+  // userAnswers.phone = document.querySelector("#phone").value;
   userAnswers.whatsApp = () => {
     if (whatsupCheckbox.checked) {
       userAnswers.whatsApp = "yes";

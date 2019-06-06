@@ -141,6 +141,9 @@ select {
   padding: 0.5em 0.5em 0.5em 0;
 }
 /*  HEADER  */
+header>.wrapper_1_3_1>a{
+  margin:auto;
+}
 svg.menuIcon {
   cursor: pointer;
   margin: 10% 2em 0;
@@ -1547,6 +1550,11 @@ head .blogBG {
 /* #better {
   margin: 3em 0 5em;
 } */
+
+
+.divItemsForHeight{
+  height: 50vh;
+}
 .text_left {
   margin: 0 0 0 4em;
 }
@@ -2644,8 +2652,10 @@ input:invalid {
   }
 } */
 @media only screen and (max-width: 1050px) {
-  .caruselle {
-    height: 40vh;
+
+  
+  .caruselle{
+    height:40vh;
   }
   .big,
   .line {
@@ -2687,19 +2697,29 @@ input:invalid {
   .header .logo {
     margin: 2em 0 0;
   }
+  .timelineWrapper:nth-child(odd) {
+    margin-bottom: 10vh;
+  }
+  .timelineWrapper:nth-child(even) {
+    margin-top: 10vh;
+  }
   .timelineWrapper,
   #prosWrapper .timelineWrapper {
-    height: 20vh;
+    height: 30vh;
   }
   #our_team .timelineWrapper h3 {
     padding: 0;
   }
-
+  #about_us{
+    padding: 2% 5% 5% 55%;
+  }
   #about_us,
   .pros {
     background-position: 80%;
-    padding: 10% 5% 5% 41%;
     height: 45vh;
+  }
+  .pros{
+    padding: 2% 5% 5% 50%;
   }
   header .orange_button {
     margin: auto 0;
@@ -2714,6 +2734,9 @@ input:invalid {
   .carouselWrapper {
     width: auto;
   }
+  .faq > img {
+    width: 100%;
+    align-self: center;
 }
 @media only screen and (max-width: 768px) {
   .logo {
@@ -3737,9 +3760,9 @@ margin-bottom: -5em;
   .timelineContent {
     margin: 5em 0;
   }
-  /* .network{
-    grid-template-rows: .1fr 1fr 2fr;
-  } */
+  .network{
+    margin: 0 0 3em;
+  }
   .pros {
     height: 65vh;
   }

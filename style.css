@@ -2466,7 +2466,6 @@ img#platform {
 }
 
 /* FORM VALIDATION */
-<<<<<<< HEAD
 /* .required{
   background:red;
 } */
@@ -2512,12 +2511,6 @@ input:valid {
     box-sizing: border-box;
     }
 
-=======
-
-input.valid {
-  border: 1px solid green;
-}
->>>>>>> c066785add708537ad124a728ad57dd50c89268d
 
 .invalid {
   border: 1px solid red;

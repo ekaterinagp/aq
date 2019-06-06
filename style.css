@@ -1490,27 +1490,27 @@ head .blogBG {
   grid-column: 1/4;
 }
 #prosWrapper .timelineWrapper:first-child .timelineContent {
-  background-image: url("img/architect_leads_laptop.png");
+  background-image: url("img/architect_leads_laptop-min.png");
 }
 #prosWrapper .timelineWrapper:nth-child(2) {
   grid-column: 3/6;
 }
 #prosWrapper .timelineWrapper:nth-child(2) .timelineContent {
-  background-image: url("img/platform_chat_laptop.png");
+  background-image: url("img/platform_chat_laptop-min.png");
 }
 
 #prosWrapper .timelineWrapper:nth-child(3) {
   grid-column: 5/8;
 }
 #prosWrapper .timelineWrapper:nth-child(3) .timelineContent {
-  background-image: url("img/architect_project_laptop.png");
+  background-image: url("img/architect_project_laptop-min.png");
 }
 
 #prosWrapper .timelineWrapper:nth-child(4) {
   grid-column: 7/10;
 }
 #prosWrapper .timelineWrapper:nth-child(4) .timelineContent {
-  background-image: url("img/architect_home_laptop.png");
+  background-image: url("img/architect_home_laptop-min.png");
 }
 #prosWrapper .timelineWrapper:nth-child(5) .timelineContent {
   background-image: none;

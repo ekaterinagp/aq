@@ -527,42 +527,46 @@ let nextElement = questionText => {
           userAnswers.email)
       ) {
         submitBtn.disabled = false;
+        submitBtn.addEventListener("click", () => {
+          saveUserData();
+        });
       }
     });
   }
 };
-let listenerforValidity=(inputName, inputType)=>{
-  let input =document.querySelector(inputName);
-  input.addEventListener("blur", ()=>{
-    input.className="";
-    
-   
-  if(inputType === "email"){
-      if (input.value.includes("@") && input.value !== ""){
-        console.log
+let listenerforValidity = (inputName, inputType) => {
+  let input = document.querySelector(inputName);
+  input.addEventListener("blur", () => {
+    input.className = "";
+
+    if (inputType === "email") {
+      if (input.value.includes("@") && input.value !== "") {
+        console.log;
         input.classList.add("valid");
-      }else{
+      } else {
         input.classList.add("invalid");
       }
     }
-if(inputType === "name" || inputType=== "lName" || inputType === "phone"){
-    if (input.value !== ""){
-      input.classList.add("valid");
-      console.log(inputName, "valid")
-    } else{
-      input.classList.add("invalid");
+    if (
+      inputType === "name" ||
+      inputType === "lName" ||
+      inputType === "phone"
+    ) {
+      if (input.value !== "") {
+        input.classList.add("valid");
+        console.log(inputName, "valid");
+      } else {
+        input.classList.add("invalid");
+      }
     }
-  }
-   })
-  
-}
+  });
+};
 
 let listenerForInput = (inputStr, answerTypeStr) => {
   let input = document.querySelector(inputStr);
   input.addEventListener("blur", () => {
     userAnswers[answerTypeStr] = input.value;
     console.log(userAnswers[answerTypeStr]);
-   
   });
 };
 
@@ -618,7 +622,6 @@ let prevElement = () => {
     listenerForChange();
   }
 };
-
 
 let listenerForChange = () => {
   document.querySelector("#complexity").addEventListener("click", () => {
@@ -794,6 +797,24 @@ let initForm = () => {
   startProjectBtns.forEach(button => {
     button.addEventListener("click", () => {
       createFormWrapper();
-       });
+    });
   });
 };
+
+function saveUserData() {
+  userAnswers.name = inputFname.value;
+  userAnswers.last_name = inputLname.value;
+  userAnswers.email = inputEmail.value;
+  userAnswers.phone = inputPhone.value;
+  userAnswers.whatsApp = () => {
+    if (whatsupCheckbox.checked) {
+      userAnswers.whatsApp = "yes";
+    }
+  };
+  userAnswers.news = () => {
+    if (newsCheckbox.checked) {
+      userAnswers.news = "yes";
+    }
+  };
+  console.log({ userAnswers });
+}

@@ -1118,9 +1118,9 @@ fill:#ef6461;
 .client {
   text-align: left;
   opacity: 0;
-  /* display: none; */
-  /* position: relative; */
-  position: absolute;
+  display: none;
+  position: relative;
+  /* position: absolute; */
   /* top: 7vh; */
   width: 100%;
   /* height:100%; */
@@ -1136,25 +1136,16 @@ fill:#ef6461;
 .client.shownRight {
   transform: translateX(-100%);
   opacity: 1;
-  /* display: block; */
+  display: block;
   animation: moveInTestimonials .3s ease-in-out forwards;
 }
 .client.shownLeft {
   transform: translateX(100%);
   opacity: 1;
-  /* display: block; */
+  display: block;
   animation: moveInTestimonials .3s ease-in-out forwards;
 }
-/* .client.hideRight{
-  transform:translateX(-100%);
-  transition:all 5s;
-  opacity: 1;
-}
-.client.hideLeft{
-  transform:translateX(100%);
-  transition:all 5s;
-  opacity: 1;
-} */
+
 
 @keyframes moveInTestimonials {
   100% {
@@ -2655,6 +2646,23 @@ input:valid {
     display: none;
   }
   .hero {
+    margin-bottom: 0;
+    /* height: 80vh; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: 30%; */
+    /* width: 80vw; */
+  }
+  #hero {
+    background-image: url(img/hero_1-min.jpg);
+  }
+  #hero_architects {
+    background-image: url(img/hero_arch-min.png);
+  }
+  #hero_platform {
+    background-image: url(img/hero_platform-min.png);
+  }
+  .hero {
     height: 100%;
   }
   #section_platform .absolute {
@@ -3169,7 +3177,6 @@ margin-bottom: -5em;
     background-size: 110%;
     background-position-x: -200%;
     height: 35vh;
-    width: 100vw;
   }
   #prosWrapper .timelineWrapper h1 {
     padding-top: initial;
@@ -3344,10 +3351,7 @@ margin-bottom: -5em;
   }
   /* TYPES */
   .houseIcon {
-    opacity: 0.2;
-    z-index: 0;
-    margin: -14em 0 0 10em;
-    transition: all 0.2s;
+    display: none;
   }
   .box {
     width: 85%;
@@ -3379,10 +3383,12 @@ margin-bottom: -5em;
     margin-top: 13em;
   }
   /*  SECTION TYPES  */
+  #types{
+    height:100%;
+  }
   #types .wrapper_2_columns_rows {
     display: block;
-    width: 100vw;
-    overflow-x: hidden;
+    /* width: 100vw; */
   }
 
   #contactForm {
@@ -3461,6 +3467,10 @@ margin-bottom: -5em;
     height:35%;
     width: 100vw;
   } */
+  #prosWrapper{
+    margin:0;
+
+  }
   .timelineText,
   .timelineWrapper:hover .timelineText,
   .timelineWrapper:focus .timelineText,
@@ -3496,6 +3506,7 @@ margin-bottom: -5em;
     padding: 1em;
     display: block;
   }
+
   .faq img {
     display: none;
   }
@@ -3696,7 +3707,8 @@ margin-bottom: -5em;
   #interiorPage .heroWireframe > .hero_text,
   #villaPage .heroWireframe > .hero_text,
   #educationalPage .heroWireframe > .hero_text,
-  .heroWireframe > .hero_text {
+  .heroWireframe > .hero_text,
+  .faq_section h4 {
     font-size: 0.8em;
   }
   #villaPage .heroWireframe {

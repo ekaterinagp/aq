@@ -3,7 +3,7 @@ if (screen.width <= 1024) {
   let timelineItems = document.querySelectorAll(".timelineWrapper");
   timelineItems.forEach(item => {
     item.addEventListener("click", () => {
-      item.querySelector(".timelineContent").classList.add("showTimeContent");
+      item.querySelector(".timelineText").classList.toggle("showTimeContent");
       item.querySelector("p").style.opacity = "1";
     });
   });

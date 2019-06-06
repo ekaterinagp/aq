@@ -135,7 +135,7 @@ const removeAnimationClass = (item, classToRemove) => {
 function addHeightToFaq(faq) {
   if (open == false) {
     // console.log("it is closed and needs to be opened");
-    faq.style.height = "20em";
+    faq.style.height = "21em";
     faq.querySelector(".plus").style.transform = "rotate(180deg)";
     open = true;
   } else {

@@ -1356,7 +1356,7 @@ head .blogBG {
   grid-column: 13/-1;
 }
 .timelineWrapper:nth-child(7) .timelineContent {
-  background-image: url(img/house_laptop.png);
+  background-image: url(img/house_laptop-min.png);
 }
 
 .timelineWrapper:nth-child(even) {

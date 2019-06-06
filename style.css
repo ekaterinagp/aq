@@ -1420,7 +1420,7 @@ head .blogBG {
   position: absolute;
   bottom: 10px;
   width: 60%;
-  right: -10vw;
+  right: 0;
 }
 .pro {
   text-align: left;
@@ -2655,9 +2655,9 @@ input:invalid {
   .heroImg {
     display: none;
   }
-  
-  .caruselle{
-    height:40vh;
+
+  .caruselle {
+    height: 40vh;
   }
   .big,
   .line {
@@ -2680,8 +2680,8 @@ input:invalid {
   #hero_platform {
     background-image: url(img/hero_platform-min.png);
   }
-  #prosWrapper .timelineWrapper h1{
-    padding-top:50%;
+  #prosWrapper .timelineWrapper h1 {
+    padding-top: 50%;
   }
   #section_platform .absolute {
     top: 20em;
@@ -3562,9 +3562,9 @@ margin-bottom: -5em;
 } */
 
   .wrapper_pro {
-    bottom: 2em;
+    /* bottom: 2em; */
     display: block;
-    /* position: initial; */
+    position: initial;
     text-align: center;
   }
   #form {

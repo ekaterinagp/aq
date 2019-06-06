@@ -2739,8 +2739,8 @@ input:invalid {
   .carouselWrapper {
     width: auto;
   }
-  .faq > img {
-    width: 100%;
+  .faq img {
+    width: 90%;
     align-self: center;
   }
 }

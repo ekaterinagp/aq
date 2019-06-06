@@ -2093,7 +2093,7 @@ input:checked + .btnRadio:before {
 }
 
 #heroBackgroundImage {
-  background-image: url("img/563059-PL2C99-583.jpg");
+  background-image: url("img/563059-PL2C99-583-min.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   /* width: 100%; */
@@ -2464,13 +2464,12 @@ img#platform {
 /* FORM VALIDATION */
 
 input.valid {
-  border:1px solid green;
-  }
+  border: 1px solid green;
+}
 
-  .invalid {
-   border:1px solid red;
-  }
-
+.invalid {
+  border: 1px solid red;
+}
 
 /* Media Queries   */
 @media only screen and (min-width: 1924px) {
@@ -2558,7 +2557,7 @@ input.valid {
     background-image: url(img/hero_arch.png);
   }
   #hero_platform {
-    background-image: url(img/hero_platform.png);
+    background-image: url(img/hero_platform-min.png);
   }
   #section_platform .absolute {
     right: 0;

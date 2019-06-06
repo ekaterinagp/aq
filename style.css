@@ -2649,7 +2649,10 @@ input:valid {
   }
 } */
 @media only screen and (max-width: 1050px) {
-
+  .drawSvg,
+  .heroImg {
+    display: none;
+  }
   
   .caruselle{
     height:40vh;
@@ -2660,7 +2663,7 @@ input:valid {
   }
   .hero {
     margin-bottom: 0;
-    /* height: 80vh; */
+    height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     /* background-position: 30%; */
@@ -2675,8 +2678,8 @@ input:valid {
   #hero_platform {
     background-image: url(img/hero_platform-min.png);
   }
-  .hero {
-    height: 100%;
+  #prosWrapper .timelineWrapper h1{
+    padding-top:50%;
   }
   #section_platform .absolute {
     top: 20em;

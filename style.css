@@ -141,8 +141,8 @@ select {
   padding: 0.5em 0.5em 0.5em 0;
 }
 /*  HEADER  */
-header>.wrapper_1_3_1>a{
-  margin:auto;
+header > .wrapper_1_3_1 > a {
+  margin: auto;
 }
 svg.menuIcon {
   cursor: pointer;
@@ -1551,8 +1551,7 @@ head .blogBG {
   margin: 3em 0 5em;
 } */
 
-
-.divItemsForHeight{
+.divItemsForHeight {
   height: 50vh;
 }
 .text_left {
@@ -2652,10 +2651,8 @@ input:invalid {
   }
 } */
 @media only screen and (max-width: 1050px) {
-
-  
-  .caruselle{
-    height:40vh;
+  .caruselle {
+    height: 40vh;
   }
   .big,
   .line {
@@ -2710,7 +2707,7 @@ input:invalid {
   #our_team .timelineWrapper h3 {
     padding: 0;
   }
-  #about_us{
+  #about_us {
     padding: 2% 5% 5% 55%;
   }
   #about_us,
@@ -2718,7 +2715,7 @@ input:invalid {
     background-position: 80%;
     height: 45vh;
   }
-  .pros{
+  .pros {
     padding: 2% 5% 5% 50%;
   }
   header .orange_button {
@@ -2737,6 +2734,7 @@ input:invalid {
   .faq > img {
     width: 100%;
     align-self: center;
+  }
 }
 @media only screen and (max-width: 768px) {
   .logo {
@@ -3760,7 +3758,7 @@ margin-bottom: -5em;
   .timelineContent {
     margin: 5em 0;
   }
-  .network{
+  .network {
     margin: 0 0 3em;
   }
   .pros {

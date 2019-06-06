@@ -1608,7 +1608,7 @@ h1 > span {
   background: #f4f4f4;
   margin: 2em 2em 4em;
   border-radius: 10px;
-  background-image: url(img/working_man.jpg);
+  background-image: url(img/working_man-min.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   padding: 10% 5% 5% 55%;
@@ -1654,22 +1654,22 @@ h1 > span {
   border-radius: 0 0 5px 5px;
 }
 #our_team .timelineWrapper:nth-child(1) .timelineContent {
-  background-image: url(img/team1.png);
+  background-image: url(img/team1-min.png);
 }
 #our_team .timelineWrapper:nth-child(2) .timelineContent {
-  background-image: url(img/team3.png);
+  background-image: url(img/team3-min.png);
 }
 #our_team .timelineWrapper:nth-child(3) .timelineContent {
-  background-image: url(img/team4.png);
+  background-image: url(img/team4-min.png);
 }
 #our_team .timelineWrapper:nth-child(4) .timelineContent {
-  background-image: url(img/team2.png);
+  background-image: url(img/team2-min.png);
 }
 #our_team .timelineWrapper:nth-child(5) .timelineContent {
-  background-image: url(img/team5.png);
+  background-image: url(img/team5-min.png);
 }
 #our_team .timelineWrapper:nth-child(6) .timelineContent {
-  background-image: url(img/team6.png);
+  background-image: url(img/team6-min.png);
 }
 #our_team .sub_title {
   width: 50%;

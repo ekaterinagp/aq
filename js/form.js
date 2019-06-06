@@ -193,6 +193,7 @@ let formItems = [
       inputForSize.setAttribute("id", "size");
       inputForSize.setAttribute("name", "sizeProject");
       inputForSize.placeholder = "Square meters";
+      inputForSize.required= true;
       divForInput.append(pForInput, inputForSize);
       let divForCheckBox = document.createElement("div");
       let descPForCheckBox = document.createElement("p");
@@ -337,12 +338,13 @@ let formItems = [
       let inputFname = document.createElement("input");
       inputFname.setAttribute("type", "text");
       inputFname.setAttribute("id", "first_name");
+      inputFname.required= true;
       inputFname.placeholder = "First name";
       divWrap_1.append(labelFname, inputFname);
       let labelLname = document.createElement("label");
       labelLname.setAttribute("for", "lName");
       labelLname.innerHTML = "Last name";
-      let inputLname = document.createElement("input");
+            let inputLname = document.createElement("input");
       inputLname.setAttribute("type", "text");
       inputLname.setAttribute("id", "last_name");
       inputLname.placeholder = "Last name";
@@ -364,6 +366,7 @@ let formItems = [
       inputEmail.setAttribute("type", "email");
       inputEmail.setAttribute("id", "email");
       inputEmail.placeholder = "Email";
+      inputEmail.required= true;
       let divWrap_4 = document.createElement("div");
       divWrap_4.append(labelemail, inputEmail);
       let whatsupCheckbox = document.createElement("input");
@@ -482,6 +485,7 @@ let nextElement = questionText => {
     }
     insertCheckBoxForTask();
     listenerForChange();
+    listenerforValidity("#size", "size");
   }
 
   if (formItems[currentFormItem].id == 4) {
@@ -534,26 +538,17 @@ let nextElement = questionText => {
 let listenerforValidity=(inputName, inputType)=>{
   let input =document.querySelector(inputName);
   input.addEventListener("blur", ()=>{
-    input.className="";
-    
-   
-  if(inputType === "email"){
-      if (input.value.includes("@") && input.value !== ""){
-        console.log
-        input.classList.add("valid");
-      }else{
-        input.classList.add("invalid");
-      }
-    }
-if(inputType === "name" || inputType=== "lName" || inputType === "phone"){
-    if (input.value !== ""){
-      input.classList.add("valid");
+    input.parentElement.className="";
+  //  if(input.)
+  console.log(input.checkValidity());
+if(input.checkValidity()){
+      input.parentElement.classList.add("validSymbol")
       console.log(inputName, "valid")
     } else{
       input.classList.add("invalid");
+      input.parentElement.classList.add("invalidSymbol")
     }
-  }
-   })
+     })
   
 }
 

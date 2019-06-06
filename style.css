@@ -2461,14 +2461,51 @@ img#platform {
 }
 
 /* FORM VALIDATION */
-
-input.valid {
-  border:1px solid green;
+/* .required{
+  background:red;
+} */
+input:valid {
+  border-bottom:1px solid rgba(40, 224, 138, 0.3);
   }
-
-  .invalid {
-   border:1px solid red;
+  input:invalid {
+    border-bottom:1px solid rgba(145, 36, 36, 0.3);
+    }
+  #contactForm div{
+    position:relative;
   }
+  input
+.validSymbol::after{
+  content: "✓";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right:0;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  background-color: rgba(40, 224, 138, 0.3);
+  border-radius: 50%;
+  color: white;
+  padding: 0 0.3em;
+  box-sizing: border-box;
+  }
+  .invalidSymbol::after{
+    content: "X";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    font-size: .8em;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1.8em;
+    background-color: rgba(145, 36, 36, 0.3);
+    border-radius: 50%;
+    color: white;
+    padding: 0 0.5em;
+    box-sizing: border-box;
+    }
+
 
 
 /* Media Queries   */

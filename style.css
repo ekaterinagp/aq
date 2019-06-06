@@ -405,6 +405,10 @@ footer input {
   background: lightgrey;
   opacity: 0.8;
 }
+h4 #number_firms {
+  width: 35px;
+  float: left;
+}
 .orange_button {
   -webkit-appearance: none;
   border-radius: 5px;
@@ -2097,7 +2101,7 @@ input:checked + .btnRadio:before {
 }
 
 #heroBackgroundImage {
-  background-image: url("img/563059-PL2C99-583-min.jpg");
+  background-image: url("img/healthcare/white_long.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   /* width: 100%; */

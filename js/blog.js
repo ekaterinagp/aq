@@ -43,11 +43,11 @@ const insertThreeLastBlogsInDOM = async (
     divHolder.querySelector(textHolderStr).querySelector(".excerpt-hellip")
   );
   document.querySelector(textHolderStr).appendChild(a);
-  let day=  posts[positionInArray].date.substring(8,10);
-  let month =  posts[positionInArray].date.substring(5,7);
-  let year =  posts[positionInArray].date.substring(0,4);
+  let day = posts[positionInArray].date.substring(8, 10);
+  let month = posts[positionInArray].date.substring(5, 7);
+  let year = posts[positionInArray].date.substring(0, 4);
   divHolder.querySelector(dateHolderStr).textContent =
-  day+"."+month+"."+year;
+    day + "." + month + "." + year;
   const imgLatestBlog = await fetch(
     posts[positionInArray]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
@@ -98,16 +98,18 @@ const insertBlogsToDOM = async posts => {
       .querySelector(".excerpt-hellip")
   );
   document.querySelector("#secondLatestBlog_text_blog").appendChild(a);
-  let daySecond= posts[1].date.substring(8,10);
-    let monthSecond = posts[1].date.substring(5,7);
-    let yearSecond = posts[1].date.substring(0,4);
+  let daySecond = posts[1].date.substring(8, 10);
+  let monthSecond = posts[1].date.substring(5, 7);
+  let yearSecond = posts[1].date.substring(0, 4);
   divForSecondLast.querySelector("#secondLatestBlog_date").textContent =
-  daySecond+"."+monthSecond+"."+yearSecond;
+    daySecond + "." + monthSecond + "." + yearSecond;
   const imgSecondLatestBlog = await fetch(
     posts[1]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
   divForSecondLast.style.backgroundImage =
-    "url(" + imgSecondLatestBlog.media_details.sizes.medium.source_url + ")";
+    "url(" +
+    imgSecondLatestBlog.media_details.sizes.medium_large.source_url +
+    ")";
 
   let divForThirdLast = document.querySelector("#thirdLatestBlog");
   divForThirdLast.querySelector("h2").textContent = posts[2].title.rendered;
@@ -121,16 +123,18 @@ const insertBlogsToDOM = async posts => {
       .querySelector(".excerpt-hellip")
   );
   document.querySelector("#thirdLatestBlog_text_blog").appendChild(a_3);
-  let dayThird= posts[2].date.substring(8,10);
-    let monthThird = posts[2].date.substring(5,7);
-    let yearThird = posts[2].date.substring(0,4);
+  let dayThird = posts[2].date.substring(8, 10);
+  let monthThird = posts[2].date.substring(5, 7);
+  let yearThird = posts[2].date.substring(0, 4);
   divForThirdLast.querySelector("#thirdLatestBlog_date").textContent =
-  dayThird+"."+monthThird+"."+yearThird;
+    dayThird + "." + monthThird + "." + yearThird;
   const imgThirdLatestBlog = await fetch(
     posts[2]._links["wp:featuredmedia"][0].href
   ).then(res => res.json());
   divForThirdLast.style.backgroundImage =
-    "url(" + imgThirdLatestBlog.media_details.sizes.medium.source_url + ")";
+    "url(" +
+    imgThirdLatestBlog.media_details.sizes.medium_large.source_url +
+    ")";
   for (let i = 3; i < posts.length; i++) {
     let clone = template.cloneNode(true);
     clone.querySelector("h2").textContent = posts[i].title.rendered;
@@ -141,11 +145,11 @@ const insertBlogsToDOM = async posts => {
     a.appendChild(clone.querySelector(".excerpt-hellip"));
     clone.querySelector("#text_blog").appendChild(a);
 
-    let day= posts[i].date.substring(8,10);
-    let month = posts[i].date.substring(5,7);
-    let year = posts[i].date.substring(0,4);
+    let day = posts[i].date.substring(8, 10);
+    let month = posts[i].date.substring(5, 7);
+    let year = posts[i].date.substring(0, 4);
     // console.log(posts[i].date.substring(8,10))
-    clone.querySelector("#date").textContent = day+"."+month+"."+year;
+    clone.querySelector("#date").textContent = day + "." + month + "." + year;
     const imgs = await fetch(posts[i]._links["wp:featuredmedia"][0].href).then(
       res => res.json()
     );
